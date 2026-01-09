@@ -1,0 +1,23 @@
+# Data files (too large for git)
+data/
+*.index
+*.pkl
+
+# ClickHouse data (old)
+store/
+metadata/
+preprocessed_configs/
+status
+uuid
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+*.egg-info/
+
+# uv
+.python-version
+uv.lock
