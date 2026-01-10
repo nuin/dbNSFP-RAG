@@ -106,6 +106,8 @@ class VariantRAG:
             r"(?:CHR)?(\w+):(\d+)\s*([ACGT]+)>([ACGT]+)",
             # 17-43092919-G-A
             r"(?:CHR)?(\w+)-(\d+)-([ACGT]+)-([ACGT]+)",
+            # 13_32326240_A_C (internal ID format with underscores)
+            r"(?:CHR)?(\w+)_(\d+)_([ACGT]+)_([ACGT]+)",
             # chr17:g.43092919G>A (HGVS-like)
             r"(?:CHR)?(\w+):G\.(\d+)([ACGT]+)>([ACGT]+)",
         ]
@@ -238,6 +240,10 @@ Provide:
             )
 
         return self._query_ollama(prompt)
+
+    def interpret(self, variant_str: str) -> str:
+        """Alias for interpret_variant()."""
+        return self.interpret_variant(variant_str)
 
     def compare_variants(self, variant_strs: list[str]) -> str:
         """
