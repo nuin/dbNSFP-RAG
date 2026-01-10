@@ -25,6 +25,32 @@ A RAG (Retrieval Augmented Generation) pipeline for dbNSFP variant annotation at
 ### Remaining Chromosomes (in size order)
 22 → 20 → 14 → X → 15 → 8 → 9 → 10 → 4 → 16 → 5 → 7 → 6 → 12 → 17 → 11 → 3 → 19 → 2 → 1
 
+### Training Pipeline (NEW)
+Three training scripts ready for panel-focused fine-tuning:
+
+1. **Pathogenicity Classifier** (`training/train_classifier.py`)
+   - XGBoost on numerical features (CADD, REVEL, etc.)
+   - Uses ClinVar labels
+
+2. **LLM Fine-tuning** (`training/train_llm.py`)
+   - LoRA on Llama 3.2 via mlx-lm (Apple Silicon optimized)
+   - Instruction-response pairs for variant interpretation
+
+3. **Embedding Fine-tuning** (`training/train_embeddings.py`)
+   - Contrastive learning on sentence-transformers
+   - Improves semantic search for pathogenic/benign similarity
+
+### Gene Panels (`src/panels.py`)
+- `NGSgenes`: 314 genes (main clinical panel - cardiac + cancer)
+- `hereditary_cancer`: 25 genes
+- `cardiac`: 19 genes
+- `neurological`: 14 genes
+
+Export training data for a panel:
+```bash
+python3 src/export.py --panel NGSgenes --type all
+```
+
 ## Key Commands
 
 ```bash
