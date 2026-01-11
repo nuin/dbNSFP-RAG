@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ACMG Variant Classifier</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    },
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', system-ui, sans-serif; }
+        .font-mono { font-family: 'JetBrains Mono', monospace; }
+        .gradient-border {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 3px;
+            border-radius: 1rem;
+        }
+        .gradient-border-inner {
+            background: white;
+            border-radius: calc(1rem - 3px);
+        }
+        .hero-gradient {
+            background: linear-gradient(135deg, #1e3a5f 0%, #0d1b2a 100%);
+        }
+        .card-glow {
+            box-shadow: 0 0 40px rgba(102, 126, 234, 0.15);
+        }
+        .score-card {
+            background: linear-gradient(145deg, #f8fafc 0%, #e2e8f0 100%);
+        }
+        .pathogenic-badge {
+            background: linear-gradient(135deg, #dc2626 0%, #991b1b 100%);
+            box-shadow: 0 4px 20px rgba(220, 38, 38, 0.4);
+        }
+        .likely-pathogenic-badge {
+            background: linear-gradient(135deg, #ea580c 0%, #c2410c 100%);
+            box-shadow: 0 4px 20px rgba(234, 88, 12, 0.4);
+        }
+        .benign-badge {
+            background: linear-gradient(135deg, #16a34a 0%, #15803d 100%);
+            box-shadow: 0 4px 20px rgba(22, 163, 74, 0.4);
+        }
+        .likely-benign-badge {
+            background: linear-gradient(135deg, #059669 0%, #047857 100%);
+            box-shadow: 0 4px 20px rgba(5, 150, 105, 0.4);
+        }
+        .uncertain-badge {
+            background: linear-gradient(135deg, #d97706 0%, #b45309 100%);
+            box-shadow: 0 4px 20px rgba(217, 119, 6, 0.4);
+        }
+        .annotation-box {
+            background: linear-gradient(180deg, #1e293b 0%, #0f172a 100%);
+        }
+        .interpretation-box {
+            background: linear-gradient(180deg, #fafafa 0%, #f1f5f9 100%);
+            border-left: 5px solid;
+            border-image: linear-gradient(180deg, #667eea, #764ba2) 1;
+        }
+        .pulse-glow {
+            animation: pulse-glow 2s ease-in-out infinite;
+        }
+        @keyframes pulse-glow {
+            0%, 100% { box-shadow: 0 0 20px rgba(102, 126, 234, 0.3); }
+            50% { box-shadow: 0 0 40px rgba(102, 126, 234, 0.6); }
+        }
+        .data-row:hover {
+            background: linear-gradient(90deg, rgba(102, 126, 234, 0.1) 0%, transparent 100%);
+        }
+    </style>
+</head>
+<body class="bg-slate-900 min-h-screen">
+    <!-- Hero Header -->
+    <div class="hero-gradient py-8 mb-8">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="flex items-center gap-4">
+                <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center shadow-lg">
+                    <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+                    </svg>
+                </div>
+                <div>
+                    <h1 class="text-3xl font-extrabold text-white tracking-tight">ACMG Variant Classifier</h1>
+                    <p class="text-indigo-300 text-sm mt-1">Powered by dbNSFP + Fine-tuned LLM</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="max-w-6xl mx-auto px-6 pb-12">
+        <!-- Input Card -->
+        <div class="gradient-border card-glow mb-8">
+            <div class="gradient-border-inner p-8">
+                <!-- Tabs -->
+                <div class="flex gap-3 mb-6">
+                    <button onclick="switchTab('coords')" id="tab-coords"
+                        class="tab-btn px-6 py-3 rounded-xl font-semibold text-sm transition-all duration-200 bg-gradient-to-r from-indigo-500 to-purple-600 text-white shadow-lg">
+                        <span class="flex items-center gap-2">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                            </svg>
+                            Coordinates
+                        </span>
+                    </button>
+                    <button onclick="switchTab('hgvs')" id="tab-hgvs"
+                        class="tab-btn px-6 py-3 rounded-xl font-semibold text-sm transition-all duration-200 bg-slate-100 text-slate-600 hover:bg-slate-200">
+                        <span class="flex items-center gap-2">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z"/>
+                            </svg>
+                            HGVS Genomic
+                        </span>
+                    </button>
+                </div>
+
+                <!-- Coordinates Input -->
+                <div id="coords-input" class="input-mode">
+                    <div class="grid grid-cols-4 gap-4 mb-4">
+                        <div>
+                            <label class="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-2">Chromosome</label>
+                            <input type="text" id="chr" placeholder="15"
+                                class="w-full px-4 py-3 bg-slate-50 border-2 border-slate-200 rounded-xl font-mono text-lg focus:border-indigo-500 focus:ring-4 focus:ring-indigo-100 outline-none transition-all" />
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-2">Position</label>
+                            <input type="text" id="pos" placeholder="48704935"
+                                class="w-full px-4 py-3 bg-slate-50 border-2 border-slate-200 rounded-xl font-mono text-lg focus:border-indigo-500 focus:ring-4 focus:ring-indigo-100 outline-none transition-all" />
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-2">Reference</label>
+                            <input type="text" id="ref" placeholder="C"
+                                class="w-full px-4 py-3 bg-slate-50 border-2 border-slate-200 rounded-xl font-mono text-lg text-center focus:border-indigo-500 focus:ring-4 focus:ring-indigo-100 outline-none transition-all" />
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-2">Alternate</label>
+                            <input type="text" id="alt" placeholder="A"
+                                class="w-full px-4 py-3 bg-slate-50 border-2 border-slate-200 rounded-xl font-mono text-lg text-center focus:border-indigo-500 focus:ring-4 focus:ring-indigo-100 outline-none transition-all" />
+                        </div>
+                    </div>
+                    <div class="flex flex-wrap gap-2 text-sm">
+                        <span class="text-slate-400">Try:</span>
+                        <a onclick="fillCoords('15', '48704935', 'C', 'A')" class="px-3 py-1 bg-red-50 text-red-600 rounded-full cursor-pointer hover:bg-red-100 transition font-medium">FBN1 Marfan</a>
+                        <a onclick="fillCoords('X', '32536123', 'A', 'T')" class="px-3 py-1 bg-orange-50 text-orange-600 rounded-full cursor-pointer hover:bg-orange-100 transition font-medium">DMD Dystrophy</a>
+                        <a onclick="fillCoords('20', '50406630', 'T', 'G')" class="px-3 py-1 bg-green-50 text-green-600 rounded-full cursor-pointer hover:bg-green-100 transition font-medium">SALL4 Benign</a>
+                        <a onclick="fillCoords('20', '21494184', 'C', 'T')" class="px-3 py-1 bg-emerald-50 text-emerald-600 rounded-full cursor-pointer hover:bg-emerald-100 transition font-medium">NKX2-2 Benign</a>
+                    </div>
+                </div>
+
+                <!-- HGVS Input -->
+                <div id="hgvs-input" class="input-mode hidden">
+                    <div class="mb-4">
+                        <label class="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-2">HGVS Genomic Notation</label>
+                        <input type="text" id="hgvs" placeholder="NC_000015.9:g.48704935C>A  or  15:g.48704935C>A"
+                            class="w-full px-4 py-3 bg-slate-50 border-2 border-slate-200 rounded-xl font-mono text-lg focus:border-indigo-500 focus:ring-4 focus:ring-indigo-100 outline-none transition-all" />
+                    </div>
+                    <div class="flex flex-wrap gap-2 text-sm">
+                        <span class="text-slate-400">Try:</span>
+                        <a onclick="fillHgvs('NC_000015.9:g.48704935C>A')" class="px-3 py-1 bg-red-50 text-red-600 rounded-full cursor-pointer hover:bg-red-100 transition font-medium">FBN1 (NC)</a>
+                        <a onclick="fillHgvs('15:g.48704935C>A')" class="px-3 py-1 bg-red-50 text-red-600 rounded-full cursor-pointer hover:bg-red-100 transition font-medium">FBN1 (short)</a>
+                        <a onclick="fillHgvs('20:g.50406630T>G')" class="px-3 py-1 bg-green-50 text-green-600 rounded-full cursor-pointer hover:bg-green-100 transition font-medium">SALL4</a>
+                        <a onclick="fillHgvs('X:g.32536123A>T')" class="px-3 py-1 bg-orange-50 text-orange-600 rounded-full cursor-pointer hover:bg-orange-100 transition font-medium">DMD</a>
+                    </div>
+                </div>
+
+                <!-- Action Buttons -->
+                <div class="flex gap-4 mt-8">
+                    <button onclick="lookup()" id="lookupBtn"
+                        class="flex-1 py-4 bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-600 hover:to-teal-700 text-white font-bold text-lg rounded-xl shadow-lg hover:shadow-xl transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed">
+                        <span class="flex items-center justify-center gap-2">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+                            </svg>
+                            Lookup All Data
+                        </span>
+                    </button>
+                    <button onclick="classify()" id="classifyBtn"
+                        class="flex-1 py-4 bg-gradient-to-r from-indigo-500 to-purple-600 hover:from-indigo-600 hover:to-purple-700 text-white font-bold text-lg rounded-xl shadow-lg hover:shadow-xl transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed">
+                        <span class="flex items-center justify-center gap-2">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+                            </svg>
+                            Classify with ACMG
+                        </span>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Results Section -->
+        <div id="results" class="hidden">
+            <div id="resultContent"></div>
+        </div>
+    </div>
+
+    <script>
+        let currentTab = 'coords';
+
+        function switchTab(tab) {
+            currentTab = tab;
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.classList.remove('bg-gradient-to-r', 'from-indigo-500', 'to-purple-600', 'text-white', 'shadow-lg');
+                btn.classList.add('bg-slate-100', 'text-slate-600');
+            });
+            const activeBtn = document.getElementById(`tab-${tab}`);
+            activeBtn.classList.remove('bg-slate-100', 'text-slate-600');
+            activeBtn.classList.add('bg-gradient-to-r', 'from-indigo-500', 'to-purple-600', 'text-white', 'shadow-lg');
+            document.querySelectorAll('.input-mode').forEach(mode => mode.classList.add('hidden'));
+            document.getElementById(`${tab}-input`).classList.remove('hidden');
+        }
+
+        function fillCoords(chr, pos, ref, alt) {
+            switchTab('coords');
+            document.getElementById('chr').value = chr;
+            document.getElementById('pos').value = pos;
+            document.getElementById('ref').value = ref;
+            document.getElementById('alt').value = alt;
+        }
+
+        function fillHgvs(hgvs) {
+            switchTab('hgvs');
+            document.getElementById('hgvs').value = hgvs;
+        }
+
+        function getQueryParams() {
+            if (currentTab === 'hgvs') {
+                const hgvs = document.getElementById('hgvs').value.trim();
+                if (!hgvs) throw new Error('Please enter HGVS notation');
+                return `hgvs=${encodeURIComponent(hgvs)}`;
+            } else {
+                const chr = document.getElementById('chr').value.trim();
+                const pos = document.getElementById('pos').value.trim();
+                const ref = document.getElementById('ref').value.trim().toUpperCase();
+                const alt = document.getElementById('alt').value.trim().toUpperCase();
+                if (!chr || !pos || !ref || !alt) throw new Error('Please fill in all fields');
+                return `chr=${chr}&pos=${pos}&ref=${ref}&alt=${alt}`;
+            }
+        }
+
+        function showLoading(message = 'Loading...') {
+            document.getElementById('results').classList.remove('hidden');
+            document.getElementById('resultContent').innerHTML = `
+                <div class="gradient-border card-glow">
+                    <div class="gradient-border-inner p-16 text-center">
+                        <div class="inline-block w-16 h-16 border-4 border-slate-200 border-t-indigo-500 rounded-full animate-spin mb-6"></div>
+                        <div class="text-xl text-slate-600 font-medium">${message}</div>
+                    </div>
+                </div>
+            `;
+        }
+
+        function showError(message) {
+            document.getElementById('results').classList.remove('hidden');
+            document.getElementById('resultContent').innerHTML = `
+                <div class="bg-red-50 border-2 border-red-200 rounded-2xl p-8 text-center">
+                    <div class="text-red-500 text-xl font-semibold">${message}</div>
+                </div>
+            `;
+        }
+
+        function getBadgeClass(classification) {
+            if (!classification) return 'uncertain-badge';
+            const c = classification.toLowerCase();
+            if (c.includes('pathogenic') && !c.includes('benign') && !c.includes('likely')) return 'pathogenic-badge';
+            if (c.includes('likely_pathogenic') || c.includes('likely pathogenic')) return 'likely-pathogenic-badge';
+            if (c.includes('benign') && !c.includes('pathogenic') && !c.includes('likely')) return 'benign-badge';
+            if (c.includes('likely_benign') || c.includes('likely benign')) return 'likely-benign-badge';
+            return 'uncertain-badge';
+        }
+
+        function formatValue(value) {
+            if (value === null || value === undefined || value === '') {
+                return '<span class="text-slate-300">—</span>';
+            }
+            return `<span class="font-semibold text-slate-800">${value}</span>`;
+        }
+
+        function parseAnnotation(text) {
+            const sections = {};
+            let currentSection = 'Basic';
+            sections[currentSection] = [];
+            text.split('\n').forEach(line => {
+                if (line.startsWith('===')) {
+                    currentSection = line.replace(/=/g, '').trim();
+                    sections[currentSection] = [];
+                } else if (line.includes(':') && !line.startsWith('Variant:')) {
+                    const [key, ...valueParts] = line.split(':');
+                    const value = valueParts.join(':').trim();
+                    if (key && value) {
+                        sections[currentSection].push({ key: key.trim(), value });
+                    }
+                }
+            });
+            return sections;
+        }
+
+        function renderDataSection(title, items, icon) {
+            if (!items || items.length === 0) return '';
+            return `
+                <div class="bg-white rounded-2xl border border-slate-200 overflow-hidden mb-6">
+                    <div class="bg-gradient-to-r from-slate-50 to-white px-6 py-4 border-b border-slate-100">
+                        <h4 class="font-bold text-slate-700 flex items-center gap-2">
+                            ${icon || ''}
+                            ${title}
+                        </h4>
+                    </div>
+                    <div class="divide-y divide-slate-100">
+                        ${items.map(item => `
+                            <div class="data-row flex justify-between items-center px-6 py-3 transition-all">
+                                <span class="text-slate-500 font-medium">${item.key}</span>
+                                <span class="font-mono text-sm ${item.value.includes('N/A') ? 'text-slate-300' : 'text-slate-800 font-semibold'}">${item.value}</span>
+                            </div>
+                        `).join('')}
+                    </div>
+                </div>
+            `;
+        }
+
+        async function lookup() {
+            try {
+                const params = getQueryParams();
+                showLoading('Fetching variant annotations...');
+                document.getElementById('lookupBtn').disabled = true;
+                document.getElementById('classifyBtn').disabled = true;
+
+                const response = await fetch(`/lookup?${params}`);
+                const data = await response.json();
+
+                if (!response.ok) throw new Error(data.detail || 'Lookup failed');
+
+                const sections = parseAnnotation(data.full_annotation || '');
+                const clinvarSig = data.metadata?.clinvar_sig || '';
+                const badgeClass = getBadgeClass(clinvarSig);
+
+                let html = `
+                    <div class="gradient-border card-glow">
+                        <div class="gradient-border-inner p-8">
+                            <!-- Variant Header -->
+                            <div class="flex flex-wrap justify-between items-start gap-6 mb-8">
+                                <div>
+                                    <div class="text-4xl font-extrabold text-slate-800 mb-2">${data.gene || 'Unknown Gene'}</div>
+                                    <div class="font-mono text-slate-500 text-lg">chr${data.chromosome}:${data.position} ${data.ref} → ${data.alt}</div>
+                                    <div class="text-slate-400 text-sm mt-1">${data.transcript || ''}</div>
+                                </div>
+                                <div class="${badgeClass} text-white text-xl font-bold px-8 py-4 rounded-2xl">
+                                    ${clinvarSig || 'Not in ClinVar'}
+                                </div>
+                            </div>
+                `;
+
+                // Render sections with icons
+                const icons = {
+                    'Pathogenicity Predictions': '<svg class="w-5 h-5 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/></svg>',
+                    'Conservation': '<svg class="w-5 h-5 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064"/></svg>',
+                    'Population Frequency': '<svg class="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/></svg>',
+                    'Clinical Annotation': '<svg class="w-5 h-5 text-purple-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>',
+                    'Functional Annotation': '<svg class="w-5 h-5 text-amber-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/></svg>',
+                };
+
+                for (const [title, items] of Object.entries(sections)) {
+                    if (title !== 'Basic' && items.length > 0) {
+                        html += renderDataSection(title, items, icons[title] || '');
+                    }
+                }
+
+                html += `
+                            <!-- Full Annotation -->
+                            <div class="mt-8">
+                                <h3 class="font-bold text-slate-700 mb-4 flex items-center gap-2">
+                                    <svg class="w-5 h-5 text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/>
+                                    </svg>
+                                    Raw dbNSFP Annotation
+                                </h3>
+                                <pre class="annotation-box text-slate-300 p-8 rounded-2xl text-sm font-mono leading-relaxed overflow-x-auto">${data.full_annotation || 'No annotation available'}</pre>
+                            </div>
+                        </div>
+                    </div>
+                `;
+
+                document.getElementById('resultContent').innerHTML = html;
+
+            } catch (error) {
+                showError(error.message);
+            } finally {
+                document.getElementById('lookupBtn').disabled = false;
+                document.getElementById('classifyBtn').disabled = false;
+            }
+        }
+
+        async function classify() {
+            try {
+                const params = getQueryParams();
+                showLoading('Analyzing variant with AI...');
+                document.getElementById('lookupBtn').disabled = true;
+                document.getElementById('classifyBtn').disabled = true;
+
+                const response = await fetch(`/classify?${params}`);
+                const data = await response.json();
+
+                if (!response.ok) throw new Error(data.detail || 'Classification failed');
+
+                const badgeClass = getBadgeClass(data.acmg_classification);
+
+                document.getElementById('resultContent').innerHTML = `
+                    <div class="gradient-border card-glow">
+                        <div class="gradient-border-inner p-8">
+                            <!-- Header -->
+                            <div class="flex flex-wrap justify-between items-start gap-6 mb-8">
+                                <div>
+                                    <div class="text-4xl font-extrabold text-slate-800 mb-2">${data.gene || 'Unknown Gene'}</div>
+                                    <div class="font-mono text-slate-500 text-lg">${data.variant_id.replace(/_/g, ':').replace(/:([ACGT]):/g, ' $1>')}</div>
+                                </div>
+                                <div class="${badgeClass} text-white text-2xl font-bold px-10 py-5 rounded-2xl">
+                                    ${data.acmg_classification.replace(/_/g, ' ')}
+                                </div>
+                            </div>
+
+                            <!-- Scores Grid -->
+                            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 mb-8">
+                                <div class="score-card rounded-2xl p-5 text-center">
+                                    <div class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">CADD</div>
+                                    <div class="text-2xl font-bold text-slate-800">${formatValue(data.scores?.cadd_phred)}</div>
+                                </div>
+                                <div class="score-card rounded-2xl p-5 text-center">
+                                    <div class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">REVEL</div>
+                                    <div class="text-2xl font-bold text-slate-800">${formatValue(data.scores?.revel_score)}</div>
+                                </div>
+                                <div class="score-card rounded-2xl p-5 text-center">
+                                    <div class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">SIFT</div>
+                                    <div class="text-2xl font-bold text-slate-800">${formatValue(data.scores?.sift_pred)}</div>
+                                </div>
+                                <div class="score-card rounded-2xl p-5 text-center">
+                                    <div class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">PolyPhen</div>
+                                    <div class="text-2xl font-bold text-slate-800">${formatValue(data.scores?.polyphen_pred)}</div>
+                                </div>
+                                <div class="score-card rounded-2xl p-5 text-center">
+                                    <div class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">gnomAD</div>
+                                    <div class="text-2xl font-bold text-slate-800">${formatValue(data.scores?.gnomad_af)}</div>
+                                </div>
+                                <div class="score-card rounded-2xl p-5 text-center">
+                                    <div class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">Confidence</div>
+                                    <div class="text-2xl font-bold text-indigo-600">${(data.confidence * 100).toFixed(0)}%</div>
+                                </div>
+                            </div>
+
+                            <!-- LLM Interpretation -->
+                            <div>
+                                <h3 class="font-bold text-slate-700 mb-4 flex items-center gap-2">
+                                    <svg class="w-5 h-5 text-indigo-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>
+                                    </svg>
+                                    AI Clinical Interpretation
+                                </h3>
+                                <div class="interpretation-box rounded-2xl p-8 text-slate-700 text-lg leading-relaxed whitespace-pre-wrap">${data.interpretation}</div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            } catch (error) {
+                showError(error.message);
+            } finally {
+                document.getElementById('lookupBtn').disabled = false;
+                document.getElementById('classifyBtn').disabled = false;
+            }
+        }
+
+        document.querySelectorAll('input').forEach(input => {
+            input.addEventListener('keypress', (e) => {
+                if (e.key === 'Enter') lookup();
+            });
+        });
+    </script>
+</body>
+</html>

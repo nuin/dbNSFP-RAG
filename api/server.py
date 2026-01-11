@@ -22,6 +22,8 @@ from typing import Optional
 
 from fastapi import FastAPI, HTTPException, Query
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.staticfiles import StaticFiles
+from fastapi.responses import FileResponse
 from pydantic import BaseModel, Field
 
 # Add project root to path
@@ -42,6 +44,20 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+# Serve static files (web interface)
+static_dir = Path(__file__).parent / "static"
+if static_dir.exists():
+    app.mount("/static", StaticFiles(directory=str(static_dir)), name="static")
+
+
+@app.get("/", include_in_schema=False)
+async def root():
+    """Serve the web interface."""
+    index_file = static_dir / "index.html"
+    if index_file.exists():
+        return FileResponse(str(index_file))
+    return {"message": "ACMG Variant Classifier API", "docs": "/docs"}
 
 
 # Request/Response models
@@ -329,20 +345,52 @@ async def get_variant_info(variant_id: str):
     return variant_data
 
 
+def parse_hgvs_g(hgvs: str) -> tuple[str, int, str, str]:
+    """Parse HGVS genomic notation (e.g., NC_000017.10:g.41197801T>A or 17:g.41197801T>A)."""
+    import re
+
+    # Pattern: optional NC_XXXXXX.X: or chrX: prefix, then g.POS REF>ALT
+    pattern = r'(?:NC_0+(\d+)(?:\.\d+)?:)?(?:chr)?(\d+|X|Y)?:?g\.(\d+)([ACGT]+)>([ACGT]+)'
+    match = re.match(pattern, hgvs.strip(), re.IGNORECASE)
+
+    if not match:
+        raise ValueError(f"Invalid HGVS format: {hgvs}")
+
+    nc_chr, simple_chr, pos, ref, alt = match.groups()
+    chrom = nc_chr or simple_chr
+    if not chrom:
+        raise ValueError(f"Could not parse chromosome from: {hgvs}")
+
+    return chrom, int(pos), ref.upper(), alt.upper()
+
+
 @app.get("/lookup")
 async def lookup_variant(
-    chr: str = Query(..., description="Chromosome"),
-    pos: int = Query(..., description="Position"),
-    ref: str = Query(..., description="Reference allele"),
-    alt: str = Query(..., description="Alternate allele"),
+    chr: str = Query(None, description="Chromosome"),
+    pos: int = Query(None, description="Position"),
+    ref: str = Query(None, description="Reference allele"),
+    alt: str = Query(None, description="Alternate allele"),
+    hgvs: str = Query(None, description="HGVS genomic notation (e.g., NC_000017.10:g.41197801T>A or 17:g.41197801T>A)"),
 ):
     """
-    Get all stored data for a variant without classification.
+    Get ALL stored dbNSFP data for a variant.
 
-    Returns all metadata stored in the database including scores,
-    predictions, gene info, and ClinVar significance.
+    Accepts either coordinate parameters (chr, pos, ref, alt) or HGVS genomic notation.
+    Returns the full annotation document with all scores, predictions, and clinical data.
     """
-    chrom = chr.replace("chr", "")
+    # Parse input - either HGVS or coordinates
+    if hgvs:
+        try:
+            chrom, pos, ref, alt = parse_hgvs_g(hgvs)
+        except ValueError as e:
+            raise HTTPException(status_code=400, detail=str(e))
+    elif chr and pos and ref and alt:
+        chrom = chr.replace("chr", "")
+        ref = ref.upper()
+        alt = alt.upper()
+    else:
+        raise HTTPException(status_code=400, detail="Provide either hgvs parameter or chr/pos/ref/alt parameters")
+
     variant_id = f"{chrom}_{pos}_{ref}_{alt}"
 
     store = get_vectorstore()
@@ -352,6 +400,7 @@ async def lookup_variant(
         raise HTTPException(status_code=404, detail=f"Variant {variant_id} not found in database")
 
     meta = variant_data["metadata"]
+    document = variant_data.get("document", "")
 
     return {
         "variant_id": variant_id,
@@ -360,19 +409,9 @@ async def lookup_variant(
         "ref": ref,
         "alt": alt,
         "gene": meta.get("gene"),
-        "clinvar": {
-            "significance": meta.get("clinvar_sig"),
-        },
-        "scores": {
-            "cadd_phred": meta.get("cadd_phred"),
-            "revel_score": meta.get("revel_score"),
-            "gnomad_af": meta.get("gnomad_af"),
-        },
-        "predictions": {
-            "sift": meta.get("sift_pred"),
-            "polyphen": meta.get("polyphen_pred"),
-        },
-        "text": variant_data.get("text", ""),
+        "transcript": meta.get("transcript"),
+        "metadata": meta,
+        "full_annotation": document,
     }
 
 
