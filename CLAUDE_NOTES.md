@@ -1,102 +1,86 @@
 # Notes for Next Claude Instance
 
-Hey there! Here's the context on this project:
-
 ## What This Is
-A RAG (Retrieval Augmented Generation) pipeline for dbNSFP variant annotation at Alberta Precision Labs. It indexes variants into a FAISS vector store and uses Ollama for LLM-based clinical interpretation.
+ACMG Variant Classification API - a standalone fine-tuned LLM for classifying genetic variants according to ACMG/AMP guidelines. Trained on 314 clinical genes (NGSgenes panel) from dbNSFP.
 
 ## Current State (2026-01-10)
 
 ### Completed
-- GRCh37 NGSgenes database built (268,954 variants)
-- Training pipeline fully operational
-- All three training types tested and working
-- Full documentation created (README.md)
-- CPU-only support added via environment variables
+- GRCh37 NGSgenes database: 268,954 variants
+- ACMG training data: 9,743 labeled examples
+- Fine-tuned Llama-3.2-3B model via LoRA (500 iterations)
+- FastAPI server with /classify endpoint
+- Full documentation
 
-### Trained Models
-| Model | Location | Performance |
-|-------|----------|-------------|
-| XGBoost Classifier | `models/classifier.xgb` | 97% accuracy, ROC-AUC 0.9965 |
-| Fine-tuned Embeddings | `models/variant-embeddings/` | Separation: 0.1349 |
-| LLM Training Data | `data/exports/NGSgenes_llm_training.alpaca.json` | 232,838 samples |
+### Key Components
 
-### Database
-- **Location:** `data/vectordb/grch37-ngsgenes/`
-- **Size:** ~695 MB (413 MB faiss.index + 282 MB metadata.pkl)
-- **Variants:** 268,954
-- **Genes:** 314 (NGSgenes panel)
+| Component | Location | Description |
+|-----------|----------|-------------|
+| ACMG Model | `models/acmg-classifier/model/` | Fine-tuned Llama-3.2-3B |
+| API Server | `api/server.py` | FastAPI with /classify endpoint |
+| Training Data | `data/training/acmg_training.json` | 9,743 ACMG examples |
+| Database | `data/vectordb/grch37-ngsgenes/` | 268,954 variants |
 
-## Source Data
-Extracted dbNSFP files at: `~/Downloads/dbNSFP5.3.1a/`
-
-## Key Commands
-
-```bash
-# Build database
-uv run python -m src.main build-panel --panel NGSgenes --build grch37
-
-# Export training data
-uv run python -m src.export --panel NGSgenes --type all --db data/vectordb/grch37-ngsgenes
-
-# Train classifier
-uv run python training/train_classifier.py --input data/exports/NGSgenes_classifier_features.jsonl
-
-# Train embeddings
-uv run python training/train_embeddings.py --input data/exports/NGSgenes_embedding_pairs.jsonl
-
-# Prepare LLM data
-uv run python training/train_llm.py --input data/exports/NGSgenes_llm_training.jsonl --prepare-only
-
-# RAG interpretation
-uv run python -c "
-from src.rag import VariantRAG
-from src.config import VECTORDB_GRCH37_NGSGENES
-rag = VariantRAG(db_path=VECTORDB_GRCH37_NGSGENES, model='llama3.2:3b')
-print(rag.interpret('17_41197801_T_A'))
-"
+### Model Training
+```
+Base: mlx-community/Llama-3.2-3B-Instruct-4bit
+Method: LoRA (16 layers, 500 iterations)
+Initial loss: 4.033
+Final loss: 0.203
+Training time: ~10 min on M1 Ultra
 ```
 
-## CPU-Only Usage
+## Quick Start
 
-Set environment variables for non-GPU machines:
+```bash
+# Start API
+uvicorn api.server:app --host 0.0.0.0 --port 8000
+
+# Classify variant
+curl "http://localhost:8000/classify?chr=17&pos=41197801&ref=T&alt=A"
+```
+
+## API Endpoints
+
+- `GET /classify?chr=X&pos=Y&ref=R&alt=A` - Classify variant
+- `POST /classify` - Classify with JSON body
+- `GET /gene/{symbol}` - Get variants for gene
+- `GET /health` - API status
+
+## Training Commands
+
+```bash
+# Generate ACMG training data
+uv run python training/acmg_training.py --db data/vectordb/grch37-ngsgenes
+
+# Fine-tune model (Apple Silicon)
+uv run python training/finetune_acmg.py --method mlx --iters 500
+
+# Fine-tune model (NVIDIA)
+uv run python training/finetune_acmg.py --method transformers
+```
+
+## Key Files
+
+- `api/server.py` - FastAPI server
+- `training/acmg_training.py` - Generate ACMG training data
+- `training/finetune_acmg.py` - Fine-tune LLM
+- `src/vectorstore.py` - FAISS database (supports DBNSFP_DEVICE env var)
+- `src/panels.py` - Gene panels (NGSgenes: 314 genes)
+
+## Environment Variables
+
+- `ACMG_MODEL_PATH` - Path to fine-tuned model
+- `ACMG_DB_PATH` - Path to variant database
+- `DBNSFP_DEVICE` - Force cpu/cuda/mps
+
+## Non-GPU Deployment
 
 ```bash
 export DBNSFP_DEVICE=cpu
-export DBNSFP_DIR=/path/to/dbNSFP5.3.1a  # Optional
-```
-
-## Gene Panels (`src/panels.py`)
-- `NGSgenes`: 314 genes (main clinical panel - cardiac + cancer)
-- `hereditary_cancer`: 25 genes
-- `cardiac`: 19 genes
-- `neurological`: 14 genes
-
-## Key Files
-- `src/config.py` - Configuration (supports env vars: DBNSFP_DIR, DBNSFP_DEVICE)
-- `src/vectorstore.py` - FAISS wrapper with CPU/GPU auto-detection
-- `src/rag.py` - LLM integration with Ollama
-- `src/export.py` - Training data export (supports --db parameter)
-- `src/main.py` - CLI with build-panel command
-- `training/` - Training scripts for classifier, embeddings, LLM
-- `README.md` - Full documentation
-
-## Things That Work
-- Streaming from extracted directory
-- Gene panel filtering during ingestion
-- GRCh37 coordinate support
-- Checkpoint/resume for long indexing jobs
-- Semantic search by query or gene
-- LLM interpretation via Ollama (llama3.2:3b tested)
-- XGBoost pathogenicity classifier
-- Fine-tuned embeddings for better similarity search
-- CPU-only mode via DBNSFP_DEVICE=cpu
-
-## Tested Variants
-```
-17_41197801_T_A  # BRCA1
-13_32953652_G_A  # BRCA2
-10_90701009_C_T  # ACTA2 (Pathogenic/Likely_pathogenic)
+export ACMG_MODEL_PATH=  # Empty = use Ollama
+ollama pull llama3.2:3b
+uvicorn api.server:app --port 8000
 ```
 
 ## GitHub
