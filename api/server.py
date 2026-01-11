@@ -329,6 +329,53 @@ async def get_variant_info(variant_id: str):
     return variant_data
 
 
+@app.get("/lookup")
+async def lookup_variant(
+    chr: str = Query(..., description="Chromosome"),
+    pos: int = Query(..., description="Position"),
+    ref: str = Query(..., description="Reference allele"),
+    alt: str = Query(..., description="Alternate allele"),
+):
+    """
+    Get all stored data for a variant without classification.
+
+    Returns all metadata stored in the database including scores,
+    predictions, gene info, and ClinVar significance.
+    """
+    chrom = chr.replace("chr", "")
+    variant_id = f"{chrom}_{pos}_{ref}_{alt}"
+
+    store = get_vectorstore()
+    variant_data = store.get_by_id(variant_id)
+
+    if not variant_data:
+        raise HTTPException(status_code=404, detail=f"Variant {variant_id} not found in database")
+
+    meta = variant_data["metadata"]
+
+    return {
+        "variant_id": variant_id,
+        "chromosome": chrom,
+        "position": pos,
+        "ref": ref,
+        "alt": alt,
+        "gene": meta.get("gene"),
+        "clinvar": {
+            "significance": meta.get("clinvar_sig"),
+        },
+        "scores": {
+            "cadd_phred": meta.get("cadd_phred"),
+            "revel_score": meta.get("revel_score"),
+            "gnomad_af": meta.get("gnomad_af"),
+        },
+        "predictions": {
+            "sift": meta.get("sift_pred"),
+            "polyphen": meta.get("polyphen_pred"),
+        },
+        "text": variant_data.get("text", ""),
+    }
+
+
 @app.get("/gene/{gene_symbol}")
 async def get_gene_variants(gene_symbol: str, limit: int = 100):
     """Get variants for a specific gene."""
