@@ -284,6 +284,20 @@
             return `<span class="font-semibold text-slate-800">${value}</span>`;
         }
 
+        function formatGnomadAF(value) {
+            if (value === null || value === undefined || value === '') {
+                return '<span class="text-slate-300">—</span>';
+            }
+            // Format as percentage or scientific notation
+            if (value >= 0.01) {
+                return `<span class="font-semibold text-slate-800">${(value * 100).toFixed(2)}%</span>`;
+            } else if (value >= 0.0001) {
+                return `<span class="font-semibold text-slate-800">${(value * 100).toFixed(4)}%</span>`;
+            } else {
+                return `<span class="font-semibold text-slate-800">${value.toExponential(2)}</span>`;
+            }
+        }
+
         function parseAnnotation(text) {
             const sections = {};
             let currentSection = 'Basic';
@@ -353,6 +367,34 @@
                                 </div>
                                 <div class="${badgeClass} text-white text-xl font-bold px-8 py-4 rounded-2xl">
                                     ${clinvarSig || 'Not in ClinVar'}
+                                </div>
+                            </div>
+
+                            <!-- Key Scores Grid -->
+                            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 mb-8">
+                                <div class="score-card rounded-2xl p-5 text-center">
+                                    <div class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">CADD</div>
+                                    <div class="text-2xl font-bold text-slate-800">${formatValue(data.metadata?.cadd_phred)}</div>
+                                </div>
+                                <div class="score-card rounded-2xl p-5 text-center">
+                                    <div class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">REVEL</div>
+                                    <div class="text-2xl font-bold text-slate-800">${formatValue(data.metadata?.revel_score)}</div>
+                                </div>
+                                <div class="score-card rounded-2xl p-5 text-center">
+                                    <div class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">SIFT</div>
+                                    <div class="text-2xl font-bold text-slate-800">${formatValue(data.metadata?.sift_pred)}</div>
+                                </div>
+                                <div class="score-card rounded-2xl p-5 text-center">
+                                    <div class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">PolyPhen</div>
+                                    <div class="text-2xl font-bold text-slate-800">${formatValue(data.metadata?.polyphen_pred)}</div>
+                                </div>
+                                <div class="score-card rounded-2xl p-5 text-center">
+                                    <div class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">gnomAD AF</div>
+                                    <div class="text-2xl font-bold text-slate-800">${formatGnomadAF(data.metadata?.gnomad_af)}</div>
+                                </div>
+                                <div class="score-card rounded-2xl p-5 text-center">
+                                    <div class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">AlphaMissense</div>
+                                    <div class="text-2xl font-bold text-slate-800">${formatValue(data.metadata?.alphamissense_pred)}</div>
                                 </div>
                             </div>
                 `;
@@ -444,8 +486,8 @@
                                     <div class="text-2xl font-bold text-slate-800">${formatValue(data.scores?.polyphen_pred)}</div>
                                 </div>
                                 <div class="score-card rounded-2xl p-5 text-center">
-                                    <div class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">gnomAD</div>
-                                    <div class="text-2xl font-bold text-slate-800">${formatValue(data.scores?.gnomad_af)}</div>
+                                    <div class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">gnomAD AF</div>
+                                    <div class="text-2xl font-bold text-slate-800">${formatGnomadAF(data.scores?.gnomad_af)}</div>
                                 </div>
                                 <div class="score-card rounded-2xl p-5 text-center">
                                     <div class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">Confidence</div>
