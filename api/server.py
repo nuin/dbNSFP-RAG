@@ -154,13 +154,17 @@ ACMG Classification:"""
 
     if model_info["type"] == "ollama":
         import requests
+        ollama_host = os.environ.get("OLLAMA_HOST", "localhost:11434")
+        if not ollama_host.startswith("http"):
+            ollama_host = f"http://{ollama_host}"
         response = requests.post(
-            "http://localhost:11434/api/generate",
+            f"{ollama_host}/api/generate",
             json={
                 "model": model_info["model"],
                 "prompt": prompt,
                 "stream": False,
-            }
+            },
+            timeout=120,
         )
         return response.json().get("response", "")
 

@@ -177,7 +177,7 @@ def format_acmg_output(acmg_class: ACMGClass, criteria: list[str], gene: str) ->
     return "\n".join(lines)
 
 
-def generate_training_data(db_path: Path, output_path: Path, max_per_class: int = 5000):
+def generate_training_data(db_path: Path, output_path: Path, max_per_class: int = 5000, balanced: bool = False):
     """Generate ACMG training data from vector database."""
     import sys
     sys.path.insert(0, str(Path(__file__).parent.parent))
@@ -224,16 +224,47 @@ def generate_training_data(db_path: Path, output_path: Path, max_per_class: int 
 
             by_class[acmg_class].append(example)
 
-    # Report distribution
-    print("\nACMG class distribution:")
+    # Report distribution before balancing
+    print("\nACMG class distribution (before balancing):")
     total = 0
     for cls, examples in by_class.items():
         print(f"  {cls}: {len(examples)}")
         total += len(examples)
     print(f"  Total: {total}")
 
-    # Combine and shuffle
+    # Balance classes if requested
     import random
+    if balanced:
+        # Target: balance to median class size, oversample small classes
+        non_empty_counts = [len(ex) for ex in by_class.values() if len(ex) > 0]
+        target_count = sorted(non_empty_counts)[len(non_empty_counts) // 2]  # median
+        target_count = min(target_count, 1000)  # cap at 1000
+
+        print(f"\nBalancing to ~{target_count} examples per class (oversample small, undersample large)...")
+
+        for cls in by_class:
+            current = len(by_class[cls])
+            if current == 0:
+                continue
+            elif current > target_count:
+                # Undersample
+                random.shuffle(by_class[cls])
+                by_class[cls] = by_class[cls][:target_count]
+            elif current < target_count:
+                # Oversample by duplicating
+                original = by_class[cls].copy()
+                while len(by_class[cls]) < target_count:
+                    by_class[cls].append(random.choice(original).copy())
+
+        # Report distribution after balancing
+        print("\nACMG class distribution (after balancing):")
+        total = 0
+        for cls, examples in by_class.items():
+            print(f"  {cls}: {len(examples)}")
+            total += len(examples)
+        print(f"  Total: {total}")
+
+    # Combine and shuffle
     all_examples = []
     for examples in by_class.values():
         all_examples.extend(examples)
@@ -270,9 +301,11 @@ def main():
                        help="Output path (without extension)")
     parser.add_argument("--max-per-class", type=int, default=5000,
                        help="Maximum examples per ACMG class")
+    parser.add_argument("--balanced", "-b", action="store_true",
+                       help="Balance classes by undersampling to minimum class size")
     args = parser.parse_args()
 
-    generate_training_data(args.db, args.output, args.max_per_class)
+    generate_training_data(args.db, args.output, args.max_per_class, args.balanced)
 
 
 if __name__ == "__main__":
