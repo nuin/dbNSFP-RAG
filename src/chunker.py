@@ -97,7 +97,7 @@ def interpret_gnomad_af(af) -> str:
         return f"{freq:.4f} (common)"
 
 
-def variant_to_text(row: pd.Series) -> str:
+def variant_to_text(row: pd.Series, use_grch37: bool = False) -> str:
     """
     Convert a variant row to structured text for embedding.
 
@@ -106,9 +106,13 @@ def variant_to_text(row: pd.Series) -> str:
     2. LLM context (structured but readable)
     3. Clinical interpretation
     """
-    # Build variant ID
-    chrom = row.get("#chr", "?")
-    pos = row.get("pos(1-based)", "?")
+    # Build variant ID - use GRCh37 coordinates if specified
+    if use_grch37:
+        chrom = row.get("hg19_chr", row.get("#chr", "?"))
+        pos = row.get("hg19_pos(1-based)", "?")
+    else:
+        chrom = row.get("#chr", "?")
+        pos = row.get("pos(1-based)", "?")
     ref = row.get("ref", "?")
     alt = row.get("alt", "?")
 
@@ -175,16 +179,20 @@ GTEx tissue: {row.get('GTEx_V8_tissue', 'N/A') if not pd.isna(row.get('GTEx_V8_t
     return text.strip()
 
 
-def variant_to_id(row: pd.Series) -> str:
+def variant_to_id(row: pd.Series, use_grch37: bool = False) -> str:
     """Generate unique variant ID."""
-    chrom = str(row.get("#chr", "")).replace("chr", "")
-    pos = row.get("pos(1-based)", "")
+    if use_grch37:
+        chrom = str(row.get("hg19_chr", row.get("#chr", ""))).replace("chr", "")
+        pos = row.get("hg19_pos(1-based)", "")
+    else:
+        chrom = str(row.get("#chr", "")).replace("chr", "")
+        pos = row.get("pos(1-based)", "")
     ref = row.get("ref", "")
     alt = row.get("alt", "")
     return f"{chrom}_{pos}_{ref}_{alt}"
 
 
-def variant_to_metadata(row: pd.Series) -> dict:
+def variant_to_metadata(row: pd.Series, use_grch37: bool = False) -> dict:
     """Extract metadata for filtering/retrieval."""
 
     def safe_str(val):
@@ -198,9 +206,16 @@ def variant_to_metadata(row: pd.Series) -> dict:
         except (ValueError, TypeError):
             return None
 
+    if use_grch37:
+        chrom = safe_str(row.get("hg19_chr", row.get("#chr", ""))).replace("chr", "")
+        pos_val = row.get("hg19_pos(1-based)", row.get("pos(1-based)", 0))
+    else:
+        chrom = safe_str(row.get("#chr", "")).replace("chr", "")
+        pos_val = row.get("pos(1-based)", 0)
+
     return {
-        "chr": safe_str(row.get("#chr", "")).replace("chr", ""),
-        "pos": int(row.get("pos(1-based)", 0)) if not pd.isna(row.get("pos(1-based)")) else 0,
+        "chr": chrom,
+        "pos": int(pos_val) if not pd.isna(pos_val) else 0,
         "ref": safe_str(row.get("ref")),
         "alt": safe_str(row.get("alt")),
         "gene": safe_str(row.get("genename")),
@@ -215,17 +230,27 @@ def variant_to_metadata(row: pd.Series) -> dict:
     }
 
 
-def chunk_dataframe(df: pd.DataFrame) -> list[tuple[str, str, dict]]:
+def chunk_dataframe(df: pd.DataFrame, use_grch37: bool = False) -> list[tuple[str, str, dict]]:
     """
     Convert DataFrame to list of (id, text, metadata) tuples.
+
+    Args:
+        df: DataFrame with variant data
+        use_grch37: Use GRCh37/hg19 coordinates instead of GRCh38
 
     Returns:
         List of tuples: (variant_id, text_chunk, metadata_dict)
     """
     results = []
     for _, row in df.iterrows():
-        var_id = variant_to_id(row)
-        text = variant_to_text(row)
-        metadata = variant_to_metadata(row)
+        # Skip rows with missing GRCh37 coordinates if using GRCh37
+        if use_grch37:
+            hg19_pos = row.get("hg19_pos(1-based)")
+            if pd.isna(hg19_pos) or hg19_pos == ".":
+                continue
+
+        var_id = variant_to_id(row, use_grch37=use_grch37)
+        text = variant_to_text(row, use_grch37=use_grch37)
+        metadata = variant_to_metadata(row, use_grch37=use_grch37)
         results.append((var_id, text, metadata))
     return results

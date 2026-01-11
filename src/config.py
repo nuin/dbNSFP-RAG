@@ -1,5 +1,6 @@
 """Configuration for dbNSFP RAG pipeline."""
 
+import os
 from pathlib import Path
 
 # Paths
@@ -8,13 +9,21 @@ DATA_DIR = PROJECT_ROOT / "data"
 RAW_DATA_DIR = DATA_DIR / "raw"
 VECTORDB_DIR = DATA_DIR / "vectordb"
 
-# dbNSFP zip file (stream directly without extracting)
-DBNSFP_ZIP = Path.home() / "dbNSFP5.3.1a.zip"
+# dbNSFP data location (extracted folder or zip file)
+# Can be overridden with DBNSFP_DIR environment variable
+_default_dbnsfp = Path.home() / "Downloads" / "dbNSFP5.3.1a"
+DBNSFP_DIR = Path(os.environ.get("DBNSFP_DIR", str(_default_dbnsfp)))
+DBNSFP_ZIP = None  # Not using zip file
+
+# GRCh37 panel database path
+VECTORDB_GRCH37_NGSGENES = DATA_DIR / "vectordb" / "grch37-ngsgenes"
 
 # dbNSFP columns to keep (from 600+)
 KEEP_COLUMNS = [
     "#chr",
     "pos(1-based)",
+    "hg19_chr",
+    "hg19_pos(1-based)",
     "ref",
     "alt",
     "aaref",

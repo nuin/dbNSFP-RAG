@@ -18,10 +18,11 @@ def load_data(filepath: Path):
     """Load and prepare training data."""
     X, y, ids = [], [], []
 
+    # Numerical features available from chunker metadata
     feature_cols = [
-        "sift_score", "polyphen2_hdiv", "polyphen2_hvar",
-        "cadd_phred", "revel", "alphamissense", "clinpred",
-        "dann", "phylop100", "phastcons100", "gerp", "gnomad_af"
+        "cadd_phred",
+        "revel_score",
+        "gnomad_af",
     ]
 
     with open(filepath) as f:

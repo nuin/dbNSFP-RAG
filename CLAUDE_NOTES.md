@@ -5,89 +5,101 @@ Hey there! Here's the context on this project:
 ## What This Is
 A RAG (Retrieval Augmented Generation) pipeline for dbNSFP variant annotation at Alberta Precision Labs. It indexes variants into a FAISS vector store and uses Ollama for LLM-based clinical interpretation.
 
-## Current State (2025-01-10)
+## Current State (2026-01-10)
 
-### Indexed Chromosomes
-| Chr | Variants | Status |
-|-----|----------|--------|
-| M | 25,481 | Done |
-| Y | 70,000 | Done |
-| 13 | 1,557,650 | Done |
-| 21 | 825,815 | Done |
-| 18 | 1,332,127 | Done |
-| **Total** | **3,811,073** | |
+### Completed
+- GRCh37 NGSgenes database built (268,954 variants)
+- Training pipeline fully operational
+- All three training types tested and working
+- Full documentation created (README.md)
+- CPU-only support added via environment variables
 
-### Database Size
-- `faiss.index`: 5.9 GB
-- `metadata.pkl`: 6.6 GB
-- Estimated final size (all chromosomes): ~270-300 GB
+### Trained Models
+| Model | Location | Performance |
+|-------|----------|-------------|
+| XGBoost Classifier | `models/classifier.xgb` | 97% accuracy, ROC-AUC 0.9965 |
+| Fine-tuned Embeddings | `models/variant-embeddings/` | Separation: 0.1349 |
+| LLM Training Data | `data/exports/NGSgenes_llm_training.alpaca.json` | 232,838 samples |
 
-### Remaining Chromosomes (in size order)
-22 → 20 → 14 → X → 15 → 8 → 9 → 10 → 4 → 16 → 5 → 7 → 6 → 12 → 17 → 11 → 3 → 19 → 2 → 1
+### Database
+- **Location:** `data/vectordb/grch37-ngsgenes/`
+- **Size:** ~695 MB (413 MB faiss.index + 282 MB metadata.pkl)
+- **Variants:** 268,954
+- **Genes:** 314 (NGSgenes panel)
 
-### Training Pipeline (NEW)
-Three training scripts ready for panel-focused fine-tuning:
+## Source Data
+Extracted dbNSFP files at: `~/Downloads/dbNSFP5.3.1a/`
 
-1. **Pathogenicity Classifier** (`training/train_classifier.py`)
-   - XGBoost on numerical features (CADD, REVEL, etc.)
-   - Uses ClinVar labels
+## Key Commands
 
-2. **LLM Fine-tuning** (`training/train_llm.py`)
-   - LoRA on Llama 3.2 via mlx-lm (Apple Silicon optimized)
-   - Instruction-response pairs for variant interpretation
+```bash
+# Build database
+uv run python -m src.main build-panel --panel NGSgenes --build grch37
 
-3. **Embedding Fine-tuning** (`training/train_embeddings.py`)
-   - Contrastive learning on sentence-transformers
-   - Improves semantic search for pathogenic/benign similarity
+# Export training data
+uv run python -m src.export --panel NGSgenes --type all --db data/vectordb/grch37-ngsgenes
 
-### Gene Panels (`src/panels.py`)
+# Train classifier
+uv run python training/train_classifier.py --input data/exports/NGSgenes_classifier_features.jsonl
+
+# Train embeddings
+uv run python training/train_embeddings.py --input data/exports/NGSgenes_embedding_pairs.jsonl
+
+# Prepare LLM data
+uv run python training/train_llm.py --input data/exports/NGSgenes_llm_training.jsonl --prepare-only
+
+# RAG interpretation
+uv run python -c "
+from src.rag import VariantRAG
+from src.config import VECTORDB_GRCH37_NGSGENES
+rag = VariantRAG(db_path=VECTORDB_GRCH37_NGSGENES, model='llama3.2:3b')
+print(rag.interpret('17_41197801_T_A'))
+"
+```
+
+## CPU-Only Usage
+
+Set environment variables for non-GPU machines:
+
+```bash
+export DBNSFP_DEVICE=cpu
+export DBNSFP_DIR=/path/to/dbNSFP5.3.1a  # Optional
+```
+
+## Gene Panels (`src/panels.py`)
 - `NGSgenes`: 314 genes (main clinical panel - cardiac + cancer)
 - `hereditary_cancer`: 25 genes
 - `cardiac`: 19 genes
 - `neurological`: 14 genes
 
-Export training data for a panel:
-```bash
-python3 src/export.py --panel NGSgenes --type all
-```
-
-## Key Commands
-
-```bash
-# Resume indexing (auto-resumes from checkpoint)
-uv run python -m src.main build
-
-# Test a variant interpretation
-uv run python -c "
-from src.rag import VariantRAG
-rag = VariantRAG(model='llama3.2:3b')
-print(rag.interpret('21_31659785_G_A'))  # SOD1 ALS variant
-"
-
-# Interactive RAG mode
-uv run python -m src.rag
-```
-
 ## Key Files
-- `src/ingest.py` - Streams from ZIP, extracts 46 columns, batches to vector store
-- `src/vectorstore.py` - FAISS wrapper with semantic search
+- `src/config.py` - Configuration (supports env vars: DBNSFP_DIR, DBNSFP_DEVICE)
+- `src/vectorstore.py` - FAISS wrapper with CPU/GPU auto-detection
 - `src/rag.py` - LLM integration with Ollama
-- `src/main.py` - CLI with checkpoint/resume support
-- `src/config.py` - Column definitions, paths
+- `src/export.py` - Training data export (supports --db parameter)
+- `src/main.py` - CLI with build-panel command
+- `training/` - Training scripts for classifier, embeddings, LLM
+- `README.md` - Full documentation
 
 ## Things That Work
-- Streaming directly from dbNSFP ZIP (no extraction needed)
+- Streaming from extracted directory
+- Gene panel filtering during ingestion
+- GRCh37 coordinate support
 - Checkpoint/resume for long indexing jobs
 - Semantic search by query or gene
-- LLM interpretation via Ollama (llama3.2:3b)
-- Multiple variant format parsing (chr:pos:ref:alt, chr_pos_ref_alt, etc.)
+- LLM interpretation via Ollama (llama3.2:3b tested)
+- XGBoost pathogenicity classifier
+- Fine-tuned embeddings for better similarity search
+- CPU-only mode via DBNSFP_DEVICE=cpu
 
-## Source Data Location
-The dbNSFP ZIP should be at: `/Users/nuin/dbNSFP5.3.1a.zip` (or update `src/config.py`)
+## Tested Variants
+```
+17_41197801_T_A  # BRCA1
+13_32953652_G_A  # BRCA2
+10_90701009_C_T  # ACTA2 (Pathogenic/Likely_pathogenic)
+```
 
 ## GitHub
 https://github.com/nuin/dbNSFP-RAG
 
-Good luck! The M1 Ultra should make indexing faster.
-
-— Previous Claude Instance
+— Claude Instance (2026-01-10)

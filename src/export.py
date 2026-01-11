@@ -3,7 +3,7 @@
 import json
 from pathlib import Path
 
-from .config import VECTORDB_DIR
+from .config import VECTORDB_DIR, VECTORDB_GRCH37_NGSGENES
 from .panels import get_panel, get_all_panel_genes, PANELS
 from .vectorstore import VariantVectorStore
 
@@ -91,6 +91,7 @@ def export_panel_variants(
 def export_for_classifier(
     panel_name: str | None = None,
     output_dir: Path | None = None,
+    db_path: Path | None = None,
 ) -> Path:
     """
     Export features for pathogenicity classifier training.
@@ -101,29 +102,24 @@ def export_for_classifier(
     output_dir.mkdir(parents=True, exist_ok=True)
 
     genes = get_panel(panel_name) if panel_name else get_all_panel_genes()
-    store = VariantVectorStore()
+    store = VariantVectorStore(db_path=db_path)
 
     rows = []
     for gene in sorted(genes):
         results = store.search_by_gene(gene, k=10000)
         for r in results:
             meta = r["metadata"]
-            # Extract numerical features
+            # Extract numerical features (using actual metadata keys from chunker)
             row = {
                 "id": r["id"],
                 "gene": gene,
-                "sift_score": meta.get("sift_score"),
-                "polyphen2_hdiv": meta.get("polyphen2_hdiv"),
-                "polyphen2_hvar": meta.get("polyphen2_hvar"),
                 "cadd_phred": meta.get("cadd_phred"),
-                "revel": meta.get("revel"),
-                "alphamissense": meta.get("alphamissense"),
-                "clinpred": meta.get("clinpred"),
-                "dann": meta.get("dann"),
-                "phylop100": meta.get("phylop100"),
-                "phastcons100": meta.get("phastcons100"),
-                "gerp": meta.get("gerp"),
-                "gnomad_af": meta.get("gnomad_exome_af"),
+                "revel_score": meta.get("revel_score"),
+                "gnomad_af": meta.get("gnomad_af"),
+                # Predictions (categorical)
+                "sift_pred": meta.get("sift_pred"),
+                "polyphen_pred": meta.get("polyphen_pred"),
+                "alphamissense_pred": meta.get("alphamissense_pred"),
                 # Label
                 "clinvar_sig": meta.get("clinvar_sig"),
             }
@@ -142,6 +138,7 @@ def export_for_classifier(
 def export_for_llm_finetuning(
     panel_name: str | None = None,
     output_dir: Path | None = None,
+    db_path: Path | None = None,
 ) -> Path:
     """
     Export instruction-response pairs for LLM fine-tuning.
@@ -152,7 +149,7 @@ def export_for_llm_finetuning(
     output_dir.mkdir(parents=True, exist_ok=True)
 
     genes = get_panel(panel_name) if panel_name else get_all_panel_genes()
-    store = VariantVectorStore()
+    store = VariantVectorStore(db_path=db_path)
 
     pairs = []
     for gene in sorted(genes):
@@ -173,8 +170,8 @@ def export_for_llm_finetuning(
                 interp = "high" if float(score) > 20 else "moderate" if float(score) > 15 else "low"
                 response_parts.append(f"CADD score: {score} ({interp} predicted deleteriousness)")
 
-            if meta.get("gnomad_exome_af"):
-                af = meta["gnomad_exome_af"]
+            if meta.get("gnomad_af"):
+                af = meta["gnomad_af"]
                 response_parts.append(f"Population frequency (gnomAD): {af}")
 
             pairs.append({
@@ -196,6 +193,7 @@ def export_for_llm_finetuning(
 def export_for_embeddings(
     panel_name: str | None = None,
     output_dir: Path | None = None,
+    db_path: Path | None = None,
 ) -> Path:
     """
     Export text pairs for embedding model fine-tuning.
@@ -206,7 +204,7 @@ def export_for_embeddings(
     output_dir.mkdir(parents=True, exist_ok=True)
 
     genes = get_panel(panel_name) if panel_name else get_all_panel_genes()
-    store = VariantVectorStore()
+    store = VariantVectorStore(db_path=db_path)
 
     # Collect variants by classification for contrastive pairs
     by_class = {"pathogenic": [], "benign": [], "uncertain": []}
@@ -270,13 +268,23 @@ if __name__ == "__main__":
         default="all",
         help="Export type"
     )
+    parser.add_argument(
+        "--db",
+        type=Path,
+        help="Path to vector database (default: grch37-ngsgenes if panel is NGSgenes)"
+    )
     args = parser.parse_args()
 
+    # Default to grch37-ngsgenes for NGSgenes panel
+    db_path = args.db
+    if db_path is None and args.panel and args.panel.lower() == "ngsgenes":
+        db_path = VECTORDB_GRCH37_NGSGENES
+
     if args.type == "classifier" or args.type == "all":
-        export_for_classifier(args.panel)
+        export_for_classifier(args.panel, db_path=db_path)
 
     if args.type == "llm" or args.type == "all":
-        export_for_llm_finetuning(args.panel)
+        export_for_llm_finetuning(args.panel, db_path=db_path)
 
     if args.type == "embeddings" or args.type == "all":
-        export_for_embeddings(args.panel)
+        export_for_embeddings(args.panel, db_path=db_path)
