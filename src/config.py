@@ -62,14 +62,23 @@ KEEP_COLUMNS = [
     "MetaSVM_pred",
     "MetaLR_score",
     "MetaLR_pred",
+    # MutationTaster
+    "MutationTaster_score",
+    "MutationTaster_pred",
+    # BayesDel
+    "BayesDel_addAF_score",
+    "BayesDel_addAF_pred",
+    # PROVEAN
+    "PROVEAN_score",
+    "PROVEAN_pred",
     # Conservation
     "phyloP100way_vertebrate",
-    "phyloP30way_mammalian",
+    "phyloP470way_mammalian",  # Updated from phyloP30way in dbNSFP 5.x
     "phastCons100way_vertebrate",
     "GERP++_RS",
-    # Population frequencies
-    "gnomAD_exomes_AF",
-    "gnomAD_genomes_AF",
+    # Population frequencies (dbNSFP 5.x column names)
+    "gnomAD4.1_joint_AF",  # gnomAD v4.1 combined exomes+genomes
+    "gnomAD2.1.1_exomes_controls_AF",  # gnomAD v2 exomes (controls)
     "1000Gp3_AF",
     # ClinVar
     "clinvar_id",
@@ -78,8 +87,6 @@ KEEP_COLUMNS = [
     "clinvar_trait",
     # Functional
     "Interpro_domain",
-    "GTEx_V8_gene",
-    "GTEx_V8_tissue",
 ]
 
 # Embedding model (all-MiniLM-L6-v2 is 5x faster than PubMedBERT)

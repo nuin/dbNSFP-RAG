@@ -60,6 +60,15 @@ async def root():
     return {"message": "ACMG Variant Classifier API", "docs": "/docs"}
 
 
+@app.get("/lookup.html", include_in_schema=False)
+async def lookup_page():
+    """Serve the dbNSFP lookup page."""
+    lookup_file = static_dir / "lookup.html"
+    if lookup_file.exists():
+        return FileResponse(str(lookup_file))
+    return {"message": "Lookup page not found"}
+
+
 # Request/Response models
 class VariantRequest(BaseModel):
     chr: str = Field(..., description="Chromosome (1-22, X, Y)")

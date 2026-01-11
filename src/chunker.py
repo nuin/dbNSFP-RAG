@@ -153,16 +153,19 @@ ClinPred: {format_prediction(row.get('ClinPred_pred'), row.get('ClinPred_score')
 DANN: {format_score(row.get('DANN_score'))}
 MetaSVM: {format_prediction(row.get('MetaSVM_pred'), row.get('MetaSVM_score'))}
 MetaLR: {format_prediction(row.get('MetaLR_pred'), row.get('MetaLR_score'))}
+MutationTaster: {format_prediction(row.get('MutationTaster_pred'), row.get('MutationTaster_score'))}
+BayesDel: {format_prediction(row.get('BayesDel_addAF_pred'), row.get('BayesDel_addAF_score'))}
+PROVEAN: {format_prediction(row.get('PROVEAN_pred'), row.get('PROVEAN_score'))}
 
 === Conservation ===
 phyloP (100-way vertebrate): {format_score(row.get('phyloP100way_vertebrate'))}
-phyloP (30-way mammalian): {format_score(row.get('phyloP30way_mammalian'))}
+phyloP (470-way mammalian): {format_score(row.get('phyloP470way_mammalian'))}
 phastCons (100-way): {format_score(row.get('phastCons100way_vertebrate'))}
 GERP++ RS: {format_score(row.get('GERP++_RS'))}
 
 === Population Frequency ===
-gnomAD exomes: {interpret_gnomad_af(row.get('gnomAD_exomes_AF'))}
-gnomAD genomes: {interpret_gnomad_af(row.get('gnomAD_genomes_AF'))}
+gnomAD v4 (joint): {interpret_gnomad_af(row.get('gnomAD4.1_joint_AF'))}
+gnomAD v2 exomes: {interpret_gnomad_af(row.get('gnomAD2.1.1_exomes_controls_AF'))}
 1000 Genomes: {interpret_gnomad_af(row.get('1000Gp3_AF'))}
 
 === Clinical Annotation ===
@@ -173,8 +176,6 @@ ClinVar trait: {row.get('clinvar_trait', 'N/A') if not pd.isna(row.get('clinvar_
 
 === Functional Annotation ===
 InterPro domain: {row.get('Interpro_domain', 'N/A') if not pd.isna(row.get('Interpro_domain')) else 'N/A'}
-GTEx gene: {row.get('GTEx_V8_gene', 'N/A') if not pd.isna(row.get('GTEx_V8_gene')) else 'N/A'}
-GTEx tissue: {row.get('GTEx_V8_tissue', 'N/A') if not pd.isna(row.get('GTEx_V8_tissue')) else 'N/A'}
 """
     return text.strip()
 
@@ -213,6 +214,11 @@ def variant_to_metadata(row: pd.Series, use_grch37: bool = False) -> dict:
         chrom = safe_str(row.get("#chr", "")).replace("chr", "")
         pos_val = row.get("pos(1-based)", 0)
 
+    # Prefer gnomAD v4, fall back to v2
+    gnomad_af = safe_float(row.get("gnomAD4.1_joint_AF"))
+    if gnomad_af is None:
+        gnomad_af = safe_float(row.get("gnomAD2.1.1_exomes_controls_AF"))
+
     return {
         "chr": chrom,
         "pos": int(pos_val) if not pd.isna(pos_val) else 0,
@@ -223,10 +229,13 @@ def variant_to_metadata(row: pd.Series, use_grch37: bool = False) -> dict:
         "cadd_phred": safe_float(row.get("CADD_phred")),
         "revel_score": safe_float(row.get("REVEL_score")),
         "clinvar_sig": safe_str(row.get("clinvar_clnsig")),
-        "gnomad_af": safe_float(row.get("gnomAD_exomes_AF")),
+        "gnomad_af": gnomad_af,
         "sift_pred": safe_str(row.get("SIFT_pred")),
         "polyphen_pred": safe_str(row.get("Polyphen2_HDIV_pred")),
         "alphamissense_pred": safe_str(row.get("AlphaMissense_pred")),
+        "mutationtaster_pred": safe_str(row.get("MutationTaster_pred")),
+        "bayesdel_pred": safe_str(row.get("BayesDel_addAF_pred")),
+        "provean_pred": safe_str(row.get("PROVEAN_pred")),
     }
 
 
