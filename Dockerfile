@@ -43,7 +43,8 @@ ARG INCLUDE_MODEL=false
 RUN if [ "$INCLUDE_MODEL" = "true" ]; then \
     pip install --no-cache-dir transformers accelerate; \
     fi
-COPY models/acmg-classifier/model/ models/acmg-classifier/model/
+# Only copy model if it exists and INCLUDE_MODEL is true
+RUN mkdir -p models/acmg-classifier/model
 
 # Environment
 ENV PYTHONUNBUFFERED=1

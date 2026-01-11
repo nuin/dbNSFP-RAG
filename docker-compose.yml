@@ -1,10 +1,12 @@
 # ACMG Variant Classification API with Ollama
 #
-# Usage:
+# Usage (CPU-only, works on any VM):
 #   docker-compose up -d
 #
 # The API will be available at http://localhost:8000
 # Ollama will be available at http://localhost:11434
+#
+# Note: First startup pulls llama3.2:3b model (~2GB), may take several minutes
 
 services:
   ollama:
@@ -19,13 +21,8 @@ services:
       interval: 30s
       timeout: 10s
       retries: 5
-    deploy:
-      resources:
-        reservations:
-          devices:
-            - driver: nvidia
-              count: all
-              capabilities: [gpu]
+      start_period: 60s
+    # No GPU requirements - runs on CPU
 
   ollama-init:
     image: ollama/ollama:latest
@@ -33,9 +30,10 @@ services:
     depends_on:
       ollama:
         condition: service_healthy
-    entrypoint: ["ollama", "pull", "llama3.2:3b"]
+    entrypoint: ["/bin/sh", "-c", "ollama pull llama3.2:3b"]
     environment:
       - OLLAMA_HOST=ollama:11434
+    network_mode: "service:ollama"
     restart: "no"
 
   api:
@@ -55,6 +53,7 @@ services:
       interval: 30s
       timeout: 10s
       retries: 3
+      start_period: 30s
 
 volumes:
   ollama_data:
