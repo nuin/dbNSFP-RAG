@@ -77,8 +77,8 @@ def database_path(project_root: Path) -> Path:
 def vectorstore(database_path: Path):
     """Load vector store for testing."""
     from src.vectorstore import VariantVectorStore
-    store = VariantVectorStore(str(database_path))
-    store.load()
+    # VariantVectorStore auto-loads index in __init__ if it exists
+    store = VariantVectorStore(db_path=database_path)
     return store
 
 

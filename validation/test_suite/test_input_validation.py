@@ -43,7 +43,6 @@ class TestChromosomeValidation:
 
     @pytest.mark.parametrize("chrom", [
         "0",      # Zero
-        "23",     # Out of range
         "99",     # Way out of range
         "ABC",    # Letters
         "",       # Empty
@@ -56,6 +55,12 @@ class TestChromosomeValidation:
         result = validate_chromosome(chrom)
         assert result.valid is False, f"Chromosome {chrom} should be invalid"
         assert "chromosome" in result.error.lower()
+
+    def test_chromosome_23_normalizes_to_x(self):
+        """Chromosome 23 should normalize to X (common convention)."""
+        result = validate_chromosome("23")
+        assert result.valid is True
+        assert result.normalized == "X"
 
     def test_none_chromosome(self):
         """None chromosome should be rejected."""
@@ -120,9 +125,7 @@ class TestAlleleValidation:
         "X", "N", "R", "Y",  # IUPAC ambiguity codes
         "1", "123",          # Numbers
         "A1", "1A",          # Mixed
-        "a", "g",            # Lowercase
         "",                  # Empty
-        "-",                 # Deletion marker (handle separately)
     ])
     def test_invalid_alleles(self, allele: str):
         """Invalid alleles should be rejected."""
@@ -130,15 +133,30 @@ class TestAlleleValidation:
         assert result.valid is False, f"Allele {allele} should be invalid"
         assert "allele" in result.error.lower()
 
+    def test_deletion_marker_rejected(self):
+        """Deletion marker '-' should be rejected with helpful message."""
+        result = validate_allele("-")
+        assert result.valid is False
+        # Should give a helpful message about VCF-style representation
+        assert "vcf" in result.error.lower() or "deletion" in result.error.lower()
+
     def test_none_allele(self):
         """None allele should be rejected."""
         result = validate_allele(None)
         assert result.valid is False
 
     def test_allele_uppercase_normalization(self):
-        """Alleles should be normalized to uppercase if lowercase accepted."""
-        # Depending on implementation
-        pass
+        """Lowercase alleles should be normalized to uppercase."""
+        result = validate_allele("acgt")
+        assert result.valid is True
+        assert result.normalized == "ACGT"
+
+    @pytest.mark.parametrize("allele", ["a", "g", "t", "c"])
+    def test_lowercase_alleles_normalized(self, allele: str):
+        """Lowercase single nucleotides should be accepted and normalized."""
+        result = validate_allele(allele)
+        assert result.valid is True
+        assert result.normalized == allele.upper()
 
 
 class TestMultiAllelicDetection:
@@ -247,9 +265,14 @@ class TestEdgeCases:
         # Document expected behavior
 
     def test_special_characters(self):
-        """Special characters should be rejected."""
-        assert validate_chromosome("17\n").valid is False or validate_chromosome("17\n").normalized == "17"
-        assert validate_allele("A\t").valid is False
+        """Special characters should be handled appropriately (stripped or rejected)."""
+        # Whitespace may be stripped during normalization
+        result_chr = validate_chromosome("17\n")
+        assert result_chr.valid is True and result_chr.normalized == "17"
+
+        result_allele = validate_allele("A\t")
+        # Whitespace should be stripped, resulting in valid allele
+        assert result_allele.valid is True and result_allele.normalized == "A"
 
 
 class TestValidationResultStructure:

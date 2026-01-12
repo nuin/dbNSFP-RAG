@@ -30,9 +30,15 @@ from pydantic import BaseModel, Field
 import sys
 sys.path.insert(0, str(Path(__file__).parent.parent))
 
+# Research Use Only disclaimer
+RUO_DISCLAIMER = (
+    "FOR RESEARCH USE ONLY. Not for use in diagnostic procedures. "
+    "Classifications require independent expert review before any clinical decision-making."
+)
+
 app = FastAPI(
     title="ACMG Variant Classifier",
-    description="Classify genetic variants according to ACMG/AMP guidelines",
+    description=f"Classify genetic variants according to ACMG/AMP guidelines.\n\n**{RUO_DISCLAIMER}**",
     version="1.0.0",
 )
 
@@ -100,6 +106,8 @@ class ClassificationResponse(BaseModel):
     confidence: float = Field(..., description="Classification confidence (0-1)")
     interpretation: str = Field(..., description="Full interpretation text")
     scores: dict = Field(default_factory=dict, description="Pathogenicity scores")
+    genome_build: str = Field(default="GRCh37", description="Genome build used for coordinates")
+    disclaimer: str = Field(default=RUO_DISCLAIMER, description="Research use disclaimer")
 
 
 class HealthResponse(BaseModel):
@@ -107,6 +115,9 @@ class HealthResponse(BaseModel):
     model_loaded: bool
     database_loaded: bool
     variant_count: int
+    genome_build: str = "GRCh37"
+    dbnsfp_version: str = "5.3.1a"
+    disclaimer: str = RUO_DISCLAIMER
 
 
 # Global model and database instances
@@ -421,6 +432,9 @@ async def lookup_variant(
         "transcript": meta.get("transcript"),
         "metadata": meta,
         "full_annotation": document,
+        "genome_build": "GRCh37",
+        "dbnsfp_version": "5.3.1a",
+        "disclaimer": RUO_DISCLAIMER,
     }
 
 
