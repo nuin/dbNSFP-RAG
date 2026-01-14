@@ -73,13 +73,16 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     && rm -rf /var/lib/apt/lists/*
 
 # Install Python dependencies
+# IMPORTANT: numpy<2 required for faiss-cpu compatibility
+RUN pip install --no-cache-dir \
+    "numpy>=1.24.0,<2.0.0" \
+    faiss-cpu==1.7.4
+
 RUN pip install --no-cache-dir \
     fastapi==0.109.0 \
     uvicorn[standard]==0.27.0 \
     pydantic==2.5.3 \
     sentence-transformers==2.2.2 \
-    faiss-cpu==1.7.4 \
-    numpy==1.26.3 \
     pandas==2.1.4 \
     requests==2.31.0
 
