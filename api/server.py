@@ -179,12 +179,45 @@ _vectorstores = {}  # Cache vectorstores by genome build
 
 
 def get_model():
-    """Load fine-tuned model (lazy loading)."""
+    """Load fine-tuned model (lazy loading).
+
+    Tries backends in order:
+    1. llama-cpp-python (GGUF model for CPU/GPU inference)
+    2. mlx-lm (Apple Silicon)
+    3. transformers (NVIDIA GPU or CPU)
+    4. Ollama (external service fallback)
+    """
     global _model
     if _model is None:
         model_path = os.environ.get("ACMG_MODEL_PATH", "models/acmg-classifier/model")
+        gguf_model_path = os.environ.get("LLM_MODEL_PATH", "/app/models/model.gguf")
+        use_bundled_llm = os.environ.get("USE_BUNDLED_LLM", "false").lower() == "true"
 
-        # Try mlx-lm first (Apple Silicon)
+        # Try llama-cpp-python first (bundled GGUF model for Docker deployment)
+        if use_bundled_llm or Path(gguf_model_path).exists():
+            try:
+                from llama_cpp import Llama
+                n_ctx = int(os.environ.get("LLM_N_CTX", "4096"))
+                n_threads = int(os.environ.get("LLM_N_THREADS", "4"))
+                n_gpu_layers = int(os.environ.get("LLM_N_GPU_LAYERS", "0"))
+
+                print(f"Loading GGUF model from {gguf_model_path}...")
+                llm = Llama(
+                    model_path=gguf_model_path,
+                    n_ctx=n_ctx,
+                    n_threads=n_threads,
+                    n_gpu_layers=n_gpu_layers,
+                    verbose=False,
+                )
+                _model = {"type": "llama_cpp", "model": llm}
+                print(f"Loaded llama.cpp model (n_ctx={n_ctx}, threads={n_threads})")
+                return _model
+            except ImportError:
+                print("llama-cpp-python not installed, trying other backends...")
+            except Exception as e:
+                print(f"llama.cpp model load failed: {e}")
+
+        # Try mlx-lm (Apple Silicon)
         try:
             from mlx_lm import load, generate  # noqa: F401 - generate is used in generate_classification()
             model, tokenizer = load(model_path)
@@ -245,7 +278,33 @@ def generate_classification(variant_input: str, model_info: dict) -> str:
     # Instruction matching training format
     instruction = "Classify this variant according to ACMG/AMP guidelines and provide the evidence criteria."
 
-    if model_info["type"] == "ollama":
+    if model_info["type"] == "llama_cpp":
+        # llama-cpp-python backend (GGUF model for Docker deployment)
+        llm = model_info["model"]
+
+        # System prompt for ACMG classification
+        system_prompt = """You are an expert clinical geneticist performing ACMG/AMP variant classification.
+Analyze the variant data provided and classify it according to the ACMG/AMP 2015 guidelines.
+Provide the classification (Pathogenic, Likely_pathogenic, Uncertain_significance, Likely_benign, or Benign)
+followed by the specific ACMG criteria that support your classification."""
+
+        # Generate using chat format
+        messages = [
+            {"role": "system", "content": system_prompt},
+            {"role": "user", "content": f"{instruction}\n\n{variant_input}"}
+        ]
+
+        response = llm.create_chat_completion(
+            messages=messages,
+            max_tokens=512,
+            temperature=0.1,
+            top_p=0.9,
+            repeat_penalty=1.1,
+        )
+
+        return response["choices"][0]["message"]["content"]
+
+    elif model_info["type"] == "ollama":
         # Ollama uses raw prompt (not fine-tuned)
         prompt = f"{instruction}\n\n{variant_input}\n\nACMG Classification:"
         import requests

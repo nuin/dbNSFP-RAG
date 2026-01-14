@@ -1,0 +1,120 @@
+# ACMG Variant Classification API - Single Bundled Image
+#
+# This Dockerfile creates a self-contained image with:
+# - FastAPI application
+# - LLM (Llama 3.2 3B Instruct GGUF for CPU inference)
+# - Vector database (GRCh37 NGSgenes panel)
+# - All dependencies
+#
+# Build:
+#   docker build -f Dockerfile.bundled -t acmg-api:bundled .
+#
+# Run:
+#   docker run -p 8000:8000 acmg-api:bundled
+#
+# Environment variables:
+#   LLM_N_THREADS=4      Number of CPU threads for inference
+#   LLM_N_CTX=4096       Context window size
+#   LLM_N_GPU_LAYERS=0   GPU layers (0 for CPU-only)
+#
+# Image size: ~8-10GB (model: ~2GB, database: ~2GB, deps: ~4GB)
+
+# =============================================================================
+# Stage 1: Download model from Hugging Face
+# =============================================================================
+FROM python:3.11-slim AS model-downloader
+
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    curl \
+    && rm -rf /var/lib/apt/lists/*
+
+RUN pip install --no-cache-dir huggingface_hub
+
+# Download Llama 3.2 3B Instruct GGUF (Q4_K_M quantization)
+RUN mkdir -p /models && \
+    python -c "from huggingface_hub import hf_hub_download; \
+    hf_hub_download( \
+        repo_id='bartowski/Llama-3.2-3B-Instruct-GGUF', \
+        filename='Llama-3.2-3B-Instruct-Q4_K_M.gguf', \
+        local_dir='/models' \
+    )"
+
+# =============================================================================
+# Stage 2: Build llama-cpp-python with CPU optimizations
+# =============================================================================
+FROM python:3.11-slim AS builder
+
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    build-essential \
+    cmake \
+    git \
+    libopenblas-dev \
+    && rm -rf /var/lib/apt/lists/*
+
+# Build llama-cpp-python with OpenBLAS for better CPU performance
+ENV CMAKE_ARGS="-DGGML_BLAS=ON -DGGML_BLAS_VENDOR=OpenBLAS"
+RUN pip wheel --no-cache-dir --wheel-dir=/wheels llama-cpp-python==0.2.90
+
+# =============================================================================
+# Stage 3: Final runtime image
+# =============================================================================
+FROM python:3.11-slim
+
+WORKDIR /app
+
+# Install runtime dependencies
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    curl \
+    libopenblas0 \
+    libgomp1 \
+    && rm -rf /var/lib/apt/lists/*
+
+# Install Python dependencies
+RUN pip install --no-cache-dir \
+    fastapi==0.109.0 \
+    uvicorn[standard]==0.27.0 \
+    pydantic==2.5.3 \
+    sentence-transformers==2.2.2 \
+    faiss-cpu==1.7.4 \
+    numpy==1.26.3 \
+    pandas==2.1.4 \
+    requests==2.31.0
+
+# Install PyTorch CPU-only (smaller than full torch)
+RUN pip install --no-cache-dir \
+    torch==2.2.0 --index-url https://download.pytorch.org/whl/cpu
+
+# Install llama-cpp-python from builder
+COPY --from=builder /wheels/*.whl /tmp/wheels/
+RUN pip install --no-cache-dir /tmp/wheels/*.whl && rm -rf /tmp/wheels
+
+# Copy model from downloader stage
+COPY --from=model-downloader /models/Llama-3.2-3B-Instruct-Q4_K_M.gguf /app/models/model.gguf
+
+# Copy application code
+COPY src/ src/
+COPY api/ api/
+
+# Copy vector database (this is the largest layer)
+COPY data/vectordb/grch37-ngsgenes/ data/vectordb/grch37-ngsgenes/
+
+# Environment variables
+ENV PYTHONUNBUFFERED=1
+ENV PYTHONDONTWRITEBYTECODE=1
+ENV DBNSFP_DEVICE=cpu
+ENV ACMG_DB_PATH=/app/data/vectordb/grch37-ngsgenes
+ENV LLM_MODEL_PATH=/app/models/model.gguf
+ENV LLM_N_CTX=4096
+ENV LLM_N_THREADS=4
+ENV LLM_N_GPU_LAYERS=0
+ENV USE_BUNDLED_LLM=true
+
+# Expose port
+EXPOSE 8000
+
+# Health check - give more time for model loading
+HEALTHCHECK --interval=30s --timeout=30s --start-period=180s --retries=3 \
+    CMD curl -f http://localhost:8000/health || exit 1
+
+# Start the API server
+CMD ["uvicorn", "api.server:app", "--host", "0.0.0.0", "--port", "8000"]
