@@ -72,23 +72,24 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     libgomp1 \
     && rm -rf /var/lib/apt/lists/*
 
-# Install Python dependencies
-# IMPORTANT: numpy<2 required for faiss-cpu compatibility
+# Install PyTorch CPU-only first (smaller than full torch)
+RUN pip install --no-cache-dir \
+    torch==2.2.0 --index-url https://download.pytorch.org/whl/cpu
+
+# Install all Python dependencies together with numpy constraint
+# CRITICAL: numpy<2 required for faiss-cpu compatibility
 RUN pip install --no-cache-dir \
     "numpy>=1.24.0,<2.0.0" \
-    faiss-cpu==1.7.4
-
-RUN pip install --no-cache-dir \
+    faiss-cpu==1.7.4 \
     fastapi==0.109.0 \
     uvicorn[standard]==0.27.0 \
     pydantic==2.5.3 \
-    sentence-transformers==2.2.2 \
+    "sentence-transformers>=2.2.2,<3.0.0" \
     pandas==2.1.4 \
     requests==2.31.0
 
-# Install PyTorch CPU-only (smaller than full torch)
-RUN pip install --no-cache-dir \
-    torch==2.2.0 --index-url https://download.pytorch.org/whl/cpu
+# Verify numpy version is correct
+RUN python -c "import numpy; assert int(numpy.__version__.split('.')[0]) < 2, f'numpy 2.x detected: {numpy.__version__}'"
 
 # Install llama-cpp-python from builder
 COPY --from=builder /wheels/*.whl /tmp/wheels/
