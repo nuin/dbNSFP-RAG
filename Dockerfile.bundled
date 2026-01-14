@@ -91,9 +91,9 @@ RUN pip install --no-cache-dir \
 # Verify numpy version is correct
 RUN python -c "import numpy; assert int(numpy.__version__.split('.')[0]) < 2, f'numpy 2.x detected: {numpy.__version__}'"
 
-# Install llama-cpp-python from builder (with numpy constraint to prevent upgrade)
-COPY --from=builder /wheels/*.whl /tmp/wheels/
-RUN pip install --no-cache-dir "numpy>=1.24.0,<2.0.0" /tmp/wheels/*.whl && rm -rf /tmp/wheels
+# Install llama-cpp-python from builder (only the llama wheel, not numpy)
+COPY --from=builder /wheels/llama_cpp_python*.whl /tmp/wheels/
+RUN pip install --no-cache-dir /tmp/wheels/llama_cpp_python*.whl && rm -rf /tmp/wheels
 
 # Final verification - fail build if numpy 2.x
 RUN python -c "import numpy; v=numpy.__version__; print(f'numpy={v}'); assert int(v.split('.')[0]) < 2, f'FATAL: numpy 2.x ({v})'" && \
