@@ -48,12 +48,15 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     build-essential \
     cmake \
     git \
+    pkg-config \
     libopenblas-dev \
     && rm -rf /var/lib/apt/lists/*
 
 # Build llama-cpp-python with OpenBLAS for better CPU performance
-ENV CMAKE_ARGS="-DGGML_BLAS=ON -DGGML_BLAS_VENDOR=OpenBLAS"
-RUN pip wheel --no-cache-dir --wheel-dir=/wheels llama-cpp-python==0.2.90
+ENV CMAKE_ARGS="-DGGML_BLAS=ON -DGGML_BLAS_VENDOR=OpenBLAS -DGGML_NATIVE=OFF"
+ENV FORCE_CMAKE=1
+RUN pip install --no-cache-dir scikit-build-core cmake ninja && \
+    pip wheel --no-cache-dir --wheel-dir=/wheels llama-cpp-python==0.3.4
 
 # =============================================================================
 # Stage 3: Final runtime image
