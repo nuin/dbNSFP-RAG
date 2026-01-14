@@ -30,6 +30,22 @@ from pydantic import BaseModel, Field
 import sys
 sys.path.insert(0, str(Path(__file__).parent.parent))
 
+# Import validation module
+from src.validation import validate_variant, validate_reference_against_database
+
+# Import ACMG scoring module
+from src.acmg_scoring import score_variant_from_metadata, evaluate_all_criteria
+
+# Import ClinVar API client (optional, for PS1/PM5 evaluation)
+try:
+    from src.clinvar_api import ClinVarClient
+    CLINVAR_CLIENT = ClinVarClient(email="dbnsfp-api@localhost")
+except ImportError:
+    CLINVAR_CLIENT = None
+
+# Import evidence links generator
+from src.evidence_links import generate_evidence_links
+
 # Research Use Only disclaimer
 RUO_DISCLAIMER = (
     "FOR RESEARCH USE ONLY. Not for use in diagnostic procedures. "
@@ -62,7 +78,10 @@ async def root():
     """Serve the web interface."""
     index_file = static_dir / "index.html"
     if index_file.exists():
-        return FileResponse(str(index_file))
+        return FileResponse(
+            str(index_file),
+            headers={"Cache-Control": "no-cache, no-store, must-revalidate"}
+        )
     return {"message": "ACMG Variant Classifier API", "docs": "/docs"}
 
 
@@ -75,12 +94,17 @@ async def lookup_page():
     return {"message": "Lookup page not found"}
 
 
+# Supported genome builds
+SUPPORTED_BUILDS = {"GRCh37", "GRCh38"}
+
+
 # Request/Response models
 class VariantRequest(BaseModel):
     chr: str = Field(..., description="Chromosome (1-22, X, Y)")
     pos: int = Field(..., description="Position (1-based)")
     ref: str = Field(..., description="Reference allele")
     alt: str = Field(..., description="Alternate allele")
+    genome_build: str = Field(default="GRCh37", description="Genome build (GRCh37 or GRCh38)")
 
     class Config:
         json_schema_extra = {
@@ -88,7 +112,8 @@ class VariantRequest(BaseModel):
                 "chr": "17",
                 "pos": 41197801,
                 "ref": "T",
-                "alt": "A"
+                "alt": "A",
+                "genome_build": "GRCh37"
             }
         }
 
@@ -98,16 +123,44 @@ class ACMGCriteria(BaseModel):
     description: str = Field(..., description="Evidence description")
 
 
+class ACMGCriteriaDetail(BaseModel):
+    """Detailed ACMG criterion with full information from rule-based scoring."""
+    code: str = Field(..., description="ACMG criteria code (e.g., PVS1, PS1, PM2)")
+    name: str = Field(..., description="Criterion name")
+    short_name: str = Field(..., description="Short display name")
+    description: str = Field(..., description="Full description of the criterion")
+    strength: str = Field(..., description="Evidence strength (very_strong, strong, moderate, supporting)")
+    evidence_type: str = Field(..., description="Evidence type (pathogenic or benign)")
+    category: str = Field(..., description="Category (population, computation, intrinsic, clinical, literature)")
+    status: str = Field(default="met", description="Evaluation status: met, not_met, or not_evaluated")
+    evidence: Optional[str] = Field(None, description="Specific evidence/explanation for this variant")
+
+
+class ClinVarAnnotation(BaseModel):
+    """ClinVar annotation data."""
+    id: Optional[str] = Field(None, description="ClinVar ID (e.g., RCV001234567)")
+    significance: Optional[str] = Field(None, description="Clinical significance")
+    review_status: Optional[str] = Field(None, description="Review status (e.g., 'criteria_provided,_multiple_submitters,_no_conflicts')")
+    trait: Optional[str] = Field(None, description="Associated disease/phenotype")
+
+
 class ClassificationResponse(BaseModel):
     variant_id: str = Field(..., description="Variant identifier (chr_pos_ref_alt)")
     gene: Optional[str] = Field(None, description="Gene symbol")
     acmg_classification: str = Field(..., description="ACMG 5-tier classification")
-    criteria: list[ACMGCriteria] = Field(default_factory=list, description="Applied ACMG criteria")
+    criteria: list[ACMGCriteria] = Field(default_factory=list, description="Applied ACMG criteria (legacy, from LLM)")
+    criteria_met: list[ACMGCriteriaDetail] = Field(default_factory=list, description="Met ACMG criteria with full details")
+    all_criteria: list[ACMGCriteriaDetail] = Field(default_factory=list, description="All 28 ACMG criteria with evaluation status")
+    rule_applied: str = Field(default="", description="ACMG combining rule that was applied")
+    scoring_method: str = Field(default="rule_based", description="Classification method: 'rule_based' or 'llm_fallback'")
     confidence: float = Field(..., description="Classification confidence (0-1)")
     interpretation: str = Field(..., description="Full interpretation text")
     scores: dict = Field(default_factory=dict, description="Pathogenicity scores")
+    clinvar: Optional[ClinVarAnnotation] = Field(None, description="ClinVar annotation if available")
+    evidence_links: dict = Field(default_factory=dict, description="Links to external databases for evidence verification")
     genome_build: str = Field(default="GRCh37", description="Genome build used for coordinates")
     disclaimer: str = Field(default=RUO_DISCLAIMER, description="Research use disclaimer")
+    scoring_notes: list[str] = Field(default_factory=list, description="Additional notes from scoring")
 
 
 class HealthResponse(BaseModel):
@@ -122,7 +175,7 @@ class HealthResponse(BaseModel):
 
 # Global model and database instances
 _model = None
-_vectorstore = None
+_vectorstores = {}  # Cache vectorstores by genome build
 
 
 def get_model():
@@ -133,7 +186,7 @@ def get_model():
 
         # Try mlx-lm first (Apple Silicon)
         try:
-            from mlx_lm import load, generate
+            from mlx_lm import load, generate  # noqa: F401 - generate is used in generate_classification()
             model, tokenizer = load(model_path)
             _model = {"type": "mlx", "model": model, "tokenizer": tokenizer}
             print(f"Loaded MLX model from {model_path}")
@@ -165,30 +218,36 @@ def get_model():
     return _model
 
 
-def get_vectorstore():
-    """Load vector database (lazy loading)."""
-    global _vectorstore
-    if _vectorstore is None:
+def get_vectorstore(genome_build: str = "GRCh37"):
+    """Load vector database for specified genome build (lazy loading)."""
+    global _vectorstores
+
+    if genome_build not in SUPPORTED_BUILDS:
+        raise ValueError(f"Unsupported genome build: {genome_build}. Must be one of {SUPPORTED_BUILDS}")
+
+    if genome_build not in _vectorstores:
         from src.vectorstore import VariantVectorStore
-        from src.config import VECTORDB_GRCH37_NGSGENES
+        from src.config import VECTORDB_GRCH37_NGSGENES, VECTORDB_GRCH38_NGSGENES
 
-        db_path = os.environ.get("ACMG_DB_PATH", str(VECTORDB_GRCH37_NGSGENES))
-        _vectorstore = VariantVectorStore(db_path=Path(db_path))
-        print(f"Loaded database with {_vectorstore.count()} variants")
+        if genome_build == "GRCh37":
+            db_path = os.environ.get("ACMG_DB_PATH", str(VECTORDB_GRCH37_NGSGENES))
+        else:
+            db_path = os.environ.get("ACMG_DB_PATH_GRCH38", str(VECTORDB_GRCH38_NGSGENES))
 
-    return _vectorstore
+        _vectorstores[genome_build] = VariantVectorStore(db_path=Path(db_path))
+        print(f"Loaded {genome_build} database with {_vectorstores[genome_build].count()} variants")
+
+    return _vectorstores[genome_build]
 
 
 def generate_classification(variant_input: str, model_info: dict) -> str:
     """Generate ACMG classification using the model."""
-    # Use exact format from training data
-    prompt = f"""Classify this variant according to ACMG/AMP guidelines and provide the evidence criteria.
-
-{variant_input}
-
-ACMG Classification:"""
+    # Instruction matching training format
+    instruction = "Classify this variant according to ACMG/AMP guidelines and provide the evidence criteria."
 
     if model_info["type"] == "ollama":
+        # Ollama uses raw prompt (not fine-tuned)
+        prompt = f"{instruction}\n\n{variant_input}\n\nACMG Classification:"
         import requests
         ollama_host = os.environ.get("OLLAMA_HOST", "localhost:11434")
         if not ollama_host.startswith("http"):
@@ -206,14 +265,37 @@ ACMG Classification:"""
 
     elif model_info["type"] == "mlx":
         from mlx_lm import generate
+        from mlx_lm.sample_utils import make_sampler
         model = model_info["model"]
         tokenizer = model_info["tokenizer"]
-        return generate(model, tokenizer, prompt=prompt, max_tokens=300)
+
+        # Apply chat template to match training format
+        messages = [
+            {"role": "user", "content": f"{instruction}\n\n{variant_input}"}
+        ]
+        prompt = tokenizer.apply_chat_template(
+            messages,
+            tokenize=False,
+            add_generation_prompt=True
+        )
+        # Use low temperature for consistent classification
+        sampler = make_sampler(temp=0.1)
+        return generate(model, tokenizer, prompt=prompt, max_tokens=500, sampler=sampler)
 
     elif model_info["type"] == "transformers":
         model = model_info["model"]
         tokenizer = model_info["tokenizer"]
         device = model_info["device"]
+
+        # Apply chat template to match training format
+        messages = [
+            {"role": "user", "content": f"{instruction}\n\n{variant_input}"}
+        ]
+        prompt = tokenizer.apply_chat_template(
+            messages,
+            tokenize=False,
+            add_generation_prompt=True
+        )
 
         inputs = tokenizer(prompt, return_tensors="pt")
         if device == "cuda":
@@ -222,10 +304,15 @@ ACMG Classification:"""
         outputs = model.generate(
             **inputs,
             max_new_tokens=500,
-            temperature=0.7,
+            temperature=0.1,  # Low temperature for consistent output
             do_sample=True,
         )
-        return tokenizer.decode(outputs[0], skip_special_tokens=True)
+        # Extract only the generated response (after the prompt)
+        full_output = tokenizer.decode(outputs[0], skip_special_tokens=True)
+        # Return just the assistant's response
+        if "assistant" in full_output.lower():
+            return full_output.split("assistant")[-1].strip()
+        return full_output
 
     return "Classification unavailable"
 
@@ -267,17 +354,130 @@ def parse_classification_response(response: str) -> tuple[str, list[dict], float
     return acmg_class, criteria, confidence
 
 
+def generate_acmg_interpretation(
+    acmg_score,
+    gene: str,
+    variant_id: str,
+    scores: dict,
+    clinvar_sig: str | None = None
+) -> str:
+    """Generate a clinical interpretation from ACMG rule-based scoring.
+
+    Creates a clear, evidence-based interpretation that aligns with the
+    ACMG/AMP guidelines and the criteria actually applied.
+    """
+    classification = acmg_score.classification.value.replace("_", " ")
+    criteria_met = acmg_score.criteria_met
+    rule = acmg_score.rule_applied
+
+    # Build interpretation text
+    lines = []
+
+    # Classification summary
+    lines.append(f"**ACMG Classification: {classification}**")
+    lines.append("")
+
+    if rule:
+        lines.append(f"*Classification Rule: {rule}*")
+        lines.append("")
+
+    # Gene context
+    if gene:
+        lines.append(f"This variant in **{gene}** has been classified as **{classification}** based on the following evidence:")
+    else:
+        lines.append(f"This variant has been classified as **{classification}** based on the following evidence:")
+    lines.append("")
+
+    # Evidence summary by category
+    if criteria_met:
+        pathogenic_criteria = [c for c in criteria_met if c.evidence_type.value == "pathogenic"]
+        benign_criteria = [c for c in criteria_met if c.evidence_type.value == "benign"]
+
+        if pathogenic_criteria:
+            lines.append("**Pathogenic Evidence:**")
+            for c in pathogenic_criteria:
+                strength_label = c.strength.value.replace("_", " ").title()
+                lines.append(f"- **{c.code}** ({strength_label}): {c.name}")
+                if c.evidence:
+                    lines.append(f"  - {c.evidence}")
+            lines.append("")
+
+        if benign_criteria:
+            lines.append("**Benign Evidence:**")
+            for c in benign_criteria:
+                strength_label = c.strength.value.replace("_", " ").title()
+                lines.append(f"- **{c.code}** ({strength_label}): {c.name}")
+                if c.evidence:
+                    lines.append(f"  - {c.evidence}")
+            lines.append("")
+    else:
+        lines.append("No specific ACMG criteria were met based on available evidence.")
+        lines.append("")
+
+    # ClinVar concordance
+    if clinvar_sig:
+        lines.append("**ClinVar Annotation:**")
+        lines.append(f"ClinVar reports this variant as: {clinvar_sig}")
+        # Check concordance
+        clinvar_lower = clinvar_sig.lower()
+        classification_lower = classification.lower()
+        if clinvar_lower in classification_lower or classification_lower in clinvar_lower:
+            lines.append("✓ Rule-based classification is concordant with ClinVar.")
+        elif "pathogenic" in clinvar_lower and "benign" in classification_lower:
+            lines.append("⚠ Discordance: Rule-based classification differs from ClinVar. Expert review recommended.")
+        elif "benign" in clinvar_lower and "pathogenic" in classification_lower:
+            lines.append("⚠ Discordance: Rule-based classification differs from ClinVar. Expert review recommended.")
+        lines.append("")
+
+    # Key scores summary
+    if scores:
+        lines.append("**Key Scores:**")
+        score_items = []
+        if "gnomad_af" in scores and scores["gnomad_af"] is not None:
+            af = scores["gnomad_af"]
+            if af >= 0.01:
+                score_items.append(f"gnomAD AF: {af*100:.2f}% (common)")
+            elif af >= 0.001:
+                score_items.append(f"gnomAD AF: {af*100:.3f}% (low frequency)")
+            else:
+                score_items.append(f"gnomAD AF: {af:.2e} (rare)")
+        if "cadd_phred" in scores and scores["cadd_phred"] is not None:
+            cadd = scores["cadd_phred"]
+            label = "high" if cadd >= 20 else "moderate" if cadd >= 10 else "low"
+            score_items.append(f"CADD: {cadd:.1f} ({label})")
+        if "revel_score" in scores and scores["revel_score"] is not None:
+            revel = scores["revel_score"]
+            label = "pathogenic" if revel >= 0.5 else "uncertain" if revel >= 0.25 else "benign"
+            score_items.append(f"REVEL: {revel:.3f} ({label})")
+        if score_items:
+            lines.append(", ".join(score_items))
+        lines.append("")
+
+    # Disclaimer
+    lines.append("---")
+    lines.append("*This classification is based on automated ACMG/AMP rule application. Expert review is required before clinical use.*")
+
+    return "\n".join(lines)
+
+
 @app.get("/health", response_model=HealthResponse)
-async def health_check():
+async def health_check(genome_build: str = Query(default="GRCh37", description="Genome build")):
     """Check API health and model status."""
     model = get_model()
-    store = get_vectorstore()
+    try:
+        store = get_vectorstore(genome_build)
+        db_loaded = True
+        count = store.count()
+    except Exception:
+        db_loaded = False
+        count = 0
 
     return HealthResponse(
         status="healthy",
         model_loaded=model is not None,
-        database_loaded=store is not None,
-        variant_count=store.count() if store else 0,
+        database_loaded=db_loaded,
+        variant_count=count,
+        genome_build=genome_build,
     )
 
 
@@ -287,9 +487,10 @@ async def classify_variant_get(
     pos: int = Query(..., description="Position"),
     ref: str = Query(..., description="Reference allele"),
     alt: str = Query(..., description="Alternate allele"),
+    genome_build: str = Query(default="GRCh37", description="Genome build (GRCh37 or GRCh38)"),
 ):
     """Classify a variant using GET parameters."""
-    return await classify_variant(VariantRequest(chr=chr, pos=pos, ref=ref, alt=alt))
+    return await classify_variant(VariantRequest(chr=chr, pos=pos, ref=ref, alt=alt, genome_build=genome_build))
 
 
 @app.post("/classify", response_model=ClassificationResponse)
@@ -301,19 +502,54 @@ async def classify_variant(request: VariantRequest):
     Uncertain significance, Likely benign, Benign) along with
     supporting evidence criteria.
     """
-    # Normalize chromosome
-    chrom = request.chr.replace("chr", "")
-    variant_id = f"{chrom}_{request.pos}_{request.ref}_{request.alt}"
+    # Validate genome build
+    genome_build = request.genome_build
+    if genome_build not in SUPPORTED_BUILDS:
+        raise HTTPException(status_code=400, detail=f"Unsupported genome build: {genome_build}. Must be GRCh37 or GRCh38")
+
+    # Validate input
+    validation = validate_variant(request.chr, request.pos, request.ref, request.alt)
+    if not validation.valid:
+        raise HTTPException(
+            status_code=400,
+            detail={
+                "error": validation.error,
+                "suggestion": "Check chromosome (1-22, X, Y, M), position (positive integer), alleles (ACGT only)"
+            }
+        )
+
+    # Use normalized variant ID from validation
+    variant_id = validation.variant_id
+    # Extract normalized chromosome from variant_id (format: chr_pos_ref_alt)
+    chrom = variant_id.split("_")[0]
 
     # Try to find in database first
-    store = get_vectorstore()
+    store = get_vectorstore(genome_build)
     variant_data = store.get_by_id(variant_id)
 
     scores = {}
     gene = None
+    ref_normalized = request.ref.upper()
+    alt_normalized = request.alt.upper()
 
     if variant_data:
         meta = variant_data["metadata"]
+
+        # Validate reference allele against database
+        stored_ref = meta.get("ref")
+        if stored_ref:
+            ref_check = validate_reference_against_database(variant_id, request.ref, stored_ref)
+            if not ref_check.valid:
+                raise HTTPException(
+                    status_code=400,
+                    detail={
+                        "error": ref_check.error,
+                        "expected_ref": stored_ref,
+                        "provided_ref": request.ref,
+                        "suggestion": "Verify your coordinates match the genome build"
+                    }
+                )
+
         gene = meta.get("gene")
         scores = {
             "cadd_phred": meta.get("cadd_phred"),
@@ -324,39 +560,135 @@ async def classify_variant(request: VariantRequest):
         }
         scores = {k: v for k, v in scores.items() if v is not None}
 
-        # Format input for model
-        variant_input = f"""Variant: chr{chrom}:{request.pos} {request.ref}>{request.alt}
-Gene: {gene}"""
-        for key, value in scores.items():
-            variant_input += f"\n{key}: {value}"
+        # Extract ClinVar data if available
+        clinvar_sig = meta.get("clinvar_sig")
+        if clinvar_sig:
+            clinvar_data = ClinVarAnnotation(
+                id=meta.get("clinvar_id") or None,
+                significance=clinvar_sig or None,
+                review_status=meta.get("clinvar_review") or None,
+                trait=meta.get("clinvar_trait") or None,
+            )
+        else:
+            clinvar_data = None
+
+        # Use rule-based ACMG scoring as PRIMARY classification
+        acmg_score = score_variant_from_metadata(meta)
+
+        # Convert criteria_met to response format
+        criteria_met_details = [
+            ACMGCriteriaDetail(
+                code=c.code,
+                name=c.name,
+                short_name=c.short_name,
+                description=c.description,
+                strength=c.strength.value,
+                evidence_type=c.evidence_type.value,
+                category=c.category,
+                status=c.status.value,
+                evidence=c.evidence,
+            )
+            for c in acmg_score.criteria_met
+        ]
+
+        # Evaluate ALL 28 criteria with explanations
+        # Pass ClinVar client for PS1/PM5 evaluation if available
+        all_criteria_list = evaluate_all_criteria(meta, clinvar_client=CLINVAR_CLIENT)
+        all_criteria_details = [
+            ACMGCriteriaDetail(
+                code=c.code,
+                name=c.name,
+                short_name=c.short_name,
+                description=c.description,
+                strength=c.strength.value,
+                evidence_type=c.evidence_type.value,
+                category=c.category,
+                status=c.status.value,
+                evidence=c.evidence,
+            )
+            for c in all_criteria_list
+        ]
+
+        # Generate interpretation from rule-based scoring
+        clinvar_sig = meta.get("clinvar_sig")
+        interpretation = generate_acmg_interpretation(
+            acmg_score=acmg_score,
+            gene=gene,
+            variant_id=variant_id,
+            scores=scores,
+            clinvar_sig=clinvar_sig
+        )
+
+        # Generate external database links for evidence verification
+        evidence_links = generate_evidence_links(meta, build=genome_build.lower())
+
+        return ClassificationResponse(
+            variant_id=variant_id,
+            gene=gene,
+            acmg_classification=acmg_score.classification.value,
+            criteria=[],  # Rule-based scoring uses criteria_met instead
+            criteria_met=criteria_met_details,
+            all_criteria=all_criteria_details,
+            rule_applied=acmg_score.rule_applied,
+            scoring_method="rule_based",
+            confidence=acmg_score.confidence,
+            interpretation=interpretation,
+            scores=scores,
+            clinvar=clinvar_data,
+            evidence_links=evidence_links,
+            genome_build=genome_build,
+            scoring_notes=acmg_score.notes,
+        )
     else:
-        # Variant not in database - classify with minimal info
-        variant_input = f"""Variant: chr{chrom}:{request.pos} {request.ref}>{request.alt}
+        # Variant not in database - use LLM fallback
+        clinvar_data = None
+        variant_input = f"""Variant: chr{chrom}:{request.pos} {ref_normalized}>{alt_normalized}
 Note: This variant is not in the NGSgenes database. Limited evidence available."""
 
-    # Get model and generate classification
-    model = get_model()
-    if model is None:
-        raise HTTPException(status_code=503, detail="Model not available")
+        # Get model and generate classification (LLM fallback)
+        model = get_model()
+        if model is None:
+            raise HTTPException(status_code=503, detail="Model not available")
 
-    interpretation = generate_classification(variant_input, model)
-    acmg_class, criteria_list, confidence = parse_classification_response(interpretation)
+        interpretation = generate_classification(variant_input, model)
+        acmg_class, criteria_list, confidence = parse_classification_response(interpretation)
 
-    return ClassificationResponse(
-        variant_id=variant_id,
-        gene=gene,
-        acmg_classification=acmg_class,
-        criteria=[ACMGCriteria(code=c["code"], description=c["description"]) for c in criteria_list],
-        confidence=confidence,
-        interpretation=interpretation,
-        scores=scores,
-    )
+        # Generate minimal evidence links for LLM fallback (basic variant info only)
+        fallback_meta = {
+            "chr": chrom,
+            "pos": request.pos,
+            "ref": ref_normalized,
+            "alt": alt_normalized,
+            "gene": gene,
+        }
+        evidence_links = generate_evidence_links(fallback_meta, build=genome_build.lower())
+
+        return ClassificationResponse(
+            variant_id=variant_id,
+            gene=gene,
+            acmg_classification=acmg_class,
+            criteria=[ACMGCriteria(code=c["code"], description=c["description"]) for c in criteria_list],
+            criteria_met=[],  # No rule-based criteria for fallback
+            all_criteria=[],  # No criteria evaluation for LLM fallback
+            rule_applied="",
+            scoring_method="llm_fallback",
+            confidence=confidence,
+            interpretation=interpretation,
+            scores=scores,
+            clinvar=clinvar_data,
+            evidence_links=evidence_links,
+            genome_build=genome_build,
+            scoring_notes=["Variant not found in database - using LLM classification as fallback"],
+        )
 
 
 @app.get("/variant/{variant_id}")
-async def get_variant_info(variant_id: str):
+async def get_variant_info(
+    variant_id: str,
+    genome_build: str = Query(default="GRCh37", description="Genome build"),
+):
     """Get raw variant information from database."""
-    store = get_vectorstore()
+    store = get_vectorstore(genome_build)
     variant_data = store.get_by_id(variant_id)
 
     if not variant_data:
@@ -391,6 +723,7 @@ async def lookup_variant(
     ref: str = Query(None, description="Reference allele"),
     alt: str = Query(None, description="Alternate allele"),
     hgvs: str = Query(None, description="HGVS genomic notation (e.g., NC_000017.10:g.41197801T>A or 17:g.41197801T>A)"),
+    genome_build: str = Query(default="GRCh37", description="Genome build (GRCh37 or GRCh38)"),
 ):
     """
     Get ALL stored dbNSFP data for a variant.
@@ -405,47 +738,105 @@ async def lookup_variant(
         except ValueError as e:
             raise HTTPException(status_code=400, detail=str(e))
     elif chr and pos and ref and alt:
-        chrom = chr.replace("chr", "")
-        ref = ref.upper()
-        alt = alt.upper()
+        chrom = chr
+        # Values will be validated below
     else:
         raise HTTPException(status_code=400, detail="Provide either hgvs parameter or chr/pos/ref/alt parameters")
 
-    variant_id = f"{chrom}_{pos}_{ref}_{alt}"
+    # Validate input
+    validation = validate_variant(chrom, pos, ref, alt)
+    if not validation.valid:
+        raise HTTPException(
+            status_code=400,
+            detail={
+                "error": validation.error,
+                "suggestion": "Check chromosome (1-22, X, Y, M), position (positive integer), alleles (ACGT only)"
+            }
+        )
 
-    store = get_vectorstore()
+    variant_id = validation.variant_id
+
+    store = get_vectorstore(genome_build)
     variant_data = store.get_by_id(variant_id)
 
     if not variant_data:
-        raise HTTPException(status_code=404, detail=f"Variant {variant_id} not found in database")
+        raise HTTPException(
+            status_code=404,
+            detail={
+                "error": f"Variant {variant_id} not found in {genome_build} database",
+                "suggestion": "Verify coordinates match the genome build, or try using HGVS notation"
+            }
+        )
 
     meta = variant_data["metadata"]
+
+    # Validate reference allele against database
+    stored_ref = meta.get("ref")
+    user_ref = ref if not hgvs else ref  # ref from either coordinates or HGVS parsing
+    if stored_ref and user_ref:
+        ref_check = validate_reference_against_database(variant_id, user_ref, stored_ref)
+        if not ref_check.valid:
+            raise HTTPException(
+                status_code=400,
+                detail={
+                    "error": ref_check.error,
+                    "expected_ref": stored_ref,
+                    "provided_ref": user_ref,
+                    "suggestion": "Verify your coordinates match the genome build"
+                }
+            )
+
     document = variant_data.get("document", "")
+
+    # Parse normalized values from variant_id
+    parts = variant_id.split("_")
+    norm_chrom, norm_pos, norm_ref, norm_alt = parts[0], int(parts[1]), parts[2], parts[3]
+
+    # Extract structured ClinVar data
+    clinvar_sig = meta.get("clinvar_sig")
+    clinvar_data = None
+    if clinvar_sig:
+        clinvar_data = {
+            "id": meta.get("clinvar_id") or None,
+            "significance": clinvar_sig or None,
+            "review_status": meta.get("clinvar_review") or None,
+            "trait": meta.get("clinvar_trait") or None,
+        }
+
+    # Generate external database links for evidence verification
+    evidence_links = generate_evidence_links(meta, build=genome_build.lower())
 
     return {
         "variant_id": variant_id,
-        "chromosome": chrom,
-        "position": pos,
-        "ref": ref,
-        "alt": alt,
+        "chromosome": norm_chrom,
+        "position": norm_pos,
+        "ref": norm_ref,
+        "alt": norm_alt,
         "gene": meta.get("gene"),
         "transcript": meta.get("transcript"),
+        "clinvar": clinvar_data,
         "metadata": meta,
         "full_annotation": document,
-        "genome_build": "GRCh37",
+        "evidence_links": evidence_links,
+        "genome_build": genome_build,
         "dbnsfp_version": "5.3.1a",
         "disclaimer": RUO_DISCLAIMER,
     }
 
 
 @app.get("/gene/{gene_symbol}")
-async def get_gene_variants(gene_symbol: str, limit: int = 100):
+async def get_gene_variants(
+    gene_symbol: str,
+    limit: int = 100,
+    genome_build: str = Query(default="GRCh37", description="Genome build"),
+):
     """Get variants for a specific gene."""
-    store = get_vectorstore()
+    store = get_vectorstore(genome_build)
     results = store.search_by_gene(gene_symbol.upper(), k=limit)
 
     return {
         "gene": gene_symbol.upper(),
+        "genome_build": genome_build,
         "count": len(results),
         "variants": [
             {

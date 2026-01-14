@@ -77,6 +77,22 @@
         .section-population { border-color: #10b981; }
         .section-clinical { border-color: #8b5cf6; }
         .section-functional { border-color: #f59e0b; }
+
+        /* Evidence Links */
+        .evidence-links { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.5rem; }
+        .evidence-link {
+            display: inline-flex; align-items: center; gap: 0.375rem;
+            padding: 0.5rem 1rem; background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+            color: white; border-radius: 9999px; font-size: 0.875rem; font-weight: 600;
+            text-decoration: none; transition: all 0.2s ease;
+            box-shadow: 0 2px 8px rgba(59, 130, 246, 0.3);
+        }
+        .evidence-link:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(59, 130, 246, 0.4); }
+        .evidence-link svg { width: 1rem; height: 1rem; }
+        .evidence-link--clinvar { background: linear-gradient(135deg, #7c3aed 0%, #5b21b6 100%); }
+        .evidence-link--gnomad { background: linear-gradient(135deg, #059669 0%, #047857 100%); }
+        .evidence-link--omim { background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%); }
+        .evidence-link--pubmed { background: linear-gradient(135deg, #0891b2 0%, #0e7490 100%); }
     </style>
 </head>
 <body class="bg-slate-900 min-h-screen">
@@ -277,6 +293,32 @@
             return 'uncertain-badge';
         }
 
+        const LINK_CONFIG = {
+            clinvar: { name: 'ClinVar', class: 'evidence-link--clinvar', icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>' },
+            gnomad_variant: { name: 'gnomAD', class: 'evidence-link--gnomad', icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/></svg>' },
+            gnomad_gene: { name: 'Gene Constraint', class: 'evidence-link--gnomad', icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>' },
+            uniprot: { name: 'UniProt', class: '', icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/></svg>' },
+            omim: { name: 'OMIM', class: 'evidence-link--omim', icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>' },
+            pubmed: { name: 'PubMed', class: 'evidence-link--pubmed', icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>' },
+            interpro: { name: 'InterPro', class: '', icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zm0 8a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zm12 0a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z"/></svg>' },
+            ensembl: { name: 'Ensembl', class: '', icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/></svg>' },
+        };
+
+        function renderEvidenceLinks(links) {
+            if (!links || Object.keys(links).length === 0) return '';
+            const linksHtml = Object.entries(links)
+                .filter(([key, url]) => url && LINK_CONFIG[key])
+                .map(([key, url]) => {
+                    const config = LINK_CONFIG[key];
+                    return `<a href="${url}" target="_blank" rel="noopener noreferrer" class="evidence-link ${config.class}" title="Open ${config.name}">${config.icon} ${config.name}</a>`;
+                }).join('');
+            if (!linksHtml) return '';
+            return `<div class="mb-6">
+                <h4 class="text-sm font-bold text-slate-500 uppercase tracking-wide mb-3">Verify Evidence at Source</h4>
+                <div class="evidence-links">${linksHtml}</div>
+            </div>`;
+        }
+
         function formatValue(value) {
             if (value === null || value === undefined || value === '') {
                 return '<span class="text-slate-300">—</span>';
@@ -325,9 +367,24 @@
             return '';
         }
 
-        function renderDataSection(title, items, icon) {
+        function renderDataSection(title, items, icon, links = {}) {
             if (!items || items.length === 0) return '';
             const sectionClass = getSectionClass(title);
+
+            // Map keys to their link URLs
+            const keyLinks = {
+                'gnomAD v4 (joint)': links.gnomad_variant,
+                'gnomAD v2 exomes': links.gnomad_variant,
+                'gnomAD AF': links.gnomad_variant,
+                '1000 Genomes': null,
+                'ClinVar ID': links.clinvar,
+                'ClinVar Significance': links.clinvar,
+                'ClinVar Review': links.clinvar,
+                'ClinVar Trait': links.clinvar,
+                'InterPro Domain': links.interpro,
+                'Uniprot ID': links.uniprot,
+            };
+
             return `
                 <div class="bg-white rounded-2xl border border-slate-200 overflow-hidden mb-6 section-card ${sectionClass}">
                     <div class="bg-gradient-to-r from-slate-50 to-white px-6 py-4 border-b border-slate-100">
@@ -337,12 +394,19 @@
                         </h4>
                     </div>
                     <div class="divide-y divide-slate-100">
-                        ${items.map(item => `
+                        ${items.map(item => {
+                            const linkUrl = keyLinks[item.key];
+                            const isNA = item.value.includes('N/A') || item.value.includes('not observed');
+                            const valueClass = isNA ? 'text-slate-300' : 'text-slate-800 font-semibold';
+                            const valueContent = linkUrl && !isNA
+                                ? `<a href="${linkUrl}" target="_blank" class="${valueClass} hover:text-emerald-600 transition-colors" title="View in source database">${item.value} ↗</a>`
+                                : `<span class="${valueClass}">${item.value}</span>`;
+                            return `
                             <div class="data-row flex justify-between items-center px-6 py-3 transition-all">
                                 <span class="text-slate-500 font-medium">${item.key}</span>
-                                <span class="font-mono text-sm ${item.value.includes('N/A') ? 'text-slate-300' : 'text-slate-800 font-semibold'}">${item.value}</span>
-                            </div>
-                        `).join('')}
+                                <span class="font-mono text-sm">${valueContent}</span>
+                            </div>`;
+                        }).join('')}
                     </div>
                 </div>
             `;
@@ -363,19 +427,29 @@
                 const clinvarSig = data.metadata?.clinvar_sig || '';
                 const badgeClass = getBadgeClass(clinvarSig);
 
+                const links = data.evidence_links || {};
+
                 let html = `
                     <div class="gradient-border card-glow">
                         <div class="gradient-border-inner p-8">
                             <!-- Variant Header -->
                             <div class="flex flex-wrap justify-between items-start gap-6 mb-8">
                                 <div>
-                                    <div class="text-4xl font-extrabold text-slate-800 mb-2">${data.gene || 'Unknown Gene'}</div>
+                                    <div class="text-4xl font-extrabold text-slate-800 mb-2">
+                                        ${links.gnomad_gene
+                                            ? `<a href="${links.gnomad_gene}" target="_blank" class="hover:text-emerald-600 transition-colors" title="View gene constraint in gnomAD">${data.gene || 'Unknown Gene'}</a>`
+                                            : (data.gene || 'Unknown Gene')}
+                                    </div>
                                     <div class="font-mono text-slate-500 text-lg">chr${data.chromosome}:${data.position} ${data.ref} &rarr; ${data.alt}</div>
-                                    <div class="text-slate-400 text-sm mt-1">${data.metadata?.transcript || ''}</div>
+                                    <div class="text-slate-400 text-sm mt-1">
+                                        ${links.ensembl && data.metadata?.transcript
+                                            ? `<a href="${links.ensembl}" target="_blank" class="hover:text-blue-500 transition-colors" title="View transcript in Ensembl">${data.metadata.transcript}</a>`
+                                            : (data.metadata?.transcript || '')}
+                                    </div>
                                 </div>
-                                <div class="${badgeClass} text-white text-xl font-bold px-8 py-4 rounded-2xl">
-                                    ${clinvarSig || 'Not in ClinVar'}
-                                </div>
+                                ${links.clinvar && clinvarSig
+                                    ? `<a href="${links.clinvar}" target="_blank" class="${badgeClass} text-white text-xl font-bold px-8 py-4 rounded-2xl hover:scale-105 transition-transform" title="View in ClinVar">${clinvarSig}</a>`
+                                    : `<div class="${badgeClass} text-white text-xl font-bold px-8 py-4 rounded-2xl">${clinvarSig || 'Not in ClinVar'}</div>`}
                             </div>
 
                             <!-- Key Scores Grid -->
@@ -397,7 +471,9 @@
                                     <div class="text-xl font-bold text-slate-800">${formatValue(data.metadata?.polyphen_pred)}</div>
                                 </div>
                                 <div class="score-card rounded-xl p-4 text-center">
-                                    <div class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-1">gnomAD</div>
+                                    <div class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-1">
+                                        ${links.gnomad_variant ? `<a href="${links.gnomad_variant}" target="_blank" class="hover:text-emerald-600" title="View in gnomAD">gnomAD ↗</a>` : 'gnomAD'}
+                                    </div>
                                     <div class="text-xl font-bold text-slate-800">${formatGnomadAF(data.metadata?.gnomad_af)}</div>
                                 </div>
                                 <div class="score-card rounded-xl p-4 text-center">
@@ -426,7 +502,7 @@
 
                 for (const [title, items] of Object.entries(sections)) {
                     if (title !== 'Basic' && items.length > 0) {
-                        html += renderDataSection(title, items, icons[title] || '');
+                        html += renderDataSection(title, items, icons[title] || '', links);
                     }
                 }
 

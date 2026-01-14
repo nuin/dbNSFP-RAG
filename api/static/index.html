@@ -39,6 +39,65 @@
         .score-card {
             background: linear-gradient(145deg, #f8fafc 0%, #e2e8f0 100%);
         }
+
+        /* Evidence Links */
+        .evidence-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+        .evidence-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.375rem;
+            padding: 0.5rem 1rem;
+            background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+            color: white;
+            border-radius: 9999px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.2s ease;
+            box-shadow: 0 2px 8px rgba(59, 130, 246, 0.3);
+        }
+        .evidence-link:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.4);
+        }
+        .evidence-link svg {
+            width: 1rem;
+            height: 1rem;
+        }
+        .evidence-link--clinvar {
+            background: linear-gradient(135deg, #7c3aed 0%, #5b21b6 100%);
+            box-shadow: 0 2px 8px rgba(124, 58, 237, 0.3);
+        }
+        .evidence-link--clinvar:hover {
+            box-shadow: 0 4px 12px rgba(124, 58, 237, 0.4);
+        }
+        .evidence-link--gnomad {
+            background: linear-gradient(135deg, #059669 0%, #047857 100%);
+            box-shadow: 0 2px 8px rgba(5, 150, 105, 0.3);
+        }
+        .evidence-link--gnomad:hover {
+            box-shadow: 0 4px 12px rgba(5, 150, 105, 0.4);
+        }
+        .evidence-link--omim {
+            background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
+            box-shadow: 0 2px 8px rgba(220, 38, 38, 0.3);
+        }
+        .evidence-link--omim:hover {
+            box-shadow: 0 4px 12px rgba(220, 38, 38, 0.4);
+        }
+        .evidence-link--pubmed {
+            background: linear-gradient(135deg, #0891b2 0%, #0e7490 100%);
+            box-shadow: 0 2px 8px rgba(8, 145, 178, 0.3);
+        }
+        .evidence-link--pubmed:hover {
+            box-shadow: 0 4px 12px rgba(8, 145, 178, 0.4);
+        }
+
         .pathogenic-badge {
             background: linear-gradient(135deg, #dc2626 0%, #991b1b 100%);
             box-shadow: 0 4px 20px rgba(220, 38, 38, 0.4);
@@ -67,6 +126,26 @@
             border-left: 5px solid;
             border-image: linear-gradient(180deg, #667eea, #764ba2) 1;
         }
+        .interpretation-box h1, .interpretation-box h2, .interpretation-box h3 {
+            color: #1e293b;
+        }
+        .interpretation-box ul {
+            margin-left: 0;
+            padding-left: 0;
+        }
+        .interpretation-box li {
+            margin-bottom: 0.25rem;
+        }
+        .interpretation-box hr {
+            margin: 1rem 0;
+            border-color: #cbd5e1;
+        }
+        .interpretation-box strong {
+            color: #1e293b;
+        }
+        .interpretation-box em {
+            color: #64748b;
+        }
         .pulse-glow {
             animation: pulse-glow 2s ease-in-out infinite;
         }
@@ -76,6 +155,908 @@
         }
         .data-row:hover {
             background: linear-gradient(90deg, rgba(102, 126, 234, 0.1) 0%, transparent 100%);
+        }
+
+        /* ACMG Criteria Cards Styles */
+        .criteria-section {
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid #e2e8f0;
+        }
+
+        .criteria-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .criteria-title {
+            font-weight: 700;
+            font-size: 1.125rem;
+            color: #334155;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        /* Scoring Summary Bar */
+        .scoring-summary {
+            background: linear-gradient(180deg, #f8fafc 0%, #f1f5f9 100%);
+            border: 1px solid #e2e8f0;
+            border-radius: 1rem;
+            padding: 1.25rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .scoring-bar-container {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .scoring-bar {
+            flex: 1;
+            height: 12px;
+            background: #e2e8f0;
+            border-radius: 6px;
+            overflow: hidden;
+            display: flex;
+            position: relative;
+        }
+
+        .scoring-bar-fill {
+            height: 100%;
+            transition: width 0.5s ease;
+        }
+
+        .scoring-bar-pathogenic {
+            background: linear-gradient(90deg, #ef4444, #dc2626);
+        }
+
+        .scoring-bar-benign {
+            background: linear-gradient(90deg, #3b82f6, #1d4ed8);
+        }
+
+        .scoring-bar-neutral {
+            background: #94a3b8;
+        }
+
+        .scoring-labels {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.75rem;
+            color: #64748b;
+            font-weight: 500;
+        }
+
+        .scoring-legend {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 1rem;
+        }
+
+        .scoring-legend-item {
+            display: flex;
+            align-items: center;
+            gap: 0.375rem;
+            font-size: 0.75rem;
+            color: #64748b;
+        }
+
+        .scoring-legend-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+        }
+
+        /* Criteria Cards Container */
+        .criteria-cards {
+            display: flex;
+            gap: 1rem;
+            overflow-x: auto;
+            padding: 0.5rem 0.25rem 0.75rem 0.25rem;
+            scroll-snap-type: x mandatory;
+            -webkit-overflow-scrolling: touch;
+            flex-wrap: wrap;
+        }
+
+        .criteria-cards::-webkit-scrollbar {
+            height: 6px;
+        }
+
+        .criteria-cards::-webkit-scrollbar-track {
+            background: #f1f5f9;
+            border-radius: 3px;
+        }
+
+        .criteria-cards::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 3px;
+        }
+
+        .criteria-cards::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8;
+        }
+
+        /* Individual Criteria Card */
+        .criteria-card {
+            flex: 0 0 auto;
+            width: 140px;
+            min-height: 160px;
+            border-radius: 1rem;
+            padding: 1rem;
+            display: flex;
+            flex-direction: column;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            scroll-snap-align: start;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .criteria-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            border-radius: 1rem 1rem 0 0;
+        }
+
+        .criteria-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px -8px rgba(0, 0, 0, 0.2);
+        }
+
+        .criteria-card:focus {
+            outline: 2px solid #667eea;
+            outline-offset: 2px;
+        }
+
+        /* Pathogenic Evidence Colors - Red Spectrum */
+        .criteria-card--pathogenic.strength--very_strong {
+            background: linear-gradient(145deg, #fee2e2, #fecaca);
+            border: 2px solid #ef4444;
+        }
+        .criteria-card--pathogenic.strength--very_strong::before {
+            background: linear-gradient(90deg, #dc2626, #b91c1c);
+        }
+        .criteria-card--pathogenic.strength--very_strong .criteria-code {
+            color: #991b1b;
+        }
+
+        .criteria-card--pathogenic.strength--strong {
+            background: linear-gradient(145deg, #fee2e2, #fecaca);
+            border: 2px solid #f87171;
+        }
+        .criteria-card--pathogenic.strength--strong::before {
+            background: linear-gradient(90deg, #ef4444, #dc2626);
+        }
+        .criteria-card--pathogenic.strength--strong .criteria-code {
+            color: #b91c1c;
+        }
+
+        .criteria-card--pathogenic.strength--moderate {
+            background: linear-gradient(145deg, #fef2f2, #fee2e2);
+            border: 2px solid #fca5a5;
+        }
+        .criteria-card--pathogenic.strength--moderate::before {
+            background: linear-gradient(90deg, #f87171, #ef4444);
+        }
+        .criteria-card--pathogenic.strength--moderate .criteria-code {
+            color: #dc2626;
+        }
+
+        .criteria-card--pathogenic.strength--supporting {
+            background: linear-gradient(145deg, #fff1f2, #ffe4e6);
+            border: 2px solid #fecdd3;
+        }
+        .criteria-card--pathogenic.strength--supporting::before {
+            background: linear-gradient(90deg, #fb7185, #f43f5e);
+        }
+        .criteria-card--pathogenic.strength--supporting .criteria-code {
+            color: #e11d48;
+        }
+
+        /* Benign Evidence Colors - Blue Spectrum */
+        .criteria-card--benign.strength--stand_alone {
+            background: linear-gradient(145deg, #dbeafe, #bfdbfe);
+            border: 2px solid #3b82f6;
+        }
+        .criteria-card--benign.strength--stand_alone::before {
+            background: linear-gradient(90deg, #1d4ed8, #1e40af);
+        }
+        .criteria-card--benign.strength--stand_alone .criteria-code {
+            color: #1e3a8a;
+        }
+
+        .criteria-card--benign.strength--strong {
+            background: linear-gradient(145deg, #dbeafe, #bfdbfe);
+            border: 2px solid #60a5fa;
+        }
+        .criteria-card--benign.strength--strong::before {
+            background: linear-gradient(90deg, #3b82f6, #2563eb);
+        }
+        .criteria-card--benign.strength--strong .criteria-code {
+            color: #1e40af;
+        }
+
+        .criteria-card--benign.strength--moderate {
+            background: linear-gradient(145deg, #eff6ff, #dbeafe);
+            border: 2px solid #93c5fd;
+        }
+        .criteria-card--benign.strength--moderate::before {
+            background: linear-gradient(90deg, #60a5fa, #3b82f6);
+        }
+        .criteria-card--benign.strength--moderate .criteria-code {
+            color: #2563eb;
+        }
+
+        .criteria-card--benign.strength--supporting {
+            background: linear-gradient(145deg, #f0f9ff, #e0f2fe);
+            border: 2px solid #bae6fd;
+        }
+        .criteria-card--benign.strength--supporting::before {
+            background: linear-gradient(90deg, #38bdf8, #0ea5e9);
+        }
+        .criteria-card--benign.strength--supporting .criteria-code {
+            color: #0284c7;
+        }
+
+        /* Card Content Elements */
+        .criteria-code {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 1.75rem;
+            font-weight: 700;
+            line-height: 1;
+            margin-bottom: 0.25rem;
+            margin-top: 0.5rem;
+        }
+
+        .criteria-short-name {
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: #64748b;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 0.75rem;
+        }
+
+        .criteria-strength {
+            margin-top: auto;
+        }
+
+        .criteria-strength-indicator {
+            display: flex;
+            gap: 3px;
+            margin-bottom: 0.375rem;
+        }
+
+        .criteria-strength-bar {
+            width: 100%;
+            height: 4px;
+            background: rgba(0, 0, 0, 0.1);
+            border-radius: 2px;
+        }
+
+        .criteria-strength-bar.active {
+            background: currentColor;
+        }
+
+        .criteria-strength-label {
+            font-size: 0.625rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: #64748b;
+        }
+
+        .criteria-category {
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+            margin-top: 0.5rem;
+        }
+
+        .criteria-category-icon {
+            width: 14px;
+            height: 14px;
+            opacity: 0.7;
+        }
+
+        .criteria-category-label {
+            font-size: 0.625rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.03em;
+            color: #64748b;
+        }
+
+        /* Criteria Status Styles */
+        .criteria-card--not_met {
+            opacity: 0.6;
+            background: linear-gradient(145deg, #f8fafc, #f1f5f9) !important;
+            border: 2px dashed #cbd5e1 !important;
+        }
+        .criteria-card--not_met::before {
+            background: #94a3b8 !important;
+        }
+        .criteria-card--not_met .criteria-code {
+            color: #64748b !important;
+        }
+        .criteria-card--not_met:hover {
+            opacity: 0.8;
+        }
+
+        .criteria-card--not_evaluated {
+            opacity: 0.4;
+            background: linear-gradient(145deg, #f8fafc, #f1f5f9) !important;
+            border: 2px dotted #e2e8f0 !important;
+        }
+        .criteria-card--not_evaluated::before {
+            background: #cbd5e1 !important;
+        }
+        .criteria-card--not_evaluated .criteria-code {
+            color: #94a3b8 !important;
+        }
+        .criteria-card--not_evaluated:hover {
+            opacity: 0.6;
+        }
+
+        /* Status badges for cards */
+        .criteria-status-badge {
+            position: absolute;
+            top: 0.5rem;
+            right: 0.5rem;
+            font-size: 0.5rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            padding: 0.125rem 0.375rem;
+            border-radius: 0.25rem;
+        }
+        .criteria-status-badge--met {
+            background: #dcfce7;
+            color: #166534;
+        }
+        .criteria-status-badge--not_met {
+            background: #f1f5f9;
+            color: #64748b;
+        }
+        .criteria-status-badge--not_evaluated {
+            background: #fef3c7;
+            color: #92400e;
+        }
+
+        /* ========== MASTERMIND-STYLE ACMG CARDS ========== */
+        .acmg-card {
+            width: 180px;
+            min-height: 280px;
+            border-radius: 12px;
+            background: #fff;
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            flex-shrink: 0;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .acmg-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 16px 32px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Card border colors */
+        .acmg-card--pathogenic {
+            border: 4px solid #722F37;
+        }
+        .acmg-card--benign {
+            border: 4px solid #2F7272;
+        }
+        .acmg-card--not_met {
+            border: 4px dashed #9ca3af;
+            opacity: 0.6;
+        }
+        .acmg-card--not_evaluated {
+            border: 4px dotted #d1d5db;
+            opacity: 0.4;
+        }
+
+        /* Card header with category icons */
+        .acmg-card-header {
+            padding: 8px 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .acmg-card--pathogenic .acmg-card-header {
+            background: #722F37;
+        }
+        .acmg-card--benign .acmg-card-header {
+            background: #2F7272;
+        }
+        .acmg-card--not_met .acmg-card-header,
+        .acmg-card--not_evaluated .acmg-card-header {
+            background: #6b7280;
+        }
+
+        .acmg-card-code-small {
+            color: #fff;
+            font-weight: 600;
+            font-size: 0.75rem;
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        .acmg-category-icons {
+            display: flex;
+            gap: 4px;
+        }
+
+        .acmg-category-icon {
+            width: 22px;
+            height: 22px;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255,255,255,0.2);
+        }
+        .acmg-category-icon.active {
+            background: rgba(255,255,255,0.9);
+        }
+        .acmg-category-icon svg {
+            width: 14px;
+            height: 14px;
+            opacity: 0.5;
+        }
+        .acmg-category-icon.active svg {
+            opacity: 1;
+        }
+        .acmg-card--pathogenic .acmg-category-icon.active svg {
+            color: #722F37;
+        }
+        .acmg-card--benign .acmg-category-icon.active svg {
+            color: #2F7272;
+        }
+
+        /* Card body */
+        .acmg-card-body {
+            flex: 1;
+            padding: 12px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        /* Central icon in octagonal frame */
+        .acmg-icon-frame {
+            width: 70px;
+            height: 70px;
+            margin: 8px 0 12px 0;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .acmg-icon-frame svg.frame {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+        .acmg-card--pathogenic .acmg-icon-frame svg.frame {
+            color: #722F37;
+        }
+        .acmg-card--benign .acmg-icon-frame svg.frame {
+            color: #2F7272;
+        }
+        .acmg-card--not_met .acmg-icon-frame svg.frame,
+        .acmg-card--not_evaluated .acmg-icon-frame svg.frame {
+            color: #9ca3af;
+        }
+        .acmg-icon-frame svg.icon {
+            width: 36px;
+            height: 36px;
+            z-index: 1;
+            color: #6b7280;
+        }
+
+        /* Criterion code - large */
+        .acmg-card-code {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 2rem;
+            font-weight: 700;
+            line-height: 1;
+            margin-bottom: 4px;
+        }
+        .acmg-card--pathogenic .acmg-card-code {
+            color: #722F37;
+        }
+        .acmg-card--benign .acmg-card-code {
+            color: #2F7272;
+        }
+        .acmg-card--not_met .acmg-card-code,
+        .acmg-card--not_evaluated .acmg-card-code {
+            color: #9ca3af;
+        }
+
+        /* Short name */
+        .acmg-card-name {
+            font-size: 0.8rem;
+            font-weight: 700;
+            margin-bottom: 6px;
+        }
+        .acmg-card--pathogenic .acmg-card-name {
+            color: #722F37;
+        }
+        .acmg-card--benign .acmg-card-name {
+            color: #2F7272;
+        }
+        .acmg-card--not_met .acmg-card-name,
+        .acmg-card--not_evaluated .acmg-card-name {
+            color: #6b7280;
+        }
+
+        /* Description */
+        .acmg-card-desc {
+            font-size: 0.65rem;
+            color: #4b5563;
+            line-height: 1.3;
+            margin-bottom: 8px;
+            flex: 1;
+        }
+
+        /* Tags */
+        .acmg-card-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 4px;
+            justify-content: center;
+            margin-top: auto;
+        }
+        .acmg-tag {
+            font-size: 0.55rem;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-weight: 500;
+        }
+        .acmg-card--pathogenic .acmg-tag {
+            background: #fef2f2;
+            color: #722F37;
+            border: 1px solid #fecaca;
+        }
+        .acmg-card--benign .acmg-tag {
+            background: #f0fdfa;
+            color: #2F7272;
+            border: 1px solid #99f6e4;
+        }
+        .acmg-card--not_met .acmg-tag,
+        .acmg-card--not_evaluated .acmg-tag {
+            background: #f3f4f6;
+            color: #6b7280;
+            border: 1px solid #e5e7eb;
+        }
+
+        /* Status badge for cards */
+        .acmg-status-badge {
+            position: absolute;
+            top: 40px;
+            right: 8px;
+            font-size: 0.5rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            padding: 2px 6px;
+            border-radius: 4px;
+            background: #fef3c7;
+            color: #92400e;
+        }
+
+        /* Criteria grouping tabs */
+        .criteria-tabs {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+            border-bottom: 2px solid #e2e8f0;
+            padding-bottom: 0.5rem;
+        }
+        .criteria-tab {
+            padding: 0.5rem 1rem;
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: #64748b;
+            cursor: pointer;
+            border-radius: 0.5rem 0.5rem 0 0;
+            transition: all 0.2s;
+        }
+        .criteria-tab:hover {
+            color: #334155;
+            background: #f1f5f9;
+        }
+        .criteria-tab.active {
+            color: #4f46e5;
+            background: #eef2ff;
+        }
+        .criteria-tab .count {
+            font-size: 0.75rem;
+            background: currentColor;
+            color: white;
+            padding: 0.125rem 0.375rem;
+            border-radius: 999px;
+            margin-left: 0.375rem;
+        }
+        .criteria-tab.active .count {
+            background: #4f46e5;
+        }
+
+        /* Criteria Card Expanded/Detail View */
+        .criteria-detail-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(15, 23, 42, 0.7);
+            backdrop-filter: blur(4px);
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.2s ease;
+        }
+
+        .criteria-detail-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .criteria-detail-modal {
+            background: white;
+            border-radius: 1.5rem;
+            max-width: 500px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            transform: translateY(20px);
+            transition: transform 0.2s ease;
+        }
+
+        .criteria-detail-overlay.active .criteria-detail-modal {
+            transform: translateY(0);
+        }
+
+        .criteria-detail-header {
+            padding: 1.5rem;
+            border-bottom: 1px solid #e2e8f0;
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+
+        .criteria-detail-badge {
+            width: 64px;
+            height: 64px;
+            border-radius: 1rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .criteria-detail-badge--pathogenic {
+            background: linear-gradient(145deg, #fee2e2, #fecaca);
+            border: 2px solid #ef4444;
+        }
+
+        .criteria-detail-badge--benign {
+            background: linear-gradient(145deg, #dbeafe, #bfdbfe);
+            border: 2px solid #3b82f6;
+        }
+
+        .criteria-detail-badge .criteria-code {
+            font-size: 1.25rem;
+            margin-top: 0;
+            margin-bottom: 0;
+        }
+
+        .criteria-detail-title {
+            flex: 1;
+        }
+
+        .criteria-detail-name {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 0.25rem;
+        }
+
+        .criteria-detail-strength-badge {
+            display: inline-block;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+        }
+
+        .criteria-detail-strength-badge--pathogenic {
+            background: #fee2e2;
+            color: #dc2626;
+        }
+
+        .criteria-detail-strength-badge--benign {
+            background: #dbeafe;
+            color: #2563eb;
+        }
+
+        .criteria-detail-close {
+            width: 32px;
+            height: 32px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #f1f5f9;
+            border: none;
+            cursor: pointer;
+            transition: background 0.2s ease;
+        }
+
+        .criteria-detail-close:hover {
+            background: #e2e8f0;
+        }
+
+        .criteria-detail-body {
+            padding: 1.5rem;
+        }
+
+        .criteria-detail-section {
+            margin-bottom: 1.25rem;
+        }
+
+        .criteria-detail-section:last-child {
+            margin-bottom: 0;
+        }
+
+        .criteria-detail-section-title {
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: #64748b;
+            margin-bottom: 0.5rem;
+        }
+
+        .criteria-detail-section-content {
+            font-size: 0.9375rem;
+            color: #334155;
+            line-height: 1.6;
+        }
+
+        .criteria-detail-evidence {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 0.75rem;
+            padding: 1rem;
+            font-size: 0.875rem;
+            color: #475569;
+        }
+
+        .criteria-detail-category-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.375rem;
+            padding: 0.375rem 0.75rem;
+            background: #f1f5f9;
+            border-radius: 9999px;
+            font-size: 0.75rem;
+            font-weight: 500;
+            color: #475569;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 640px) {
+            .criteria-card {
+                width: 120px;
+                min-height: 140px;
+                padding: 0.75rem;
+            }
+
+            .criteria-code {
+                font-size: 1.5rem;
+            }
+
+            .criteria-short-name {
+                font-size: 0.6875rem;
+            }
+
+            .scoring-summary {
+                padding: 1rem;
+            }
+
+            .scoring-legend {
+                gap: 1rem;
+            }
+
+            .criteria-detail-modal {
+                margin: 0.5rem;
+            }
+
+            .criteria-detail-header {
+                padding: 1rem;
+            }
+
+            .criteria-detail-body {
+                padding: 1rem;
+            }
+        }
+
+        /* Empty State */
+        .criteria-empty {
+            text-align: center;
+            padding: 2rem;
+            color: #64748b;
+        }
+
+        .criteria-empty-icon {
+            width: 48px;
+            height: 48px;
+            margin: 0 auto 1rem;
+            opacity: 0.5;
+        }
+
+        .criteria-empty-text {
+            font-size: 0.9375rem;
+        }
+
+        /* Grid View Alternative */
+        .criteria-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+            gap: 0.75rem;
+        }
+
+        @media (max-width: 640px) {
+            .criteria-grid {
+                grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+            }
+        }
+
+        /* View Toggle */
+        .view-toggle {
+            display: flex;
+            gap: 0.25rem;
+            background: #f1f5f9;
+            padding: 0.25rem;
+            border-radius: 0.5rem;
+        }
+
+        .view-toggle-btn {
+            padding: 0.375rem 0.75rem;
+            border: none;
+            background: transparent;
+            border-radius: 0.375rem;
+            cursor: pointer;
+            color: #64748b;
+            font-size: 0.75rem;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+
+        .view-toggle-btn.active {
+            background: white;
+            color: #334155;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
         }
     </style>
 </head>
@@ -308,6 +1289,56 @@
             }
         }
 
+        // Link display names and icons for evidence links
+        const LINK_CONFIG = {
+            clinvar: { name: 'ClinVar', class: 'evidence-link--clinvar', icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>' },
+            gnomad_variant: { name: 'gnomAD', class: 'evidence-link--gnomad', icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/></svg>' },
+            gnomad_gene: { name: 'Gene Constraint', class: 'evidence-link--gnomad', icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>' },
+            uniprot: { name: 'UniProt', class: '', icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/></svg>' },
+            omim: { name: 'OMIM', class: 'evidence-link--omim', icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>' },
+            pubmed: { name: 'PubMed', class: 'evidence-link--pubmed', icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>' },
+            interpro: { name: 'InterPro', class: '', icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zm0 8a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zm12 0a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z"/></svg>' },
+            ensembl: { name: 'Ensembl', class: '', icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/></svg>' },
+        };
+
+        function renderEvidenceLinks(links) {
+            console.log('renderEvidenceLinks called with:', links);
+            if (!links || Object.keys(links).length === 0) {
+                console.log('No links found, returning empty');
+                return '';
+            }
+
+            const linksHtml = Object.entries(links)
+                .filter(([key, url]) => url && LINK_CONFIG[key])
+                .map(([key, url]) => {
+                    const config = LINK_CONFIG[key];
+                    return `<a href="${url}" target="_blank" rel="noopener noreferrer"
+                               class="evidence-link ${config.class}"
+                               title="Open ${config.name} in new tab">
+                        ${config.icon}
+                        ${config.name}
+                    </a>`;
+                })
+                .join('');
+
+            console.log('Generated linksHtml:', linksHtml ? 'has content' : 'empty');
+            if (!linksHtml) return '';
+
+            const result = `
+                <div class="mb-6" style="background: #f0f0f0; padding: 20px; border: 2px solid red;">
+                    <h4 class="text-sm font-bold text-slate-500 uppercase tracking-wide mb-3 flex items-center gap-2">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
+                        </svg>
+                        Verify Evidence at Source
+                    </h4>
+                    <div class="evidence-links">${linksHtml}</div>
+                </div>
+            `;
+            console.log('Returning result HTML');
+            return result;
+        }
+
         function parseAnnotation(text) {
             const sections = {};
             let currentSection = 'Basic';
@@ -382,9 +1413,10 @@
 
                             <!-- Key Scores Grid -->
                             <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-3 mb-8">
-                                <div class="score-card rounded-xl p-4 text-center">
-                                    <div class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-1">CADD</div>
+                                <div class="score-card rounded-xl p-4 text-center" style="background: yellow !important;">
+                                    <div class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-1">CADD (TEST)</div>
                                     <div class="text-xl font-bold text-slate-800">${formatValue(data.metadata?.cadd_phred)}</div>
+                                    <div style="font-size:10px; color:red;">Links: ${Object.keys(data.evidence_links || {}).length}</div>
                                 </div>
                                 <div class="score-card rounded-xl p-4 text-center">
                                     <div class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-1">REVEL</div>
@@ -415,6 +1447,14 @@
                                     <div class="text-xl font-bold text-slate-800">${formatValue(data.metadata?.bayesdel_pred)}</div>
                                 </div>
                             </div>
+
+                            <!-- Evidence Links TEST -->
+                            <div style="background: yellow; padding: 20px; margin: 20px 0; border: 3px solid red; font-size: 24px; font-weight: bold;">
+                                TEST: Evidence Links Should Appear Here
+                                <br>
+                                Links data: ${JSON.stringify(data.evidence_links || 'NO DATA')}
+                            </div>
+                            ${renderEvidenceLinks(data.evidence_links)}
                 `;
 
                 // Render sections with icons
@@ -460,16 +1500,48 @@
         async function classify() {
             try {
                 const params = getQueryParams();
-                showLoading('Analyzing variant with AI...');
+                showLoading('Analyzing variant with ACMG criteria...');
                 document.getElementById('lookupBtn').disabled = true;
                 document.getElementById('classifyBtn').disabled = true;
 
-                const response = await fetch(`/classify?${params}`);
-                const data = await response.json();
+                // Fetch both classification and full lookup data in parallel
+                const [classifyResponse, lookupResponse] = await Promise.all([
+                    fetch(`/classify?${params}`),
+                    fetch(`/lookup?${params}`)
+                ]);
 
-                if (!response.ok) throw new Error(data.detail || 'Classification failed');
+                const data = await classifyResponse.json();
+                let lookupData = null;
+                if (lookupResponse.ok) {
+                    lookupData = await lookupResponse.json();
+                }
+
+                if (!classifyResponse.ok) throw new Error(data.detail || 'Classification failed');
 
                 const badgeClass = getBadgeClass(data.acmg_classification);
+
+                // Render criteria cards section - use all_criteria for full evaluation display
+                const criteriaSection = renderCriteriaSection(data.all_criteria || data.criteria_met || data.criteria || [], data.evidence_links || {});
+
+                // Parse full annotation sections from lookup data
+                const sections = lookupData ? parseAnnotation(lookupData.full_annotation || '') : {};
+
+                // Icons for sections
+                const icons = {
+                    'Pathogenicity Predictions': '<svg class="w-5 h-5 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/></svg>',
+                    'Conservation': '<svg class="w-5 h-5 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064"/></svg>',
+                    'Population Frequency': '<svg class="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/></svg>',
+                    'Clinical Annotation': '<svg class="w-5 h-5 text-purple-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>',
+                    'Functional Annotation': '<svg class="w-5 h-5 text-amber-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/></svg>',
+                };
+
+                // Build annotation sections HTML
+                let annotationSectionsHtml = '';
+                for (const [title, items] of Object.entries(sections)) {
+                    if (title !== 'Basic' && items.length > 0) {
+                        annotationSectionsHtml += renderDataSection(title, items, icons[title] || '');
+                    }
+                }
 
                 document.getElementById('resultContent').innerHTML = `
                     <div class="gradient-border card-glow">
@@ -479,50 +1551,81 @@
                                 <div>
                                     <div class="text-4xl font-extrabold text-slate-800 mb-2">${data.gene || 'Unknown Gene'}</div>
                                     <div class="font-mono text-slate-500 text-lg">${data.variant_id.replace(/_/g, ':').replace(/:([ACGT]):/g, ' $1>')}</div>
+                                    ${lookupData?.transcript ? `<div class="text-slate-400 text-sm mt-1">${lookupData.transcript}</div>` : ''}
                                 </div>
                                 <div class="${badgeClass} text-white text-2xl font-bold px-10 py-5 rounded-2xl">
                                     ${data.acmg_classification.replace(/_/g, ' ')}
                                 </div>
                             </div>
 
-                            <!-- Scores Grid -->
-                            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 mb-8">
-                                <div class="score-card rounded-2xl p-5 text-center">
-                                    <div class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">CADD</div>
-                                    <div class="text-2xl font-bold text-slate-800">${formatValue(data.scores?.cadd_phred)}</div>
+                            <!-- Key Scores Grid -->
+                            <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-3 mb-8">
+                                <div class="score-card rounded-xl p-4 text-center">
+                                    <div class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-1">CADD</div>
+                                    <div class="text-xl font-bold text-slate-800">${formatValue(data.scores?.cadd_phred)}</div>
                                 </div>
-                                <div class="score-card rounded-2xl p-5 text-center">
-                                    <div class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">REVEL</div>
-                                    <div class="text-2xl font-bold text-slate-800">${formatValue(data.scores?.revel_score)}</div>
+                                <div class="score-card rounded-xl p-4 text-center">
+                                    <div class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-1">REVEL</div>
+                                    <div class="text-xl font-bold text-slate-800">${formatValue(data.scores?.revel_score)}</div>
                                 </div>
-                                <div class="score-card rounded-2xl p-5 text-center">
-                                    <div class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">SIFT</div>
-                                    <div class="text-2xl font-bold text-slate-800">${formatValue(data.scores?.sift_pred)}</div>
+                                <div class="score-card rounded-xl p-4 text-center">
+                                    <div class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-1">SIFT</div>
+                                    <div class="text-xl font-bold text-slate-800">${formatValue(data.scores?.sift_pred)}</div>
                                 </div>
-                                <div class="score-card rounded-2xl p-5 text-center">
-                                    <div class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">PolyPhen</div>
-                                    <div class="text-2xl font-bold text-slate-800">${formatValue(data.scores?.polyphen_pred)}</div>
+                                <div class="score-card rounded-xl p-4 text-center">
+                                    <div class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-1">PolyPhen</div>
+                                    <div class="text-xl font-bold text-slate-800">${formatValue(data.scores?.polyphen_pred)}</div>
                                 </div>
-                                <div class="score-card rounded-2xl p-5 text-center">
-                                    <div class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">gnomAD AF</div>
-                                    <div class="text-2xl font-bold text-slate-800">${formatGnomadAF(data.scores?.gnomad_af)}</div>
+                                <div class="score-card rounded-xl p-4 text-center">
+                                    <div class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-1">gnomAD</div>
+                                    <div class="text-xl font-bold text-slate-800">${formatGnomadAF(data.scores?.gnomad_af)}</div>
                                 </div>
-                                <div class="score-card rounded-2xl p-5 text-center">
-                                    <div class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">Confidence</div>
-                                    <div class="text-2xl font-bold text-indigo-600">${(data.confidence * 100).toFixed(0)}%</div>
+                                <div class="score-card rounded-xl p-4 text-center">
+                                    <div class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-1">AlphaMiss</div>
+                                    <div class="text-xl font-bold text-slate-800">${formatValue(lookupData?.metadata?.alphamissense_pred)}</div>
+                                </div>
+                                <div class="score-card rounded-xl p-4 text-center">
+                                    <div class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-1">MutTaster</div>
+                                    <div class="text-xl font-bold text-slate-800">${formatValue(lookupData?.metadata?.mutationtaster_pred)}</div>
+                                </div>
+                                <div class="score-card rounded-xl p-4 text-center">
+                                    <div class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-1">Confidence</div>
+                                    <div class="text-xl font-bold text-indigo-600">${(data.confidence * 100).toFixed(0)}%</div>
                                 </div>
                             </div>
 
-                            <!-- LLM Interpretation -->
-                            <div>
+                            <!-- Evidence Links to External Databases -->
+                            ${renderEvidenceLinks(data.evidence_links)}
+
+                            <!-- ACMG Criteria Cards Section -->
+                            ${criteriaSection}
+
+                            <!-- Manual Clinical Context Panel -->
+                            ${renderManualCriteriaPanel()}
+
+                            <!-- Clinical Interpretation -->
+                            <div class="mt-8">
                                 <h3 class="font-bold text-slate-700 mb-4 flex items-center gap-2">
                                     <svg class="w-5 h-5 text-indigo-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
                                     </svg>
-                                    AI Clinical Interpretation
+                                    Clinical Interpretation
                                 </h3>
-                                <div class="interpretation-box rounded-2xl p-8 text-slate-700 text-lg leading-relaxed whitespace-pre-wrap">${data.interpretation}</div>
+                                <div class="interpretation-box rounded-2xl p-8 text-slate-700 leading-relaxed prose prose-slate max-w-none">${renderMarkdown(data.interpretation)}</div>
                             </div>
+
+                            <!-- Full dbNSFP Annotation Sections -->
+                            ${annotationSectionsHtml ? `
+                            <div class="mt-8">
+                                <h3 class="font-bold text-slate-700 mb-4 flex items-center gap-2">
+                                    <svg class="w-5 h-5 text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4"/>
+                                    </svg>
+                                    Full dbNSFP Annotations
+                                </h3>
+                                ${annotationSectionsHtml}
+                            </div>
+                            ` : ''}
                         </div>
                     </div>
                 `;
@@ -539,6 +1642,856 @@
                 if (e.key === 'Enter') lookup();
             });
         });
+
+        // Simple Markdown Renderer
+        // ========================
+        function renderMarkdown(text) {
+            if (!text) return '';
+
+            // Escape HTML first to prevent XSS
+            let html = text
+                .replace(/&/g, '&amp;')
+                .replace(/</g, '&lt;')
+                .replace(/>/g, '&gt;');
+
+            // Convert markdown to HTML
+            html = html
+                // Headers
+                .replace(/^### (.+)$/gm, '<h3 class="text-lg font-bold mt-4 mb-2">$1</h3>')
+                .replace(/^## (.+)$/gm, '<h2 class="text-xl font-bold mt-4 mb-2">$1</h2>')
+                .replace(/^# (.+)$/gm, '<h1 class="text-2xl font-bold mt-4 mb-2">$1</h1>')
+                // Bold and italic
+                .replace(/\*\*\*(.+?)\*\*\*/g, '<strong><em>$1</em></strong>')
+                .replace(/\*\*(.+?)\*\*/g, '<strong class="font-semibold text-slate-800">$1</strong>')
+                .replace(/\*(.+?)\*/g, '<em class="text-slate-600">$1</em>')
+                // Horizontal rule
+                .replace(/^---$/gm, '<hr class="my-4 border-slate-200">')
+                // Checkmarks and warnings
+                .replace(/✓/g, '<span class="text-green-600">✓</span>')
+                .replace(/⚠/g, '<span class="text-amber-600">⚠</span>')
+                // Lists (must come before line break handling)
+                .replace(/^- (.+)$/gm, '<li class="ml-4 list-disc list-inside">$1</li>')
+                // Wrap consecutive list items
+                .replace(/(<li[^>]*>.*<\/li>\n?)+/g, '<ul class="my-2">$&</ul>')
+                // Indented sub-items (lines starting with spaces after list items)
+                .replace(/^  - (.+)$/gm, '<li class="ml-8 list-circle list-inside text-slate-600">$1</li>')
+                // Line breaks (preserve paragraph structure)
+                .replace(/\n\n/g, '</p><p class="mt-3">')
+                .replace(/\n/g, '<br>');
+
+            // Wrap in paragraph
+            html = '<p>' + html + '</p>';
+
+            // Clean up empty paragraphs
+            html = html.replace(/<p><\/p>/g, '').replace(/<p>\s*<\/p>/g, '');
+
+            return html;
+        }
+
+        // ACMG Criteria Cards System
+        // ===========================
+
+        // ACMG Criteria Definitions - Maps codes to full metadata
+        const ACMG_CRITERIA_DEFINITIONS = {
+            // Pathogenic - Very Strong
+            PVS1: { code: 'PVS1', name: 'Null Variant', short_name: 'LOF', category: 'intrinsic', strength: 'very_strong', evidence_type: 'pathogenic', description: 'Null variant (nonsense, frameshift, canonical splice site, initiation codon, single or multi-exon deletion) in a gene where LOF is a known mechanism of disease.' },
+            // Pathogenic - Strong
+            PS1: { code: 'PS1', name: 'Same AA Change', short_name: 'Known AA', category: 'clinical', strength: 'strong', evidence_type: 'pathogenic', description: 'Same amino acid change as a previously established pathogenic variant regardless of nucleotide change.' },
+            PS2: { code: 'PS2', name: 'De Novo (confirmed)', short_name: 'De Novo', category: 'clinical', strength: 'strong', evidence_type: 'pathogenic', description: 'De novo (both maternity and paternity confirmed) in a patient with the disease and no family history.' },
+            PS3: { code: 'PS3', name: 'Functional Studies', short_name: 'Functional', category: 'intrinsic', strength: 'strong', evidence_type: 'pathogenic', description: 'Well-established in vitro or in vivo functional studies supportive of a damaging effect on the gene or gene product.' },
+            PS4: { code: 'PS4', name: 'Increased Prevalence', short_name: 'Prevalence', category: 'clinical', strength: 'strong', evidence_type: 'pathogenic', description: 'The prevalence of the variant in affected individuals is significantly increased compared with the prevalence in controls.' },
+            // Pathogenic - Moderate
+            PM1: { code: 'PM1', name: 'Hot Spot', short_name: 'Hotspot', category: 'intrinsic', strength: 'moderate', evidence_type: 'pathogenic', description: 'Located in a mutational hot spot and/or critical and well-established functional domain without benign variation.' },
+            PM2: { code: 'PM2', name: 'Absent in Controls', short_name: 'Rare', category: 'population', strength: 'moderate', evidence_type: 'pathogenic', description: 'Absent from controls (or at extremely low frequency if recessive) in gnomAD and other population databases.' },
+            PM3: { code: 'PM3', name: 'In Trans', short_name: 'Trans', category: 'clinical', strength: 'moderate', evidence_type: 'pathogenic', description: 'For recessive disorders, detected in trans with a pathogenic variant.' },
+            PM4: { code: 'PM4', name: 'Protein Length Change', short_name: 'Length', category: 'intrinsic', strength: 'moderate', evidence_type: 'pathogenic', description: 'Protein length changes as a result of in-frame deletions/insertions in a non-repeat region or stop-loss variants.' },
+            PM5: { code: 'PM5', name: 'Novel Missense', short_name: 'Missense', category: 'clinical', strength: 'moderate', evidence_type: 'pathogenic', description: 'Novel missense change at an amino acid residue where a different missense change determined to be pathogenic has been seen before.' },
+            PM6: { code: 'PM6', name: 'De Novo (assumed)', short_name: 'Assumed DN', category: 'clinical', strength: 'moderate', evidence_type: 'pathogenic', description: 'Assumed de novo, but without confirmation of paternity and maternity.' },
+            // Pathogenic - Supporting
+            PP1: { code: 'PP1', name: 'Cosegregation', short_name: 'Coseg', category: 'clinical', strength: 'supporting', evidence_type: 'pathogenic', description: 'Cosegregation with disease in multiple affected family members in a gene definitively known to cause the disease.' },
+            PP2: { code: 'PP2', name: 'Missense in Gene', short_name: 'Gene Miss', category: 'intrinsic', strength: 'supporting', evidence_type: 'pathogenic', description: 'Missense variant in a gene that has a low rate of benign missense variation and in which missense variants are a common mechanism of disease.' },
+            PP3: { code: 'PP3', name: 'Computational Evidence', short_name: 'Computational', category: 'computation', strength: 'supporting', evidence_type: 'pathogenic', description: 'Multiple lines of computational evidence support a deleterious effect on the gene or gene product.' },
+            PP4: { code: 'PP4', name: 'Phenotype Match', short_name: 'Phenotype', category: 'clinical', strength: 'supporting', evidence_type: 'pathogenic', description: 'Patient phenotype or family history is highly specific for a disease with a single genetic etiology.' },
+            PP5: { code: 'PP5', name: 'Reputable Source', short_name: 'Reputable', category: 'literature', strength: 'supporting', evidence_type: 'pathogenic', description: 'Reputable source recently reports variant as pathogenic, but evidence is not available to the laboratory to perform an independent evaluation.' },
+            // Benign - Stand Alone
+            BA1: { code: 'BA1', name: 'High Frequency', short_name: 'Common', category: 'population', strength: 'stand_alone', evidence_type: 'benign', description: 'Allele frequency is >5% in gnomAD or other large population database.' },
+            // Benign - Strong
+            BS1: { code: 'BS1', name: 'Frequency Too High', short_name: 'High Freq', category: 'population', strength: 'strong', evidence_type: 'benign', description: 'Allele frequency is greater than expected for disorder.' },
+            BS2: { code: 'BS2', name: 'Healthy Adults', short_name: 'Healthy', category: 'clinical', strength: 'strong', evidence_type: 'benign', description: 'Observed in a healthy adult individual for a recessive (homozygous), dominant (heterozygous), or X-linked (hemizygous) disorder, with full penetrance expected at an early age.' },
+            BS3: { code: 'BS3', name: 'Functional No Effect', short_name: 'No Effect', category: 'intrinsic', strength: 'strong', evidence_type: 'benign', description: 'Well-established in vitro or in vivo functional studies show no damaging effect on protein function or splicing.' },
+            BS4: { code: 'BS4', name: 'Lack of Segregation', short_name: 'No Seg', category: 'clinical', strength: 'strong', evidence_type: 'benign', description: 'Lack of segregation in affected members of a family.' },
+            // Benign - Supporting
+            BP1: { code: 'BP1', name: 'Missense in Truncating Gene', short_name: 'Truncating', category: 'intrinsic', strength: 'supporting', evidence_type: 'benign', description: 'Missense variant in a gene for which primarily truncating variants are known to cause disease.' },
+            BP2: { code: 'BP2', name: 'Observed in Trans/Cis', short_name: 'Trans/Cis', category: 'clinical', strength: 'supporting', evidence_type: 'benign', description: 'Observed in trans with a pathogenic variant for a fully penetrant dominant gene/disorder or observed in cis with a pathogenic variant in any inheritance pattern.' },
+            BP3: { code: 'BP3', name: 'In-frame in Repeat', short_name: 'Repeat', category: 'intrinsic', strength: 'supporting', evidence_type: 'benign', description: 'In-frame deletions/insertions in a repetitive region without a known function.' },
+            BP4: { code: 'BP4', name: 'Computational Benign', short_name: 'Comp Benign', category: 'computation', strength: 'supporting', evidence_type: 'benign', description: 'Multiple lines of computational evidence suggest no impact on gene or gene product.' },
+            BP5: { code: 'BP5', name: 'Alternate Cause', short_name: 'Alt Cause', category: 'clinical', strength: 'supporting', evidence_type: 'benign', description: 'Variant found in a case with an alternate molecular basis for disease.' },
+            BP6: { code: 'BP6', name: 'Reputable Benign', short_name: 'Rep Benign', category: 'literature', strength: 'supporting', evidence_type: 'benign', description: 'Reputable source recently reports variant as benign, but evidence is not available to the laboratory to perform an independent evaluation.' },
+            BP7: { code: 'BP7', name: 'Silent/Intronic', short_name: 'Silent', category: 'intrinsic', strength: 'supporting', evidence_type: 'benign', description: 'A synonymous (silent) variant for which splicing prediction algorithms predict no impact to the splice consensus sequence nor the creation of a new splice site AND the nucleotide is not highly conserved.' }
+        };
+
+        // Category Icons (SVG paths)
+        const CATEGORY_ICONS = {
+            population: '<svg class="criteria-category-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/></svg>',
+            computation: '<svg class="criteria-category-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z"/></svg>',
+            intrinsic: '<svg class="criteria-category-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/></svg>',
+            clinical: '<svg class="criteria-category-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>',
+            literature: '<svg class="criteria-category-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>'
+        };
+
+        // Strength level numeric values for sorting and bar display
+        const STRENGTH_VALUES = {
+            'very_strong': 4,
+            'strong': 3,
+            'moderate': 2,
+            'supporting': 1,
+            'stand_alone': 4  // BA1 is stand-alone (equivalent to very strong for benign)
+        };
+
+        const STRENGTH_LABELS = {
+            'very_strong': 'Very Strong',
+            'strong': 'Strong',
+            'moderate': 'Moderate',
+            'supporting': 'Supporting',
+            'stand_alone': 'Stand-Alone'
+        };
+
+        // Data sources needed for each criterion (for not_evaluated criteria)
+        const CRITERION_DATA_SOURCES = {
+            PVS1: { need: "Consequence type (frameshift, nonsense, splice)", source: "VEP/Ensembl", link: "ensembl" },
+            PS1: { need: "Known pathogenic variant at same AA position", source: "ClinVar", link: "clinvar" },
+            PS2: { need: "Trio sequencing with confirmed parentage", source: "Clinical lab", link: null },
+            PS3: { need: "Published functional studies", source: "PubMed", link: "pubmed" },
+            PS4: { need: "Case-control or cohort study data", source: "Literature", link: "pubmed" },
+            PM1: { need: "Functional domain information", source: "InterPro/UniProt", link: "uniprot" },
+            PM3: { need: "Phase data showing trans with pathogenic", source: "Clinical lab", link: null },
+            PM4: { need: "In-frame indel not in repeat region", source: "VEP", link: "ensembl" },
+            PM5: { need: "Different pathogenic missense at same AA", source: "ClinVar", link: "clinvar" },
+            PM6: { need: "De novo without confirmed parentage", source: "Clinical lab", link: null },
+            PP1: { need: "Family segregation data (LOD score)", source: "Clinical lab", link: null },
+            PP2: { need: "Gene constraint metrics", source: "gnomAD", link: "gnomad_gene" },
+            PP4: { need: "Phenotype highly specific for gene", source: "OMIM", link: "omim" },
+            PP5: { need: "Reputable source reports pathogenic", source: "ClinVar", link: "clinvar" },
+            BS2: { need: "Observed in healthy adult controls", source: "gnomAD", link: "gnomad_variant" },
+            BS3: { need: "Functional studies show no effect", source: "PubMed", link: "pubmed" },
+            BS4: { need: "Lack of segregation in affected family", source: "Clinical lab", link: null },
+            BP1: { need: "Gene where only truncating causes disease", source: "gnomAD/Literature", link: "gnomad_gene" },
+            BP2: { need: "Observed in cis with pathogenic variant", source: "Clinical lab", link: null },
+            BP3: { need: "In-frame indel in repetitive region", source: "UCSC RepeatMasker", link: null },
+            BP5: { need: "Alternate molecular cause in case", source: "Clinical lab", link: null },
+            BP6: { need: "Reputable source reports benign", source: "ClinVar", link: "clinvar" },
+            BP7: { need: "Synonymous with no splice impact", source: "SpliceAI", link: null },
+        };
+
+        // Manual criteria that users can assert (require clinical/family data)
+        const MANUAL_CRITERIA = [
+            { code: "PS2", label: "De novo (confirmed)", type: "toggle",
+              help: "De novo with confirmed maternity and paternity via trio sequencing",
+              strength: "Strong", evidence_type: "pathogenic" },
+            { code: "PM3", label: "In trans with pathogenic", type: "text",
+              placeholder: "Variant ID in trans (e.g., c.1234A>G)",
+              help: "For recessive disorders - phased variant in trans with known pathogenic",
+              strength: "Moderate", evidence_type: "pathogenic" },
+            { code: "PM6", label: "De novo (assumed)", type: "toggle",
+              help: "Assumed de novo without confirmed parentage",
+              strength: "Moderate", evidence_type: "pathogenic" },
+            { code: "PP1", label: "Cosegregation", type: "select",
+              options: ["None", "Weak (1-2 meioses)", "Moderate (3-4 meioses)", "Strong (5+ meioses)"],
+              help: "Co-segregation with disease in affected family members",
+              strength: "Supporting", evidence_type: "pathogenic" },
+            { code: "PS3", label: "Functional study (damaging)", type: "text",
+              placeholder: "PMID:12345678",
+              help: "Well-established functional studies support damaging effect",
+              strength: "Strong", evidence_type: "pathogenic" },
+            { code: "BS3", label: "Functional study (benign)", type: "text",
+              placeholder: "PMID:12345678",
+              help: "Well-established functional studies show no damaging effect",
+              strength: "Strong", evidence_type: "benign" },
+            { code: "BS4", label: "Lack of segregation", type: "toggle",
+              help: "Variant does not segregate with disease in affected family members",
+              strength: "Strong", evidence_type: "benign" },
+            { code: "BP2", label: "In cis with pathogenic", type: "toggle",
+              help: "Observed in cis with a known pathogenic variant",
+              strength: "Supporting", evidence_type: "benign" },
+            { code: "BP5", label: "Alternate molecular cause", type: "text",
+              placeholder: "Gene/variant causing phenotype",
+              help: "Patient has an alternate molecular basis for disease",
+              strength: "Supporting", evidence_type: "benign" },
+        ];
+
+        // Render manual criteria panel
+        function renderManualCriteriaPanel() {
+            const pathogenic = MANUAL_CRITERIA.filter(c => c.evidence_type === 'pathogenic');
+            const benign = MANUAL_CRITERIA.filter(c => c.evidence_type === 'benign');
+
+            const renderCriterion = (c) => {
+                let input = '';
+                if (c.type === 'toggle') {
+                    input = `<label class="relative inline-flex items-center cursor-pointer">
+                        <input type="checkbox" id="manual_${c.code}" class="sr-only peer">
+                        <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-indigo-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-indigo-600"></div>
+                    </label>`;
+                } else if (c.type === 'select') {
+                    input = `<select id="manual_${c.code}" class="px-3 py-1.5 text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500">
+                        ${c.options.map(opt => `<option value="${opt}">${opt}</option>`).join('')}
+                    </select>`;
+                } else {
+                    input = `<input type="text" id="manual_${c.code}" placeholder="${c.placeholder || ''}" class="px-3 py-1.5 text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 w-48">`;
+                }
+
+                return `
+                    <div class="flex items-center justify-between py-2 border-b border-gray-100 last:border-0">
+                        <div class="flex-1">
+                            <div class="flex items-center gap-2">
+                                <span class="font-mono font-bold text-sm ${c.evidence_type === 'pathogenic' ? 'text-red-700' : 'text-green-700'}">${c.code}</span>
+                                <span class="text-sm font-medium text-gray-700">${c.label}</span>
+                                <span class="text-xs px-1.5 py-0.5 rounded ${c.strength === 'Strong' ? 'bg-red-100 text-red-700' : c.strength === 'Moderate' ? 'bg-orange-100 text-orange-700' : 'bg-yellow-100 text-yellow-700'}">${c.strength}</span>
+                            </div>
+                            <div class="text-xs text-gray-500 mt-0.5">${c.help}</div>
+                        </div>
+                        <div class="ml-4">${input}</div>
+                    </div>
+                `;
+            };
+
+            return `
+                <div class="mt-6">
+                    <details class="group">
+                        <summary class="flex items-center justify-between cursor-pointer p-4 bg-gradient-to-r from-indigo-50 to-purple-50 rounded-xl border border-indigo-200 hover:border-indigo-300 transition-colors">
+                            <div class="flex items-center gap-3">
+                                <svg class="w-5 h-5 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                                </svg>
+                                <div>
+                                    <h4 class="font-bold text-indigo-900">Clinical Context (Manual Criteria)</h4>
+                                    <p class="text-xs text-indigo-600">Add family data, functional studies, or segregation information</p>
+                                </div>
+                            </div>
+                            <svg class="w-5 h-5 text-indigo-500 transform group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                            </svg>
+                        </summary>
+                        <div class="mt-4 bg-white rounded-xl border border-gray-200 overflow-hidden">
+                            <div class="p-4">
+                                <div class="text-xs text-gray-500 mb-4 bg-amber-50 border border-amber-200 rounded-lg p-3">
+                                    <strong>Note:</strong> These criteria require data not available in dbNSFP. Toggle or enter values based on clinical/laboratory findings, then re-run classification to update the assessment.
+                                </div>
+
+                                <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                                    <div>
+                                        <h5 class="font-bold text-red-700 text-sm mb-3 flex items-center gap-2">
+                                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/>
+                                            </svg>
+                                            Pathogenic Evidence
+                                        </h5>
+                                        ${pathogenic.map(renderCriterion).join('')}
+                                    </div>
+                                    <div>
+                                        <h5 class="font-bold text-green-700 text-sm mb-3 flex items-center gap-2">
+                                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                                            </svg>
+                                            Benign Evidence
+                                        </h5>
+                                        ${benign.map(renderCriterion).join('')}
+                                    </div>
+                                </div>
+
+                                <div class="mt-4 pt-4 border-t border-gray-200 flex justify-end">
+                                    <button onclick="reclassifyWithManual()" class="px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition-colors text-sm font-medium flex items-center gap-2">
+                                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/>
+                                        </svg>
+                                        Re-classify with Manual Evidence
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </details>
+                </div>
+            `;
+        }
+
+        // Placeholder for reclassification with manual criteria
+        function reclassifyWithManual() {
+            // Collect manual criteria values
+            const manualCriteria = {};
+            MANUAL_CRITERIA.forEach(c => {
+                const el = document.getElementById(`manual_${c.code}`);
+                if (el) {
+                    if (c.type === 'toggle') {
+                        manualCriteria[c.code] = el.checked;
+                    } else if (c.type === 'select') {
+                        manualCriteria[c.code] = el.value !== 'None' ? el.value : null;
+                    } else {
+                        manualCriteria[c.code] = el.value || null;
+                    }
+                }
+            });
+
+            // Filter out null/false values
+            const activeManual = Object.entries(manualCriteria)
+                .filter(([k, v]) => v && v !== false)
+                .reduce((acc, [k, v]) => ({ ...acc, [k]: v }), {});
+
+            if (Object.keys(activeManual).length === 0) {
+                alert('No manual criteria selected. Toggle or fill in at least one criterion.');
+                return;
+            }
+
+            // Show what would be sent (for now, just display)
+            console.log('Manual criteria to apply:', activeManual);
+            alert(`Manual criteria to apply:\\n${JSON.stringify(activeManual, null, 2)}\\n\\nServer-side integration coming soon!`);
+        }
+
+        // Tags for each ACMG criterion (Mastermind style)
+        const CRITERION_TAGS = {
+            PVS1: ["LOF", "nonsense", "frameshift", "splice"],
+            PS1: ["nucleotide", "same protein"],
+            PS2: ["de novo", "confirmed"],
+            PS3: ["functional", "in vitro"],
+            PS4: ["prevalence", "case-control"],
+            PM1: ["hotspot", "domain"],
+            PM2: ["rare", "gnomAD"],
+            PM3: ["trans", "recessive"],
+            PM4: ["in-frame", "indel"],
+            PM5: ["same position", "diff AA"],
+            PM6: ["de novo", "assumed"],
+            PP1: ["segregation", "family"],
+            PP2: ["missense", "constrained"],
+            PP3: ["computational", "CADD"],
+            PP4: ["phenotype", "specific"],
+            PP5: ["ClinVar", "pathogenic"],
+            BA1: ["common", "≥5%"],
+            BS1: [">1%", "frequency"],
+            BS2: ["healthy", "adult"],
+            BS3: ["functional OK"],
+            BS4: ["no segregation"],
+            BP1: ["missense", "truncating gene"],
+            BP2: ["cis/trans"],
+            BP3: ["repeat region"],
+            BP4: ["computational", "benign"],
+            BP5: ["alternate cause"],
+            BP6: ["ClinVar", "benign"],
+            BP7: ["synonymous", "silent"]
+        };
+
+        // SVG icons for each criterion
+        const CRITERION_ICONS = {
+            // Pathogenic - gear/cog for LOF
+            PVS1: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/><path d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/></svg>',
+            // Same AA change - circular arrows
+            PS1: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg>',
+            // De novo - family tree
+            PS2: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="5" r="2"/><circle cx="6" cy="17" r="2"/><circle cx="18" cy="17" r="2"/><path d="M12 7v4m0 0l-6 4m6-4l6 4"/><path d="M9 3l3-1 3 1" stroke-linecap="round"/></svg>',
+            // Functional studies - flask
+            PS3: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 3h6m-5 0v5.172a2 2 0 01-.586 1.414l-4 4A2 2 0 005 15v3a2 2 0 002 2h10a2 2 0 002-2v-3a2 2 0 00-.414-1.414l-4-4A2 2 0 0114 8.172V3"/></svg>',
+            // Prevalence - bar chart
+            PS4: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>',
+            // Hotspot - target
+            PM1: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></svg>',
+            // Absent - empty circle
+            PM2: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><path d="M12 8v8m-4-4h8" stroke-dasharray="2 2"/></svg>',
+            // Trans - crossed chromosomes
+            PM3: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 4v16M18 4v16"/><path d="M6 12h12" stroke-dasharray="3 2"/><circle cx="6" cy="8" r="1.5" fill="currentColor"/><circle cx="18" cy="16" r="1.5" fill="currentColor"/></svg>',
+            // In-frame - protein gap
+            PM4: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="8" width="5" height="8" rx="1"/><rect x="16" y="8" width="5" height="8" rx="1"/><path d="M8 12h8" stroke-dasharray="2 2"/></svg>',
+            // Different AA - arrows different
+            PM5: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/><text x="10" y="13" font-size="6" fill="currentColor">≠</text></svg>',
+            // Assumed de novo - family with ?
+            PM6: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="5" r="2"/><circle cx="6" cy="17" r="2"/><circle cx="18" cy="17" r="2"/><path d="M12 7v4m0 0l-6 4m6-4l6 4"/><text x="10" y="4" font-size="5" fill="currentColor">?</text></svg>',
+            // Cosegregation - connected family
+            PP1: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="4" r="2"/><circle cx="6" cy="12" r="2"/><circle cx="18" cy="12" r="2"/><circle cx="4" cy="20" r="1.5"/><circle cx="8" cy="20" r="1.5"/><circle cx="16" cy="20" r="1.5"/><circle cx="20" cy="20" r="1.5"/><path d="M12 6v2m-6 2v2m12-2v2M6 14l-2 4.5m0 0h4M18 14l2 4.5m0 0h-4"/></svg>',
+            // Missense mechanism - arrow through
+            PP2: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="4" y="6" width="16" height="12" rx="2"/><path d="M2 12h20M19 9l3 3-3 3"/></svg>',
+            // Computational - chip
+            PP3: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="6" y="6" width="12" height="12" rx="1"/><path d="M9 1v4m6-4v4M9 19v4m6-4v4M1 9h4m-4 6h4M19 9h4m-4 6h4"/></svg>',
+            // Phenotype - clipboard
+            PP4: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/><path d="M9 14l2 2 4-4"/></svg>',
+            // ClinVar P - document P
+            PP5: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M7 21h10a2 2 0 002-2V9l-5-5H7a2 2 0 00-2 2v13a2 2 0 002 2z"/><path d="M14 4v5h5"/><text x="9" y="16" font-size="7" font-weight="bold" fill="currentColor">P</text></svg>',
+            // Very common - crowd
+            BA1: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="8" cy="6" r="2"/><circle cx="16" cy="6" r="2"/><circle cx="12" cy="10" r="2"/><circle cx="6" cy="14" r="2"/><circle cx="12" cy="16" r="2"/><circle cx="18" cy="14" r="2"/><circle cx="9" cy="20" r="1.5"/><circle cx="15" cy="20" r="1.5"/></svg>',
+            // Too common - group
+            BS1: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/></svg>',
+            // Healthy - person OK
+            BS2: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="7" r="4"/><path d="M5.5 21v-2a6.5 6.5 0 0113 0v2"/><path d="M9 12l2 2 4-4" stroke-width="2"/></svg>',
+            // No functional impact - flask OK
+            BS3: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 3h6m-5 0v5.172a2 2 0 01-.586 1.414l-4 4A2 2 0 005 15v3a2 2 0 002 2h10a2 2 0 002-2v-3a2 2 0 00-.414-1.414l-4-4A2 2 0 0114 8.172V3"/><path d="M8 16l2 2 4-4"/></svg>',
+            // No segregation - broken family
+            BS4: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="5" r="2"/><circle cx="6" cy="17" r="2" stroke-dasharray="2 2"/><circle cx="18" cy="17" r="2" stroke-dasharray="2 2"/><path d="M12 7v4" stroke-dasharray="2 2"/><path d="M8 13l-2 2m8-2l2 2" stroke-dasharray="2 2"/></svg>',
+            // Missense in truncating gene
+            BP1: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="4" y="6" width="16" height="12" rx="2"/><path d="M9 12h6"/><circle cx="12" cy="12" r="3"/></svg>',
+            // Cis/trans
+            BP2: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 4v16M18 4v16"/><path d="M6 10h12M6 14h12"/></svg>',
+            // Repeat region
+            BP3: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="10" width="4" height="4"/><rect x="8" y="10" width="4" height="4"/><rect x="13" y="10" width="4" height="4"/><rect x="18" y="10" width="3" height="4"/></svg>',
+            // Computational benign - chip OK
+            BP4: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="6" y="6" width="12" height="12" rx="1"/><path d="M9 1v4m6-4v4M9 19v4m6-4v4M1 9h4m-4 6h4M19 9h4m-4 6h4"/><path d="M9 12l2 2 4-4"/></svg>',
+            // Alternate cause
+            BP5: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><path d="M12 3v9l6 3"/><path d="M8 16l-3 3"/></svg>',
+            // ClinVar B - document B
+            BP6: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M7 21h10a2 2 0 002-2V9l-5-5H7a2 2 0 00-2 2v13a2 2 0 002 2z"/><path d="M14 4v5h5"/><text x="9" y="16" font-size="7" font-weight="bold" fill="currentColor">B</text></svg>',
+            // Synonymous - silent
+            BP7: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><path d="M12 8v4m0 4h.01"/></svg>'
+        };
+
+        // Octagonal frame SVG
+        const OCTAGON_FRAME = '<svg class="frame" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="3"><polygon points="30,5 70,5 95,30 95,70 70,95 30,95 5,70 5,30"/></svg>';
+
+        // Category icon SVGs for header row
+        const CATEGORY_HEADER_ICONS = {
+            clinical: '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>',
+            computation: '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.14 12.94c.04-.31.06-.63.06-.94 0-.31-.02-.63-.06-.94l2.03-1.58c.18-.14.23-.41.12-.61l-1.92-3.32c-.12-.22-.37-.29-.59-.22l-2.39.96c-.5-.38-1.03-.7-1.62-.94l-.36-2.54c-.04-.24-.24-.41-.48-.41h-3.84c-.24 0-.43.17-.47.41l-.36 2.54c-.59.24-1.13.57-1.62.94l-2.39-.96c-.22-.08-.47 0-.59.22L2.74 8.87c-.12.21-.08.47.12.61l2.03 1.58c-.04.31-.06.63-.06.94s.02.63.06.94l-2.03 1.58c-.18.14-.23.41-.12.61l1.92 3.32c.12.22.37.29.59.22l2.39-.96c.5.38 1.03.7 1.62.94l.36 2.54c.05.24.24.41.48.41h3.84c.24 0 .44-.17.47-.41l.36-2.54c.59-.24 1.13-.56 1.62-.94l2.39.96c.22.08.47 0 .59-.22l1.92-3.32c.12-.22.07-.47-.12-.61l-2.01-1.58zM12 15.6c-1.98 0-3.6-1.62-3.6-3.6s1.62-3.6 3.6-3.6 3.6 1.62 3.6 3.6-1.62 3.6-3.6 3.6z"/></svg>',
+            intrinsic: '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 19c0 1.1.9 2 2 2h6c1.1 0 2-.9 2-2v-1H7v1zm9.5-14H16V3h-2v2h-4V3H8v2h-.5C6.67 5 6 5.67 6 6.5V8l4 4v3h4v-3l4-4V6.5c0-.83-.67-1.5-1.5-1.5z"/></svg>',
+            literature: '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/></svg>',
+            population: '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>'
+        };
+
+        // Map criterion codes to their categories
+        const CRITERION_CATEGORIES = {
+            PVS1: 'intrinsic', PS1: 'intrinsic', PS2: 'clinical', PS3: 'literature', PS4: 'population',
+            PM1: 'intrinsic', PM2: 'population', PM3: 'clinical', PM4: 'intrinsic', PM5: 'intrinsic', PM6: 'clinical',
+            PP1: 'clinical', PP2: 'intrinsic', PP3: 'computation', PP4: 'clinical', PP5: 'literature',
+            BA1: 'population', BS1: 'population', BS2: 'population', BS3: 'literature', BS4: 'clinical',
+            BP1: 'intrinsic', BP2: 'clinical', BP3: 'intrinsic', BP4: 'computation', BP5: 'clinical', BP6: 'literature', BP7: 'intrinsic'
+        };
+
+        // Render Mastermind-style ACMG card
+        function renderACMGCard(criterion, evidenceLinks = {}) {
+            const status = criterion.status || 'met';
+            const isPathogenic = criterion.evidence_type === 'pathogenic';
+            const typeClass = isPathogenic ? 'acmg-card--pathogenic' : 'acmg-card--benign';
+            const statusClass = status !== 'met' ? `acmg-card--${status}` : '';
+            const category = criterion.category || CRITERION_CATEGORIES[criterion.code] || 'clinical';
+            const tags = CRITERION_TAGS[criterion.code] || [];
+            const icon = CRITERION_ICONS[criterion.code] || CRITERION_ICONS.PP3;
+            const dataSource = CRITERION_DATA_SOURCES[criterion.code];
+
+            // Build category icons row
+            const categories = ['clinical', 'computation', 'intrinsic', 'literature', 'population'];
+            const categoryIconsHtml = categories.map(cat => {
+                const isActive = cat === category;
+                return `<div class="acmg-category-icon ${isActive ? 'active' : ''}">${CATEGORY_HEADER_ICONS[cat]}</div>`;
+            }).join('');
+
+            // Build tags - for not_evaluated, show data source info instead
+            let tagsHtml;
+            if (status === 'not_evaluated' && dataSource) {
+                const linkUrl = dataSource.link && evidenceLinks[dataSource.link];
+                const sourceTag = linkUrl
+                    ? `<a href="${linkUrl}" target="_blank" class="acmg-tag" style="background:#dbeafe;color:#1e40af;border:1px solid #93c5fd;cursor:pointer;" onclick="event.stopPropagation();">${dataSource.source} ↗</a>`
+                    : `<span class="acmg-tag" style="background:#fef3c7;color:#92400e;border:1px solid #fcd34d;">${dataSource.source}</span>`;
+                tagsHtml = sourceTag;
+            } else {
+                tagsHtml = tags.slice(0, 4).map(tag => `<span class="acmg-tag">${tag}</span>`).join('');
+            }
+
+            // Status badge for non-met
+            const statusBadge = status === 'not_evaluated' ? '<span class="acmg-status-badge">N/A</span>' :
+                               status === 'not_met' ? '<span class="acmg-status-badge" style="background:#f1f5f9;color:#64748b;">Not Met</span>' : '';
+
+            // For not_evaluated, show what data is needed
+            const descText = status === 'not_evaluated' && dataSource
+                ? `<strong>Need:</strong> ${dataSource.need}`
+                : (criterion.description ? criterion.description.substring(0, 100) + (criterion.description.length > 100 ? '...' : '') : '');
+
+            return `
+                <div class="acmg-card ${typeClass} ${statusClass}"
+                     role="button"
+                     tabindex="0"
+                     aria-label="${criterion.code}: ${criterion.name}"
+                     onclick="showCriteriaDetail(${JSON.stringify(criterion).replace(/"/g, '&quot;')})"
+                     onkeypress="if(event.key==='Enter')showCriteriaDetail(${JSON.stringify(criterion).replace(/"/g, '&quot;')})">
+                    <div class="acmg-card-header">
+                        <span class="acmg-card-code-small">${criterion.code}</span>
+                        <div class="acmg-category-icons">${categoryIconsHtml}</div>
+                    </div>
+                    ${statusBadge}
+                    <div class="acmg-card-body">
+                        <div class="acmg-icon-frame">
+                            ${OCTAGON_FRAME}
+                            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">${icon.replace(/<svg[^>]*>/, '').replace('</svg>', '')}</svg>
+                        </div>
+                        <div class="acmg-card-code">${criterion.code}</div>
+                        <div class="acmg-card-name">${criterion.name || criterion.short_name}</div>
+                        <div class="acmg-card-desc">${descText}</div>
+                        <div class="acmg-card-tags">${tagsHtml}</div>
+                    </div>
+                </div>
+            `;
+        }
+
+        // Enrich basic criteria with full definitions
+        function enrichCriteria(basicCriteria) {
+            return basicCriteria.map(c => {
+                const def = ACMG_CRITERIA_DEFINITIONS[c.code];
+                if (def) {
+                    return {
+                        ...def,
+                        evidence: c.description || c.evidence || ''
+                    };
+                }
+                // Fallback for unknown criteria codes - infer from code pattern
+                const isPathogenic = c.code.startsWith('P');
+                let strength = 'supporting';
+                if (c.code.includes('VS')) strength = 'very_strong';
+                else if (c.code.startsWith('PS') || c.code.startsWith('BS') || c.code === 'BA1') strength = c.code === 'BA1' ? 'stand_alone' : 'strong';
+                else if (c.code.startsWith('PM')) strength = 'moderate';
+
+                return {
+                    code: c.code,
+                    name: c.code,
+                    short_name: c.code,
+                    category: 'clinical',
+                    strength: strength,
+                    evidence_type: isPathogenic ? 'pathogenic' : 'benign',
+                    description: c.description || 'ACMG criterion applied.',
+                    evidence: c.description || ''
+                };
+            });
+        }
+
+        // Calculate ACMG score summary
+        function calculateScoringSummary(criteria) {
+            let pathogenicScore = 0;
+            let benignScore = 0;
+
+            criteria.forEach(c => {
+                const weight = STRENGTH_VALUES[c.strength] || 1;
+                if (c.evidence_type === 'pathogenic') {
+                    pathogenicScore += weight;
+                } else {
+                    benignScore += weight;
+                }
+            });
+
+            const total = pathogenicScore + benignScore;
+            const pathogenicPercent = total > 0 ? (pathogenicScore / total) * 100 : 50;
+            const benignPercent = total > 0 ? (benignScore / total) * 100 : 50;
+
+            return {
+                pathogenicScore,
+                benignScore,
+                pathogenicPercent,
+                benignPercent,
+                pathogenicCriteria: criteria.filter(c => c.evidence_type === 'pathogenic'),
+                benignCriteria: criteria.filter(c => c.evidence_type === 'benign')
+            };
+        }
+
+        // Render strength indicator bars
+        function renderStrengthIndicator(strength, evidenceType) {
+            const maxBars = 4;
+            const activeCount = STRENGTH_VALUES[strength] || 1;
+            const colorClass = evidenceType === 'pathogenic' ? 'text-red-500' : 'text-blue-500';
+
+            let bars = '';
+            for (let i = 0; i < maxBars; i++) {
+                bars += `<div class="criteria-strength-bar ${i < activeCount ? 'active ' + colorClass : ''}"></div>`;
+            }
+
+            return `
+                <div class="criteria-strength">
+                    <div class="criteria-strength-indicator">${bars}</div>
+                    <div class="criteria-strength-label">${STRENGTH_LABELS[strength] || strength}</div>
+                </div>
+            `;
+        }
+
+        // Render a single criteria card
+        function renderCriteriaCard(criterion) {
+            const status = criterion.status || 'met';
+            const typeClass = `criteria-card--${criterion.evidence_type}`;
+            const strengthClass = `strength--${criterion.strength}`;
+            const statusClass = status !== 'met' ? `criteria-card--${status}` : '';
+            const categoryIcon = CATEGORY_ICONS[criterion.category] || CATEGORY_ICONS.clinical;
+
+            // Status badge text
+            const statusLabels = {
+                'met': '',  // No badge for met criteria (they're visually distinct)
+                'not_met': 'Not Met',
+                'not_evaluated': 'N/A'
+            };
+            const statusBadge = statusLabels[status] ?
+                `<span class="criteria-status-badge criteria-status-badge--${status}">${statusLabels[status]}</span>` : '';
+
+            return `
+                <div class="criteria-card ${typeClass} ${strengthClass} ${statusClass}"
+                     role="button"
+                     tabindex="0"
+                     aria-label="${criterion.code}: ${criterion.name}. ${criterion.description}"
+                     onclick="showCriteriaDetail(${JSON.stringify(criterion).replace(/"/g, '&quot;')})"
+                     onkeypress="if(event.key==='Enter')showCriteriaDetail(${JSON.stringify(criterion).replace(/"/g, '&quot;')})">
+                    ${statusBadge}
+                    <div class="criteria-code">${criterion.code}</div>
+                    <div class="criteria-short-name">${criterion.short_name}</div>
+                    ${renderStrengthIndicator(criterion.strength, criterion.evidence_type)}
+                    <div class="criteria-category">
+                        ${categoryIcon}
+                        <span class="criteria-category-label">${criterion.category}</span>
+                    </div>
+                </div>
+            `;
+        }
+
+        // Render the scoring summary visualization
+        function renderScoringSummary(summary) {
+            const pathogenicWidth = Math.max(2, summary.pathogenicPercent);
+            const benignWidth = Math.max(2, summary.benignPercent);
+
+            return `
+                <div class="scoring-summary">
+                    <div class="scoring-bar-container">
+                        <span class="text-xs font-semibold text-red-600">Pathogenic</span>
+                        <div class="scoring-bar">
+                            <div class="scoring-bar-fill scoring-bar-pathogenic" style="width: ${pathogenicWidth}%"></div>
+                            <div class="scoring-bar-fill scoring-bar-benign" style="width: ${benignWidth}%"></div>
+                        </div>
+                        <span class="text-xs font-semibold text-blue-600">Benign</span>
+                    </div>
+                    <div class="scoring-labels">
+                        <span>${summary.pathogenicCriteria.length} pathogenic criteria (score: ${summary.pathogenicScore})</span>
+                        <span>${summary.benignCriteria.length} benign criteria (score: ${summary.benignScore})</span>
+                    </div>
+                    <div class="scoring-legend">
+                        <div class="scoring-legend-item">
+                            <div class="scoring-legend-dot" style="background: #dc2626;"></div>
+                            <span>Very Strong/Strong</span>
+                        </div>
+                        <div class="scoring-legend-item">
+                            <div class="scoring-legend-dot" style="background: #f87171;"></div>
+                            <span>Moderate</span>
+                        </div>
+                        <div class="scoring-legend-item">
+                            <div class="scoring-legend-dot" style="background: #fca5a5;"></div>
+                            <span>Supporting</span>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        // Render the complete criteria section
+        function renderCriteriaSection(criteria, evidenceLinks = {}) {
+            if (!criteria || criteria.length === 0) {
+                return `
+                    <div class="criteria-section">
+                        <div class="criteria-header">
+                            <h3 class="criteria-title">
+                                <svg class="w-5 h-5 text-indigo-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"/>
+                                </svg>
+                                ACMG Evidence Criteria
+                            </h3>
+                        </div>
+                        <div class="criteria-empty">
+                            <svg class="criteria-empty-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 13V6a2 2 0 00-2-2H6a2 2 0 00-2 2v7m16 0v5a2 2 0 01-2 2H6a2 2 0 01-2-2v-5m16 0h-2.586a1 1 0 00-.707.293l-2.414 2.414a1 1 0 01-.707.293h-3.172a1 1 0 01-.707-.293l-2.414-2.414A1 1 0 006.586 13H4"/>
+                            </svg>
+                            <p class="criteria-empty-text">No specific ACMG criteria were identified for this variant.</p>
+                        </div>
+                    </div>
+                `;
+            }
+
+            // If criteria have status field, use new comprehensive display
+            const hasStatusField = criteria.some(c => c.status);
+
+            if (hasStatusField) {
+                // Group by status
+                const metCriteria = criteria.filter(c => c.status === 'met');
+                const notMetCriteria = criteria.filter(c => c.status === 'not_met');
+                const notEvaluatedCriteria = criteria.filter(c => c.status === 'not_evaluated');
+
+                // Sort helper: pathogenic first, then by strength
+                const sortByTypeAndStrength = (a, b) => {
+                    if (a.evidence_type !== b.evidence_type) {
+                        return a.evidence_type === 'pathogenic' ? -1 : 1;
+                    }
+                    return (STRENGTH_VALUES[b.strength] || 0) - (STRENGTH_VALUES[a.strength] || 0);
+                };
+
+                const sortedMet = [...metCriteria].sort(sortByTypeAndStrength);
+                const sortedNotMet = [...notMetCriteria].sort(sortByTypeAndStrength);
+                const sortedNotEvaluated = [...notEvaluatedCriteria].sort(sortByTypeAndStrength);
+
+                // Calculate summary from met criteria only
+                const summary = calculateScoringSummary(metCriteria);
+
+                // Render cards using Mastermind-style design
+                const metCardsHtml = sortedMet.map(c => renderACMGCard(c, evidenceLinks)).join('');
+                const notMetCardsHtml = sortedNotMet.map(c => renderACMGCard(c, evidenceLinks)).join('');
+                const notEvaluatedCardsHtml = sortedNotEvaluated.map(c => renderACMGCard(c, evidenceLinks)).join('');
+
+                return `
+                    <div class="criteria-section">
+                        <div class="criteria-header">
+                            <h3 class="criteria-title">
+                                <svg class="w-5 h-5 text-indigo-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"/>
+                                </svg>
+                                ACMG Evidence Criteria (All 28)
+                            </h3>
+                            <div class="text-sm text-slate-500">
+                                <span class="text-green-600 font-semibold">${metCriteria.length} met</span> |
+                                <span class="text-slate-500">${notMetCriteria.length} not met</span> |
+                                <span class="text-amber-600">${notEvaluatedCriteria.length} N/A</span>
+                            </div>
+                        </div>
+                        ${metCriteria.length > 0 ? renderScoringSummary(summary) : ''}
+
+                        ${metCriteria.length > 0 ? `
+                            <div class="mb-6">
+                                <h4 class="text-sm font-bold text-green-700 uppercase tracking-wide mb-3 flex items-center gap-2">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                                    </svg>
+                                    Criteria Met (${metCriteria.length})
+                                </h4>
+                                <div class="criteria-cards" role="list">${metCardsHtml}</div>
+                            </div>
+                        ` : ''}
+
+                        ${notMetCriteria.length > 0 ? `
+                            <div class="mb-6">
+                                <h4 class="text-sm font-bold text-slate-500 uppercase tracking-wide mb-3 flex items-center gap-2">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                                    </svg>
+                                    Criteria Not Met (${notMetCriteria.length})
+                                </h4>
+                                <div class="criteria-cards" role="list">${notMetCardsHtml}</div>
+                            </div>
+                        ` : ''}
+
+                        ${notEvaluatedCriteria.length > 0 ? `
+                            <div class="mb-6">
+                                <h4 class="text-sm font-bold text-amber-600 uppercase tracking-wide mb-3 flex items-center gap-2">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                    </svg>
+                                    Cannot Be Evaluated (${notEvaluatedCriteria.length})
+                                    <span class="font-normal text-xs text-slate-400 ml-2">Requires additional data</span>
+                                </h4>
+                                <div class="criteria-cards" role="list">${notEvaluatedCardsHtml}</div>
+                            </div>
+                        ` : ''}
+                    </div>
+                `;
+            }
+
+            // Fallback: old behavior for criteria without status field
+            const enrichedCriteria = enrichCriteria(criteria);
+            const summary = calculateScoringSummary(enrichedCriteria);
+
+            const sortedCriteria = [...enrichedCriteria].sort((a, b) => {
+                if (a.evidence_type !== b.evidence_type) {
+                    return a.evidence_type === 'pathogenic' ? -1 : 1;
+                }
+                return (STRENGTH_VALUES[b.strength] || 0) - (STRENGTH_VALUES[a.strength] || 0);
+            });
+
+            const cardsHtml = sortedCriteria.map(c => renderCriteriaCard(c)).join('');
+
+            return `
+                <div class="criteria-section">
+                    <div class="criteria-header">
+                        <h3 class="criteria-title">
+                            <svg class="w-5 h-5 text-indigo-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"/>
+                            </svg>
+                            ACMG Evidence Criteria
+                        </h3>
+                        <div class="text-sm text-slate-500">
+                            ${enrichedCriteria.length} criteria applied
+                        </div>
+                    </div>
+                    ${renderScoringSummary(summary)}
+                    <div class="criteria-cards" role="list" aria-label="ACMG Criteria Cards">
+                        ${cardsHtml}
+                    </div>
+                </div>
+            `;
+        }
+
+        // Show criteria detail modal
+        function showCriteriaDetail(criterion) {
+            const typeClass = criterion.evidence_type === 'pathogenic' ? 'pathogenic' : 'benign';
+            const categoryIcon = CATEGORY_ICONS[criterion.category] || CATEGORY_ICONS.clinical;
+
+            const modalHtml = `
+                <div class="criteria-detail-overlay active" onclick="closeCriteriaDetail(event)" role="dialog" aria-modal="true" aria-labelledby="criteria-detail-title">
+                    <div class="criteria-detail-modal" onclick="event.stopPropagation()">
+                        <div class="criteria-detail-header">
+                            <div class="criteria-detail-badge criteria-detail-badge--${typeClass}">
+                                <div class="criteria-code" style="color: ${typeClass === 'pathogenic' ? '#991b1b' : '#1e40af'}">${criterion.code}</div>
+                            </div>
+                            <div class="criteria-detail-title">
+                                <div class="criteria-detail-name" id="criteria-detail-title">${criterion.name}</div>
+                                <span class="criteria-detail-strength-badge criteria-detail-strength-badge--${typeClass}">
+                                    ${STRENGTH_LABELS[criterion.strength] || criterion.strength} ${typeClass === 'pathogenic' ? 'Pathogenic' : 'Benign'}
+                                </span>
+                            </div>
+                            <button class="criteria-detail-close" onclick="closeCriteriaDetail()" aria-label="Close detail view">
+                                <svg class="w-4 h-4 text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                                </svg>
+                            </button>
+                        </div>
+                        <div class="criteria-detail-body">
+                            <div class="criteria-detail-section">
+                                <div class="criteria-detail-section-title">Definition</div>
+                                <div class="criteria-detail-section-content">${criterion.description}</div>
+                            </div>
+                            ${criterion.evidence ? `
+                            <div class="criteria-detail-section">
+                                <div class="criteria-detail-section-title">Variant-Specific Evidence</div>
+                                <div class="criteria-detail-evidence">${criterion.evidence}</div>
+                            </div>
+                            ` : ''}
+                            <div class="criteria-detail-section">
+                                <div class="criteria-detail-section-title">Category</div>
+                                <div class="criteria-detail-category-badge">
+                                    ${categoryIcon}
+                                    <span>${criterion.category.charAt(0).toUpperCase() + criterion.category.slice(1)}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+
+            // Remove existing modal if any
+            const existingModal = document.querySelector('.criteria-detail-overlay');
+            if (existingModal) {
+                existingModal.remove();
+            }
+
+            // Add modal to body
+            document.body.insertAdjacentHTML('beforeend', modalHtml);
+
+            // Trap focus and handle escape key
+            document.addEventListener('keydown', handleModalKeydown);
+        }
+
+        function closeCriteriaDetail(event) {
+            if (event && event.target !== event.currentTarget) return;
+
+            const overlay = document.querySelector('.criteria-detail-overlay');
+            if (overlay) {
+                overlay.classList.remove('active');
+                setTimeout(() => overlay.remove(), 200);
+            }
+            document.removeEventListener('keydown', handleModalKeydown);
+        }
+
+        function handleModalKeydown(event) {
+            if (event.key === 'Escape') {
+                closeCriteriaDetail();
+            }
+        }
     </script>
 
     <!-- RUO Footer -->

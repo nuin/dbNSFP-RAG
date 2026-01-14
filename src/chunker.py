@@ -219,6 +219,15 @@ def variant_to_metadata(row: pd.Series, use_grch37: bool = False) -> dict:
     if gnomad_af is None:
         gnomad_af = safe_float(row.get("gnomAD2.1.1_exomes_controls_AF"))
 
+    # Amino acid information for PS1/PM5 evaluation
+    aa_pos_val = row.get("aapos")
+    aa_pos_int = None
+    if not pd.isna(aa_pos_val):
+        try:
+            aa_pos_int = int(str(aa_pos_val).split(";")[0])  # Take first if multi-value
+        except (ValueError, TypeError):
+            pass
+
     return {
         "chr": chrom,
         "pos": int(pos_val) if not pd.isna(pos_val) else 0,
@@ -226,16 +235,42 @@ def variant_to_metadata(row: pd.Series, use_grch37: bool = False) -> dict:
         "alt": safe_str(row.get("alt")),
         "gene": safe_str(row.get("genename")),
         "transcript": safe_str(row.get("Ensembl_transcriptid")),
+        # Amino acid data (for PS1/PM5 ClinVar lookup)
+        "aa_ref": safe_str(row.get("aaref")),
+        "aa_alt": safe_str(row.get("aaalt")),
+        "aa_pos": aa_pos_int,
         "cadd_phred": safe_float(row.get("CADD_phred")),
         "revel_score": safe_float(row.get("REVEL_score")),
+        # ClinVar annotations
+        "clinvar_id": safe_str(row.get("clinvar_id")),
         "clinvar_sig": safe_str(row.get("clinvar_clnsig")),
+        "clinvar_review": safe_str(row.get("clinvar_review")),
+        "clinvar_trait": safe_str(row.get("clinvar_trait")),
+        # Population frequency
         "gnomad_af": gnomad_af,
+        # Predictor results
         "sift_pred": safe_str(row.get("SIFT_pred")),
         "polyphen_pred": safe_str(row.get("Polyphen2_HDIV_pred")),
         "alphamissense_pred": safe_str(row.get("AlphaMissense_pred")),
         "mutationtaster_pred": safe_str(row.get("MutationTaster_pred")),
         "bayesdel_pred": safe_str(row.get("BayesDel_addAF_pred")),
         "provean_pred": safe_str(row.get("PROVEAN_pred")),
+        # Consequence/effect type (for PVS1, PM4, BP7)
+        "consequence": safe_str(row.get("Ensembl_consequence")),
+        # Gene constraint scores (for PP2, BP1, PVS1)
+        "gnomad_pli": safe_float(row.get("gnomAD_pLI")),
+        "gnomad_mis_z": safe_float(row.get("gnomAD_mis_z")),
+        "gnomad_lof_z": safe_float(row.get("gnomAD_lof_z")),
+        "loeuf": safe_float(row.get("LOEUF")),  # LoF observed/expected upper (<0.6 = constrained)
+        # Domain annotations (for PM1)
+        "interpro_domain": safe_str(row.get("Interpro_domain")),
+        # SpliceAI scores (for BP7 - synonymous splice impact)
+        "spliceai_ag": safe_float(row.get("SpliceAI_pred_DS_AG")),  # Acceptor gain
+        "spliceai_al": safe_float(row.get("SpliceAI_pred_DS_AL")),  # Acceptor loss
+        "spliceai_dg": safe_float(row.get("SpliceAI_pred_DS_DG")),  # Donor gain
+        "spliceai_dl": safe_float(row.get("SpliceAI_pred_DS_DL")),  # Donor loss
+        # gnomAD homozygote count (for BS2 - healthy adult observation)
+        "gnomad_hom": safe_float(row.get("gnomAD4.1_joint_AC_hom")),
     }
 
 

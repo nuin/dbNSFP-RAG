@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-This is an ACMG Variant Classification API that uses a fine-tuned LLM to classify genetic variants according to ACMG/AMP guidelines. It processes dbNSFP annotation data, builds a FAISS vector database, and exposes a REST API for variant classification.
+This is an ACMG Variant Classification API that uses a fine-tuned LLM to classify genetic variants according to ACMG/AMP guidelines. It processes dbNSFP annotation data, builds a FAISS vector database, and exposes a REST API for variant classification. **FOR RESEARCH USE ONLY** - not validated for clinical/diagnostic use.
 
 ## Common Commands
 
@@ -12,6 +12,7 @@ This is an ACMG Variant Classification API that uses a fine-tuned LLM to classif
 ```bash
 uv venv && uv pip install -e .
 uv pip install fastapi uvicorn mlx-lm  # for API
+uv pip install -e ".[dev]"             # for testing
 ```
 
 ### Start the API Server
@@ -61,6 +62,15 @@ uv run python -m src.main list-panels     # List available gene panels
 uv run python -m src.main clear           # Clear index and checkpoint
 ```
 
+### Testing
+```bash
+pytest                                     # Run all tests
+pytest validation/test_suite/test_api.py  # Run single test file
+pytest -k "test_validate_chromosome"      # Run tests matching name
+pytest -m "not slow"                       # Skip slow tests
+pytest -m "not requires_model"             # Skip tests requiring ML model
+```
+
 ### Linting
 ```bash
 ruff check .
@@ -76,11 +86,13 @@ ruff format .
 
 3. **Vector Store** (`src/vectorstore.py`): FAISS-backed store with sentence-transformer embeddings (all-MiniLM-L6-v2). Stores variant ID, text document, and metadata. Supports semantic search, gene lookup, and region queries.
 
-4. **Training** (`training/acmg_training.py`): Generates instruction-tuning data from ClinVar annotations. Maps ClinVar significance to ACMG 5-tier classification. Outputs Alpaca JSON format for mlx-lm.
+4. **Validation** (`src/validation.py`): Input validation for variants, HGVS notation, and ACMG codes. Returns `ValidationResult` dataclass with normalized values or detailed errors.
 
-5. **Fine-tuning** (`training/finetune_acmg.py`): LoRA fine-tuning using mlx-lm (Apple Silicon) or transformers (NVIDIA). Uses Llama-3.2-3B-Instruct-4bit as base model.
+5. **Training** (`training/acmg_training.py`): Generates instruction-tuning data from ClinVar annotations. Maps ClinVar significance to ACMG 5-tier classification. Outputs Alpaca JSON format for mlx-lm.
 
-6. **API** (`api/server.py`): FastAPI server with GET/POST `/classify` endpoints. Lazy-loads model (MLX > transformers > Ollama fallback). Returns ACMG classification, criteria, and confidence.
+6. **Fine-tuning** (`training/finetune_acmg.py`): LoRA fine-tuning using mlx-lm (Apple Silicon) or transformers (NVIDIA). Uses Llama-3.2-3B-Instruct-4bit as base model.
+
+7. **API** (`api/server.py`): FastAPI server with GET/POST `/classify` endpoints. Lazy-loads model (MLX > transformers > Ollama fallback). Returns ACMG classification, criteria, and confidence.
 
 ### Key Data Structures
 
@@ -91,6 +103,13 @@ ruff format .
 - cadd_phred, revel_score, gnomad_af
 - sift_pred, polyphen_pred, alphamissense_pred
 - clinvar_sig
+
+**ValidationResult** (from `src/validation.py`):
+- `valid`: bool - whether validation passed
+- `error`: optional error message
+- `warning`: optional warning message
+- `normalized`: normalized value
+- `variant_id`: constructed variant ID (for `validate_variant`)
 
 ### Gene Panels
 Defined in `src/panels.py`. Main panel is `NGSgenes` (314 genes covering cardiac + cancer). Other panels: `hereditary_cancer`, `cardiac`, `neurological`.
@@ -104,3 +123,6 @@ Defined in `src/panels.py`. Main panel is `NGSgenes` (314 genes covering cardiac
 
 ### Coordinate System
 Default is GRCh37 (hg19) for clinical compatibility. The `use_grch37` flag in chunking/metadata functions controls which coordinates are used. Variants without GRCh37 liftover are skipped when building GRCh37 databases.
+
+### Test Infrastructure
+Tests are in `validation/test_suite/`. Pytest markers: `slow`, `requires_model`, `requires_database`, `integration`. Test fixtures in `conftest.py`.

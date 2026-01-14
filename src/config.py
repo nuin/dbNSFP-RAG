@@ -15,8 +15,9 @@ _default_dbnsfp = Path.home() / "Downloads" / "dbNSFP5.3.1a"
 DBNSFP_DIR = Path(os.environ.get("DBNSFP_DIR", str(_default_dbnsfp)))
 DBNSFP_ZIP = None  # Not using zip file
 
-# GRCh37 panel database path
+# Panel database paths by genome build
 VECTORDB_GRCH37_NGSGENES = DATA_DIR / "vectordb" / "grch37-ngsgenes"
+VECTORDB_GRCH38_NGSGENES = DATA_DIR / "vectordb" / "grch38-ngsgenes"
 
 # dbNSFP columns to keep (from 600+)
 KEEP_COLUMNS = [
@@ -87,6 +88,20 @@ KEEP_COLUMNS = [
     "clinvar_trait",
     # Functional
     "Interpro_domain",
+    # Gene constraint (gnomAD) - for PP2, BP1, PVS1 evaluation
+    "gnomAD_pLI",  # Probability of LoF intolerance (≥0.9 = intolerant)
+    "gnomAD_mis_z",  # Missense Z-score (≥3.09 = constrained)
+    "gnomAD_lof_z",  # LoF Z-score (higher = more constrained)
+    "LOEUF",  # LoF observed/expected upper bound (v4: <0.6 = constrained)
+    # Consequence type (for PVS1, PM4, PP2, BP1, BP7)
+    "Ensembl_consequence",  # VEP consequence (frameshift, stop_gained, synonymous, etc.)
+    # SpliceAI scores (for BP7 - synonymous splice impact evaluation)
+    "SpliceAI_pred_DS_AG",  # Acceptor gain delta score
+    "SpliceAI_pred_DS_AL",  # Acceptor loss delta score
+    "SpliceAI_pred_DS_DG",  # Donor gain delta score
+    "SpliceAI_pred_DS_DL",  # Donor loss delta score
+    # gnomAD homozygote count (for BS2 - observed in healthy adults)
+    "gnomAD4.1_joint_AC_hom",  # Homozygote allele count in gnomAD v4.1
 ]
 
 # Embedding model (all-MiniLM-L6-v2 is 5x faster than PubMedBERT)

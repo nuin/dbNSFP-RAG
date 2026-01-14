@@ -271,6 +271,44 @@ def validate_variant(
     )
 
 
+def validate_reference_against_database(
+    variant_id: str,
+    user_ref: str,
+    stored_ref: str
+) -> ValidationResult:
+    """Validate user-provided reference allele against database.
+
+    This catches coordinate/genome build mismatches where the user provides
+    coordinates from the wrong build.
+
+    Args:
+        variant_id: The variant being queried
+        user_ref: Reference allele provided by user
+        stored_ref: Reference allele stored in database
+
+    Returns:
+        ValidationResult with error if mismatch
+    """
+    if not stored_ref:
+        # No stored ref to compare against
+        return ValidationResult(valid=True)
+
+    user_ref_norm = user_ref.strip().upper()
+    stored_ref_norm = stored_ref.strip().upper()
+
+    if user_ref_norm != stored_ref_norm:
+        return ValidationResult(
+            valid=False,
+            error=(
+                f"Reference allele mismatch for {variant_id}: "
+                f"you provided '{user_ref}', but database has '{stored_ref}'. "
+                f"This may indicate wrong genome build or incorrect coordinates."
+            )
+        )
+
+    return ValidationResult(valid=True)
+
+
 def validate_acmg_code(code: Optional[str]) -> ValidationResult:
     """Validate ACMG/AMP evidence code.
 
