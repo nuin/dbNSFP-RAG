@@ -1140,10 +1140,10 @@
                     </div>
                     <div class="flex flex-wrap gap-2 text-sm">
                         <span class="text-slate-400">Try:</span>
-                        <a onclick="fillCoords('15', '48704935', 'C', 'A')" class="px-3 py-1 bg-red-50 text-red-600 rounded-full cursor-pointer hover:bg-red-100 transition font-medium">FBN1 Marfan</a>
-                        <a onclick="fillCoords('X', '32536123', 'A', 'T')" class="px-3 py-1 bg-orange-50 text-orange-600 rounded-full cursor-pointer hover:bg-orange-100 transition font-medium">DMD Dystrophy</a>
-                        <a onclick="fillCoords('20', '50406630', 'T', 'G')" class="px-3 py-1 bg-green-50 text-green-600 rounded-full cursor-pointer hover:bg-green-100 transition font-medium">SALL4 Benign</a>
-                        <a onclick="fillCoords('20', '21494184', 'C', 'T')" class="px-3 py-1 bg-emerald-50 text-emerald-600 rounded-full cursor-pointer hover:bg-emerald-100 transition font-medium">NKX2-2 Benign</a>
+                        <a onclick="fillCoords('18', '29102213', 'G', 'A')" class="px-3 py-1 bg-red-50 text-red-600 rounded-full cursor-pointer hover:bg-red-100 transition font-medium">DSG2 Pathogenic</a>
+                        <a onclick="fillCoords('18', '29175090', 'A', 'C')" class="px-3 py-1 bg-orange-50 text-orange-600 rounded-full cursor-pointer hover:bg-orange-100 transition font-medium">TTR Likely Path</a>
+                        <a onclick="fillCoords('21', '44479417', 'C', 'A')" class="px-3 py-1 bg-blue-50 text-blue-600 rounded-full cursor-pointer hover:bg-blue-100 transition font-medium">CBS Likely Benign</a>
+                        <a onclick="fillCoords('18', '32438667', 'C', 'G')" class="px-3 py-1 bg-green-50 text-green-600 rounded-full cursor-pointer hover:bg-green-100 transition font-medium">DTNA Benign</a>
                     </div>
                 </div>
 
@@ -1156,10 +1156,10 @@
                     </div>
                     <div class="flex flex-wrap gap-2 text-sm">
                         <span class="text-slate-400">Try:</span>
-                        <a onclick="fillHgvs('NC_000015.9:g.48704935C>A')" class="px-3 py-1 bg-red-50 text-red-600 rounded-full cursor-pointer hover:bg-red-100 transition font-medium">FBN1 (NC)</a>
-                        <a onclick="fillHgvs('15:g.48704935C>A')" class="px-3 py-1 bg-red-50 text-red-600 rounded-full cursor-pointer hover:bg-red-100 transition font-medium">FBN1 (short)</a>
-                        <a onclick="fillHgvs('20:g.50406630T>G')" class="px-3 py-1 bg-green-50 text-green-600 rounded-full cursor-pointer hover:bg-green-100 transition font-medium">SALL4</a>
-                        <a onclick="fillHgvs('X:g.32536123A>T')" class="px-3 py-1 bg-orange-50 text-orange-600 rounded-full cursor-pointer hover:bg-orange-100 transition font-medium">DMD</a>
+                        <a onclick="fillHgvs('18:g.29102213G>A')" class="px-3 py-1 bg-red-50 text-red-600 rounded-full cursor-pointer hover:bg-red-100 transition font-medium">DSG2 Pathogenic</a>
+                        <a onclick="fillHgvs('NC_000018.9:g.29175090A>C')" class="px-3 py-1 bg-orange-50 text-orange-600 rounded-full cursor-pointer hover:bg-orange-100 transition font-medium">TTR (NC)</a>
+                        <a onclick="fillHgvs('21:g.44479417C>A')" class="px-3 py-1 bg-blue-50 text-blue-600 rounded-full cursor-pointer hover:bg-blue-100 transition font-medium">CBS Likely Benign</a>
+                        <a onclick="fillHgvs('18:g.32438667C>G')" class="px-3 py-1 bg-green-50 text-green-600 rounded-full cursor-pointer hover:bg-green-100 transition font-medium">DTNA Benign</a>
                     </div>
                 </div>
 
@@ -1302,11 +1302,7 @@
         };
 
         function renderEvidenceLinks(links) {
-            console.log('renderEvidenceLinks called with:', links);
-            if (!links || Object.keys(links).length === 0) {
-                console.log('No links found, returning empty');
-                return '';
-            }
+            if (!links || Object.keys(links).length === 0) return '';
 
             const linksHtml = Object.entries(links)
                 .filter(([key, url]) => url && LINK_CONFIG[key])
@@ -1321,11 +1317,10 @@
                 })
                 .join('');
 
-            console.log('Generated linksHtml:', linksHtml ? 'has content' : 'empty');
             if (!linksHtml) return '';
 
-            const result = `
-                <div class="mb-6" style="background: #f0f0f0; padding: 20px; border: 2px solid red;">
+            return `
+                <div class="mb-6">
                     <h4 class="text-sm font-bold text-slate-500 uppercase tracking-wide mb-3 flex items-center gap-2">
                         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
@@ -1335,8 +1330,6 @@
                     <div class="evidence-links">${linksHtml}</div>
                 </div>
             `;
-            console.log('Returning result HTML');
-            return result;
         }
 
         function parseAnnotation(text) {
