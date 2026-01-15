@@ -1350,9 +1350,10 @@ def evaluate_all_criteria(
             # High pLI (>0.9) + high missense o/e (>0.8) suggests truncating is primary mechanism
             # (LOF intolerant but missense tolerated)
             if gnomad_pli >= 0.9 and (gnomad_mis_oe is None or gnomad_mis_oe > 0.8):
+                mis_oe_str = f"{gnomad_mis_oe:.2f}" if gnomad_mis_oe else "N/A"
                 all_criteria.append(create_criterion(
                     "BP1", CriterionStatus.MET,
-                    f"Missense in gene where truncating variants are primary disease mechanism (pLI = {gnomad_pli:.2f}, mis o/e = {gnomad_mis_oe:.2f if gnomad_mis_oe else 'N/A'})"
+                    f"Missense in gene where truncating variants are primary disease mechanism (pLI = {gnomad_pli:.2f}, mis o/e = {mis_oe_str})"
                 ))
             else:
                 all_criteria.append(create_criterion(
