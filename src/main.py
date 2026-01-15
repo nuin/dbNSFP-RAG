@@ -9,6 +9,7 @@ from tqdm import tqdm
 
 from .chunker import chunk_dataframe
 from .config import RAW_DATA_DIR, VECTORDB_DIR, VECTORDB_GRCH37_NGSGENES, DBNSFP_ZIP, DBNSFP_DIR
+from .gene_data import load_gene_data
 from .ingest import (
     list_chromosome_files_in_zip, parse_chromosome_from_zip,
     list_chromosome_files, parse_chromosome_file,
@@ -236,6 +237,11 @@ def build_panel_index(
     print(f"\nWill process {len(chr_files)} chromosome files")
     print(f"Source type: {'ZIP' if is_zip else 'Directory'}")
 
+    # Load gene-level annotations (pLI, LOEUF, constraint scores)
+    print("\nLoading gene constraint data...")
+    gene_data = load_gene_data()
+    print(f"Loaded constraint data for {len(gene_data)} genes")
+
     total_processed = checkpoint["total_variants"]
     total_filtered = 0
     batch_size = 10000
@@ -279,8 +285,8 @@ def build_panel_index(
                 if chunk_df.empty:
                     continue
 
-                # Convert to embeddings format with GRCh37 option
-                chunk_data = chunk_dataframe(chunk_df, use_grch37=use_grch37)
+                # Convert to embeddings format with GRCh37 option and gene constraints
+                chunk_data = chunk_dataframe(chunk_df, use_grch37=use_grch37, gene_data=gene_data)
 
                 for var_id, text, meta in chunk_data:
                     if var_id in seen_ids:

@@ -1,5 +1,7 @@
 """Document chunking module - converts variant rows to structured text."""
 
+from typing import Optional
+
 import pandas as pd
 
 
@@ -193,8 +195,116 @@ def variant_to_id(row: pd.Series, use_grch37: bool = False) -> str:
     return f"{chrom}_{pos}_{ref}_{alt}"
 
 
-def variant_to_metadata(row: pd.Series, use_grch37: bool = False) -> dict:
-    """Extract metadata for filtering/retrieval."""
+def derive_consequence(row: pd.Series) -> str:
+    """
+    Derive variant consequence from available dbNSFP data.
+
+    Since dbNSFP variant files don't have an explicit consequence column,
+    we infer it from:
+    1. HGVSp notation (stop_gained, frameshift, etc.)
+    2. codon_degeneracy (2 = synonymous)
+    3. aa_ref vs aa_alt comparison
+    4. MutationTaster prediction (can indicate splice/nonsense)
+    """
+    # Check HGVSp for explicit consequence indicators
+    hgvsp = str(row.get("HGVSp_snpEff", ""))
+    hgvsc = str(row.get("HGVSc_snpEff", ""))
+
+    # Frameshift detection
+    if "fs" in hgvsp.lower() or "frameshift" in hgvsp.lower():
+        return "frameshift_variant"
+
+    # Get amino acid ref/alt early for multiple checks
+    aa_ref = str(row.get("aaref", ""))
+    aa_alt = str(row.get("aaalt", ""))
+
+    # Stop gained (nonsense) - check aa_alt first as it's most reliable
+    if aa_alt in ("*", "X", "Ter") and aa_ref not in ("*", "X", "Ter"):
+        return "stop_gained"
+
+    # Also check HGVSp for stop gained
+    if "Ter" in hgvsp or "*" in hgvsp:
+        if aa_ref not in ("*", "X", "Ter"):
+            return "stop_gained"
+
+    # Stop lost
+    if aa_ref in ("*", "X", "Ter") and aa_alt not in ("*", "X", "Ter", ""):
+        return "stop_lost"
+
+    # Start lost
+    if aa_ref == "M" and row.get("aapos") == 1:
+        if aa_alt and aa_alt != "M":
+            return "start_lost"
+
+    # Synonymous detection via codon_degeneracy
+    codon_deg = row.get("codon_degeneracy")
+    if not pd.isna(codon_deg):
+        try:
+            # codon_degeneracy: 0=non-degenerate, 2=2-fold, 4=4-fold degenerate
+            # If position is degenerate and aa doesn't change, it's synonymous
+            deg = int(str(codon_deg).split(";")[0])
+            if deg > 0 and aa_ref == aa_alt and aa_ref:
+                return "synonymous_variant"
+        except (ValueError, TypeError):
+            pass
+
+    # Synonymous - aa_ref equals aa_alt
+    if aa_ref and aa_alt and aa_ref == aa_alt:
+        return "synonymous_variant"
+
+    # Missense - different amino acids
+    if aa_ref and aa_alt and aa_ref != aa_alt:
+        # Check for in-frame insertion/deletion
+        ref_nt = str(row.get("ref", ""))
+        alt_nt = str(row.get("alt", ""))
+        if len(ref_nt) != len(alt_nt):
+            len_diff = abs(len(ref_nt) - len(alt_nt))
+            if len_diff % 3 == 0:
+                if len(ref_nt) > len(alt_nt):
+                    return "inframe_deletion"
+                else:
+                    return "inframe_insertion"
+            else:
+                return "frameshift_variant"
+        return "missense_variant"
+
+    # Splice site detection from HGVSc
+    if hgvsc:
+        # Check for splice site notation (e.g., c.1234+1G>A, c.1234-2T>C)
+        import re
+        splice_match = re.search(r'[+-][12][ACGT]>', hgvsc)
+        if splice_match:
+            if "+1" in hgvsc or "+2" in hgvsc:
+                return "splice_donor_variant"
+            if "-1" in hgvsc or "-2" in hgvsc:
+                return "splice_acceptor_variant"
+
+    # Check MutationTaster for splice predictions
+    mt_pred = str(row.get("MutationTaster_pred", "")).lower()
+    if "splice" in mt_pred:
+        return "splice_region_variant"
+
+    # Default: if we have ref/alt nucleotides but no aa change info
+    if not aa_ref and not aa_alt:
+        ref_nt = str(row.get("ref", ""))
+        alt_nt = str(row.get("alt", ""))
+        if ref_nt and alt_nt and len(ref_nt) == 1 and len(alt_nt) == 1:
+            return "SNV"  # Generic single nucleotide variant
+
+    return ""  # Unknown
+
+
+def variant_to_metadata(
+    row: pd.Series, use_grch37: bool = False, gene_data: Optional[dict] = None
+) -> dict:
+    """
+    Extract metadata for filtering/retrieval.
+
+    Args:
+        row: Variant data row
+        use_grch37: Use GRCh37/hg19 coordinates
+        gene_data: Pre-loaded gene constraint data (from gene_data.py)
+    """
 
     def safe_str(val):
         return str(val) if not pd.isna(val) else ""
@@ -203,6 +313,14 @@ def variant_to_metadata(row: pd.Series, use_grch37: bool = False) -> dict:
         if pd.isna(val):
             return None
         try:
+            # Handle multi-value fields
+            if isinstance(val, str):
+                parts = val.split(";")
+                for p in parts:
+                    p = p.strip()
+                    if p and p != ".":
+                        return float(p)
+                return None
             return float(val)
         except (ValueError, TypeError):
             return None
@@ -228,12 +346,27 @@ def variant_to_metadata(row: pd.Series, use_grch37: bool = False) -> dict:
         except (ValueError, TypeError):
             pass
 
+    # Get gene constraint scores from gene_data if available
+    gene_name = safe_str(row.get("genename"))
+    gnomad_pli = None
+    loeuf = None
+    gnomad_mis_oe = None
+
+    if gene_data and gene_name and gene_name in gene_data:
+        gene_info = gene_data[gene_name]
+        gnomad_pli = gene_info.get("gnomad_pli")
+        loeuf = gene_info.get("loeuf")
+        gnomad_mis_oe = gene_info.get("gnomad_mis_oe")
+
+    # Derive consequence from available data
+    consequence = derive_consequence(row)
+
     return {
         "chr": chrom,
         "pos": int(pos_val) if not pd.isna(pos_val) else 0,
         "ref": safe_str(row.get("ref")),
         "alt": safe_str(row.get("alt")),
-        "gene": safe_str(row.get("genename")),
+        "gene": gene_name,
         "transcript": safe_str(row.get("Ensembl_transcriptid")),
         # Amino acid data (for PS1/PM5 ClinVar lookup)
         "aa_ref": safe_str(row.get("aaref")),
@@ -255,32 +388,29 @@ def variant_to_metadata(row: pd.Series, use_grch37: bool = False) -> dict:
         "mutationtaster_pred": safe_str(row.get("MutationTaster_pred")),
         "bayesdel_pred": safe_str(row.get("BayesDel_addAF_pred")),
         "provean_pred": safe_str(row.get("PROVEAN_pred")),
-        # Consequence/effect type (for PVS1, PM4, BP7)
-        "consequence": safe_str(row.get("Ensembl_consequence")),
-        # Gene constraint scores (for PP2, BP1, PVS1)
-        "gnomad_pli": safe_float(row.get("gnomAD_pLI")),
-        "gnomad_mis_z": safe_float(row.get("gnomAD_mis_z")),
-        "gnomad_lof_z": safe_float(row.get("gnomAD_lof_z")),
-        "loeuf": safe_float(row.get("LOEUF")),  # LoF observed/expected upper (<0.6 = constrained)
+        # Consequence/effect type (derived from HGVSp/codon data)
+        "consequence": consequence,
+        # Gene constraint scores (from gene file, not variant file)
+        "gnomad_pli": gnomad_pli,
+        "gnomad_mis_oe": gnomad_mis_oe,  # Missense observed/expected
+        "loeuf": loeuf,  # LoF observed/expected upper (<0.35 = highly constrained)
         # Domain annotations (for PM1)
         "interpro_domain": safe_str(row.get("Interpro_domain")),
-        # SpliceAI scores (for BP7 - synonymous splice impact)
-        "spliceai_ag": safe_float(row.get("SpliceAI_pred_DS_AG")),  # Acceptor gain
-        "spliceai_al": safe_float(row.get("SpliceAI_pred_DS_AL")),  # Acceptor loss
-        "spliceai_dg": safe_float(row.get("SpliceAI_pred_DS_DG")),  # Donor gain
-        "spliceai_dl": safe_float(row.get("SpliceAI_pred_DS_DL")),  # Donor loss
         # gnomAD homozygote count (for BS2 - healthy adult observation)
-        "gnomad_hom": safe_float(row.get("gnomAD4.1_joint_AC_hom")),
+        "gnomad_hom": safe_float(row.get("gnomAD4.1_joint_nhomalt")),
     }
 
 
-def chunk_dataframe(df: pd.DataFrame, use_grch37: bool = False) -> list[tuple[str, str, dict]]:
+def chunk_dataframe(
+    df: pd.DataFrame, use_grch37: bool = False, gene_data: Optional[dict] = None
+) -> list[tuple[str, str, dict]]:
     """
     Convert DataFrame to list of (id, text, metadata) tuples.
 
     Args:
         df: DataFrame with variant data
         use_grch37: Use GRCh37/hg19 coordinates instead of GRCh38
+        gene_data: Pre-loaded gene constraint data (from gene_data.py)
 
     Returns:
         List of tuples: (variant_id, text_chunk, metadata_dict)
@@ -295,6 +425,6 @@ def chunk_dataframe(df: pd.DataFrame, use_grch37: bool = False) -> list[tuple[st
 
         var_id = variant_to_id(row, use_grch37=use_grch37)
         text = variant_to_text(row, use_grch37=use_grch37)
-        metadata = variant_to_metadata(row, use_grch37=use_grch37)
+        metadata = variant_to_metadata(row, use_grch37=use_grch37, gene_data=gene_data)
         results.append((var_id, text, metadata))
     return results

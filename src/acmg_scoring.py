@@ -1141,19 +1141,20 @@ def evaluate_all_criteria(
     ))
 
     # PP2: Missense in gene with low benign missense rate
-    gnomad_mis_z = metadata.get("gnomad_mis_z")
+    # Using gnomad_mis_oe (missense observed/expected ratio) - lower is more constrained
+    gnomad_mis_oe = metadata.get("gnomad_mis_oe")
     if "missense" in cons_lower:
-        if gnomad_mis_z is not None:
-            # High missense Z-score (>3) indicates gene intolerant to missense
-            if gnomad_mis_z >= 3.0:
+        if gnomad_mis_oe is not None:
+            # Low missense o/e ratio (<0.6) indicates gene intolerant to missense
+            if gnomad_mis_oe < 0.6:
                 all_criteria.append(create_criterion(
                     "PP2", CriterionStatus.MET,
-                    f"Missense variant in gene with high missense constraint (gnomAD mis_z = {gnomad_mis_z:.2f} ≥ 3.0)"
+                    f"Missense variant in gene with high missense constraint (gnomAD mis o/e = {gnomad_mis_oe:.2f} < 0.6)"
                 ))
             else:
                 all_criteria.append(create_criterion(
                     "PP2", CriterionStatus.NOT_MET,
-                    f"Gene not highly missense-constrained (gnomAD mis_z = {gnomad_mis_z:.2f} < 3.0)"
+                    f"Gene not highly missense-constrained (gnomAD mis o/e = {gnomad_mis_oe:.2f} ≥ 0.6)"
                 ))
         else:
             all_criteria.append(create_criterion(
@@ -1346,11 +1347,12 @@ def evaluate_all_criteria(
     gnomad_pli = metadata.get("gnomad_pli")
     if "missense" in cons_lower:
         if gnomad_pli is not None:
-            # High pLI (>0.9) + low missense Z suggests truncating is primary mechanism
-            if gnomad_pli >= 0.9 and (gnomad_mis_z is None or gnomad_mis_z < 2.0):
+            # High pLI (>0.9) + high missense o/e (>0.8) suggests truncating is primary mechanism
+            # (LOF intolerant but missense tolerated)
+            if gnomad_pli >= 0.9 and (gnomad_mis_oe is None or gnomad_mis_oe > 0.8):
                 all_criteria.append(create_criterion(
                     "BP1", CriterionStatus.MET,
-                    f"Missense in gene where truncating variants are primary disease mechanism (pLI = {gnomad_pli:.2f}, mis_z = {gnomad_mis_z:.2f if gnomad_mis_z else 'N/A'})"
+                    f"Missense in gene where truncating variants are primary disease mechanism (pLI = {gnomad_pli:.2f}, mis o/e = {gnomad_mis_oe:.2f if gnomad_mis_oe else 'N/A'})"
                 ))
             else:
                 all_criteria.append(create_criterion(
