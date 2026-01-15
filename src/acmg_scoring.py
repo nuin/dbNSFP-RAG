@@ -1018,8 +1018,8 @@ def evaluate_all_criteria(
         ))
     else:
         all_criteria.append(create_criterion(
-            "PM1", CriterionStatus.NOT_EVALUATED,
-            "No domain annotation available (InterPro domain not found)"
+            "PM1", CriterionStatus.NOT_MET,
+            "Variant not located in annotated functional domain"
         ))
 
     # PM2: Absent/rare in population
@@ -1327,8 +1327,8 @@ def evaluate_all_criteria(
         ))
     else:
         all_criteria.append(create_criterion(
-            "BS2", CriterionStatus.NOT_EVALUATED,
-            "No homozygotes observed in gnomAD. For dominant disorders, requires individual-level phenotype data."
+            "BS2", CriterionStatus.NOT_MET,
+            "No homozygous individuals observed in gnomAD"
         ))
 
     # BS3: Functional studies show no damaging effect
