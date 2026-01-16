@@ -24,12 +24,19 @@ class VariantVectorStore:
         self.index_path = self.db_path / "faiss.index"
         self.meta_path = self.db_path / "metadata.pkl"
 
-        # Initialize embedding model with GPU if available
+        # Initialize embedding model with device selection
         model_name = embedding_model or EMBEDDING_MODEL
         print(f"Loading embedding model: {model_name}")
 
+        import os
         import torch
-        if torch.backends.mps.is_available():
+
+        # Check for forced device via environment variable
+        forced_device = os.environ.get("DBNSFP_DEVICE", "").lower()
+        if forced_device in ("cpu", "cuda", "mps"):
+            device = forced_device
+            print(f"Using {device.upper()} (set via DBNSFP_DEVICE)")
+        elif torch.backends.mps.is_available():
             device = "mps"
             print("Using MPS (Apple Silicon GPU)")
         elif torch.cuda.is_available():

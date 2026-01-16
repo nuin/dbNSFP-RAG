@@ -1,0 +1,29 @@
+# Don't include models (using Ollama for CPU deployments)
+models/
+
+# Git
+.git/
+.gitignore
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+venv/
+.env
+
+# Development
+.claude/
+*.md
+tests/
+*.jsonl
+
+# Other data we don't need
+data/raw/
+data/exports/
+training/
+
+# IDE
+.vscode/
+.idea/

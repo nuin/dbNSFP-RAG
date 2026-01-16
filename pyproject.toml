@@ -19,8 +19,24 @@ dependencies = [
 dev = [
     "ipython>=8.0.0",
     "pytest>=7.0.0",
+    "pytest-cov>=4.0.0",
+    "pytest-asyncio>=0.21.0",
+    "httpx>=0.24.0",
     "ruff>=0.1.0",
 ]
+
+[tool.pytest.ini_options]
+testpaths = ["validation/test_suite"]
+python_files = ["test_*.py"]
+python_classes = ["Test*"]
+python_functions = ["test_*"]
+markers = [
+    "slow: marks tests as slow",
+    "requires_model: marks tests that require the ML model",
+    "requires_database: marks tests that require the vector database",
+    "integration: marks integration tests",
+]
+addopts = "-v --tb=short"
 
 [project.scripts]
 dbnsfp-ingest = "src.ingest:main"

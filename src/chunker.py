@@ -1,5 +1,7 @@
 """Document chunking module - converts variant rows to structured text."""
 
+from typing import Optional
+
 import pandas as pd
 
 
@@ -97,7 +99,7 @@ def interpret_gnomad_af(af) -> str:
         return f"{freq:.4f} (common)"
 
 
-def variant_to_text(row: pd.Series) -> str:
+def variant_to_text(row: pd.Series, use_grch37: bool = False) -> str:
     """
     Convert a variant row to structured text for embedding.
 
@@ -106,9 +108,13 @@ def variant_to_text(row: pd.Series) -> str:
     2. LLM context (structured but readable)
     3. Clinical interpretation
     """
-    # Build variant ID
-    chrom = row.get("#chr", "?")
-    pos = row.get("pos(1-based)", "?")
+    # Build variant ID - use GRCh37 coordinates if specified
+    if use_grch37:
+        chrom = row.get("hg19_chr", row.get("#chr", "?"))
+        pos = row.get("hg19_pos(1-based)", "?")
+    else:
+        chrom = row.get("#chr", "?")
+        pos = row.get("pos(1-based)", "?")
     ref = row.get("ref", "?")
     alt = row.get("alt", "?")
 
@@ -149,16 +155,19 @@ ClinPred: {format_prediction(row.get('ClinPred_pred'), row.get('ClinPred_score')
 DANN: {format_score(row.get('DANN_score'))}
 MetaSVM: {format_prediction(row.get('MetaSVM_pred'), row.get('MetaSVM_score'))}
 MetaLR: {format_prediction(row.get('MetaLR_pred'), row.get('MetaLR_score'))}
+MutationTaster: {format_prediction(row.get('MutationTaster_pred'), row.get('MutationTaster_score'))}
+BayesDel: {format_prediction(row.get('BayesDel_addAF_pred'), row.get('BayesDel_addAF_score'))}
+PROVEAN: {format_prediction(row.get('PROVEAN_pred'), row.get('PROVEAN_score'))}
 
 === Conservation ===
 phyloP (100-way vertebrate): {format_score(row.get('phyloP100way_vertebrate'))}
-phyloP (30-way mammalian): {format_score(row.get('phyloP30way_mammalian'))}
+phyloP (470-way mammalian): {format_score(row.get('phyloP470way_mammalian'))}
 phastCons (100-way): {format_score(row.get('phastCons100way_vertebrate'))}
 GERP++ RS: {format_score(row.get('GERP++_RS'))}
 
 === Population Frequency ===
-gnomAD exomes: {interpret_gnomad_af(row.get('gnomAD_exomes_AF'))}
-gnomAD genomes: {interpret_gnomad_af(row.get('gnomAD_genomes_AF'))}
+gnomAD v4 (joint): {interpret_gnomad_af(row.get('gnomAD4.1_joint_AF'))}
+gnomAD v2 exomes: {interpret_gnomad_af(row.get('gnomAD2.1.1_exomes_controls_AF'))}
 1000 Genomes: {interpret_gnomad_af(row.get('1000Gp3_AF'))}
 
 === Clinical Annotation ===
@@ -169,23 +178,133 @@ ClinVar trait: {row.get('clinvar_trait', 'N/A') if not pd.isna(row.get('clinvar_
 
 === Functional Annotation ===
 InterPro domain: {row.get('Interpro_domain', 'N/A') if not pd.isna(row.get('Interpro_domain')) else 'N/A'}
-GTEx gene: {row.get('GTEx_V8_gene', 'N/A') if not pd.isna(row.get('GTEx_V8_gene')) else 'N/A'}
-GTEx tissue: {row.get('GTEx_V8_tissue', 'N/A') if not pd.isna(row.get('GTEx_V8_tissue')) else 'N/A'}
 """
     return text.strip()
 
 
-def variant_to_id(row: pd.Series) -> str:
+def variant_to_id(row: pd.Series, use_grch37: bool = False) -> str:
     """Generate unique variant ID."""
-    chrom = str(row.get("#chr", "")).replace("chr", "")
-    pos = row.get("pos(1-based)", "")
+    if use_grch37:
+        chrom = str(row.get("hg19_chr", row.get("#chr", ""))).replace("chr", "")
+        pos = row.get("hg19_pos(1-based)", "")
+    else:
+        chrom = str(row.get("#chr", "")).replace("chr", "")
+        pos = row.get("pos(1-based)", "")
     ref = row.get("ref", "")
     alt = row.get("alt", "")
     return f"{chrom}_{pos}_{ref}_{alt}"
 
 
-def variant_to_metadata(row: pd.Series) -> dict:
-    """Extract metadata for filtering/retrieval."""
+def derive_consequence(row: pd.Series) -> str:
+    """
+    Derive variant consequence from available dbNSFP data.
+
+    Since dbNSFP variant files don't have an explicit consequence column,
+    we infer it from:
+    1. HGVSp notation (stop_gained, frameshift, etc.)
+    2. codon_degeneracy (2 = synonymous)
+    3. aa_ref vs aa_alt comparison
+    4. MutationTaster prediction (can indicate splice/nonsense)
+    """
+    # Check HGVSp for explicit consequence indicators
+    hgvsp = str(row.get("HGVSp_snpEff", ""))
+    hgvsc = str(row.get("HGVSc_snpEff", ""))
+
+    # Frameshift detection
+    if "fs" in hgvsp.lower() or "frameshift" in hgvsp.lower():
+        return "frameshift_variant"
+
+    # Get amino acid ref/alt early for multiple checks
+    aa_ref = str(row.get("aaref", ""))
+    aa_alt = str(row.get("aaalt", ""))
+
+    # Stop gained (nonsense) - check aa_alt first as it's most reliable
+    if aa_alt in ("*", "X", "Ter") and aa_ref not in ("*", "X", "Ter"):
+        return "stop_gained"
+
+    # Also check HGVSp for stop gained
+    if "Ter" in hgvsp or "*" in hgvsp:
+        if aa_ref not in ("*", "X", "Ter"):
+            return "stop_gained"
+
+    # Stop lost
+    if aa_ref in ("*", "X", "Ter") and aa_alt not in ("*", "X", "Ter", ""):
+        return "stop_lost"
+
+    # Start lost
+    if aa_ref == "M" and row.get("aapos") == 1:
+        if aa_alt and aa_alt != "M":
+            return "start_lost"
+
+    # Synonymous detection via codon_degeneracy
+    codon_deg = row.get("codon_degeneracy")
+    if not pd.isna(codon_deg):
+        try:
+            # codon_degeneracy: 0=non-degenerate, 2=2-fold, 4=4-fold degenerate
+            # If position is degenerate and aa doesn't change, it's synonymous
+            deg = int(str(codon_deg).split(";")[0])
+            if deg > 0 and aa_ref == aa_alt and aa_ref:
+                return "synonymous_variant"
+        except (ValueError, TypeError):
+            pass
+
+    # Synonymous - aa_ref equals aa_alt
+    if aa_ref and aa_alt and aa_ref == aa_alt:
+        return "synonymous_variant"
+
+    # Missense - different amino acids
+    if aa_ref and aa_alt and aa_ref != aa_alt:
+        # Check for in-frame insertion/deletion
+        ref_nt = str(row.get("ref", ""))
+        alt_nt = str(row.get("alt", ""))
+        if len(ref_nt) != len(alt_nt):
+            len_diff = abs(len(ref_nt) - len(alt_nt))
+            if len_diff % 3 == 0:
+                if len(ref_nt) > len(alt_nt):
+                    return "inframe_deletion"
+                else:
+                    return "inframe_insertion"
+            else:
+                return "frameshift_variant"
+        return "missense_variant"
+
+    # Splice site detection from HGVSc
+    if hgvsc:
+        # Check for splice site notation (e.g., c.1234+1G>A, c.1234-2T>C)
+        import re
+        splice_match = re.search(r'[+-][12][ACGT]>', hgvsc)
+        if splice_match:
+            if "+1" in hgvsc or "+2" in hgvsc:
+                return "splice_donor_variant"
+            if "-1" in hgvsc or "-2" in hgvsc:
+                return "splice_acceptor_variant"
+
+    # Check MutationTaster for splice predictions
+    mt_pred = str(row.get("MutationTaster_pred", "")).lower()
+    if "splice" in mt_pred:
+        return "splice_region_variant"
+
+    # Default: if we have ref/alt nucleotides but no aa change info
+    if not aa_ref and not aa_alt:
+        ref_nt = str(row.get("ref", ""))
+        alt_nt = str(row.get("alt", ""))
+        if ref_nt and alt_nt and len(ref_nt) == 1 and len(alt_nt) == 1:
+            return "SNV"  # Generic single nucleotide variant
+
+    return ""  # Unknown
+
+
+def variant_to_metadata(
+    row: pd.Series, use_grch37: bool = False, gene_data: Optional[dict] = None
+) -> dict:
+    """
+    Extract metadata for filtering/retrieval.
+
+    Args:
+        row: Variant data row
+        use_grch37: Use GRCh37/hg19 coordinates
+        gene_data: Pre-loaded gene constraint data (from gene_data.py)
+    """
 
     def safe_str(val):
         return str(val) if not pd.isna(val) else ""
@@ -194,38 +313,118 @@ def variant_to_metadata(row: pd.Series) -> dict:
         if pd.isna(val):
             return None
         try:
+            # Handle multi-value fields
+            if isinstance(val, str):
+                parts = val.split(";")
+                for p in parts:
+                    p = p.strip()
+                    if p and p != ".":
+                        return float(p)
+                return None
             return float(val)
         except (ValueError, TypeError):
             return None
 
+    if use_grch37:
+        chrom = safe_str(row.get("hg19_chr", row.get("#chr", ""))).replace("chr", "")
+        pos_val = row.get("hg19_pos(1-based)", row.get("pos(1-based)", 0))
+    else:
+        chrom = safe_str(row.get("#chr", "")).replace("chr", "")
+        pos_val = row.get("pos(1-based)", 0)
+
+    # Prefer gnomAD v4, fall back to v2
+    gnomad_af = safe_float(row.get("gnomAD4.1_joint_AF"))
+    if gnomad_af is None:
+        gnomad_af = safe_float(row.get("gnomAD2.1.1_exomes_controls_AF"))
+
+    # Amino acid information for PS1/PM5 evaluation
+    aa_pos_val = row.get("aapos")
+    aa_pos_int = None
+    if not pd.isna(aa_pos_val):
+        try:
+            aa_pos_int = int(str(aa_pos_val).split(";")[0])  # Take first if multi-value
+        except (ValueError, TypeError):
+            pass
+
+    # Get gene constraint scores from gene_data if available
+    gene_name = safe_str(row.get("genename"))
+    gnomad_pli = None
+    loeuf = None
+    gnomad_mis_oe = None
+
+    if gene_data and gene_name and gene_name in gene_data:
+        gene_info = gene_data[gene_name]
+        gnomad_pli = gene_info.get("gnomad_pli")
+        loeuf = gene_info.get("loeuf")
+        gnomad_mis_oe = gene_info.get("gnomad_mis_oe")
+
+    # Derive consequence from available data
+    consequence = derive_consequence(row)
+
     return {
-        "chr": safe_str(row.get("#chr", "")).replace("chr", ""),
-        "pos": int(row.get("pos(1-based)", 0)) if not pd.isna(row.get("pos(1-based)")) else 0,
+        "chr": chrom,
+        "pos": int(pos_val) if not pd.isna(pos_val) else 0,
         "ref": safe_str(row.get("ref")),
         "alt": safe_str(row.get("alt")),
-        "gene": safe_str(row.get("genename")),
+        "gene": gene_name,
         "transcript": safe_str(row.get("Ensembl_transcriptid")),
+        # Amino acid data (for PS1/PM5 ClinVar lookup)
+        "aa_ref": safe_str(row.get("aaref")),
+        "aa_alt": safe_str(row.get("aaalt")),
+        "aa_pos": aa_pos_int,
         "cadd_phred": safe_float(row.get("CADD_phred")),
         "revel_score": safe_float(row.get("REVEL_score")),
+        # ClinVar annotations
+        "clinvar_id": safe_str(row.get("clinvar_id")),
         "clinvar_sig": safe_str(row.get("clinvar_clnsig")),
-        "gnomad_af": safe_float(row.get("gnomAD_exomes_AF")),
+        "clinvar_review": safe_str(row.get("clinvar_review")),
+        "clinvar_trait": safe_str(row.get("clinvar_trait")),
+        # Population frequency
+        "gnomad_af": gnomad_af,
+        # Predictor results
         "sift_pred": safe_str(row.get("SIFT_pred")),
         "polyphen_pred": safe_str(row.get("Polyphen2_HDIV_pred")),
         "alphamissense_pred": safe_str(row.get("AlphaMissense_pred")),
+        "mutationtaster_pred": safe_str(row.get("MutationTaster_pred")),
+        "bayesdel_pred": safe_str(row.get("BayesDel_addAF_pred")),
+        "provean_pred": safe_str(row.get("PROVEAN_pred")),
+        # Consequence/effect type (derived from HGVSp/codon data)
+        "consequence": consequence,
+        # Gene constraint scores (from gene file, not variant file)
+        "gnomad_pli": gnomad_pli,
+        "gnomad_mis_oe": gnomad_mis_oe,  # Missense observed/expected
+        "loeuf": loeuf,  # LoF observed/expected upper (<0.35 = highly constrained)
+        # Domain annotations (for PM1)
+        "interpro_domain": safe_str(row.get("Interpro_domain")),
+        # gnomAD homozygote count (for BS2 - healthy adult observation)
+        "gnomad_hom": safe_float(row.get("gnomAD4.1_joint_nhomalt")),
     }
 
 
-def chunk_dataframe(df: pd.DataFrame) -> list[tuple[str, str, dict]]:
+def chunk_dataframe(
+    df: pd.DataFrame, use_grch37: bool = False, gene_data: Optional[dict] = None
+) -> list[tuple[str, str, dict]]:
     """
     Convert DataFrame to list of (id, text, metadata) tuples.
+
+    Args:
+        df: DataFrame with variant data
+        use_grch37: Use GRCh37/hg19 coordinates instead of GRCh38
+        gene_data: Pre-loaded gene constraint data (from gene_data.py)
 
     Returns:
         List of tuples: (variant_id, text_chunk, metadata_dict)
     """
     results = []
     for _, row in df.iterrows():
-        var_id = variant_to_id(row)
-        text = variant_to_text(row)
-        metadata = variant_to_metadata(row)
+        # Skip rows with missing GRCh37 coordinates if using GRCh37
+        if use_grch37:
+            hg19_pos = row.get("hg19_pos(1-based)")
+            if pd.isna(hg19_pos) or hg19_pos == ".":
+                continue
+
+        var_id = variant_to_id(row, use_grch37=use_grch37)
+        text = variant_to_text(row, use_grch37=use_grch37)
+        metadata = variant_to_metadata(row, use_grch37=use_grch37, gene_data=gene_data)
         results.append((var_id, text, metadata))
     return results

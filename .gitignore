@@ -21,3 +21,11 @@ venv/
 # uv
 .python-version
 uv.lock
+
+# Model files (too large for git)
+models/acmg-classifier/model/
+models/acmg-classifier/adapters/
+models/acmg-classifier/data/
+*.safetensors
+*.bin
+*.gguf

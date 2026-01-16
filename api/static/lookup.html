@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>dbNSFP Variant Lookup</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    },
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', system-ui, sans-serif; }
+        .font-mono { font-family: 'JetBrains Mono', monospace; }
+        .gradient-border {
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            padding: 3px;
+            border-radius: 1rem;
+        }
+        .gradient-border-inner {
+            background: white;
+            border-radius: calc(1rem - 3px);
+        }
+        .hero-gradient {
+            background: linear-gradient(135deg, #064e3b 0%, #022c22 100%);
+        }
+        .card-glow {
+            box-shadow: 0 0 40px rgba(16, 185, 129, 0.15);
+        }
+        .score-card {
+            background: linear-gradient(145deg, #f8fafc 0%, #e2e8f0 100%);
+        }
+        .pathogenic-badge {
+            background: linear-gradient(135deg, #dc2626 0%, #991b1b 100%);
+            box-shadow: 0 4px 20px rgba(220, 38, 38, 0.4);
+        }
+        .likely-pathogenic-badge {
+            background: linear-gradient(135deg, #ea580c 0%, #c2410c 100%);
+            box-shadow: 0 4px 20px rgba(234, 88, 12, 0.4);
+        }
+        .benign-badge {
+            background: linear-gradient(135deg, #16a34a 0%, #15803d 100%);
+            box-shadow: 0 4px 20px rgba(22, 163, 74, 0.4);
+        }
+        .likely-benign-badge {
+            background: linear-gradient(135deg, #059669 0%, #047857 100%);
+            box-shadow: 0 4px 20px rgba(5, 150, 105, 0.4);
+        }
+        .uncertain-badge {
+            background: linear-gradient(135deg, #d97706 0%, #b45309 100%);
+            box-shadow: 0 4px 20px rgba(217, 119, 6, 0.4);
+        }
+        .not-found-badge {
+            background: linear-gradient(135deg, #6b7280 0%, #4b5563 100%);
+            box-shadow: 0 4px 20px rgba(107, 114, 128, 0.4);
+        }
+        .annotation-box {
+            background: linear-gradient(180deg, #1e293b 0%, #0f172a 100%);
+        }
+        .data-row:hover {
+            background: linear-gradient(90deg, rgba(16, 185, 129, 0.1) 0%, transparent 100%);
+        }
+        .section-card {
+            border-left: 4px solid;
+        }
+        .section-pathogenicity { border-color: #ef4444; }
+        .section-conservation { border-color: #3b82f6; }
+        .section-population { border-color: #10b981; }
+        .section-clinical { border-color: #8b5cf6; }
+        .section-functional { border-color: #f59e0b; }
+
+        /* Evidence Links */
+        .evidence-links { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.5rem; }
+        .evidence-link {
+            display: inline-flex; align-items: center; gap: 0.375rem;
+            padding: 0.5rem 1rem; background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+            color: white; border-radius: 9999px; font-size: 0.875rem; font-weight: 600;
+            text-decoration: none; transition: all 0.2s ease;
+            box-shadow: 0 2px 8px rgba(59, 130, 246, 0.3);
+        }
+        .evidence-link:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(59, 130, 246, 0.4); }
+        .evidence-link svg { width: 1rem; height: 1rem; }
+        .evidence-link--clinvar { background: linear-gradient(135deg, #7c3aed 0%, #5b21b6 100%); }
+        .evidence-link--gnomad { background: linear-gradient(135deg, #059669 0%, #047857 100%); }
+        .evidence-link--omim { background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%); }
+        .evidence-link--pubmed { background: linear-gradient(135deg, #0891b2 0%, #0e7490 100%); }
+    </style>
+</head>
+<body class="bg-slate-900 min-h-screen">
+    <!-- RUO Disclaimer Banner -->
+    <div class="bg-amber-500 text-amber-950 py-2 px-4 text-center text-sm font-medium">
+        <span class="font-bold">FOR RESEARCH USE ONLY.</span> Not for use in diagnostic procedures. Data requires expert interpretation.
+    </div>
+
+    <!-- Hero Header -->
+    <div class="hero-gradient py-8 mb-8">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center gap-4">
+                    <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-emerald-500 to-teal-600 flex items-center justify-center shadow-lg">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/>
+                        </svg>
+                    </div>
+                    <div>
+                        <h1 class="text-3xl font-extrabold text-white tracking-tight">dbNSFP Variant Lookup</h1>
+                        <p class="text-emerald-300 text-sm mt-1">Raw variant annotations from dbNSFP 5.3</p>
+                    </div>
+                </div>
+                <a href="/" class="px-4 py-2 bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg text-sm font-medium transition">
+                    ACMG Classifier
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="max-w-6xl mx-auto px-6 pb-12">
+        <!-- Input Card -->
+        <div class="gradient-border card-glow mb-8">
+            <div class="gradient-border-inner p-8">
+                <!-- Tabs -->
+                <div class="flex gap-3 mb-6">
+                    <button onclick="switchTab('coords')" id="tab-coords"
+                        class="tab-btn px-6 py-3 rounded-xl font-semibold text-sm transition-all duration-200 bg-gradient-to-r from-emerald-500 to-teal-600 text-white shadow-lg">
+                        <span class="flex items-center gap-2">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                            </svg>
+                            Coordinates
+                        </span>
+                    </button>
+                    <button onclick="switchTab('hgvs')" id="tab-hgvs"
+                        class="tab-btn px-6 py-3 rounded-xl font-semibold text-sm transition-all duration-200 bg-slate-100 text-slate-600 hover:bg-slate-200">
+                        <span class="flex items-center gap-2">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z"/>
+                            </svg>
+                            HGVS Genomic
+                        </span>
+                    </button>
+                </div>
+
+                <!-- Coordinates Input -->
+                <div id="coords-input" class="input-mode">
+                    <div class="grid grid-cols-4 gap-4 mb-4">
+                        <div>
+                            <label class="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-2">Chromosome</label>
+                            <input type="text" id="chr" placeholder="17"
+                                class="w-full px-4 py-3 bg-slate-50 border-2 border-slate-200 rounded-xl font-mono text-lg focus:border-emerald-500 focus:ring-4 focus:ring-emerald-100 outline-none transition-all" />
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-2">Position (GRCh37)</label>
+                            <input type="text" id="pos" placeholder="41197801"
+                                class="w-full px-4 py-3 bg-slate-50 border-2 border-slate-200 rounded-xl font-mono text-lg focus:border-emerald-500 focus:ring-4 focus:ring-emerald-100 outline-none transition-all" />
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-2">Reference</label>
+                            <input type="text" id="ref" placeholder="T"
+                                class="w-full px-4 py-3 bg-slate-50 border-2 border-slate-200 rounded-xl font-mono text-lg text-center focus:border-emerald-500 focus:ring-4 focus:ring-emerald-100 outline-none transition-all" />
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-2">Alternate</label>
+                            <input type="text" id="alt" placeholder="A"
+                                class="w-full px-4 py-3 bg-slate-50 border-2 border-slate-200 rounded-xl font-mono text-lg text-center focus:border-emerald-500 focus:ring-4 focus:ring-emerald-100 outline-none transition-all" />
+                        </div>
+                    </div>
+                    <div class="flex flex-wrap gap-2 text-sm">
+                        <span class="text-slate-400">Examples:</span>
+                        <a onclick="fillCoords('17', '41197801', 'T', 'A')" class="px-3 py-1 bg-slate-100 text-slate-600 rounded-full cursor-pointer hover:bg-slate-200 transition font-medium">BRCA1</a>
+                        <a onclick="fillCoords('15', '48704935', 'C', 'A')" class="px-3 py-1 bg-red-50 text-red-600 rounded-full cursor-pointer hover:bg-red-100 transition font-medium">FBN1 Pathogenic</a>
+                        <a onclick="fillCoords('20', '50406630', 'T', 'G')" class="px-3 py-1 bg-green-50 text-green-600 rounded-full cursor-pointer hover:bg-green-100 transition font-medium">SALL4 Benign</a>
+                        <a onclick="fillCoords('13', '32911463', 'A', 'G')" class="px-3 py-1 bg-slate-100 text-slate-600 rounded-full cursor-pointer hover:bg-slate-200 transition font-medium">BRCA2</a>
+                    </div>
+                </div>
+
+                <!-- HGVS Input -->
+                <div id="hgvs-input" class="input-mode hidden">
+                    <div class="mb-4">
+                        <label class="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-2">HGVS Genomic Notation (GRCh37)</label>
+                        <input type="text" id="hgvs" placeholder="NC_000017.10:g.41197801T>A  or  17:g.41197801T>A"
+                            class="w-full px-4 py-3 bg-slate-50 border-2 border-slate-200 rounded-xl font-mono text-lg focus:border-emerald-500 focus:ring-4 focus:ring-emerald-100 outline-none transition-all" />
+                    </div>
+                    <div class="flex flex-wrap gap-2 text-sm">
+                        <span class="text-slate-400">Examples:</span>
+                        <a onclick="fillHgvs('17:g.41197801T>A')" class="px-3 py-1 bg-slate-100 text-slate-600 rounded-full cursor-pointer hover:bg-slate-200 transition font-medium">BRCA1</a>
+                        <a onclick="fillHgvs('NC_000015.9:g.48704935C>A')" class="px-3 py-1 bg-red-50 text-red-600 rounded-full cursor-pointer hover:bg-red-100 transition font-medium">FBN1</a>
+                        <a onclick="fillHgvs('20:g.50406630T>G')" class="px-3 py-1 bg-green-50 text-green-600 rounded-full cursor-pointer hover:bg-green-100 transition font-medium">SALL4</a>
+                    </div>
+                </div>
+
+                <!-- Action Button -->
+                <div class="mt-8">
+                    <button onclick="lookup()" id="lookupBtn"
+                        class="w-full py-4 bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-600 hover:to-teal-700 text-white font-bold text-lg rounded-xl shadow-lg hover:shadow-xl transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed">
+                        <span class="flex items-center justify-center gap-2">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+                            </svg>
+                            Lookup Variant
+                        </span>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Results Section -->
+        <div id="results" class="hidden">
+            <div id="resultContent"></div>
+        </div>
+    </div>
+
+    <script>
+        let currentTab = 'coords';
+
+        function switchTab(tab) {
+            currentTab = tab;
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.classList.remove('bg-gradient-to-r', 'from-emerald-500', 'to-teal-600', 'text-white', 'shadow-lg');
+                btn.classList.add('bg-slate-100', 'text-slate-600');
+            });
+            const activeBtn = document.getElementById(`tab-${tab}`);
+            activeBtn.classList.remove('bg-slate-100', 'text-slate-600');
+            activeBtn.classList.add('bg-gradient-to-r', 'from-emerald-500', 'to-teal-600', 'text-white', 'shadow-lg');
+            document.querySelectorAll('.input-mode').forEach(mode => mode.classList.add('hidden'));
+            document.getElementById(`${tab}-input`).classList.remove('hidden');
+        }
+
+        function fillCoords(chr, pos, ref, alt) {
+            switchTab('coords');
+            document.getElementById('chr').value = chr;
+            document.getElementById('pos').value = pos;
+            document.getElementById('ref').value = ref;
+            document.getElementById('alt').value = alt;
+        }
+
+        function fillHgvs(hgvs) {
+            switchTab('hgvs');
+            document.getElementById('hgvs').value = hgvs;
+        }
+
+        function getQueryParams() {
+            if (currentTab === 'hgvs') {
+                const hgvs = document.getElementById('hgvs').value.trim();
+                if (!hgvs) throw new Error('Please enter HGVS notation');
+                return `hgvs=${encodeURIComponent(hgvs)}`;
+            } else {
+                const chr = document.getElementById('chr').value.trim();
+                const pos = document.getElementById('pos').value.trim();
+                const ref = document.getElementById('ref').value.trim().toUpperCase();
+                const alt = document.getElementById('alt').value.trim().toUpperCase();
+                if (!chr || !pos || !ref || !alt) throw new Error('Please fill in all fields');
+                return `chr=${chr}&pos=${pos}&ref=${ref}&alt=${alt}`;
+            }
+        }
+
+        function showLoading() {
+            document.getElementById('results').classList.remove('hidden');
+            document.getElementById('resultContent').innerHTML = `
+                <div class="gradient-border card-glow">
+                    <div class="gradient-border-inner p-16 text-center">
+                        <div class="inline-block w-16 h-16 border-4 border-slate-200 border-t-emerald-500 rounded-full animate-spin mb-6"></div>
+                        <div class="text-xl text-slate-600 font-medium">Fetching variant data...</div>
+                    </div>
+                </div>
+            `;
+        }
+
+        function showError(message) {
+            document.getElementById('results').classList.remove('hidden');
+            document.getElementById('resultContent').innerHTML = `
+                <div class="bg-red-50 border-2 border-red-200 rounded-2xl p-8 text-center">
+                    <div class="text-red-500 text-xl font-semibold">${message}</div>
+                </div>
+            `;
+        }
+
+        function getBadgeClass(classification) {
+            if (!classification) return 'not-found-badge';
+            const c = classification.toLowerCase();
+            if (c.includes('pathogenic') && !c.includes('benign') && !c.includes('likely')) return 'pathogenic-badge';
+            if (c.includes('likely_pathogenic') || c.includes('likely pathogenic')) return 'likely-pathogenic-badge';
+            if (c.includes('benign') && !c.includes('pathogenic') && !c.includes('likely')) return 'benign-badge';
+            if (c.includes('likely_benign') || c.includes('likely benign')) return 'likely-benign-badge';
+            return 'uncertain-badge';
+        }
+
+        const LINK_CONFIG = {
+            clinvar: { name: 'ClinVar', class: 'evidence-link--clinvar', icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>' },
+            gnomad_variant: { name: 'gnomAD', class: 'evidence-link--gnomad', icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/></svg>' },
+            gnomad_gene: { name: 'Gene Constraint', class: 'evidence-link--gnomad', icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>' },
+            uniprot: { name: 'UniProt', class: '', icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/></svg>' },
+            omim: { name: 'OMIM', class: 'evidence-link--omim', icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>' },
+            pubmed: { name: 'PubMed', class: 'evidence-link--pubmed', icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>' },
+            interpro: { name: 'InterPro', class: '', icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zm0 8a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zm12 0a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z"/></svg>' },
+            ensembl: { name: 'Ensembl', class: '', icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/></svg>' },
+        };
+
+        function renderEvidenceLinks(links) {
+            if (!links || Object.keys(links).length === 0) return '';
+            const linksHtml = Object.entries(links)
+                .filter(([key, url]) => url && LINK_CONFIG[key])
+                .map(([key, url]) => {
+                    const config = LINK_CONFIG[key];
+                    return `<a href="${url}" target="_blank" rel="noopener noreferrer" class="evidence-link ${config.class}" title="Open ${config.name}">${config.icon} ${config.name}</a>`;
+                }).join('');
+            if (!linksHtml) return '';
+            return `<div class="mb-6">
+                <h4 class="text-sm font-bold text-slate-500 uppercase tracking-wide mb-3">Verify Evidence at Source</h4>
+                <div class="evidence-links">${linksHtml}</div>
+            </div>`;
+        }
+
+        function formatValue(value) {
+            if (value === null || value === undefined || value === '') {
+                return '<span class="text-slate-300">—</span>';
+            }
+            return `<span class="font-semibold text-slate-800">${value}</span>`;
+        }
+
+        function formatGnomadAF(value) {
+            if (value === null || value === undefined || value === '') {
+                return '<span class="text-slate-300">—</span>';
+            }
+            if (value >= 0.01) {
+                return `<span class="font-semibold text-slate-800">${(value * 100).toFixed(2)}%</span>`;
+            } else if (value >= 0.0001) {
+                return `<span class="font-semibold text-slate-800">${(value * 100).toFixed(4)}%</span>`;
+            } else {
+                return `<span class="font-semibold text-slate-800">${value.toExponential(2)}</span>`;
+            }
+        }
+
+        function parseAnnotation(text) {
+            const sections = {};
+            let currentSection = 'Basic';
+            sections[currentSection] = [];
+            text.split('\n').forEach(line => {
+                if (line.startsWith('===')) {
+                    currentSection = line.replace(/=/g, '').trim();
+                    sections[currentSection] = [];
+                } else if (line.includes(':') && !line.startsWith('Variant:')) {
+                    const [key, ...valueParts] = line.split(':');
+                    const value = valueParts.join(':').trim();
+                    if (key && value) {
+                        sections[currentSection].push({ key: key.trim(), value });
+                    }
+                }
+            });
+            return sections;
+        }
+
+        function getSectionClass(title) {
+            if (title.includes('Pathogenicity')) return 'section-pathogenicity';
+            if (title.includes('Conservation')) return 'section-conservation';
+            if (title.includes('Population')) return 'section-population';
+            if (title.includes('Clinical')) return 'section-clinical';
+            if (title.includes('Functional')) return 'section-functional';
+            return '';
+        }
+
+        function renderDataSection(title, items, icon, links = {}) {
+            if (!items || items.length === 0) return '';
+            const sectionClass = getSectionClass(title);
+
+            // Map keys to their link URLs
+            const keyLinks = {
+                'gnomAD v4 (joint)': links.gnomad_variant,
+                'gnomAD v2 exomes': links.gnomad_variant,
+                'gnomAD AF': links.gnomad_variant,
+                '1000 Genomes': null,
+                'ClinVar ID': links.clinvar,
+                'ClinVar Significance': links.clinvar,
+                'ClinVar Review': links.clinvar,
+                'ClinVar Trait': links.clinvar,
+                'InterPro Domain': links.interpro,
+                'Uniprot ID': links.uniprot,
+            };
+
+            return `
+                <div class="bg-white rounded-2xl border border-slate-200 overflow-hidden mb-6 section-card ${sectionClass}">
+                    <div class="bg-gradient-to-r from-slate-50 to-white px-6 py-4 border-b border-slate-100">
+                        <h4 class="font-bold text-slate-700 flex items-center gap-2">
+                            ${icon || ''}
+                            ${title}
+                        </h4>
+                    </div>
+                    <div class="divide-y divide-slate-100">
+                        ${items.map(item => {
+                            const linkUrl = keyLinks[item.key];
+                            const isNA = item.value.includes('N/A') || item.value.includes('not observed');
+                            const valueClass = isNA ? 'text-slate-300' : 'text-slate-800 font-semibold';
+                            const valueContent = linkUrl && !isNA
+                                ? `<a href="${linkUrl}" target="_blank" class="${valueClass} hover:text-emerald-600 transition-colors" title="View in source database">${item.value} ↗</a>`
+                                : `<span class="${valueClass}">${item.value}</span>`;
+                            return `
+                            <div class="data-row flex justify-between items-center px-6 py-3 transition-all">
+                                <span class="text-slate-500 font-medium">${item.key}</span>
+                                <span class="font-mono text-sm">${valueContent}</span>
+                            </div>`;
+                        }).join('')}
+                    </div>
+                </div>
+            `;
+        }
+
+        async function lookup() {
+            try {
+                const params = getQueryParams();
+                showLoading();
+                document.getElementById('lookupBtn').disabled = true;
+
+                const response = await fetch(`/lookup?${params}`);
+                const data = await response.json();
+
+                if (!response.ok) throw new Error(data.detail || 'Lookup failed');
+
+                const sections = parseAnnotation(data.full_annotation || '');
+                const clinvarSig = data.metadata?.clinvar_sig || '';
+                const badgeClass = getBadgeClass(clinvarSig);
+
+                const links = data.evidence_links || {};
+
+                let html = `
+                    <div class="gradient-border card-glow">
+                        <div class="gradient-border-inner p-8">
+                            <!-- Variant Header -->
+                            <div class="flex flex-wrap justify-between items-start gap-6 mb-8">
+                                <div>
+                                    <div class="text-4xl font-extrabold text-slate-800 mb-2">
+                                        ${links.gnomad_gene
+                                            ? `<a href="${links.gnomad_gene}" target="_blank" class="hover:text-emerald-600 transition-colors" title="View gene constraint in gnomAD">${data.gene || 'Unknown Gene'}</a>`
+                                            : (data.gene || 'Unknown Gene')}
+                                    </div>
+                                    <div class="font-mono text-slate-500 text-lg">chr${data.chromosome}:${data.position} ${data.ref} &rarr; ${data.alt}</div>
+                                    <div class="text-slate-400 text-sm mt-1">
+                                        ${links.ensembl && data.metadata?.transcript
+                                            ? `<a href="${links.ensembl}" target="_blank" class="hover:text-blue-500 transition-colors" title="View transcript in Ensembl">${data.metadata.transcript}</a>`
+                                            : (data.metadata?.transcript || '')}
+                                    </div>
+                                </div>
+                                ${links.clinvar && clinvarSig
+                                    ? `<a href="${links.clinvar}" target="_blank" class="${badgeClass} text-white text-xl font-bold px-8 py-4 rounded-2xl hover:scale-105 transition-transform" title="View in ClinVar">${clinvarSig}</a>`
+                                    : `<div class="${badgeClass} text-white text-xl font-bold px-8 py-4 rounded-2xl">${clinvarSig || 'Not in ClinVar'}</div>`}
+                            </div>
+
+                            <!-- Key Scores Grid -->
+                            <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-3 mb-8">
+                                <div class="score-card rounded-xl p-4 text-center">
+                                    <div class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-1">CADD</div>
+                                    <div class="text-xl font-bold text-slate-800">${formatValue(data.metadata?.cadd_phred)}</div>
+                                </div>
+                                <div class="score-card rounded-xl p-4 text-center">
+                                    <div class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-1">REVEL</div>
+                                    <div class="text-xl font-bold text-slate-800">${formatValue(data.metadata?.revel_score)}</div>
+                                </div>
+                                <div class="score-card rounded-xl p-4 text-center">
+                                    <div class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-1">SIFT</div>
+                                    <div class="text-xl font-bold text-slate-800">${formatValue(data.metadata?.sift_pred)}</div>
+                                </div>
+                                <div class="score-card rounded-xl p-4 text-center">
+                                    <div class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-1">PolyPhen</div>
+                                    <div class="text-xl font-bold text-slate-800">${formatValue(data.metadata?.polyphen_pred)}</div>
+                                </div>
+                                <div class="score-card rounded-xl p-4 text-center">
+                                    <div class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-1">
+                                        ${links.gnomad_variant ? `<a href="${links.gnomad_variant}" target="_blank" class="hover:text-emerald-600" title="View in gnomAD">gnomAD ↗</a>` : 'gnomAD'}
+                                    </div>
+                                    <div class="text-xl font-bold text-slate-800">${formatGnomadAF(data.metadata?.gnomad_af)}</div>
+                                </div>
+                                <div class="score-card rounded-xl p-4 text-center">
+                                    <div class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-1">AlphaMiss</div>
+                                    <div class="text-xl font-bold text-slate-800">${formatValue(data.metadata?.alphamissense_pred)}</div>
+                                </div>
+                                <div class="score-card rounded-xl p-4 text-center">
+                                    <div class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-1">MutTaster</div>
+                                    <div class="text-xl font-bold text-slate-800">${formatValue(data.metadata?.mutationtaster_pred)}</div>
+                                </div>
+                                <div class="score-card rounded-xl p-4 text-center">
+                                    <div class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-1">BayesDel</div>
+                                    <div class="text-xl font-bold text-slate-800">${formatValue(data.metadata?.bayesdel_pred)}</div>
+                                </div>
+                            </div>
+                `;
+
+                // Render sections with icons
+                const icons = {
+                    'Pathogenicity Predictions': '<svg class="w-5 h-5 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/></svg>',
+                    'Conservation': '<svg class="w-5 h-5 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064"/></svg>',
+                    'Population Frequency': '<svg class="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/></svg>',
+                    'Clinical Annotation': '<svg class="w-5 h-5 text-purple-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>',
+                    'Functional Annotation': '<svg class="w-5 h-5 text-amber-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/></svg>',
+                };
+
+                for (const [title, items] of Object.entries(sections)) {
+                    if (title !== 'Basic' && items.length > 0) {
+                        html += renderDataSection(title, items, icons[title] || '', links);
+                    }
+                }
+
+                html += `
+                            <!-- Full Annotation -->
+                            <div class="mt-8">
+                                <h3 class="font-bold text-slate-700 mb-4 flex items-center gap-2">
+                                    <svg class="w-5 h-5 text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/>
+                                    </svg>
+                                    Raw dbNSFP Annotation
+                                </h3>
+                                <pre class="annotation-box text-slate-300 p-8 rounded-2xl text-sm font-mono leading-relaxed overflow-x-auto whitespace-pre-wrap">${data.full_annotation || 'No annotation available'}</pre>
+                            </div>
+                        </div>
+                    </div>
+                `;
+
+                document.getElementById('resultContent').innerHTML = html;
+
+            } catch (error) {
+                showError(error.message);
+            } finally {
+                document.getElementById('lookupBtn').disabled = false;
+            }
+        }
+
+        // Enter key submits
+        document.querySelectorAll('input').forEach(input => {
+            input.addEventListener('keypress', (e) => {
+                if (e.key === 'Enter') lookup();
+            });
+        });
+    </script>
+
+    <!-- RUO Footer -->
+    <footer class="bg-slate-950 text-slate-400 py-6 mt-12">
+        <div class="max-w-6xl mx-auto px-6 text-center text-sm">
+            <p class="font-semibold text-amber-500 mb-2">FOR RESEARCH USE ONLY</p>
+            <p>This tool provides raw variant annotations from dbNSFP. Data requires independent expert interpretation and is not validated for clinical diagnostic use.</p>
+            <p class="mt-2 text-slate-500">Genome Build: GRCh37 (hg19) | dbNSFP 5.3</p>
+        </div>
+    </footer>
+</body>
+</html>

@@ -12,6 +12,27 @@ from tqdm import tqdm
 from .config import KEEP_COLUMNS, RAW_DATA_DIR, CHUNK_SIZE, DBNSFP_ZIP
 
 
+def filter_by_genes(df: pd.DataFrame, genes: set[str], gene_column: str = "genename") -> pd.DataFrame:
+    """
+    Filter DataFrame to only include rows matching target genes.
+
+    Args:
+        df: Input DataFrame chunk
+        genes: Set of gene symbols to keep (case-insensitive)
+        gene_column: Column containing gene names
+
+    Returns:
+        Filtered DataFrame with only matching genes
+    """
+    if gene_column not in df.columns:
+        return df
+
+    # Normalize gene names for comparison
+    genes_upper = {g.upper() for g in genes}
+    mask = df[gene_column].fillna("").str.upper().isin(genes_upper)
+    return df[mask]
+
+
 # Chromosome sort order (natural: 1-22, X, Y, M)
 CHR_ORDER = [str(i) for i in range(1, 23)] + ["X", "Y", "M"]
 

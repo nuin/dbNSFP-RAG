@@ -1,5 +1,6 @@
 """Configuration for dbNSFP RAG pipeline."""
 
+import os
 from pathlib import Path
 
 # Paths
@@ -8,13 +9,25 @@ DATA_DIR = PROJECT_ROOT / "data"
 RAW_DATA_DIR = DATA_DIR / "raw"
 VECTORDB_DIR = DATA_DIR / "vectordb"
 
-# dbNSFP zip file (stream directly without extracting)
-DBNSFP_ZIP = Path.home() / "dbNSFP5.3.1a.zip"
+# dbNSFP data location (extracted folder or zip file)
+# Can be overridden with DBNSFP_DIR environment variable
+_default_dbnsfp = Path.home() / "Downloads" / "dbNSFP5.3.1a"
+DBNSFP_DIR = Path(os.environ.get("DBNSFP_DIR", str(_default_dbnsfp)))
+DBNSFP_ZIP = None  # Not using zip file
+
+# Gene-level annotation file (contains pLI, LOEUF, constraint scores)
+DBNSFP_GENE_FILE = DBNSFP_DIR / "dbNSFP5.3_gene.gz"
+
+# Panel database paths by genome build
+VECTORDB_GRCH37_NGSGENES = DATA_DIR / "vectordb" / "grch37-ngsgenes"
+VECTORDB_GRCH38_NGSGENES = DATA_DIR / "vectordb" / "grch38-ngsgenes"
 
 # dbNSFP columns to keep (from 600+)
 KEEP_COLUMNS = [
     "#chr",
     "pos(1-based)",
+    "hg19_chr",
+    "hg19_pos(1-based)",
     "ref",
     "alt",
     "aaref",
@@ -53,14 +66,23 @@ KEEP_COLUMNS = [
     "MetaSVM_pred",
     "MetaLR_score",
     "MetaLR_pred",
+    # MutationTaster
+    "MutationTaster_score",
+    "MutationTaster_pred",
+    # BayesDel
+    "BayesDel_addAF_score",
+    "BayesDel_addAF_pred",
+    # PROVEAN
+    "PROVEAN_score",
+    "PROVEAN_pred",
     # Conservation
     "phyloP100way_vertebrate",
-    "phyloP30way_mammalian",
+    "phyloP470way_mammalian",  # Updated from phyloP30way in dbNSFP 5.x
     "phastCons100way_vertebrate",
     "GERP++_RS",
-    # Population frequencies
-    "gnomAD_exomes_AF",
-    "gnomAD_genomes_AF",
+    # Population frequencies (dbNSFP 5.x column names)
+    "gnomAD4.1_joint_AF",  # gnomAD v4.1 combined exomes+genomes
+    "gnomAD2.1.1_exomes_controls_AF",  # gnomAD v2 exomes (controls)
     "1000Gp3_AF",
     # ClinVar
     "clinvar_id",
@@ -69,8 +91,17 @@ KEEP_COLUMNS = [
     "clinvar_trait",
     # Functional
     "Interpro_domain",
-    "GTEx_V8_gene",
-    "GTEx_V8_tissue",
+    # Codon info (for consequence derivation)
+    "codon_degeneracy",  # 0=non-synonymous, 2=synonymous, etc.
+    "refcodon",
+    "codonpos",
+    # VEP canonical transcript flag
+    "VEP_canonical",
+    # gnomAD homozygote count (for BS2 - observed in healthy adults)
+    "gnomAD4.1_joint_nhomalt",  # Homozygote count in gnomAD v4.1
+    # Note: Gene constraint scores (pLI, LOEUF, mis_z) are in dbNSFP_gene file
+    # and loaded separately via gene_data.py
+    # Note: Consequence is derived from HGVSp/codon_degeneracy, not a dbNSFP column
 ]
 
 # Embedding model (all-MiniLM-L6-v2 is 5x faster than PubMedBERT)

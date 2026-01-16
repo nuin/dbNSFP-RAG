@@ -1,93 +1,89 @@
 # Notes for Next Claude Instance
 
-Hey there! Here's the context on this project:
-
 ## What This Is
-A RAG (Retrieval Augmented Generation) pipeline for dbNSFP variant annotation at Alberta Precision Labs. It indexes variants into a FAISS vector store and uses Ollama for LLM-based clinical interpretation.
+ACMG Variant Classification API - a standalone fine-tuned LLM for classifying genetic variants according to ACMG/AMP guidelines. Trained on 314 clinical genes (NGSgenes panel) from dbNSFP.
 
-## Current State (2025-01-10)
+## Current State (2026-01-10)
 
-### Indexed Chromosomes
-| Chr | Variants | Status |
-|-----|----------|--------|
-| M | 25,481 | Done |
-| Y | 70,000 | Done |
-| 13 | 1,557,650 | Done |
-| 21 | 825,815 | Done |
-| 18 | 1,332,127 | Done |
-| **Total** | **3,811,073** | |
+### Completed
+- GRCh37 NGSgenes database: 268,954 variants
+- ACMG training data: 9,743 labeled examples
+- Fine-tuned Llama-3.2-3B model via LoRA (500 iterations)
+- FastAPI server with /classify endpoint
+- Full documentation
 
-### Database Size
-- `faiss.index`: 5.9 GB
-- `metadata.pkl`: 6.6 GB
-- Estimated final size (all chromosomes): ~270-300 GB
+### Key Components
 
-### Remaining Chromosomes (in size order)
-22 → 20 → 14 → X → 15 → 8 → 9 → 10 → 4 → 16 → 5 → 7 → 6 → 12 → 17 → 11 → 3 → 19 → 2 → 1
+| Component | Location | Description |
+|-----------|----------|-------------|
+| ACMG Model | `models/acmg-classifier/model/` | Fine-tuned Llama-3.2-3B |
+| API Server | `api/server.py` | FastAPI with /classify endpoint |
+| Training Data | `data/training/acmg_training.json` | 9,743 ACMG examples |
+| Database | `data/vectordb/grch37-ngsgenes/` | 268,954 variants |
 
-### Training Pipeline (NEW)
-Three training scripts ready for panel-focused fine-tuning:
-
-1. **Pathogenicity Classifier** (`training/train_classifier.py`)
-   - XGBoost on numerical features (CADD, REVEL, etc.)
-   - Uses ClinVar labels
-
-2. **LLM Fine-tuning** (`training/train_llm.py`)
-   - LoRA on Llama 3.2 via mlx-lm (Apple Silicon optimized)
-   - Instruction-response pairs for variant interpretation
-
-3. **Embedding Fine-tuning** (`training/train_embeddings.py`)
-   - Contrastive learning on sentence-transformers
-   - Improves semantic search for pathogenic/benign similarity
-
-### Gene Panels (`src/panels.py`)
-- `NGSgenes`: 314 genes (main clinical panel - cardiac + cancer)
-- `hereditary_cancer`: 25 genes
-- `cardiac`: 19 genes
-- `neurological`: 14 genes
-
-Export training data for a panel:
-```bash
-python3 src/export.py --panel NGSgenes --type all
+### Model Training
+```
+Base: mlx-community/Llama-3.2-3B-Instruct-4bit
+Method: LoRA (16 layers, 500 iterations)
+Initial loss: 4.033
+Final loss: 0.203
+Training time: ~10 min on M1 Ultra
 ```
 
-## Key Commands
+## Quick Start
 
 ```bash
-# Resume indexing (auto-resumes from checkpoint)
-uv run python -m src.main build
+# Start API
+uvicorn api.server:app --host 0.0.0.0 --port 8000
 
-# Test a variant interpretation
-uv run python -c "
-from src.rag import VariantRAG
-rag = VariantRAG(model='llama3.2:3b')
-print(rag.interpret('21_31659785_G_A'))  # SOD1 ALS variant
-"
+# Classify variant
+curl "http://localhost:8000/classify?chr=17&pos=41197801&ref=T&alt=A"
+```
 
-# Interactive RAG mode
-uv run python -m src.rag
+## API Endpoints
+
+- `GET /classify?chr=X&pos=Y&ref=R&alt=A` - Classify variant
+- `POST /classify` - Classify with JSON body
+- `GET /gene/{symbol}` - Get variants for gene
+- `GET /health` - API status
+
+## Training Commands
+
+```bash
+# Generate ACMG training data
+uv run python training/acmg_training.py --db data/vectordb/grch37-ngsgenes
+
+# Fine-tune model (Apple Silicon)
+uv run python training/finetune_acmg.py --method mlx --iters 500
+
+# Fine-tune model (NVIDIA)
+uv run python training/finetune_acmg.py --method transformers
 ```
 
 ## Key Files
-- `src/ingest.py` - Streams from ZIP, extracts 46 columns, batches to vector store
-- `src/vectorstore.py` - FAISS wrapper with semantic search
-- `src/rag.py` - LLM integration with Ollama
-- `src/main.py` - CLI with checkpoint/resume support
-- `src/config.py` - Column definitions, paths
 
-## Things That Work
-- Streaming directly from dbNSFP ZIP (no extraction needed)
-- Checkpoint/resume for long indexing jobs
-- Semantic search by query or gene
-- LLM interpretation via Ollama (llama3.2:3b)
-- Multiple variant format parsing (chr:pos:ref:alt, chr_pos_ref_alt, etc.)
+- `api/server.py` - FastAPI server
+- `training/acmg_training.py` - Generate ACMG training data
+- `training/finetune_acmg.py` - Fine-tune LLM
+- `src/vectorstore.py` - FAISS database (supports DBNSFP_DEVICE env var)
+- `src/panels.py` - Gene panels (NGSgenes: 314 genes)
 
-## Source Data Location
-The dbNSFP ZIP should be at: `/Users/nuin/dbNSFP5.3.1a.zip` (or update `src/config.py`)
+## Environment Variables
+
+- `ACMG_MODEL_PATH` - Path to fine-tuned model
+- `ACMG_DB_PATH` - Path to variant database
+- `DBNSFP_DEVICE` - Force cpu/cuda/mps
+
+## Non-GPU Deployment
+
+```bash
+export DBNSFP_DEVICE=cpu
+export ACMG_MODEL_PATH=  # Empty = use Ollama
+ollama pull llama3.2:3b
+uvicorn api.server:app --port 8000
+```
 
 ## GitHub
 https://github.com/nuin/dbNSFP-RAG
 
-Good luck! The M1 Ultra should make indexing faster.
-
-— Previous Claude Instance
+— Claude Instance (2026-01-10)

@@ -1,0 +1,203 @@
+============================= test session starts ==============================
+platform darwin -- Python 3.14.2, pytest-9.0.2, pluggy-1.6.0 -- /Users/nuin/Projects/dbNSFP/.venv/bin/python3
+cachedir: .pytest_cache
+rootdir: /Users/nuin/Projects/dbNSFP
+configfile: pyproject.toml
+plugins: anyio-4.12.1, asyncio-1.3.0, cov-7.0.0
+asyncio: mode=Mode.STRICT, debug=False, asyncio_default_fixture_loop_scope=None, asyncio_default_test_loop_scope=function
+collecting ... collected 121 items
+
+validation/test_suite/test_api.py::TestHealthEndpoint::test_health_endpoint_exists PASSED [  0%]
+validation/test_suite/test_api.py::TestHealthEndpoint::test_health_response_structure PASSED [  1%]
+validation/test_suite/test_api.py::TestHealthEndpoint::test_health_includes_version_info PASSED [  2%]
+validation/test_suite/test_api.py::TestHealthEndpoint::test_health_includes_genome_build PASSED [  3%]
+validation/test_suite/test_api.py::TestLookupEndpoint::test_lookup_by_coordinates PASSED [  4%]
+validation/test_suite/test_api.py::TestLookupEndpoint::test_lookup_response_structure PASSED [  4%]
+validation/test_suite/test_api.py::TestLookupEndpoint::test_lookup_includes_genome_build PASSED [  5%]
+validation/test_suite/test_api.py::TestLookupEndpoint::test_lookup_invalid_chromosome PASSED [  6%]
+validation/test_suite/test_api.py::TestLookupEndpoint::test_lookup_hgvs_format PASSED [  7%]
+validation/test_suite/test_api.py::TestClassifyEndpoint::test_classify_get_method PASSED [  8%]
+validation/test_suite/test_api.py::TestClassifyEndpoint::test_classify_post_method PASSED [  9%]
+validation/test_suite/test_api.py::TestClassifyEndpoint::test_classify_response_structure PASSED [  9%]
+validation/test_suite/test_api.py::TestClassifyEndpoint::test_classify_includes_confidence PASSED [ 10%]
+validation/test_suite/test_api.py::TestClassifyEndpoint::test_classify_missing_required_params PASSED [ 11%]
+validation/test_suite/test_api.py::TestClassifyEndpoint::test_classify_invalid_input_validation PASSED [ 12%]
+validation/test_suite/test_api.py::TestGeneEndpoint::test_gene_lookup PASSED [ 13%]
+validation/test_suite/test_api.py::TestGeneEndpoint::test_gene_response_structure PASSED [ 14%]
+validation/test_suite/test_api.py::TestGeneEndpoint::test_gene_case_insensitive PASSED [ 14%]
+validation/test_suite/test_api.py::TestGeneEndpoint::test_gene_not_found PASSED [ 15%]
+validation/test_suite/test_api.py::TestVariantEndpoint::test_variant_by_id PASSED [ 16%]
+validation/test_suite/test_api.py::TestVariantEndpoint::test_variant_id_format_validation PASSED [ 17%]
+validation/test_suite/test_api.py::TestErrorHandling::test_404_response_format PASSED [ 18%]
+validation/test_suite/test_api.py::TestErrorHandling::test_validation_error_format PASSED [ 19%]
+validation/test_suite/test_api.py::TestErrorHandling::test_model_unavailable_handling PASSED [ 19%]
+validation/test_suite/test_api.py::TestCORS::test_cors_headers PASSED    [ 20%]
+validation/test_suite/test_api.py::TestRateLimiting::test_rate_limit_not_exceeded_normal_use PASSED [ 21%]
+validation/test_suite/test_api.py::TestAPIDocumentation::test_openapi_schema_available PASSED [ 22%]
+validation/test_suite/test_api.py::TestAPIDocumentation::test_docs_endpoint PASSED [ 23%]
+validation/test_suite/test_api.py::TestResponseTimes::test_health_response_time PASSED [ 23%]
+validation/test_suite/test_api.py::TestResponseTimes::test_lookup_response_time PASSED [ 24%]
+validation/test_suite/test_classification.py::TestPathogenicClassification::test_pathogenic_sensitivity FAILED [ 25%]
+validation/test_suite/test_classification.py::TestPathogenicClassification::test_no_pathogenic_to_benign PASSED [ 26%]
+validation/test_suite/test_classification.py::TestBenignClassification::test_benign_specificity FAILED [ 27%]
+validation/test_suite/test_classification.py::TestBenignClassification::test_no_benign_to_pathogenic PASSED [ 28%]
+validation/test_suite/test_classification.py::TestLikelyClassifications::test_likely_pathogenic_accuracy FAILED [ 28%]
+validation/test_suite/test_classification.py::TestLikelyClassifications::test_likely_benign_accuracy FAILED [ 29%]
+validation/test_suite/test_classification.py::TestACMGCriteriaValidation::test_criteria_code_validation PASSED [ 30%]
+validation/test_suite/test_classification.py::TestACMGCriteriaValidation::test_invalid_criteria_rejected PASSED [ 31%]
+validation/test_suite/test_classification.py::TestACMGCriteriaValidation::test_classification_returns_valid_codes PASSED [ 32%]
+validation/test_suite/test_classification.py::TestClassificationConfidence::test_confidence_range PASSED [ 33%]
+validation/test_suite/test_classification.py::TestClassificationConfidence::test_pathogenic_high_confidence PASSED [ 33%]
+validation/test_suite/test_classification.py::TestClassificationConsistency::test_same_variant_same_result PASSED [ 34%]
+validation/test_suite/test_classification.py::TestClassificationConsistency::test_normalized_input_consistency PASSED [ 35%]
+validation/test_suite/test_classification.py::TestPerformance::test_single_classification_latency PASSED [ 36%]
+validation/test_suite/test_classification.py::TestPerformance::test_batch_classification_throughput PASSED [ 37%]
+validation/test_suite/test_input_validation.py::TestChromosomeValidation::test_valid_chromosomes[1] PASSED [ 38%]
+validation/test_suite/test_input_validation.py::TestChromosomeValidation::test_valid_chromosomes[2] PASSED [ 38%]
+validation/test_suite/test_input_validation.py::TestChromosomeValidation::test_valid_chromosomes[10] PASSED [ 39%]
+validation/test_suite/test_input_validation.py::TestChromosomeValidation::test_valid_chromosomes[22] PASSED [ 40%]
+validation/test_suite/test_input_validation.py::TestChromosomeValidation::test_valid_chromosomes[X] PASSED [ 41%]
+validation/test_suite/test_input_validation.py::TestChromosomeValidation::test_valid_chromosomes[Y] PASSED [ 42%]
+validation/test_suite/test_input_validation.py::TestChromosomeValidation::test_valid_chromosomes[M] PASSED [ 42%]
+validation/test_suite/test_input_validation.py::TestChromosomeValidation::test_valid_chromosomes[MT] PASSED [ 43%]
+validation/test_suite/test_input_validation.py::TestChromosomeValidation::test_valid_chromosomes[chr1] PASSED [ 44%]
+validation/test_suite/test_input_validation.py::TestChromosomeValidation::test_valid_chromosomes[chr22] PASSED [ 45%]
+validation/test_suite/test_input_validation.py::TestChromosomeValidation::test_valid_chromosomes[chrX] PASSED [ 46%]
+validation/test_suite/test_input_validation.py::TestChromosomeValidation::test_valid_chromosomes[chrY] PASSED [ 47%]
+validation/test_suite/test_input_validation.py::TestChromosomeValidation::test_valid_chromosomes[chrM] PASSED [ 47%]
+validation/test_suite/test_input_validation.py::TestChromosomeValidation::test_invalid_chromosomes[0] PASSED [ 48%]
+validation/test_suite/test_input_validation.py::TestChromosomeValidation::test_invalid_chromosomes[99] PASSED [ 49%]
+validation/test_suite/test_input_validation.py::TestChromosomeValidation::test_invalid_chromosomes[ABC] PASSED [ 50%]
+validation/test_suite/test_input_validation.py::TestChromosomeValidation::test_invalid_chromosomes[] PASSED [ 51%]
+validation/test_suite/test_input_validation.py::TestChromosomeValidation::test_invalid_chromosomes[chr] PASSED [ 52%]
+validation/test_suite/test_input_validation.py::TestChromosomeValidation::test_invalid_chromosomes[chr0] PASSED [ 52%]
+validation/test_suite/test_input_validation.py::TestChromosomeValidation::test_invalid_chromosomes[chr99] PASSED [ 53%]
+validation/test_suite/test_input_validation.py::TestChromosomeValidation::test_chromosome_23_normalizes_to_x PASSED [ 54%]
+validation/test_suite/test_input_validation.py::TestChromosomeValidation::test_none_chromosome PASSED [ 55%]
+validation/test_suite/test_input_validation.py::TestChromosomeValidation::test_chromosome_normalization PASSED [ 56%]
+validation/test_suite/test_input_validation.py::TestPositionValidation::test_valid_positions[1] PASSED [ 57%]
+validation/test_suite/test_input_validation.py::TestPositionValidation::test_valid_positions[100] PASSED [ 57%]
+validation/test_suite/test_input_validation.py::TestPositionValidation::test_valid_positions[1000000] PASSED [ 58%]
+validation/test_suite/test_input_validation.py::TestPositionValidation::test_valid_positions[250000000] PASSED [ 59%]
+validation/test_suite/test_input_validation.py::TestPositionValidation::test_invalid_negative_zero_positions[-1] PASSED [ 60%]
+validation/test_suite/test_input_validation.py::TestPositionValidation::test_invalid_negative_zero_positions[-100] PASSED [ 61%]
+validation/test_suite/test_input_validation.py::TestPositionValidation::test_invalid_negative_zero_positions[0] PASSED [ 61%]
+validation/test_suite/test_input_validation.py::TestPositionValidation::test_none_position PASSED [ 62%]
+validation/test_suite/test_input_validation.py::TestPositionValidation::test_string_position PASSED [ 63%]
+validation/test_suite/test_input_validation.py::TestPositionValidation::test_non_numeric_position PASSED [ 64%]
+validation/test_suite/test_input_validation.py::TestAlleleValidation::test_valid_alleles[A] PASSED [ 65%]
+validation/test_suite/test_input_validation.py::TestAlleleValidation::test_valid_alleles[C] PASSED [ 66%]
+validation/test_suite/test_input_validation.py::TestAlleleValidation::test_valid_alleles[G] PASSED [ 66%]
+validation/test_suite/test_input_validation.py::TestAlleleValidation::test_valid_alleles[T] PASSED [ 67%]
+validation/test_suite/test_input_validation.py::TestAlleleValidation::test_valid_alleles[AC] PASSED [ 68%]
+validation/test_suite/test_input_validation.py::TestAlleleValidation::test_valid_alleles[GT] PASSED [ 69%]
+validation/test_suite/test_input_validation.py::TestAlleleValidation::test_valid_alleles[ACGT] PASSED [ 70%]
+validation/test_suite/test_input_validation.py::TestAlleleValidation::test_valid_alleles[ACGTACGTACGT] PASSED [ 71%]
+validation/test_suite/test_input_validation.py::TestAlleleValidation::test_invalid_alleles[X] PASSED [ 71%]
+validation/test_suite/test_input_validation.py::TestAlleleValidation::test_invalid_alleles[N] PASSED [ 72%]
+validation/test_suite/test_input_validation.py::TestAlleleValidation::test_invalid_alleles[R] PASSED [ 73%]
+validation/test_suite/test_input_validation.py::TestAlleleValidation::test_invalid_alleles[Y] PASSED [ 74%]
+validation/test_suite/test_input_validation.py::TestAlleleValidation::test_invalid_alleles[1] PASSED [ 75%]
+validation/test_suite/test_input_validation.py::TestAlleleValidation::test_invalid_alleles[123] PASSED [ 76%]
+validation/test_suite/test_input_validation.py::TestAlleleValidation::test_invalid_alleles[A1] PASSED [ 76%]
+validation/test_suite/test_input_validation.py::TestAlleleValidation::test_invalid_alleles[1A] PASSED [ 77%]
+validation/test_suite/test_input_validation.py::TestAlleleValidation::test_invalid_alleles[] PASSED [ 78%]
+validation/test_suite/test_input_validation.py::TestAlleleValidation::test_deletion_marker_rejected PASSED [ 79%]
+validation/test_suite/test_input_validation.py::TestAlleleValidation::test_none_allele PASSED [ 80%]
+validation/test_suite/test_input_validation.py::TestAlleleValidation::test_allele_uppercase_normalization PASSED [ 80%]
+validation/test_suite/test_input_validation.py::TestAlleleValidation::test_lowercase_alleles_normalized[a] PASSED [ 81%]
+validation/test_suite/test_input_validation.py::TestAlleleValidation::test_lowercase_alleles_normalized[g] PASSED [ 82%]
+validation/test_suite/test_input_validation.py::TestAlleleValidation::test_lowercase_alleles_normalized[t] PASSED [ 83%]
+validation/test_suite/test_input_validation.py::TestAlleleValidation::test_lowercase_alleles_normalized[c] PASSED [ 84%]
+validation/test_suite/test_input_validation.py::TestMultiAllelicDetection::test_single_allele PASSED [ 85%]
+validation/test_suite/test_input_validation.py::TestMultiAllelicDetection::test_multi_allelic_detection[G,T] PASSED [ 85%]
+validation/test_suite/test_input_validation.py::TestMultiAllelicDetection::test_multi_allelic_detection[A,G,C] PASSED [ 86%]
+validation/test_suite/test_input_validation.py::TestMultiAllelicDetection::test_multi_allelic_detection[G,T,C,A] PASSED [ 87%]
+validation/test_suite/test_input_validation.py::TestMultiAllelicDetection::test_multi_allelic_with_spaces PASSED [ 88%]
+validation/test_suite/test_input_validation.py::TestFullVariantValidation::test_valid_snv PASSED [ 89%]
+validation/test_suite/test_input_validation.py::TestFullVariantValidation::test_valid_insertion PASSED [ 90%]
+validation/test_suite/test_input_validation.py::TestFullVariantValidation::test_valid_deletion PASSED [ 90%]
+validation/test_suite/test_input_validation.py::TestFullVariantValidation::test_invalid_all_fields PASSED [ 91%]
+validation/test_suite/test_input_validation.py::TestFullVariantValidation::test_ref_equals_alt_warning PASSED [ 92%]
+validation/test_suite/test_input_validation.py::TestVariantIdGeneration::test_variant_id_format PASSED [ 93%]
+validation/test_suite/test_input_validation.py::TestVariantIdGeneration::test_variant_id_normalized PASSED [ 94%]
+validation/test_suite/test_input_validation.py::TestEdgeCases::test_very_long_allele PASSED [ 95%]
+validation/test_suite/test_input_validation.py::TestEdgeCases::test_chromosome_case_insensitive PASSED [ 95%]
+validation/test_suite/test_input_validation.py::TestEdgeCases::test_whitespace_handling PASSED [ 96%]
+validation/test_suite/test_input_validation.py::TestEdgeCases::test_special_characters PASSED [ 97%]
+validation/test_suite/test_input_validation.py::TestValidationResultStructure::test_valid_result_structure PASSED [ 98%]
+validation/test_suite/test_input_validation.py::TestValidationResultStructure::test_invalid_result_structure PASSED [ 99%]
+validation/test_suite/test_input_validation.py::TestIntegrationWithDatabase::test_validated_variant_lookup PASSED [100%]
+
+=================================== FAILURES ===================================
+___________ TestPathogenicClassification.test_pathogenic_sensitivity ___________
+validation/test_suite/test_classification.py:72: in test_pathogenic_sensitivity
+    assert sensitivity >= classification_accuracy_threshold, (
+E   AssertionError: Pathogenic sensitivity 0.0% < 90%
+E     Failures:
+E       17_41244936_G_A: expected Pathogenic, got Uncertain_significance
+E       17_41245466_G_A: expected Pathogenic, got Uncertain_significance
+E       17_41246481_T_C: expected Pathogenic, got Uncertain_significance
+E       13_32914438_GT_G: expected Pathogenic, got Uncertain_significance
+E       13_32913055_A_G: expected Pathogenic, got Uncertain_significance
+E       7_117199646_G_A: expected Pathogenic, got Uncertain_significance
+E       7_117227832_G_T: expected Pathogenic, got Uncertain_significance
+E       11_5248232_T_C: expected Pathogenic, got Uncertain_significance
+E       2_47702181_C_T: expected Pathogenic, got Uncertain_significance
+E       3_37067240_A_G: expected Pathogenic, got Uncertain_significance
+E   assert 0.0 >= 0.9
+---------------------------- Captured stdout setup -----------------------------
+Loading embedding model: all-MiniLM-L6-v2
+Using MPS (Apple Silicon GPU)
+Loading existing index from /Users/nuin/Projects/dbNSFP/data/vectordb/grch37-ngsgenes/faiss.index
+_______________ TestBenignClassification.test_benign_specificity _______________
+validation/test_suite/test_classification.py:156: in test_benign_specificity
+    assert specificity >= classification_accuracy_threshold, (
+E   AssertionError: Benign specificity 0.0% < 90%
+E   assert 0.0 >= 0.9
+__________ TestLikelyClassifications.test_likely_pathogenic_accuracy ___________
+validation/test_suite/test_classification.py:217: in test_likely_pathogenic_accuracy
+    assert accuracy >= 0.85, f"Likely pathogenic accuracy {accuracy:.1%} < 85%"
+E   AssertionError: Likely pathogenic accuracy 0.0% < 85%
+E   assert 0.0 >= 0.85
+____________ TestLikelyClassifications.test_likely_benign_accuracy _____________
+validation/test_suite/test_classification.py:238: in test_likely_benign_accuracy
+    assert accuracy >= 0.85, f"Likely benign accuracy {accuracy:.1%} < 85%"
+E   AssertionError: Likely benign accuracy 0.0% < 85%
+E   assert 0.0 >= 0.85
+=============================== warnings summary ===============================
+validation/test_suite/test_api.py::TestHealthEndpoint::test_health_endpoint_exists
+  /Users/nuin/Projects/dbNSFP/api/server.py:79: PydanticDeprecatedSince20: Support for class-based `config` is deprecated, use ConfigDict instead. Deprecated in Pydantic V2.0 to be removed in V3.0. See Pydantic V2 Migration Guide at https://errors.pydantic.dev/2.12/migration/
+    class VariantRequest(BaseModel):
+
+validation/test_suite/test_api.py::TestHealthEndpoint::test_health_endpoint_exists
+  <frozen importlib._bootstrap>:491: DeprecationWarning: builtin type SwigPyPacked has no __module__ attribute
+
+validation/test_suite/test_api.py::TestHealthEndpoint::test_health_endpoint_exists
+  <frozen importlib._bootstrap>:491: DeprecationWarning: builtin type SwigPyObject has no __module__ attribute
+
+validation/test_suite/test_api.py::TestHealthEndpoint::test_health_endpoint_exists
+  <frozen importlib._bootstrap>:491: DeprecationWarning: builtin type swigvarlink has no __module__ attribute
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ============================
+FAILED validation/test_suite/test_classification.py::TestPathogenicClassification::test_pathogenic_sensitivity - AssertionError: Pathogenic sensitivity 0.0% < 90%
+  Failures:
+    17_41244936_G_A: expected Pathogenic, got Uncertain_significance
+    17_41245466_G_A: expected Pathogenic, got Uncertain_significance
+    17_41246481_T_C: expected Pathogenic, got Uncertain_significance
+    13_32914438_GT_G: expected Pathogenic, got Uncertain_significance
+    13_32913055_A_G: expected Pathogenic, got Uncertain_significance
+    7_117199646_G_A: expected Pathogenic, got Uncertain_significance
+    7_117227832_G_T: expected Pathogenic, got Uncertain_significance
+    11_5248232_T_C: expected Pathogenic, got Uncertain_significance
+    2_47702181_C_T: expected Pathogenic, got Uncertain_significance
+    3_37067240_A_G: expected Pathogenic, got Uncertain_significance
+assert 0.0 >= 0.9
+FAILED validation/test_suite/test_classification.py::TestBenignClassification::test_benign_specificity - AssertionError: Benign specificity 0.0% < 90%
+assert 0.0 >= 0.9
+FAILED validation/test_suite/test_classification.py::TestLikelyClassifications::test_likely_pathogenic_accuracy - AssertionError: Likely pathogenic accuracy 0.0% < 85%
+assert 0.0 >= 0.85
+FAILED validation/test_suite/test_classification.py::TestLikelyClassifications::test_likely_benign_accuracy - AssertionError: Likely benign accuracy 0.0% < 85%
+assert 0.0 >= 0.85
+================== 4 failed, 117 passed, 4 warnings in 17.93s ==================
