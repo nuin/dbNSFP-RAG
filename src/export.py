@@ -3,9 +3,21 @@
 import json
 from pathlib import Path
 
-from .config import VECTORDB_DIR, VECTORDB_GRCH37_NGSGENES
-from .panels import get_panel, get_all_panel_genes, PANELS
-from .vectorstore import VariantVectorStore
+from .config import VECTORDB_GRCH37_NGSGENES, SQLITE_DB_PATH
+from .panels import get_panel, get_all_panel_genes
+
+
+def _get_store(db_path=None):
+    """Get the appropriate variant store (SQLite or FAISS)."""
+    from pathlib import Path
+
+    resolved = Path(db_path) if db_path else SQLITE_DB_PATH
+    if resolved.suffix == ".db" and resolved.exists():
+        from .variantdb import VariantDatabase
+        return VariantDatabase(db_path=resolved)
+    else:
+        from .vectorstore import VariantVectorStore
+        return VariantVectorStore(db_path=db_path)
 
 
 def export_panel_variants(
@@ -43,7 +55,7 @@ def export_panel_variants(
     print(f"Exporting variants for {len(target_genes)} genes...")
 
     # Load vector store
-    store = VariantVectorStore()
+    store = _get_store()
 
     # Collect variants
     variants = []
@@ -102,7 +114,7 @@ def export_for_classifier(
     output_dir.mkdir(parents=True, exist_ok=True)
 
     genes = get_panel(panel_name) if panel_name else get_all_panel_genes()
-    store = VariantVectorStore(db_path=db_path)
+    store = _get_store(db_path=db_path)
 
     rows = []
     for gene in sorted(genes):
@@ -149,7 +161,7 @@ def export_for_llm_finetuning(
     output_dir.mkdir(parents=True, exist_ok=True)
 
     genes = get_panel(panel_name) if panel_name else get_all_panel_genes()
-    store = VariantVectorStore(db_path=db_path)
+    store = _get_store(db_path=db_path)
 
     pairs = []
     for gene in sorted(genes):
@@ -204,7 +216,7 @@ def export_for_embeddings(
     output_dir.mkdir(parents=True, exist_ok=True)
 
     genes = get_panel(panel_name) if panel_name else get_all_panel_genes()
-    store = VariantVectorStore(db_path=db_path)
+    store = _get_store(db_path=db_path)
 
     # Collect variants by classification for contrastive pairs
     by_class = {"pathogenic": [], "benign": [], "uncertain": []}

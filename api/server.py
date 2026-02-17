@@ -175,7 +175,7 @@ class HealthResponse(BaseModel):
 
 # Global model and database instances
 _model = None
-_vectorstores = {}  # Cache vectorstores by genome build
+_databases = {}  # Cache databases by genome build
 
 
 def get_model():
@@ -251,26 +251,41 @@ def get_model():
     return _model
 
 
-def get_vectorstore(genome_build: str = "GRCh37"):
-    """Load vector database for specified genome build (lazy loading)."""
-    global _vectorstores
+def get_database(genome_build: str = "GRCh37"):
+    """Load variant database for specified genome build (lazy loading).
+
+    Uses SQLite backend (VariantDatabase) if the configured path is a .db file,
+    otherwise falls back to FAISS (VariantVectorStore) for backwards compatibility.
+    """
+    global _databases
 
     if genome_build not in SUPPORTED_BUILDS:
         raise ValueError(f"Unsupported genome build: {genome_build}. Must be one of {SUPPORTED_BUILDS}")
 
-    if genome_build not in _vectorstores:
-        from src.vectorstore import VariantVectorStore
-        from src.config import VECTORDB_GRCH37_NGSGENES, VECTORDB_GRCH38_NGSGENES
+    if genome_build not in _databases:
+        from src.config import SQLITE_DB_PATH, VECTORDB_GRCH37_NGSGENES, VECTORDB_GRCH38_NGSGENES
 
         if genome_build == "GRCh37":
-            db_path = os.environ.get("ACMG_DB_PATH", str(VECTORDB_GRCH37_NGSGENES))
+            db_path = os.environ.get("ACMG_DB_PATH", str(SQLITE_DB_PATH))
         else:
             db_path = os.environ.get("ACMG_DB_PATH_GRCH38", str(VECTORDB_GRCH38_NGSGENES))
 
-        _vectorstores[genome_build] = VariantVectorStore(db_path=Path(db_path))
-        print(f"Loaded {genome_build} database with {_vectorstores[genome_build].count()} variants")
+        db_path = Path(db_path)
 
-    return _vectorstores[genome_build]
+        if db_path.suffix == ".db" and db_path.exists():
+            from src.variantdb import VariantDatabase
+            _databases[genome_build] = VariantDatabase(db_path=db_path)
+            print(f"Loaded {genome_build} SQLite database with {_databases[genome_build].count()} variants")
+        else:
+            # Fall back to FAISS for backwards compatibility
+            from src.vectorstore import VariantVectorStore
+            # If ACMG_DB_PATH pointed to a .db that doesn't exist, fall back to FAISS default
+            if db_path.suffix == ".db":
+                db_path = VECTORDB_GRCH37_NGSGENES if genome_build == "GRCh37" else VECTORDB_GRCH38_NGSGENES
+            _databases[genome_build] = VariantVectorStore(db_path=db_path)
+            print(f"Loaded {genome_build} FAISS database with {_databases[genome_build].count()} variants")
+
+    return _databases[genome_build]
 
 
 def generate_classification(variant_input: str, model_info: dict) -> str:
@@ -524,7 +539,7 @@ async def health_check(genome_build: str = Query(default="GRCh37", description="
     """Check API health and model status."""
     model = get_model()
     try:
-        store = get_vectorstore(genome_build)
+        store = get_database(genome_build)
         db_loaded = True
         count = store.count()
     except Exception:
@@ -583,7 +598,7 @@ async def classify_variant(request: VariantRequest):
     chrom = variant_id.split("_")[0]
 
     # Try to find in database first
-    store = get_vectorstore(genome_build)
+    store = get_database(genome_build)
     variant_data = store.get_by_id(variant_id)
 
     scores = {}
@@ -747,7 +762,7 @@ async def get_variant_info(
     genome_build: str = Query(default="GRCh37", description="Genome build"),
 ):
     """Get raw variant information from database."""
-    store = get_vectorstore(genome_build)
+    store = get_database(genome_build)
     variant_data = store.get_by_id(variant_id)
 
     if not variant_data:
@@ -815,7 +830,7 @@ async def lookup_variant(
 
     variant_id = validation.variant_id
 
-    store = get_vectorstore(genome_build)
+    store = get_database(genome_build)
     variant_data = store.get_by_id(variant_id)
 
     if not variant_data:
@@ -890,7 +905,7 @@ async def get_gene_variants(
     genome_build: str = Query(default="GRCh37", description="Genome build"),
 ):
     """Get variants for a specific gene."""
-    store = get_vectorstore(genome_build)
+    store = get_database(genome_build)
     results = store.search_by_gene(gene_symbol.upper(), k=limit)
 
     return {
@@ -905,6 +920,52 @@ async def get_gene_variants(
             }
             for r in results
         ]
+    }
+
+
+@app.get("/panels")
+async def list_panels():
+    """List available gene panels and variant counts."""
+    from src.panels import list_panels as _list_panels
+
+    panels_info = _list_panels()
+
+    # Try to get variant counts from database if available
+    panel_counts = {}
+    try:
+        db = get_database("GRCh37")
+        if hasattr(db, "count_by_panel"):
+            for name in panels_info:
+                panel_counts[name] = db.count_by_panel(name)
+    except Exception:
+        pass
+
+    return {
+        "panels": [
+            {
+                "name": name,
+                "gene_count": gene_count,
+                "variant_count": panel_counts.get(name),
+            }
+            for name, gene_count in panels_info.items()
+        ]
+    }
+
+
+@app.get("/panel/{panel_name}/genes")
+async def get_panel_genes(panel_name: str):
+    """Get the list of genes in a specific panel."""
+    from src.panels import get_panel
+
+    try:
+        genes = get_panel(panel_name)
+    except ValueError as e:
+        raise HTTPException(status_code=404, detail=str(e))
+
+    return {
+        "panel": panel_name,
+        "gene_count": len(genes),
+        "genes": sorted(genes),
     }
 
 

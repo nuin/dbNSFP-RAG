@@ -8,14 +8,14 @@ from pathlib import Path
 from tqdm import tqdm
 
 from .chunker import chunk_dataframe
-from .config import RAW_DATA_DIR, VECTORDB_DIR, VECTORDB_GRCH37_NGSGENES, DBNSFP_ZIP, DBNSFP_DIR
+from .config import VECTORDB_DIR, VECTORDB_GRCH37_NGSGENES, DBNSFP_ZIP, DBNSFP_DIR, SQLITE_DB_PATH
 from .gene_data import load_gene_data
 from .ingest import (
     list_chromosome_files_in_zip, parse_chromosome_from_zip,
     list_chromosome_files, parse_chromosome_file,
-    sort_chr_files, filter_by_genes
+    filter_by_genes
 )
-from .panels import get_panel, list_panels
+from .panels import get_panel, get_all_panel_genes, list_panels, PANELS
 from .vectorstore import VariantVectorStore
 
 
@@ -345,6 +345,210 @@ def build_panel_index(
     return 0
 
 
+def build_sqlite_index(
+    source: Path,
+    use_grch37: bool = True,
+    chromosomes: list[str] | None = None,
+    limit: int | None = None,
+    resume: bool = True,
+    db_path: Path | None = None,
+):
+    """
+    Build a SQLite database covering ALL gene panels.
+
+    This replaces the FAISS vector store with a lightweight SQLite file
+    that supports indexed lookups without any ML dependencies.
+
+    Args:
+        source: Path to dbNSFP zip file or directory
+        use_grch37: Use GRCh37/hg19 coordinates (default True)
+        chromosomes: Optional list of chromosomes to process
+        limit: Optional limit on total variants (for testing)
+        resume: Whether to resume from checkpoint
+        db_path: Override default SQLite database path
+    """
+    from .variantdb import VariantDatabase
+
+    db_path = db_path or SQLITE_DB_PATH
+
+    print("=" * 60)
+    print("dbNSFP SQLite Database Builder")
+    print("=" * 60)
+    print(f"Genome build: {'GRCh37 (hg19)' if use_grch37 else 'GRCh38'}")
+    print(f"Source: {source}")
+    print(f"Database: {db_path}")
+
+    # Collect ALL genes across ALL panels
+    all_genes = get_all_panel_genes()
+    print(f"Total genes across all panels: {len(all_genes)}")
+    for name, genes in PANELS.items():
+        print(f"  {name}: {len(genes)} genes")
+
+    # Initialize SQLite database
+    print("\nInitializing SQLite database...")
+    db = VariantDatabase(db_path=db_path)
+
+    if not resume:
+        print("Fresh build requested - clearing existing data...")
+        db.delete_all()
+
+    existing_count = db.count()
+    print(f"Existing variants in database: {existing_count:,}")
+
+    # Checkpoint via db_metadata
+    completed_chromosomes = db.get_completed_chromosomes() if resume else []
+    total_processed = db.get_total_variants_processed() if resume else 0
+
+    if completed_chromosomes:
+        print(f"Resuming from checkpoint: {len(completed_chromosomes)} chromosomes done")
+        print(f"  Completed: {', '.join(completed_chromosomes)}")
+
+    # Detect source type and get chromosome files
+    import zipfile
+    is_zip = source.suffix == ".zip" or (source.is_file() and zipfile.is_zipfile(source))
+
+    if is_zip:
+        chr_files = list_chromosome_files_in_zip(source)
+    else:
+        chr_files = [str(f) for f in list_chromosome_files(source)]
+
+    # Filter chromosomes if specified
+    if chromosomes:
+        chr_set = set(str(c).replace("chr", "") for c in chromosomes)
+        chr_files = [f for f in chr_files if any(f"chr{c}.gz" in f or f"chr{c}." in f for c in chr_set)]
+
+    print(f"\nWill process {len(chr_files)} chromosome files")
+    print(f"Source type: {'ZIP' if is_zip else 'Directory'}")
+
+    # Load gene-level annotations
+    print("\nLoading gene constraint data...")
+    gene_data = load_gene_data()
+    print(f"Loaded constraint data for {len(gene_data)} genes")
+
+    total_filtered = 0
+    batch_size = 10000
+
+    try:
+        for chr_file in chr_files:
+            # Extract chromosome name
+            fname = Path(chr_file).name
+            import re
+            match = re.search(r"chr([0-9XYMNP]+)", fname)
+            chr_name = match.group(1) if match else fname
+
+            # Skip if already completed
+            if chr_name in completed_chromosomes:
+                print(f"\nSkipping {fname} (already completed)")
+                continue
+
+            print(f"\n{'='*60}")
+            print(f"Processing {fname}")
+            print(f"{'='*60}")
+
+            chr_variants = 0
+            chr_filtered = 0
+            batch_ids = []
+            batch_texts = []
+            batch_metas = []
+            seen_ids = set()
+
+            if is_zip:
+                chunks = parse_chromosome_from_zip(source, chr_file)
+            else:
+                chunks = parse_chromosome_file(Path(chr_file))
+            chunks = tqdm(chunks, desc=f"Processing {fname}", unit="batch")
+
+            for chunk_df in chunks:
+                # Filter by ALL panel genes (union)
+                original_len = len(chunk_df)
+                chunk_df = filter_by_genes(chunk_df, all_genes)
+                chr_filtered += original_len - len(chunk_df)
+
+                if chunk_df.empty:
+                    continue
+
+                # Convert to text + metadata (no embedding step!)
+                chunk_data = chunk_dataframe(chunk_df, use_grch37=use_grch37, gene_data=gene_data)
+
+                for var_id, text, meta in chunk_data:
+                    if var_id in seen_ids:
+                        continue
+                    seen_ids.add(var_id)
+
+                    batch_ids.append(var_id)
+                    batch_texts.append(text)
+                    batch_metas.append(meta)
+
+                    if len(batch_ids) >= batch_size:
+                        db.add_variants(batch_ids, batch_texts, batch_metas, show_progress=False)
+                        chr_variants += len(batch_ids)
+                        total_processed += len(batch_ids)
+                        batch_ids, batch_texts, batch_metas = [], [], []
+
+                        if limit and total_processed >= limit:
+                            break
+
+                if limit and total_processed >= limit:
+                    break
+
+            # Process remaining batch
+            if batch_ids:
+                db.add_variants(batch_ids, batch_texts, batch_metas, show_progress=False)
+                chr_variants += len(batch_ids)
+                total_processed += len(batch_ids)
+
+            total_filtered += chr_filtered
+
+            # Save checkpoint
+            completed_chromosomes.append(chr_name)
+            db.set_completed_chromosomes(completed_chromosomes)
+            db.set_total_variants_processed(total_processed)
+
+            print(f"  Chromosome {chr_name}: {chr_variants:,} panel variants")
+            print(f"  Filtered out: {chr_filtered:,} non-panel variants")
+            print(f"  Total so far: {total_processed:,} variants")
+
+            if limit and total_processed >= limit:
+                print(f"\nReached limit of {limit:,} variants")
+                break
+
+    except KeyboardInterrupt:
+        print("\n\nInterrupted! Progress saved to checkpoint.")
+        print("Resume with: uv run python -m src.main build-sqlite")
+
+    # Populate variant_panels junction table
+    print("\nPopulating panel membership...")
+    for panel_name, panel_genes in PANELS.items():
+        # Get all variant IDs that belong to this panel's genes
+        panel_variant_ids = []
+        for gene in panel_genes:
+            results = db.search_by_gene(gene, k=1000000)
+            panel_variant_ids.extend([r["id"] for r in results])
+
+        if panel_variant_ids:
+            db.add_panel_membership(panel_variant_ids, panel_name)
+            print(f"  {panel_name}: {len(panel_variant_ids):,} variants")
+
+    # Optimize
+    print("\nOptimizing database (VACUUM + ANALYZE)...")
+    db.optimize()
+
+    # Final stats
+    db_size_mb = db_path.stat().st_size / (1024 * 1024) if db_path.exists() else 0
+
+    print("\n" + "=" * 60)
+    print("SQLite Database Build Complete!")
+    print(f"Total variants indexed: {db.count():,}")
+    print(f"Total filtered out: {total_filtered:,}")
+    print(f"Completed chromosomes: {len(completed_chromosomes)}")
+    print(f"Database size: {db_size_mb:.1f} MB")
+    print(f"Database: {db_path}")
+    print("=" * 60)
+
+    db.close()
+    return 0
+
+
 def show_stats():
     """Show index statistics."""
     store = VariantVectorStore()
@@ -495,6 +699,37 @@ Examples:
         help="Start fresh, ignoring checkpoint",
     )
 
+    # Build-sqlite command
+    sqlite_parser = subparsers.add_parser("build-sqlite", help="Build SQLite database (all panels)")
+    sqlite_parser.add_argument(
+        "--build", "-b",
+        choices=["grch37", "grch38"],
+        default="grch37",
+        help="Genome build (default: grch37)",
+    )
+    sqlite_parser.add_argument(
+        "--chr",
+        action="append",
+        dest="chromosomes",
+        help="Specific chromosome(s) to process",
+    )
+    sqlite_parser.add_argument(
+        "--limit",
+        type=int,
+        help="Limit variants for testing",
+    )
+    sqlite_parser.add_argument(
+        "--fresh",
+        action="store_true",
+        help="Start fresh, ignoring checkpoint",
+    )
+    sqlite_parser.add_argument(
+        "--db",
+        type=Path,
+        default=None,
+        help="Override SQLite database path",
+    )
+
     # List-panels command
     subparsers.add_parser("list-panels", help="List available gene panels")
 
@@ -525,6 +760,16 @@ Examples:
             chromosomes=args.chromosomes,
             limit=args.limit,
             resume=not args.fresh,
+        )
+
+    elif args.command == "build-sqlite":
+        return build_sqlite_index(
+            args.source,
+            use_grch37=(args.build == "grch37"),
+            chromosomes=args.chromosomes,
+            limit=args.limit,
+            resume=not args.fresh,
+            db_path=args.db,
         )
 
     elif args.command == "list-panels":

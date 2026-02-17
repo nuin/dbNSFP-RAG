@@ -1,14 +1,12 @@
 """RAG module - retrieval and LLM integration."""
 
-import json
 import re
 from pathlib import Path
 
 import ollama
 import requests
 
-from .config import DEFAULT_MODEL, OLLAMA_URL, VECTORDB_DIR
-from .vectorstore import VariantVectorStore
+from .config import DEFAULT_MODEL, OLLAMA_URL, SQLITE_DB_PATH
 
 
 SYSTEM_PROMPT = """You are a clinical genomics expert assistant at Alberta Precision Labs.
@@ -35,7 +33,15 @@ class VariantRAG:
         ollama_url: str | None = None,
         model: str | None = None,
     ):
-        self.vectorstore = VariantVectorStore(db_path=db_path)
+        # Use SQLite backend if available, fall back to FAISS
+        resolved_path = Path(db_path) if db_path else SQLITE_DB_PATH
+        if resolved_path.suffix == ".db" and resolved_path.exists():
+            from .variantdb import VariantDatabase
+            self.vectorstore = VariantDatabase(db_path=resolved_path)
+        else:
+            from .vectorstore import VariantVectorStore
+            self.vectorstore = VariantVectorStore(db_path=db_path)
+
         self.ollama_url = ollama_url or OLLAMA_URL
         self.model = model or DEFAULT_MODEL
 

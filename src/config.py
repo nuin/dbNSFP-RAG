@@ -22,6 +22,9 @@ DBNSFP_GENE_FILE = DBNSFP_DIR / "dbNSFP5.3_gene.gz"
 VECTORDB_GRCH37_NGSGENES = DATA_DIR / "vectordb" / "grch37-ngsgenes"
 VECTORDB_GRCH38_NGSGENES = DATA_DIR / "vectordb" / "grch38-ngsgenes"
 
+# SQLite database path (replaces FAISS for production)
+SQLITE_DB_PATH = DATA_DIR / "sqlite" / "grch37-all-panels.db"
+
 # dbNSFP columns to keep (from 600+)
 KEEP_COLUMNS = [
     "#chr",
