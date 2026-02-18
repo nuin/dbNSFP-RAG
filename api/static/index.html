@@ -1112,6 +1112,15 @@
                             HGVS Genomic
                         </span>
                     </button>
+                    <button onclick="switchTab('browse')" id="tab-browse"
+                        class="tab-btn px-6 py-3 rounded-xl font-semibold text-sm transition-all duration-200 bg-slate-100 text-slate-600 hover:bg-slate-200">
+                        <span class="flex items-center gap-2">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 10h16M4 14h16M4 18h16"/>
+                            </svg>
+                            Browse
+                        </span>
+                    </button>
                 </div>
 
                 <!-- Coordinates Input -->
@@ -1163,8 +1172,38 @@
                     </div>
                 </div>
 
+                <!-- Browse Input -->
+                <div id="browse-input" class="input-mode hidden">
+                    <!-- Breadcrumb -->
+                    <nav id="browse-breadcrumb" class="flex items-center gap-2 text-sm mb-4">
+                        <span class="text-indigo-600 font-semibold">Browse</span>
+                    </nav>
+
+                    <!-- Chromosome Grid (default view) -->
+                    <div id="browse-chromosomes">
+                        <p class="text-slate-500 text-sm mb-4">Select a chromosome to explore its genes and variants.</p>
+                        <div id="chr-grid" class="flex flex-wrap gap-3">
+                            <div class="text-slate-400 text-sm py-8 w-full text-center">Loading chromosomes...</div>
+                        </div>
+                    </div>
+
+                    <!-- Gene List (shown after chromosome click) -->
+                    <div id="browse-genes" class="hidden">
+                        <div id="gene-list" class="max-h-96 overflow-y-auto">
+                            <div class="text-slate-400 text-sm py-8 text-center">Loading genes...</div>
+                        </div>
+                    </div>
+
+                    <!-- Variant Table (shown after gene click) -->
+                    <div id="browse-variants" class="hidden">
+                        <div id="variant-table-container" class="max-h-96 overflow-y-auto">
+                            <div class="text-slate-400 text-sm py-8 text-center">Loading variants...</div>
+                        </div>
+                    </div>
+                </div>
+
                 <!-- Action Buttons -->
-                <div class="flex gap-4 mt-8">
+                <div id="action-buttons" class="flex gap-4 mt-8">
                     <button onclick="lookup()" id="lookupBtn"
                         class="flex-1 py-4 bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-600 hover:to-teal-700 text-white font-bold text-lg rounded-xl shadow-lg hover:shadow-xl transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed">
                         <span class="flex items-center justify-center gap-2">
@@ -1207,6 +1246,15 @@
             activeBtn.classList.add('bg-gradient-to-r', 'from-indigo-500', 'to-purple-600', 'text-white', 'shadow-lg');
             document.querySelectorAll('.input-mode').forEach(mode => mode.classList.add('hidden'));
             document.getElementById(`${tab}-input`).classList.remove('hidden');
+
+            // Hide action buttons in browse mode
+            const actionBtns = document.getElementById('action-buttons');
+            if (tab === 'browse') {
+                actionBtns.classList.add('hidden');
+                loadChromosomes();
+            } else {
+                actionBtns.classList.remove('hidden');
+            }
         }
 
         function fillCoords(chr, pos, ref, alt) {
@@ -1220,6 +1268,162 @@
         function fillHgvs(hgvs) {
             switchTab('hgvs');
             document.getElementById('hgvs').value = hgvs;
+        }
+
+        // ---- Browse navigation ----
+        let browseChromosomesCache = null;
+
+        async function loadChromosomes() {
+            if (browseChromosomesCache) {
+                renderChromosomes(browseChromosomesCache);
+                return;
+            }
+            const grid = document.getElementById('chr-grid');
+            grid.innerHTML = '<div class="text-slate-400 text-sm py-8 w-full text-center">Loading chromosomes...</div>';
+            try {
+                const resp = await fetch('/chromosomes');
+                const data = await resp.json();
+                if (!resp.ok) throw new Error(data.detail || 'Failed to load chromosomes');
+                browseChromosomesCache = data.chromosomes;
+                renderChromosomes(data.chromosomes);
+            } catch (e) {
+                grid.innerHTML = `<div class="text-red-500 text-sm py-4 w-full text-center">${e.message}</div>`;
+            }
+            // Reset view to chromosomes
+            document.getElementById('browse-chromosomes').classList.remove('hidden');
+            document.getElementById('browse-genes').classList.add('hidden');
+            document.getElementById('browse-variants').classList.add('hidden');
+            document.getElementById('browse-breadcrumb').innerHTML = '<span class="text-indigo-600 font-semibold">Browse</span>';
+        }
+
+        function renderChromosomes(chromosomes) {
+            const grid = document.getElementById('chr-grid');
+            grid.innerHTML = chromosomes.map(c => `
+                <button onclick="browseSelectChr('${c.chr}')"
+                    class="flex flex-col items-center justify-center w-20 h-20 rounded-xl border-2 border-slate-200 hover:border-indigo-400 hover:bg-indigo-50 transition-all duration-150 cursor-pointer">
+                    <span class="text-lg font-bold text-slate-700">${c.chr}</span>
+                    <span class="text-xs text-slate-400 mt-1">${c.count.toLocaleString()}</span>
+                </button>
+            `).join('');
+        }
+
+        async function browseSelectChr(chr) {
+            document.getElementById('browse-chromosomes').classList.add('hidden');
+            document.getElementById('browse-genes').classList.remove('hidden');
+            document.getElementById('browse-variants').classList.add('hidden');
+            document.getElementById('browse-breadcrumb').innerHTML = `
+                <a onclick="loadChromosomes()" class="text-indigo-500 hover:text-indigo-700 cursor-pointer font-medium">Browse</a>
+                <svg class="w-4 h-4 text-slate-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                <span class="text-indigo-600 font-semibold">Chr ${chr}</span>
+            `;
+            const geneList = document.getElementById('gene-list');
+            geneList.innerHTML = '<div class="text-slate-400 text-sm py-8 text-center">Loading genes...</div>';
+            try {
+                const resp = await fetch(`/chromosome/${encodeURIComponent(chr)}/genes`);
+                const data = await resp.json();
+                if (!resp.ok) throw new Error(data.detail || 'Failed to load genes');
+                renderGenes(data.genes, chr);
+            } catch (e) {
+                geneList.innerHTML = `<div class="text-red-500 text-sm py-4 text-center">${e.message}</div>`;
+            }
+        }
+
+        function renderGenes(genes, chr) {
+            const geneList = document.getElementById('gene-list');
+            if (genes.length === 0) {
+                geneList.innerHTML = '<div class="text-slate-400 text-sm py-8 text-center">No genes found on this chromosome.</div>';
+                return;
+            }
+            geneList.innerHTML = `
+                <table class="w-full text-sm">
+                    <thead class="sticky top-0 bg-white">
+                        <tr class="border-b border-slate-200">
+                            <th class="text-left py-2 px-3 text-xs font-bold text-slate-400 uppercase tracking-wider">Gene</th>
+                            <th class="text-right py-2 px-3 text-xs font-bold text-slate-400 uppercase tracking-wider">Variants</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        ${genes.map(g => `
+                            <tr onclick="browseSelectGene('${g.gene}', '${chr}')" class="border-b border-slate-100 hover:bg-indigo-50 cursor-pointer transition-colors">
+                                <td class="py-2.5 px-3 font-semibold text-slate-700">${g.gene}</td>
+                                <td class="py-2.5 px-3 text-right text-slate-500 font-mono">${g.count.toLocaleString()}</td>
+                            </tr>
+                        `).join('')}
+                    </tbody>
+                </table>
+            `;
+        }
+
+        async function browseSelectGene(gene, chr) {
+            document.getElementById('browse-genes').classList.add('hidden');
+            document.getElementById('browse-variants').classList.remove('hidden');
+            document.getElementById('browse-breadcrumb').innerHTML = `
+                <a onclick="loadChromosomes()" class="text-indigo-500 hover:text-indigo-700 cursor-pointer font-medium">Browse</a>
+                <svg class="w-4 h-4 text-slate-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                <a onclick="browseSelectChr('${chr}')" class="text-indigo-500 hover:text-indigo-700 cursor-pointer font-medium">Chr ${chr}</a>
+                <svg class="w-4 h-4 text-slate-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                <span class="text-indigo-600 font-semibold">${gene}</span>
+            `;
+            const container = document.getElementById('variant-table-container');
+            container.innerHTML = '<div class="text-slate-400 text-sm py-8 text-center">Loading variants...</div>';
+            try {
+                const resp = await fetch(`/gene/${encodeURIComponent(gene)}?limit=500`);
+                const data = await resp.json();
+                if (!resp.ok) throw new Error(data.detail || 'Failed to load variants');
+                renderVariants(data.variants, gene, chr);
+            } catch (e) {
+                container.innerHTML = `<div class="text-red-500 text-sm py-4 text-center">${e.message}</div>`;
+            }
+        }
+
+        function getClinvarBadgeHtml(sig) {
+            if (!sig) return '<span class="text-slate-300">—</span>';
+            const s = sig.toLowerCase();
+            let color = 'bg-amber-100 text-amber-700';
+            if (s.includes('pathogenic') && !s.includes('benign') && !s.includes('likely')) color = 'bg-red-100 text-red-700';
+            else if (s.includes('likely_pathogenic') || s.includes('likely pathogenic')) color = 'bg-orange-100 text-orange-700';
+            else if (s.includes('benign') && !s.includes('pathogenic') && !s.includes('likely')) color = 'bg-green-100 text-green-700';
+            else if (s.includes('likely_benign') || s.includes('likely benign')) color = 'bg-emerald-100 text-emerald-700';
+            return `<span class="inline-block px-2 py-0.5 rounded-full text-xs font-semibold ${color}">${sig}</span>`;
+        }
+
+        function renderVariants(variants, gene, chr) {
+            const container = document.getElementById('variant-table-container');
+            if (variants.length === 0) {
+                container.innerHTML = '<div class="text-slate-400 text-sm py-8 text-center">No variants found for this gene.</div>';
+                return;
+            }
+            container.innerHTML = `
+                <p class="text-xs text-slate-400 mb-2">${variants.length} variant${variants.length !== 1 ? 's' : ''} — click a row to classify</p>
+                <table class="w-full text-sm">
+                    <thead class="sticky top-0 bg-white">
+                        <tr class="border-b border-slate-200">
+                            <th class="text-left py-2 px-3 text-xs font-bold text-slate-400 uppercase tracking-wider">Position</th>
+                            <th class="text-center py-2 px-3 text-xs font-bold text-slate-400 uppercase tracking-wider">Ref</th>
+                            <th class="text-center py-2 px-3 text-xs font-bold text-slate-400 uppercase tracking-wider">Alt</th>
+                            <th class="text-left py-2 px-3 text-xs font-bold text-slate-400 uppercase tracking-wider">Consequence</th>
+                            <th class="text-left py-2 px-3 text-xs font-bold text-slate-400 uppercase tracking-wider">ClinVar</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        ${variants.map(v => `
+                            <tr onclick="browseClassifyVariant('${chr}', '${v.pos}', '${v.ref}', '${v.alt}')"
+                                class="border-b border-slate-100 hover:bg-indigo-50 cursor-pointer transition-colors">
+                                <td class="py-2 px-3 font-mono text-slate-700">${v.pos ? v.pos.toLocaleString() : '—'}</td>
+                                <td class="py-2 px-3 text-center font-mono font-semibold text-slate-600">${v.ref || '—'}</td>
+                                <td class="py-2 px-3 text-center font-mono font-semibold text-slate-600">${v.alt || '—'}</td>
+                                <td class="py-2 px-3 text-slate-500">${v.consequence || '—'}</td>
+                                <td class="py-2 px-3">${getClinvarBadgeHtml(v.clinvar_sig)}</td>
+                            </tr>
+                        `).join('')}
+                    </tbody>
+                </table>
+            `;
+        }
+
+        function browseClassifyVariant(chr, pos, ref, alt) {
+            fillCoords(chr, pos, ref, alt);
+            classify();
         }
 
         function getQueryParams() {

@@ -241,9 +241,9 @@ class VariantDatabase:
         return self.get_by_id(variant_id)
 
     def search_by_gene(self, gene: str, k: int = 100) -> list[dict]:
-        """Get variants for a gene.  Indexed query."""
+        """Get variants for a gene.  Indexed query, ordered by position."""
         rows = self._conn.execute(
-            "SELECT * FROM variants WHERE UPPER(gene) = ? LIMIT ?",
+            "SELECT * FROM variants WHERE UPPER(gene) = ? ORDER BY pos LIMIT ?",
             (gene.upper(), k),
         ).fetchall()
         return [self._row_to_result(r) for r in rows]
@@ -289,6 +289,32 @@ class VariantDatabase:
             (panel_name,),
         ).fetchone()
         return row["cnt"]
+
+    # ------------------------------------------------------------------
+    # Browse / navigation helpers
+    # ------------------------------------------------------------------
+
+    # Natural chromosome sort order
+    _CHR_ORDER = {str(i): i for i in range(1, 23)}
+    _CHR_ORDER.update({"X": 23, "Y": 24, "M": 25, "MT": 25})
+
+    def list_chromosomes(self) -> list[dict]:
+        """Return distinct chromosomes with variant counts, naturally sorted."""
+        rows = self._conn.execute(
+            "SELECT chr, COUNT(*) AS count FROM variants GROUP BY chr"
+        ).fetchall()
+        results = [{"chr": r["chr"], "count": r["count"]} for r in rows]
+        results.sort(key=lambda x: self._CHR_ORDER.get(x["chr"], 99))
+        return results
+
+    def list_genes_by_chromosome(self, chrom: str) -> list[dict]:
+        """Return genes on a chromosome with variant counts, sorted by count desc."""
+        chrom = str(chrom).replace("chr", "")
+        rows = self._conn.execute(
+            "SELECT gene, COUNT(*) AS count FROM variants WHERE chr = ? AND gene IS NOT NULL GROUP BY gene ORDER BY COUNT(*) DESC",
+            (chrom,),
+        ).fetchall()
+        return [{"gene": r["gene"], "count": r["count"]} for r in rows]
 
     # ------------------------------------------------------------------
     # Checkpoint helpers (for build resume)

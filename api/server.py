@@ -891,11 +891,47 @@ async def get_gene_variants(
         "variants": [
             {
                 "id": r["id"],
+                "pos": r["metadata"].get("pos"),
+                "ref": r["metadata"].get("ref"),
+                "alt": r["metadata"].get("alt"),
+                "consequence": r["metadata"].get("consequence"),
                 "clinvar_sig": r["metadata"].get("clinvar_sig"),
                 "cadd_phred": r["metadata"].get("cadd_phred"),
             }
             for r in results
         ]
+    }
+
+
+@app.get("/chromosomes")
+async def list_chromosomes(
+    genome_build: str = Query(default="GRCh37", description="Genome build"),
+):
+    """List all chromosomes with variant counts, naturally sorted (1-22, X, Y)."""
+    store = get_database(genome_build)
+    if not hasattr(store, "list_chromosomes"):
+        raise HTTPException(status_code=501, detail="Browse requires SQLite backend")
+    return {
+        "genome_build": genome_build,
+        "chromosomes": store.list_chromosomes(),
+    }
+
+
+@app.get("/chromosome/{chrom}/genes")
+async def list_genes_on_chromosome(
+    chrom: str,
+    genome_build: str = Query(default="GRCh37", description="Genome build"),
+):
+    """List genes on a chromosome with variant counts, sorted by count descending."""
+    store = get_database(genome_build)
+    if not hasattr(store, "list_genes_by_chromosome"):
+        raise HTTPException(status_code=501, detail="Browse requires SQLite backend")
+    genes = store.list_genes_by_chromosome(chrom)
+    return {
+        "chromosome": chrom,
+        "genome_build": genome_build,
+        "gene_count": len(genes),
+        "genes": genes,
     }
 
 
