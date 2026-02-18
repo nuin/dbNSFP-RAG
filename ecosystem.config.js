@@ -4,7 +4,7 @@
 //   sudo dnf install -y nodejs npm python3.11 python3.11-pip
 //   sudo npm install -g pm2
 //   curl -LsSf https://astral.sh/uv/install.sh | sh
-//   cd /opt/acmg-api && uv venv --python python3.11 && uv pip install -e ".[api]"
+//   cd /apps/data/src/dbNSFP-RAG && uv venv --python python3.11 && uv pip install -e ".[api]"
 //
 // Usage:
 //   pm2 start ecosystem.config.js          # start all
@@ -27,10 +27,10 @@ module.exports = {
       name: "acmg-api",
       script: ".venv/bin/uvicorn",
       args: "api.server:app --host 0.0.0.0 --port 8029 --workers 2",
-      cwd: "/opt/acmg-api",
+      cwd: "/apps/data/src/dbNSFP-RAG",
       interpreter: "none",        // uvicorn is already a Python entry point
       env: {
-        ACMG_DB_PATH: "/opt/acmg-api/data/sqlite/grch37-all-panels.db",
+        ACMG_DB_PATH: "/apps/data/src/dbNSFP-RAG/data/sqlite/grch37-all-panels.db",
         PYTHONUNBUFFERED: "1",
       },
       // Restart policy
@@ -41,8 +41,8 @@ module.exports = {
 
       // Logging
       log_date_format: "YYYY-MM-DD HH:mm:ss Z",
-      error_file: "/opt/acmg-api/logs/acmg-api-error.log",
-      out_file: "/opt/acmg-api/logs/acmg-api-out.log",
+      error_file: "/apps/data/src/dbNSFP-RAG/logs/acmg-api-error.log",
+      out_file: "/apps/data/src/dbNSFP-RAG/logs/acmg-api-out.log",
       merge_logs: true,
       max_size: "50M",           // rotate at 50 MB
       retain: 5,                 // keep 5 rotated files
@@ -76,8 +76,8 @@ module.exports = {
 
       // Logging
       log_date_format: "YYYY-MM-DD HH:mm:ss Z",
-      error_file: "/opt/acmg-api/logs/ollama-error.log",
-      out_file: "/opt/acmg-api/logs/ollama-out.log",
+      error_file: "/apps/data/src/dbNSFP-RAG/logs/ollama-error.log",
+      out_file: "/apps/data/src/dbNSFP-RAG/logs/ollama-out.log",
       merge_logs: true,
       max_size: "50M",
       retain: 3,
