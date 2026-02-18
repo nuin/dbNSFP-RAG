@@ -537,7 +537,6 @@ def generate_acmg_interpretation(
 @app.get("/health", response_model=HealthResponse)
 async def health_check(genome_build: str = Query(default="GRCh37", description="Genome build")):
     """Check API health and model status."""
-    model = get_model()
     try:
         store = get_database(genome_build)
         db_loaded = True
@@ -548,7 +547,7 @@ async def health_check(genome_build: str = Query(default="GRCh37", description="
 
     return HealthResponse(
         status="healthy",
-        model_loaded=model is not None,
+        model_loaded=True,  # Rule-based scoring, no LLM needed
         database_loaded=db_loaded,
         variant_count=count,
         genome_build=genome_build,
@@ -714,45 +713,22 @@ async def classify_variant(request: VariantRequest):
             scoring_notes=acmg_score.notes,
         )
     else:
-        # Variant not in database - use LLM fallback
-        clinvar_data = None
-        variant_input = f"""Variant: chr{chrom}:{request.pos} {ref_normalized}>{alt_normalized}
-Note: This variant is not in the NGSgenes database. Limited evidence available."""
-
-        # Get model and generate classification (LLM fallback)
-        model = get_model()
-        if model is None:
-            raise HTTPException(status_code=503, detail="Model not available")
-
-        interpretation = generate_classification(variant_input, model)
-        acmg_class, criteria_list, confidence = parse_classification_response(interpretation)
-
-        # Generate minimal evidence links for LLM fallback (basic variant info only)
-        fallback_meta = {
-            "chr": chrom,
-            "pos": request.pos,
-            "ref": ref_normalized,
-            "alt": alt_normalized,
-            "gene": gene,
-        }
-        evidence_links = generate_evidence_links(fallback_meta, build=genome_build.lower())
-
         return ClassificationResponse(
             variant_id=variant_id,
             gene=gene,
-            acmg_classification=acmg_class,
-            criteria=[ACMGCriteria(code=c["code"], description=c["description"]) for c in criteria_list],
-            criteria_met=[],  # No rule-based criteria for fallback
-            all_criteria=[],  # No criteria evaluation for LLM fallback
+            acmg_classification="Not_in_database",
+            criteria=[],
+            criteria_met=[],
+            all_criteria=[],
             rule_applied="",
-            scoring_method="llm_fallback",
-            confidence=confidence,
-            interpretation=interpretation,
+            scoring_method="rule_based",
+            confidence=0.0,
+            interpretation=f"Variant {variant_id} was not found in the database. Only variants within the NGSgenes panel ({326} genes) are available for classification.",
             scores=scores,
-            clinvar=clinvar_data,
-            evidence_links=evidence_links,
+            clinvar=None,
+            evidence_links={},
             genome_build=genome_build,
-            scoring_notes=["Variant not found in database - using LLM classification as fallback"],
+            scoring_notes=["Variant not found in database"],
         )
 
 
