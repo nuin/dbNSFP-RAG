@@ -66,20 +66,31 @@ def vus_variants(gold_standard: list[dict]) -> list[dict]:
 
 @pytest.fixture(scope="session")
 def database_path(project_root: Path) -> Path:
-    """Return path to variant database."""
-    db_path = project_root / "data" / "vectordb" / "grch37-ngsgenes"
-    if not db_path.exists():
-        pytest.skip(f"Database not found: {db_path}")
-    return db_path
+    """Return path to variant database.
+
+    Prefers SQLite backend if available, falls back to FAISS.
+    """
+    sqlite_path = project_root / "data" / "sqlite" / "grch37-all-panels.db"
+    faiss_path = project_root / "data" / "vectordb" / "grch37-ngsgenes"
+    if sqlite_path.exists():
+        return sqlite_path
+    if faiss_path.exists():
+        return faiss_path
+    pytest.skip(f"No database found (checked {sqlite_path} and {faiss_path})")
 
 
 @pytest.fixture(scope="session")
 def vectorstore(database_path: Path):
-    """Load vector store for testing."""
-    from src.vectorstore import VariantVectorStore
-    # VariantVectorStore auto-loads index in __init__ if it exists
-    store = VariantVectorStore(db_path=database_path)
-    return store
+    """Load variant store for testing.
+
+    Auto-detects SQLite vs FAISS based on file extension.
+    """
+    if database_path.suffix == ".db":
+        from src.variantdb import VariantDatabase
+        return VariantDatabase(db_path=database_path)
+    else:
+        from src.vectorstore import VariantVectorStore
+        return VariantVectorStore(db_path=database_path)
 
 
 @pytest.fixture(scope="session")
