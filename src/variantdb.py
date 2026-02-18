@@ -298,21 +298,43 @@ class VariantDatabase:
     _CHR_ORDER = {str(i): i for i in range(1, 23)}
     _CHR_ORDER.update({"X": 23, "Y": 24, "M": 25, "MT": 25})
 
+    @staticmethod
+    def _normalize_chr(raw: str) -> str:
+        """Normalize chromosome strings like '2.0' → '2'."""
+        raw = str(raw).replace("chr", "")
+        # Strip trailing '.0' from float-casted values
+        if raw.endswith(".0"):
+            raw = raw[:-2]
+        return raw
+
     def list_chromosomes(self) -> list[dict]:
-        """Return distinct chromosomes with variant counts, naturally sorted."""
+        """Return distinct chromosomes with variant counts, naturally sorted.
+
+        Merges float-casted duplicates (e.g. '2' + '2.0') into a single entry.
+        """
         rows = self._conn.execute(
             "SELECT chr, COUNT(*) AS count FROM variants GROUP BY chr"
         ).fetchall()
-        results = [{"chr": r["chr"], "count": r["count"]} for r in rows]
+        merged: dict[str, int] = {}
+        for r in rows:
+            norm = self._normalize_chr(r["chr"])
+            merged[norm] = merged.get(norm, 0) + r["count"]
+        results = [{"chr": k, "count": v} for k, v in merged.items()]
         results.sort(key=lambda x: self._CHR_ORDER.get(x["chr"], 99))
         return results
 
     def list_genes_by_chromosome(self, chrom: str) -> list[dict]:
-        """Return genes on a chromosome with variant counts, sorted by count desc."""
-        chrom = str(chrom).replace("chr", "")
+        """Return genes on a chromosome with variant counts, sorted by count desc.
+
+        Queries both '2' and '2.0' forms to capture all variants.
+        """
+        chrom = self._normalize_chr(chrom)
+        float_form = f"{chrom}.0"
         rows = self._conn.execute(
-            "SELECT gene, COUNT(*) AS count FROM variants WHERE chr = ? AND gene IS NOT NULL GROUP BY gene ORDER BY COUNT(*) DESC",
-            (chrom,),
+            "SELECT gene, COUNT(*) AS count FROM variants "
+            "WHERE (chr = ? OR chr = ?) AND gene IS NOT NULL "
+            "GROUP BY gene ORDER BY COUNT(*) DESC",
+            (chrom, float_form),
         ).fetchall()
         return [{"gene": r["gene"], "count": r["count"]} for r in rows]
 
