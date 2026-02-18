@@ -26,7 +26,7 @@ module.exports = {
     {
       name: "acmg-api",
       script: ".venv/bin/uvicorn",
-      args: "api.server:app --host 0.0.0.0 --port 8025 --workers 2",
+      args: "api.server:app --host 0.0.0.0 --port 8029 --workers 2",
       cwd: "/opt/acmg-api",
       interpreter: "none",        // uvicorn is already a Python entry point
       env: {
