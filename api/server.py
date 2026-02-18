@@ -556,14 +556,24 @@ async def health_check(genome_build: str = Query(default="GRCh37", description="
 
 @app.get("/classify", response_model=ClassificationResponse)
 async def classify_variant_get(
-    chr: str = Query(..., description="Chromosome"),
-    pos: int = Query(..., description="Position"),
-    ref: str = Query(..., description="Reference allele"),
-    alt: str = Query(..., description="Alternate allele"),
+    chr: str = Query(None, description="Chromosome"),
+    pos: int = Query(None, description="Position"),
+    ref: str = Query(None, description="Reference allele"),
+    alt: str = Query(None, description="Alternate allele"),
+    hgvs: str = Query(None, description="HGVS genomic notation (e.g., 17:g.41197801T>A)"),
     genome_build: str = Query(default="GRCh37", description="Genome build (GRCh37 or GRCh38)"),
 ):
-    """Classify a variant using GET parameters."""
-    return await classify_variant(VariantRequest(chr=chr, pos=pos, ref=ref, alt=alt, genome_build=genome_build))
+    """Classify a variant using GET parameters or HGVS notation."""
+    if hgvs:
+        try:
+            chrom, position, reference, alternate = parse_hgvs_g(hgvs)
+        except ValueError as e:
+            raise HTTPException(status_code=400, detail=str(e))
+        return await classify_variant(VariantRequest(chr=chrom, pos=position, ref=reference, alt=alternate, genome_build=genome_build))
+    elif chr and pos and ref and alt:
+        return await classify_variant(VariantRequest(chr=chr, pos=pos, ref=ref, alt=alt, genome_build=genome_build))
+    else:
+        raise HTTPException(status_code=400, detail="Provide either hgvs parameter or chr/pos/ref/alt parameters")
 
 
 @app.post("/classify", response_model=ClassificationResponse)

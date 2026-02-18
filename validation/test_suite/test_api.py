@@ -174,12 +174,12 @@ class TestClassifyEndpoint:
             assert "confidence" in data, "Response should include confidence score"
 
     def test_classify_missing_required_params(self, api_client):
-        """Missing required parameters should return 422."""
+        """Missing required parameters should return 400 (need all coords or hgvs)."""
         response = api_client.get("/classify", params={
             "chr": "17"
             # Missing pos, ref, alt
         })
-        assert response.status_code == 422
+        assert response.status_code == 400
 
     def test_classify_invalid_input_validation(self, api_client):
         """Invalid input handling - API currently processes all inputs.

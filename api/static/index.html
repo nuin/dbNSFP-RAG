@@ -1441,6 +1441,13 @@
             }
         }
 
+        function extractError(detail, fallback) {
+            if (!detail) return fallback;
+            if (typeof detail === 'string') return detail;
+            if (Array.isArray(detail)) return detail.map(e => e.msg || e.error || JSON.stringify(e)).join('; ');
+            return detail.error || detail.msg || JSON.stringify(detail);
+        }
+
         function showLoading(message = 'Loading...') {
             document.getElementById('results').classList.remove('hidden');
             document.getElementById('resultContent').innerHTML = `
@@ -1454,6 +1461,14 @@
         }
 
         function showError(message) {
+            // Handle object errors (FastAPI detail can be string or array of objects)
+            if (typeof message === 'object') {
+                if (Array.isArray(message)) {
+                    message = message.map(e => e.msg || e.error || JSON.stringify(e)).join('; ');
+                } else {
+                    message = message.error || message.msg || JSON.stringify(message);
+                }
+            }
             document.getElementById('results').classList.remove('hidden');
             document.getElementById('resultContent').innerHTML = `
                 <div class="bg-red-50 border-2 border-red-200 rounded-2xl p-8 text-center">
@@ -1587,7 +1602,7 @@
                 const response = await fetch(`/lookup?${params}`);
                 const data = await response.json();
 
-                if (!response.ok) throw new Error(data.detail || 'Lookup failed');
+                if (!response.ok) throw new Error(extractError(data.detail, 'Lookup failed'));
 
                 const sections = parseAnnotation(data.full_annotation || '');
                 const clinvarSig = data.metadata?.clinvar_sig || '';
@@ -1707,7 +1722,7 @@
                     lookupData = await lookupResponse.json();
                 }
 
-                if (!classifyResponse.ok) throw new Error(data.detail || 'Classification failed');
+                if (!classifyResponse.ok) throw new Error(extractError(data.detail, 'Classification failed'));
 
                 const badgeClass = getBadgeClass(data.acmg_classification);
 
