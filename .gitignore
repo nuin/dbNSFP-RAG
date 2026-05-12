@@ -29,3 +29,21 @@ models/acmg-classifier/data/
 *.safetensors
 *.bin
 *.gguf
+
+# macOS
+.DS_Store
+
+# Runtime artifacts
+logs/
+
+# Local Claude settings (user-specific permissions)
+.claude/settings.local.json
+
+# Tabix index files dropped at repo root by remote-tabix calls
+*.tbi
+*.csi
+
+# SpliceAI / large reference files (kept under ~/data/, not in repo)
+hg38.fa
+hg38.fa.fai
+hg38.fa.gz

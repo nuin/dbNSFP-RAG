@@ -27,6 +27,32 @@ PANELS = {
         "PSEN1", "PSEN2", "HTT", "PARK2", "PINK1", "LRRK2", "SNCA",
     },
 
+    # Expanded hereditary cancer panel (165 genes, 2026 revision).
+    # ~65 of these are additions beyond the existing NGSgenes set.
+    "cp_new": {
+        "ACD", "AIP", "ALK", "ANKRD26", "AP2S1", "APC", "ATM", "AXIN2",
+        "BAP1", "BARD1", "BLM", "BMPR1A", "BRCA1", "BRCA2", "BRIP1", "BUB1B",
+        "CASR", "CBL", "CDC73", "CDH1", "CDK4", "CDKN1A", "CDKN1B", "CDKN1C",
+        "CDKN2A", "CDKN2B", "CDKN2C", "CEBPA", "CEP57", "CHEK2", "CTNNA1",
+        "CYLD", "DDB2", "DDX41", "DGCR8", "DICER1", "DIS3L2", "DKC1", "DLST",
+        "DNMT3A", "DPYD", "EGFR", "EGLN1", "EGLN2", "ELOC", "ELP1", "EPAS1",
+        "EPCAM", "ERCC2", "ERCC3", "ERCC4", "ERCC5", "ETV6", "EXT1", "EXT2",
+        "EZH2", "FANCA", "FANCB", "FANCC", "FANCD2", "FANCE", "FANCF", "FANCG",
+        "FANCI", "FANCL", "FANCM", "FH", "FLCN", "GALNT12", "GATA2", "GCM2",
+        "GNA11", "GOT2", "GPC3", "GPR161", "GREM1", "H3-3A", "HOXB13", "IDH3B",
+        "KIF1B", "KIT", "KMT2D", "LZTR1", "MAD2L2", "MAX", "MBD4", "MDH2",
+        "MEN1", "MERTK", "MET", "MITF", "MLH1", "MLH3", "MSH2", "MSH3", "MSH6",
+        "MUTYH", "MYCN", "NBN", "NF1", "NF2", "NSD1", "NTHL1", "PALB2",
+        "PDGFRA", "PHOX2B", "PMS2", "POLD1", "POLE", "POLH", "POT1", "PRF1",
+        "PRKAR1A", "PTCH1", "PTEN", "PTH", "RAD51", "RAD51C", "RAD51D", "RB1",
+        "RECQL4", "REST", "RET", "RFWD3", "RHBDF2", "RNF43", "RPS20", "RTEL1",
+        "RUNX1", "SAMD9", "SAMD9L", "SBDS", "SDHA", "SDHAF2", "SDHB", "SDHC",
+        "SDHD", "SLC25A11", "SLX4", "SMAD4", "SMARCA4", "SMARCB1", "SMARCE1",
+        "SPRED1", "SRP72", "STK11", "SUCLG2", "SUFU", "TERC", "TERT", "TINF2",
+        "TMEM127", "TP53", "TRIM28", "TRIP13", "TRPV6", "TSC1", "TSC2", "UBE2T",
+        "VHL", "WRN", "WT1", "XPA", "XPC", "XRCC2",
+    },
+
     # NGS panel (~301 genes) - cardiovascular and cancer plus combined
     "NGSgenes": {
         "ABCA1", "ABCC9", "ABCG5", "ABCG8", "ACTA1", "ACTA2", "ACTC1", "ACTN2",

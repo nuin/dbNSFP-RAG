@@ -19,9 +19,23 @@ uv pip install -e ".[dev]"             # for testing
 ```bash
 uvicorn api.server:app --host 0.0.0.0 --port 8000
 uvicorn api.server:app --reload  # development mode
+
+# Production (RHEL 8): PM2 manages the api on port 8029 + optional ollama
+pm2 start ecosystem.config.js --only acmg-api
 ```
 
-### Build Vector Database
+### Build SQLite Database (preferred, production backend)
+```bash
+# Builds one .db file covering ALL panels (no embeddings, no ML deps)
+uv run python -m src.main build-sqlite --build grch37
+
+# Resume / fresh / chr filter all supported
+uv run python -m src.main build-sqlite --fresh --chr 17 --limit 50000
+```
+Output: `data/sqlite/grch37-all-panels.db` (~400 MB). Used by API in production
+(see PM2 `ACMG_DB_PATH`).
+
+### Build FAISS Vector Database (legacy)
 ```bash
 # Build for specific gene panel with GRCh37 coordinates
 uv run python -m src.main build-panel --panel NGSgenes --build grch37
@@ -98,7 +112,11 @@ docker logs acmg-api --tail 50
 
 3. **Chunking** (`src/chunker.py`): Converts variant rows to structured text for embedding. Formats scores with interpretations (e.g., CADD phred thresholds). Derives consequence type from HGVSp/amino acid changes. Integrates gene constraint scores. Supports GRCh37/GRCh38 coordinate systems.
 
-4. **Vector Store** (`src/vectorstore.py`): FAISS-backed store with sentence-transformer embeddings (all-MiniLM-L6-v2). Stores variant ID, text document, and metadata. Supports semantic search, gene lookup, and region queries.
+4. **Storage backends — pick one:**
+   - **`src/variantdb.py` (SQLite, production default)**: Indexed coordinate/gene/ClinVar lookups, no ML deps, ~400 MB for all-panels. Schema in `VariantDatabase.SCHEMA`. The API auto-selects this when `ACMG_DB_PATH` points to a `.db` file.
+   - **`src/vectorstore.py` (FAISS, legacy)**: sentence-transformer embeddings (all-MiniLM-L6-v2) for semantic search. Still buildable via `build`/`build-panel`. API falls back to it when `ACMG_DB_PATH` is a directory.
+
+   Both backends return the same `{"id", "document", "metadata"}` shape, so downstream ACMG/API code is backend-agnostic.
 
 5. **ACMG Scoring** (`src/acmg_scoring.py`): Rule-based evaluation of 28 ACMG/AMP criteria. 17 criteria can be automated from dbNSFP data. 11 criteria require external clinical/family data. Uses ClinVar API for PS1/PM5 evaluation when configured.
 
@@ -108,7 +126,13 @@ docker logs acmg-api --tail 50
 
 8. **Fine-tuning** (`training/finetune_acmg.py`): LoRA fine-tuning using mlx-lm (Apple Silicon) or transformers (NVIDIA). Uses Llama-3.2-3B-Instruct-4bit as base model.
 
-9. **API** (`api/server.py`): FastAPI server with GET/POST `/classify` endpoints. Lazy-loads model (MLX > transformers > Ollama fallback). Returns ACMG classification, criteria, and confidence.
+9. **API** (`api/server.py`): FastAPI server. Endpoints:
+   - `GET|POST /classify` — accepts `chr/pos/ref/alt` **or** `hgvs=` (e.g. `17:g.41197801T>A`), plus `genome_build` (GRCh37/GRCh38, default GRCh37). Returns ACMG classification from rule-based scoring on stored dbNSFP data (LLM fallback was removed in commit 8707ed8).
+   - `GET /variant/{id}`, `GET /gene/{symbol}` — direct lookups
+   - `GET /chromosomes`, `/chromosome/{c}/genes`, `/panels`, `/panel/{name}/genes` — browse navigation (SQLite backend only; returns 501 on FAISS)
+   - `GET /lookup` — dbNSFP raw record lookup
+
+   `get_database(genome_build)` lazy-loads and caches per-build databases in `_databases` dict.
 
 ### Key Data Structures
 
@@ -166,7 +190,8 @@ Defined in `src/panels.py`. Main panel is `NGSgenes` (314 genes covering cardiac
 
 ### Environment Variables
 - `ACMG_MODEL_PATH`: Path to fine-tuned model (default: `models/acmg-classifier/model`)
-- `ACMG_DB_PATH`: Path to variant database (default: `data/vectordb/grch37-ngsgenes`)
+- `ACMG_DB_PATH`: Path to GRCh37 variant database. **Suffix decides backend**: `.db` → SQLite (`VariantDatabase`), directory → FAISS (`VariantVectorStore`). Default: `data/sqlite/grch37-all-panels.db`.
+- `ACMG_DB_PATH_GRCH38`: Same, for GRCh38 (default: `data/vectordb/grch38-ngsgenes`)
 - `DBNSFP_DEVICE`: Force device for embeddings (`cpu`, `cuda`, `mps`)
 - `DBNSFP_DIR`: Path to dbNSFP data directory
 - `OLLAMA_HOST`: Ollama server URL for fallback inference
@@ -179,12 +204,20 @@ Tests are in `validation/test_suite/`. Pytest markers: `slow`, `requires_model`,
 
 ## Important Implementation Details
 
+### Backend Selection (SQLite vs FAISS)
+`api/server.py:get_database()` inspects the path suffix:
+- `.db` and file exists → loads `VariantDatabase`
+- otherwise → loads `VariantVectorStore` (FAISS)
+
+If `ACMG_DB_PATH` is set to a `.db` path that doesn't exist, the API silently falls back to the default FAISS directory. This is intentional for backwards compatibility but can mask a missing/misplaced SQLite file — check startup logs for "Loaded GRCh37 SQLite/FAISS database with N variants".
+
 ### Database Rebuilding
 When modifying metadata fields in `src/chunker.py` or `src/config.py`:
-1. The vector database must be rebuilt for changes to take effect
+1. The database must be rebuilt for changes to take effect
 2. Use `--fresh` flag to ignore checkpoints
-3. The database is stored in `data/vectordb/grch37-ngsgenes/`
-4. Docker images bundle the database and must be rebuilt
+3. For SQLite: rebuild via `build-sqlite`; the schema in `VariantDatabase.SCHEMA` must be updated if new metadata fields are added (otherwise they'll only appear in `full_annotation` JSON, not be queryable).
+4. For FAISS: stored in `data/vectordb/grch37-ngsgenes/`
+5. Docker images bundle the database and must be rebuilt
 
 ### ACMG Scoring Logic
 The `evaluate_all_criteria()` function in `src/acmg_scoring.py`:

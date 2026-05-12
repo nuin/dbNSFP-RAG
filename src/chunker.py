@@ -332,6 +332,18 @@ def variant_to_metadata(
         chrom = safe_str(row.get("#chr", "")).replace("chr", "")
         pos_val = row.get("pos(1-based)", 0)
 
+    # Always preserve hg38 coords so cross-build annotations (e.g. gnomAD v4.1,
+    # SpliceAI) can be applied later without re-touching dbNSFP.
+    hg38_chr_val = safe_str(row.get("#chr", "")).replace("chr", "") or None
+    hg38_pos_raw = row.get("pos(1-based)")
+    if pd.isna(hg38_pos_raw):
+        hg38_pos_val = None
+    else:
+        try:
+            hg38_pos_val = int(float(hg38_pos_raw))
+        except (TypeError, ValueError):
+            hg38_pos_val = None
+
     # Prefer gnomAD v4, fall back to v2
     gnomad_af = safe_float(row.get("gnomAD4.1_joint_AF"))
     if gnomad_af is None:
@@ -396,6 +408,9 @@ def variant_to_metadata(
         "loeuf": loeuf,  # LoF observed/expected upper (<0.35 = highly constrained)
         # Domain annotations (for PM1)
         "interpro_domain": safe_str(row.get("Interpro_domain")),
+        # GRCh38 coords always preserved (for cross-build annotation lookups)
+        "hg38_chr": hg38_chr_val,
+        "hg38_pos": hg38_pos_val,
         # gnomAD homozygote count (for BS2 - healthy adult observation)
         "gnomad_hom": safe_float(row.get("gnomAD4.1_joint_nhomalt")),
     }

@@ -54,6 +54,10 @@ class VariantDatabase:
         gnomad_mis_oe REAL,
         loeuf REAL,
         interpro_domain TEXT,
+        gnomad_v41_faf95_grpmax REAL,
+        spliceai_ds_max_masked REAL,
+        hg38_chr TEXT,
+        hg38_pos INTEGER,
         full_annotation TEXT
     );
 
@@ -76,7 +80,18 @@ class VariantDatabase:
     CREATE INDEX IF NOT EXISTS idx_clinvar_sig ON variants(clinvar_sig);
     CREATE INDEX IF NOT EXISTS idx_chr_pos ON variants(chr, pos);
     CREATE INDEX IF NOT EXISTS idx_variant_panels_panel ON variant_panels(panel_name);
+    CREATE INDEX IF NOT EXISTS idx_faf95 ON variants(gnomad_v41_faf95_grpmax);
+    CREATE INDEX IF NOT EXISTS idx_spliceai ON variants(spliceai_ds_max_masked);
     """
+
+    # Columns that may be missing on older DBs -- added via ALTER TABLE in
+    # _init_schema for idempotent forward migration.
+    MIGRATIONS = [
+        ("gnomad_v41_faf95_grpmax", "REAL"),
+        ("spliceai_ds_max_masked", "REAL"),
+        ("hg38_chr", "TEXT"),
+        ("hg38_pos", "INTEGER"),
+    ]
 
     # Column names that map directly from metadata dict to DB columns
     METADATA_COLUMNS = [
@@ -89,6 +104,8 @@ class VariantDatabase:
         "mutationtaster_pred", "bayesdel_pred", "provean_pred",
         "consequence", "gnomad_pli", "gnomad_mis_oe", "loeuf",
         "interpro_domain",
+        "gnomad_v41_faf95_grpmax", "spliceai_ds_max_masked",
+        "hg38_chr", "hg38_pos",
     ]
 
     def __init__(self, db_path: Optional[Path] = None):
@@ -107,8 +124,13 @@ class VariantDatabase:
         self._init_schema()
 
     def _init_schema(self):
-        """Create tables and indexes if they don't exist."""
+        """Create tables, run forward migrations, and create indexes."""
         self._conn.executescript(self.SCHEMA)
+        # Idempotent forward migrations for older DBs missing newer columns
+        existing = {row["name"] for row in self._conn.execute("PRAGMA table_info(variants)")}
+        for col, col_type in self.MIGRATIONS:
+            if col not in existing:
+                self._conn.execute(f"ALTER TABLE variants ADD COLUMN {col} {col_type}")
         self._conn.executescript(self.INDEXES)
         self._conn.commit()
 
