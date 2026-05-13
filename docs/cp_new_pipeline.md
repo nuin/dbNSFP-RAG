@@ -47,13 +47,16 @@ gnomAD v4.1 (remote tabix over HTTPS) ─┤
                        │            +
                        │   data/exports/cp_new/cp_new.vcf (99,436 unique variants)
                        │
-              spliceai -M 1 (external) ─► cp_new.spliceai.vcf
-                       │                      │
-                       ▼                      ▼
+              spliceai -M 1 (external, 4-way parallel) ─► chunk*.spliceai.vcf
+                       │                                     │
+                       ▼                                     ▼
           scripts/annotate_spliceai.py joins back into per-gene TSVs
                        │
                        ▼
           scripts/classify_cp_new.py  ─►  seqnext/{GENE}_seqnext.tsv
+                       │
+                       ▼
+          scripts/resolve_hgvs_vv.py  ─► (overwrites c. via VariantValidator)
                        │
                        ▼
           scripts/load_cp_new_sqlite.py
@@ -112,6 +115,44 @@ uv run python scripts/classify_cp_new.py
 `workflow_pending` counters tell you how many variants are candidates for
 W2/W3 but waiting on SpliceAI — i.e., expected delta after re-running once
 SpliceAI annotation is filled in.
+
+### `scripts/resolve_hgvs_vv.py`
+**Critical correction step.** The classifier emits the BED's RefSeq NM_ as
+the transcript column and dbNSFP's `HGVSc_snpEff` value as `hgvs_c`, but
+dbNSFP's c. notation is on whatever Ensembl transcript dbNSFP chose for that
+row — which is *not necessarily* the BED's transcript. For many genes (BRCA1
+being the obvious case) dbNSFP's chosen transcript isn't even MANE Select.
+Without this step, the SeqNext rows would pair the BED's NM_ with a c. on
+a different transcript — wrong c. coordinates.
+
+This script queries `rest.variantvalidator.org` per row:
+
+```
+GET /VariantValidator/variantvalidator/GRCh37/17-41197801-T-A/NM_007294.4
+   -> top-level key "NM_007294.4:c.5486A>T"
+```
+
+Replaces `hgvs_c` with the resolved value. Adds a `vv_status` column:
+`ok`, `flagged:intergenic` (variant non-coding on requested transcript),
+`flagged:http_429` (rate-limited), etc. Flagged rows keep their original
+c. with a `(VV_FLAGGED:reason)` suffix.
+
+Cache at `data/exports/cp_new/.vv_cache.json` makes re-runs incremental.
+
+```bash
+# combined file first (one tqdm tick per file -- silent during processing)
+uv run python scripts/resolve_hgvs_vv.py --in-place --only-combined
+
+# then propagate to per-gene files (mostly cache hits, seconds)
+uv run python scripts/resolve_hgvs_vv.py --in-place
+```
+
+**Rate-limiting**: VV is hosted by University of Leicester. ~750 ms/call
+typical latency. Without throttling, ~20% of calls came back HTTP 429
+(rate-limited). The script sleeps **1.2 s after every API hit** (cache hits
+skip). First full pass for the combined file takes ~52 min for 4,567
+variants. Retry pass for 429s adds ~30 min. Future runs are fully cached
+and finish in seconds.
 
 ### `scripts/load_cp_new_sqlite.py`
 Loads all 165 per-gene TSVs into `data/sqlite/grch37-all-panels.db` via the
@@ -185,24 +226,26 @@ Run:
 ## Why the BED's transcript matters
 
 For 164 of 166 genes, the BED's RefSeq NM_ is the **MANE Select** transcript
-and pairs 1:1 with an Ensembl ENST. CDS coordinates match, so dbNSFP's
-`HGVSc_snpEff` (annotated against Ensembl) is the same as HGVS c. on the
-RefSeq NM_ — we just relabel.
+and pairs 1:1 with an Ensembl ENST. CDS coordinates *typically* match, but
+**not always**: dbNSFP records each variant on whichever transcript snpEff
+chose (often the longest coding isoform or first ENST hit) — which is **not
+necessarily MANE Select**. Two failure modes:
 
-Two exceptions:
+1. dbNSFP picked an alternative isoform: e.g. for BRCA1 hg19:41197801 T>A,
+   dbNSFP shows `Ensembl_transcriptid = ENST00000468300`, `HGVSc_snpEff =
+   c.2100A>T`. MANE Select (`ENST00000357654` / `NM_007294.4`) gives c.5486A>T.
+   **MANE Select isn't even in dbNSFP's transcript list for this position**
+   — probably the variant is intronic on the canonical and the alternative
+   isoform is the only one where it's coding.
+2. APC/RAD51D dual-tx regions: the BED explicitly uses non-canonical
+   transcripts for specific regions (APC E01 on `NM_001127511.3`, RAD51D
+   alt-E3 on `NM_001142571.2`). These differ structurally from canonical.
 
-- **APC** — 15 of 16 BED regions on `NM_000038.6` (canonical). 1 region (E01
-  at chr5:112,043,145–112,043,585) on `NM_001127511.3`, an isoform with an
-  alternative first exon. Variants in that region get HGVS on the alternative.
-- **RAD51D** — 10 regions on `NM_002878.3`. 1 extra E03 region (chr17:33,443,872–
-  33,444,071, 1.6 kb upstream of canonical E03) on `NM_001142571.2`, capturing
-  the alternative exon 3.
-
-For these, `HGVSc_snpEff` from dbNSFP may not match what HGVS c. would be on
-the BED-listed transcript. Current `classify_cp_new.py` emits dbNSFP's value
-as-is; for production SeqNext upload you'll want to validate the dual-tx
-regions against VariantValidator (or VEP --refseq) before signing off. Small
-volume — the alternative regions cover ~10-50 variants combined.
+**Fix**: `scripts/resolve_hgvs_vv.py` queries VariantValidator per row to
+get the authoritative c. on the BED's RefSeq NM_. Rows where VV says the
+variant is non-coding on the requested transcript get `vv_status =
+flagged:intergenic` and keep their original c. with a `(VV_FLAGGED:intergenic)`
+suffix — manual review or drop before SeqNext upload.
 
 ## Data sources and what's missing
 
@@ -244,21 +287,74 @@ uv run python scripts/annotate_spliceai.py \
 # 4. classify and emit SeqNext rows (~seconds)
 uv run python scripts/classify_cp_new.py
 
-# 5. load into SQLite (~15 sec)
+# 5. resolve c. on the BED transcript via VariantValidator (~50-80 min
+#    first run, seconds on cached re-runs)
+uv run python scripts/resolve_hgvs_vv.py --in-place --only-combined
+uv run python scripts/resolve_hgvs_vv.py --in-place
+
+# 6. load into SQLite (~15 sec)
 uv run python scripts/load_cp_new_sqlite.py
 ```
 
-## Snapshot at first full run
+## Performance notes for SpliceAI
 
-Run from steps 1-5 (step 2 still in progress as of writing):
+SpliceAI runs at **~1.4 variants/sec single-process** on M1 Ultra CPU
+(no Metal). For the 99k full-VCF run that's ~20 hr — impractical. Two
+mitigations applied during the first production run:
 
-- dbNSFP scan: 100,034 variants across 165 genes, 8,253 with gnomAD FAF (8%)
-- After SQLite load: DB grew from 272,875 → 303,628 rows. `cp_new` panel
-  registered with 99,433 variants.
-- Workflow 1 (FAF >5%): **20 BENIGN** calls across 9 genes (SLX4 dominant
-  with 11; the rest in EPCAM, FANCM, GATA2, GCM2, RPS20, SDHA, TRPV6, TSC1).
-- Pending SpliceAI: 10,620 W2 candidates + 94 W3 candidates.
+1. **BED-filter the input VCF** before SpliceAI. Variants outside the BED
+   regions are silently dropped by the classifier anyway, so scoring them
+   wastes time. Filter reduces 99,436 → 53,984 variants. The BED is hg19
+   coords; the cp_new.vcf emitted by cp_new.py is hg38 — filter using the
+   per-gene TSVs' `hg19_chr` / `hg19_pos(1-based)` columns and emit hg38
+   coords back into the VCF.
+2. **4-way parallel SpliceAI** on chunks of the BED-filtered VCF. Each
+   process with `TF_NUM_INTRAOP_THREADS=4` `TF_NUM_INTEROP_THREADS=2`. Wall
+   time for the full 53,984 variants ≈ 3.5 hr (each chunk ~13.5k variants,
+   chunks 00/01 finish in ~3 hr, chunks 02/03 take 30-60 min longer because
+   the OS schedules them onto efficiency cores).
 
-Notable flag: `TSC1 c.1334-2A>G` at FAF >5% is a canonical splice acceptor
-position. Rule fires Benign on population freq, but normally ACMG BA1 doesn't
-override a splice consequence. Manual review before SeqNext upload.
+Concatenate the 4 chunk outputs (header from chunk 00, data from all four):
+
+```bash
+cd data/exports/cp_new
+grep '^#' cp_new.bed.chunk_00.spliceai.vcf > cp_new.spliceai.vcf
+for i in 00 01 02 03; do
+    grep -v '^#' cp_new.bed.chunk_$i.spliceai.vcf >> cp_new.spliceai.vcf
+done
+```
+
+## Snapshot — first full production run (2026-05-12)
+
+- **dbNSFP scan**: 100,034 variant rows across 165 genes, 8,253 with gnomAD
+  FAF (8%). 99,436 unique variant_ids emitted to cp_new.vcf.
+- **BED-filter for SpliceAI**: 53,984 BED-covered unique variants.
+- **SpliceAI run**: 53,574 of 53,984 (99.2%) got DS_MAX scores. Boundary
+  variants on chunk splits accounted for the small miss.
+- **Classifier output**: **4,567 SeqNext rows** across 100 genes.
+  - W1 (Benign FAF >5%): **20**
+  - W2 (Benign synonymous + SpliceAI≤0.1 + conservation low): **4,460**
+  - W3 (Likely_benign FAF >0.1% + REVEL<0.29 + SpliceAI≤0.1): **87**
+  - Still "pending": 58 (chunk-boundary missed-SpliceAI variants)
+- **VV resolver**: 4,497 OK, 70 flagged:intergenic. Per-gene SeqNext files
+  now carry the correct MANE/RefSeq c. notation (e.g. BRCA1 17:41197802 C>G
+  → `NM_007294.4:c.5485G>C`, not the `c.2099G>C` dbNSFP would have given).
+- **SQLite DB**: 272,875 → 303,628 rows. `cp_new` panel = 99,433 variants.
+
+## Known issues & manual-review items
+
+1. **255 W2 calls at canonical splice positions** (`-1`/`-2`/`+1`/`+2`).
+   SpliceAI masked (`-M 1`) is *designed* to zero out scores at canonical
+   splice sites — the whole point of masking is to find disruption *outside*
+   the canonical positions. So variants at the canonical sites themselves
+   automatically pass the `SpliceAI <= 0.1` filter regardless of their true
+   effect, and the W2 rule fires Benign. Examples: `AIP c.469-2A>C`,
+   `ANKRD26 c.639-1G>T`, `ACD c.986+1G>T`. These need manual review or to be
+   filtered out of the classifier (add `--exclude-canonical-splice` flag).
+2. **70 intergenic flags** in the SeqNext output. VariantValidator says
+   these positions aren't coding on the BED's NM_ — mostly FANCD2
+   `NM_033084.5`. Drop from SeqNext upload or hand-review against an
+   alternative isoform.
+3. **`TSC1 c.1334-2A>G`** appears in W1 (FAF >5%). Splice-acceptor position;
+   population frequency overrides mechanistic prediction at >5% but worth
+   confirming the FAF isn't artifact (e.g. mismapping at this position).
