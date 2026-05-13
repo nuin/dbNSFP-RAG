@@ -84,6 +84,17 @@ Synonymous detection: `HGVSp` shows `p.X=`, or `aaref == aaalt`, or
 `codon_degeneracy in {2, 4}`. Intronic detection: HGVSc carries a `+/-` offset
 and no protein change.
 
+**SpliceAI handling**: a missing `spliceai_ds_max_masked` is treated as **0**
+(no detected splice signal). SpliceAI v1.3 silently skips variants outside
+its GENCODE V24 canonical gene model — notably the BED's alternative-
+transcript regions (e.g. APC E01 on `NM_001127511.3`, RAD51D alt-E3 on
+`NM_001142571.2`). Without this rule, those variants would never reach W2/W3
+because they have no SpliceAI value. Variants where SpliceAI returned a
+non-zero score keep their measured value. **Side effect**: canonical splice
+positions (`-1`/`-2`/`+1`/`+2`) get auto-classified by W2 if synonymous-
+flagged, because SpliceAI masked is intrinsically near-zero there — see
+"Manual-review lists" for the 265-row review pile this generates.
+
 ## Variant funnel — what happens to every variant
 
 This is the full accounting from raw dbNSFP rows down to the SeqNext export.
@@ -626,22 +637,29 @@ for i in 00 01 02 03; do
 done
 ```
 
-## Snapshot — first full production run (2026-05-12)
+## Snapshot — production run (2026-05-13, with missing-SpliceAI-as-zero)
 
 - **dbNSFP scan**: 100,034 variant rows across 165 genes, 8,253 with gnomAD
   FAF (8%). 99,436 unique variant_ids emitted to cp_new.vcf.
 - **BED-filter for SpliceAI**: 53,984 BED-covered unique variants.
-- **SpliceAI run**: 53,574 of 53,984 (99.2%) got DS_MAX scores. Boundary
-  variants on chunk splits accounted for the small miss.
-- **Classifier output**: **4,567 SeqNext rows** across 100 genes.
+- **SpliceAI run**: 53,574 of 53,984 (99.2%) got DS_MAX scores. Remaining
+  410 either fell on chunk-split boundaries or were silently skipped by
+  SpliceAI (outside its GENCODE V24 gene model — e.g. APC alt-E01).
+- **Classifier output**: **4,610 SeqNext rows** across 130 genes.
   - W1 (Benign FAF >5%): **20**
-  - W2 (Benign synonymous + SpliceAI≤0.1 + conservation low): **4,460**
-  - W3 (Likely_benign FAF >0.1% + REVEL<0.29 + SpliceAI≤0.1): **87**
-  - Still "pending": 58 (chunk-boundary missed-SpliceAI variants)
-- **VV resolver**: 4,497 OK, 70 flagged:intergenic. Per-gene SeqNext files
-  now carry the correct MANE/RefSeq c. notation (e.g. BRCA1 17:41197802 C>G
-  → `NM_007294.4:c.5485G>C`, not the `c.2099G>C` dbNSFP would have given).
+  - W2 (Benign synonymous + SpliceAI≤0.1 + conservation low): **4,501**
+  - W3 (Likely_benign FAF >0.1% + REVEL<0.29 + SpliceAI≤0.1): **89**
+- **VV resolver**: 4,540 OK, 70 flagged:intergenic, 0 errors.
+- **Review piles**:
+  - 265 canonical-splice review rows (consequence of missing-SpliceAI-as-zero)
+  - 70 intergenic flags (variants non-coding on BED's NM_)
 - **SQLite DB**: 272,875 → 303,628 rows. `cp_new` panel = 99,433 variants.
+
+### Earlier snapshot (2026-05-12, before missing-SpliceAI-as-zero)
+- 4,567 classified. 58 candidates "pending" SpliceAI. 13 canonical-splice
+  review rows. Fixing the missing-SpliceAI gap moved +43 net to classified
+  (APC alt-E01 alone contributed 32) and expanded the canonical-splice
+  review list 13 → 265.
 
 ## Manual-review lists
 
@@ -652,17 +670,24 @@ output for items needing human review before SeqNext upload:
 uv run python scripts/extract_review_lists.py
 ```
 
-### `_review_canonical_splice.tsv` — 13 rows
+### `_review_canonical_splice.tsv` — 265 rows
 
 W2 'Benign synonymous' calls whose c. (on the BED's RefSeq NM_, after VV
 resolution) sits at a canonical splice acceptor or donor position
 (`-1` / `-2` / `+1` / `+2`).
 
-| Gene | Count |
-|---|---|
-| CASR | 6 |
-| SMARCA4 | 5 |
-| FANCD2 | 2 |
+Spread across many genes; top contributors:
+
+| Gene | Count | | Gene | Count |
+|---|---|---|---|---|
+| MSH2 | 6 | | RAD51D | 3 |
+| TRIM28 | 6 | | ANKRD26 | 3 |
+| FANCL | 6 | | VHL | 3 |
+| CASR | 6 | | UBE2T | 3 |
+| SMARCA4 | 5 | | BMPR1A | 3 |
+| WRN | 4 | | TP53 | 3 |
+| ACD | 4 | | SMAD4 | 3 |
+| BRCA2 | 4 | | (and 25 more, mostly 1-3 per gene) | |
 
 **Why they're flagged**: SpliceAI `-M 1` (masked) is designed to **zero out
 scores at canonical splice sites** — the whole point of masking is to find
@@ -671,11 +696,21 @@ sites themselves automatically pass the `SpliceAI <= 0.1` filter regardless
 of their true effect, and the W2 rule fires Benign. These calls are filter
 artifacts, not evidence of safety.
 
-(Historical note: pre-VV-resolver this list had **255** entries. Most were
-on dbNSFP's alternative-transcript HGVS where positions falsely looked like
-splice sites — coding positions on the canonical transcript. Once VV
-anchored HGVS to the BED's NM_, only 13 remained as truly canonical splice
-on the *correct* transcript.)
+**History**: this count moved twice.
+- Pre-VV resolver: **255** rows. Most were c. on dbNSFP's alternative
+  transcripts where positions falsely looked splice-like.
+- Post-VV resolver, pre missing-SpliceAI-as-zero fix: **13** rows
+  (the genuine canonical-splice cases on the BED's NM_).
+- Post missing-SpliceAI-as-zero fix (current): **265** rows. With missing
+  SpliceAI treated as 0, every canonical-splice position automatically
+  passes the SpliceAI ≤ 0.1 gate — masked SpliceAI is near-zero by design
+  at canonical sites.
+
+This expansion is a known trade-off of the missing-SpliceAI rule that
+recovers ~43 legitimate Benign calls at alt-transcript regions (APC E01,
+RAD51D alt-E3, etc.) where SpliceAI has no gene model. Practical recipe
+for SeqNext upload: exclude this review file (`_review_canonical_splice.tsv`)
+from the upload, hand-review separately.
 
 Options: filter from SeqNext upload, or re-run classifier with an
 `--exclude-canonical-splice` flag (not yet implemented).

@@ -132,13 +132,19 @@ def is_intronic(row) -> bool:
 def classify(row) -> tuple[str, str] | None:
     """Return (classification, rule) or None if no workflow matches.
 
-    Workflows 2 and 3 require spliceai_ds_max_masked; if it's missing those
-    workflows are NOT evaluated (returns None, with the caller bumping a
-    'pending' counter).
+    SpliceAI handling: a missing spliceai_ds_max_masked is treated as 0
+    (no detected splice signal). This is necessary because SpliceAI v1.3
+    silently skips variants outside its GENCODE V24 canonical gene model
+    -- notably the BED's alternative-transcript regions (e.g. APC E01 on
+    NM_001127511.3, RAD51D alt-E3 on NM_001142571.2). Skipping those
+    variants would lose ~30+ legitimate Benign-synonymous calls per
+    alt-tx region. Variants where SpliceAI actually returned a non-zero
+    score keep their measured value.
     """
     faf = safe_float(row.get("gnomad_v41_faf95_grpmax"))
     revel = safe_float(row.get("REVEL_score"))
-    spliceai = safe_float(row.get("spliceai_ds_max_masked"))
+    spliceai_raw = safe_float(row.get("spliceai_ds_max_masked"))
+    spliceai = spliceai_raw if spliceai_raw is not None else 0.0
     phastcons = safe_float(row.get("phastCons100way_vertebrate"))
     phylop = safe_float(row.get("phyloP100way_vertebrate"))
 
@@ -147,7 +153,7 @@ def classify(row) -> tuple[str, str] | None:
         return "Benign", "FAF >5%"
 
     # Workflow 2 -- synonymous benign
-    if spliceai is not None and is_synonymous(row):
+    if is_synonymous(row):
         if spliceai <= 0.1 and phastcons is not None and phastcons < 1.0:
             if is_intronic(row):
                 if phylop is not None and phylop < 0.1:
@@ -158,25 +164,16 @@ def classify(row) -> tuple[str, str] | None:
     # Workflow 3 -- rare LB
     if (faf is not None and faf > 0.001
             and revel is not None and revel < 0.290
-            and spliceai is not None and spliceai <= 0.1):
+            and spliceai <= 0.1):
         return "Likely_benign", "FAF >0.1%, REVEL <0.29, SpliceAI<=0.1"
 
     return None
 
 
 def workflow_pending(row) -> str | None:
-    """Return which workflow this row is a candidate for, pending SpliceAI."""
-    if safe_float(row.get("spliceai_ds_max_masked")) is not None:
-        return None  # already evaluated
-    faf = safe_float(row.get("gnomad_v41_faf95_grpmax"))
-    revel = safe_float(row.get("REVEL_score"))
-    if faf is not None and faf > 0.05:
-        return None  # workflow 1 already covers this without SpliceAI
-    if is_synonymous(row):
-        return "W2_synonymous_pending_spliceai"
-    if (faf is not None and faf > 0.001
-            and revel is not None and revel < 0.290):
-        return "W3_rare_LB_pending_spliceai"
+    """Return None always now -- SpliceAI-missing rows are no longer 'pending';
+    they're classified directly with SpliceAI treated as 0. This function is
+    kept as a stub so the calling counters don't break."""
     return None
 
 
