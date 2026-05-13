@@ -34,6 +34,258 @@ Synonymous detection: `HGVSp` shows `p.X=`, or `aaref == aaalt`, or
 `codon_degeneracy in {2, 4}`. Intronic detection: HGVSc carries a `+/-` offset
 and no protein change.
 
+## Variant funnel — what happens to every variant
+
+This is the full accounting from raw dbNSFP rows down to the SeqNext export.
+Numbers from the 2026-05-12 production run.
+
+```
+  STAGE                                                       COUNT
+  ─────────────────────────────────────────────────────────────────
+  Raw dbNSFP rows across 165 cp_new genes                   100,034
+                                                                 │
+                                                                 │ (1)
+                                                                 ▼
+  Unique variants (dedup on chr,pos,ref,alt)                 99,436
+                                                                 │
+                                                                 │ (2)
+                                                                 ▼
+  Unique variants within at least one BED region             53,984
+                                                                 │
+                                                                 │ (3)
+                                                                 ▼
+  Successfully scored by SpliceAI (-M 1, hg38)               53,574
+                                                                 │
+                                                                 │ (4)
+                                                                 ▼
+  Classifier emitted a Benign / Likely_benign call            4,567
+                                                                 │
+                                                                 │ (5)
+                                                                 ▼
+  vv_status = ok in SeqNext output                            4,497
+  vv_status = flagged:intergenic                                 70
+                                                                 │
+                                                                 │ (6)
+                                                                 ▼
+  CASR canonical-splice subset that warrants W2 re-review         6
+  (other 7 splice-pattern matches drop under intergenic filter)
+```
+
+What each transition does:
+
+**(1) dbNSFP → unique variants.** dbNSFP records each variant once *per
+transcript* it's annotated against; same `chr,pos,ref,alt` can appear on
+multiple rows with different `Ensembl_transcriptid` values. `cp_new.py`
+keeps the first row per `variant_id`. Loses **598 duplicate transcript
+rows**. This dedup is also the source of the "wrong c. notation" bug
+that VV resolves later: the transcript that survives dedup is arbitrary,
+and often isn't MANE Select.
+
+**(2) Unique variants → in-BED.** The dbNSFP per-gene extraction captures
+*every nsSNV in the gene* including intronic and UTR positions. The BED
+encodes the lab's actual coverage — typically coding exons + flanking
+splice region. **45,452 variants fall outside the assay** and can't be
+reported on, so they're dropped at classify time. Those positions are
+real biological variants but the assay literally doesn't sequence them.
+
+**(3) In-BED → SpliceAI-scored.** Locally-run SpliceAI v1.3 (`-M 1`) on
+the 53,984 in-BED variants. **410 missed** because they sat on chunk-split
+boundaries in the 4-way parallel run (the split was naive line-based, not
+position-aware; a variant straddling two chunks gets seen by one chunk's
+context window but its score lookup ends up empty). Acceptable error rate
+(<1%); those variants stay in W2/W3 "pending" and don't get classified.
+
+**(4) SpliceAI-scored → classified.** The three rules (FAF >5%, synonymous
++ low splice + low conservation, rare + low REVEL + low splice) are
+*negative-prediction* filters — they identify variants we can confidently
+exclude as causes of disease. Most variants don't match any of them
+because they aren't common-population (FAF >5%), aren't synonymous, or do
+have REVEL/SpliceAI signal. **~49,000 in-BED variants don't trigger any
+benign/LB call** and stay in the "need separate classification" bucket
+(see "What's NOT in the SeqNext export" below).
+
+**(5) Classified → VV-resolved.** Every classified row gets its c.
+notation re-anchored to the BED's RefSeq NM_ via VariantValidator REST.
+**4,497** resolved cleanly; **70** came back `flagged:intergenic` (variant
+non-coding on the BED's NM_, c. shown is from a different transcript and
+shouldn't be uploaded as-is). No errors.
+
+**(6) Manual-review subsets.** Two flags surface for human review:
+- 13 rows whose c. on the BED's transcript sits at canonical splice
+  `-1`/`-2`/`+1`/`+2` positions. SpliceAI masked is zero by construction
+  at canonical sites, so W2 fires inappropriately. Of these:
+    - **6 CASR rows** at `c.1609-1G>X` / `c.1609-2A>X` — real review cases
+    - 7 dual-flagged as intergenic (drop under the intergenic filter)
+- 70 intergenic rows total (62 FANCD2, 8 SMARCA4) — drop or re-resolve
+  against an alternative isoform.
+
+## Workflow rule rationale
+
+Each of the three workflows targets a *negative* prediction — "we have
+enough evidence to exclude pathogenicity." None of these calls are
+positive evidence for benignity in the ACMG sense; they're lab-specific
+filtering rules that pre-classify obvious benign/LB before traditional
+ACMG criteria evaluation.
+
+### Workflow 1 — Benign (FAF >5%)
+```
+gnomad_v41_faf95_grpmax > 0.05
+```
+**Equivalent ACMG criterion**: BA1 (Benign Stand-Alone). ACMG/AMP 2015 sets
+BA1 at MAF >5% in any population. The gnomAD v4.1 **grpmax FAF95** (filtering
+allele frequency at 95% confidence interval lower bound, max across
+genetic ancestry groups) is what ClinGen recommends — more conservative
+than raw POPMAX_AF and accounts for sampling noise.
+
+A variant present in >5% of *any* well-sampled population is essentially
+incompatible with a highly penetrant Mendelian disease (the disease would
+be too common). This is the cleanest benign call you can make from
+population data alone, with one caveat: founder populations or
+late-onset / incomplete-penetrance disease can violate it. Examples
+already flagged (e.g. `TSC1 c.1334-2A>G`) deserve manual sanity-check.
+
+**Hits in production**: 20 variants. Most concentrated in SLX4 (11) — a
+known highly-polymorphic locus.
+
+### Workflow 2 — Benign (synonymous + low splice + low conservation)
+```
+synonymous AND
+spliceai_ds_max_masked <= 0.1 AND
+phastCons100way_vertebrate < 1.0 AND
+(if intronic) phyloP100way_vertebrate < 0.1
+```
+**Equivalent ACMG criterion**: BP4 (computational evidence supports a
+benign effect) + BP7 (synonymous nucleotide change with no predicted
+splice impact and no high conservation). This rule combines them into a
+single auto-call.
+
+Logic:
+- **Synonymous**: variant doesn't change the amino acid (or is intronic
+  near a splice site — see "synonymous detection" caveat below). No
+  protein-level consequence.
+- **SpliceAI masked DS_MAX ≤ 0.1**: no predicted splice impact. The
+  masked threshold of 0.1 is more permissive than the unmasked 0.2 that
+  Illumina recommends, because masked scores skew lower (they suppress
+  signal at canonical splice sites — see "Known issues" below).
+- **PhastCons < 1.0**: not in a perfectly-conserved position. PhastCons
+  ranges 0-1 with 1 = invariant across 100 vertebrate species; <1 means
+  the position has at least some tolerated variation across evolution.
+- **PhyloP < 0.1 if intronic**: extra conservation filter for
+  intronic/flanking positions, since "synonymous" loses meaning there.
+  PhyloP <0.1 means the position evolves at ~neutral rate.
+
+The "if intronic" branch is critical — without it, intronic variants
+incorrectly flagged as "synonymous" by the heuristic would pass W2 too
+easily. The PhyloP check adds rigor at those positions.
+
+**Hits in production**: 4,460 variants. Dominant rule.
+
+### Workflow 3 — Likely_benign (rare + low REVEL + low splice)
+```
+gnomad_v41_faf95_grpmax > 0.001 AND
+REVEL_score < 0.290 AND
+spliceai_ds_max_masked <= 0.1
+```
+**Equivalent ACMG criterion**: BS1 (MAF higher than expected for disorder)
++ BP4 (computational evidence benign). The threshold combination is
+calibrated for the lab's expected disease prevalence — at FAF >0.1% the
+variant is rare enough to be plausibly pathogenic in principle, but
+combined with low REVEL (no missense damage prediction) and low SpliceAI
+(no splice damage prediction) the overall evidence points away from
+pathogenicity.
+
+REVEL < 0.290 cutoff: ClinGen SVI work has calibrated REVEL thresholds;
+<0.290 is in the "supporting benign" band. Above 0.644 is "supporting
+pathogenic"; the 0.290-0.644 middle is non-informative.
+
+**Hits in production**: 87 variants.
+
+## What's NOT in the SeqNext export
+
+The export is **only** the variants that match W1/W2/W3. Everything else
+is unclassified by this pipeline:
+
+| Bucket | Count | Why excluded | Where to look |
+|---|---|---|---|
+| Outside BED | 45,452 | Assay doesn't sequence those positions | n/a (can't report) |
+| In BED but no benign rule fires | ~49,000 | Need separate ACMG workflow (VUS, possibly pathogenic) | `src/acmg_scoring.py`, SQLite DB |
+| Pending SpliceAI (chunk boundaries) | 58 | Lost in 4-way parallel SpliceAI split | re-run SpliceAI on missing subset |
+| Multi-transcript dbNSFP duplicates | 598 | First-row dedup discards them | n/a (collapsed at extraction) |
+
+The **~49,000 in-BED, unclassified variants** are the meat of clinical
+interpretation work. They need the full ACMG/AMP criteria evaluation —
+not the lab's negative-prediction filters. Those are queryable in the
+SQLite DB:
+
+```sql
+SELECT v.variant_id, v.gene, v.cadd_phred, v.revel_score, v.clinvar_sig,
+       v.gnomad_v41_faf95_grpmax, v.spliceai_ds_max_masked
+FROM variants v
+JOIN variant_panels p ON v.variant_id = p.variant_id
+WHERE p.panel_name = 'cp_new'
+  AND v.variant_id NOT IN (
+    SELECT variant_id FROM ...  -- the 4,567 classified
+  );
+```
+
+The cp_new pipeline pre-classifies the easy-benign subset so analysts
+focus on the harder ~49k. It doesn't *replace* ACMG — it short-circuits
+the low-hanging cases.
+
+## Data provenance per output column
+
+| Column | Source | Computed in |
+|---|---|---|
+| `gene` | dbNSFP `genename` | cp_new.py |
+| `transcript` | BED column 6 (RefSeq NM_) | classify_cp_new.py (interval lookup against BED) |
+| `hgvs_c` | VariantValidator REST resolution against `transcript` | resolve_hgvs_vv.py |
+| `classification` | rule application | classify_cp_new.py |
+| `chr_grch37` | dbNSFP `hg19_chr` | cp_new.py |
+| `pos_grch37` | dbNSFP `hg19_pos(1-based)` | cp_new.py |
+| `ref`, `alt` | dbNSFP `ref` / `alt` | cp_new.py |
+| `vv_status` | VariantValidator response category | resolve_hgvs_vv.py |
+
+Internal annotations used by the classifier (present in per-gene TSVs but
+not in SeqNext export):
+
+| Column | Source | Used by |
+|---|---|---|
+| `gnomad_v41_faf95_grpmax` | gnomAD v4.1 joint sites VCF, `fafmax_faf95_max_joint` INFO field | W1, W3 |
+| `gnomad_v41_af_joint` | gnomAD v4.1 joint sites VCF, `AF_joint` INFO field | (not used in rules; reference) |
+| `gnomad_v41_filter` | gnomAD v4.1 joint sites VCF, FILTER column | (not used; reference) |
+| `spliceai_ds_max_masked` | SpliceAI v1.3 with `-M 1` flag | W2, W3 |
+| `phastCons100way_vertebrate` | dbNSFP | W2 |
+| `phyloP100way_vertebrate` | dbNSFP | W2 (intronic branch) |
+| `REVEL_score` | dbNSFP | W3 |
+| `HGVSp_snpEff`, `aaref`, `aaalt`, `codon_degeneracy` | dbNSFP | W2 (synonymous detection) |
+
+## Synonymous detection — edge case
+
+The classifier's `is_synonymous(row)` heuristic returns True when *any*
+of these holds:
+
+1. `HGVSp_snpEff` contains `p.=` (explicit synonymous marker), **or**
+2. `aaref == aaalt` (same amino acid before/after) and not `X`, **or**
+3. `codon_degeneracy in {2, 4}` (synonymous degeneracy classes per dbNSFP)
+
+There's a known quirk: when a variant is **intronic** (no protein change),
+dbNSFP records empty/NaN values for `aaref` and `aaalt`. pandas reads
+these as `NaN`, and `str(NaN).upper() == "NAN"` — so `aaref == aaalt`
+returns True (both "NAN"), and `is_synonymous` returns True for intronic
+variants too. This is *not* a bug per se: the user's workflow 2 spec
+explicitly mentions "intronic variants" via the PhyloP branch, suggesting
+the intent was to filter both synonymous coding AND intronic positions
+through the same rule. The intronic-aware PhyloP check (line 3 of the W2
+rule) is the safety net.
+
+The downstream consequence: variants at canonical splice acceptor/donor
+positions (`-1`, `-2`, `+1`, `+2` HGVS offsets) qualify as "intronic"
+under the heuristic, pass the PhyloP check (typically `< 0.1` because
+SpliceAI training data may not cover these well), pass SpliceAI masked
+≤ 0.1 (zeroed by design at canonical sites), and end up classified as
+Benign. The 13 such calls in production are documented under
+"Manual-review lists" — they need clinical review, not auto-classification.
+
 ## Pipeline stages
 
 ```
