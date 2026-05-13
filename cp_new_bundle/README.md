@@ -40,9 +40,14 @@ TSV. 4,567 rows. Columns: `gene, transcript, hgvs_c, classification`.
   SeqNext). 38 MB.
 
 **Per-gene splits**:
-- `outputs/per_gene/{GENE}_seqnext.tsv` — same as combined, one file per
-  gene (100 files). Use when a single gene needs to be reviewed/uploaded
-  in isolation.
+- `outputs/per_gene_raw/{GENE}.tsv` — **raw dbNSFP + gnomAD + SpliceAI
+  annotations per gene, one file per gene (165 files, all panel genes).**
+  Every variant for that gene with all 59+ columns. Use for QA / debugging
+  / re-classification.
+- `outputs/per_gene/{GENE}_seqnext.tsv` — post-classification, 4-column
+  SeqNext-ready format, one file per gene **(100 files only — genes that
+  had at least one W1/W2/W3 hit).** The other 65 genes had no Benign/LB
+  calls, so they only appear in `per_gene_raw/`, not here.
 
 ## Scripts (run order)
 
