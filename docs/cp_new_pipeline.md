@@ -13,10 +13,60 @@ per-gene TSVs ready for SeqNext import.
   (166 unique genes, 2380 regions). The BED commits one RefSeq transcript per
   region. 164 of 166 genes use a single transcript; **APC** and **RAD51D**
   carry two each (alternative first exon / alternative E3 respectively).
-- **Output**: per-gene TSV under `data/exports/cp_new/seqnext/{GENE}_seqnext.tsv`
-  + combined `cp_new_seqnext.tsv`. Columns: `gene, transcript, hgvs_c,
-  classification`. `transcript` is the BED's RefSeq NM_ for the region the
-  variant lies in.
+
+## Deliverables
+
+Built by `scripts/build_cp_new_exports.py` after the full pipeline runs.
+
+| File | Purpose | Size | Rows |
+|---|---|---|---|
+| `data/exports/cp_new/cp_new_seqnext_minimal.tsv` | **Main SeqNext upload file.** 4 columns: `gene, transcript, hgvs_c, classification`. Header on row 1. | 347 KB | 4,567 |
+| `data/exports/cp_new/seqnext/cp_new_seqnext.tsv` | Combined SeqNext with QA columns appended (chr/pos/ref/alt/vv_status) — for audit | ~600 KB | 4,567 |
+| `data/exports/cp_new/seqnext/{GENE}_seqnext.tsv` (100 files) | Per-gene SeqNext, same layout as combined | — | varies |
+| `data/exports/cp_new/seqnext/_review_canonical_splice.tsv` | 13 rows at canonical splice positions needing manual review | — | 13 |
+| `data/exports/cp_new/seqnext/_review_intergenic.tsv` | 70 rows VV flagged as non-coding on BED transcript | — | 70 |
+| `data/exports/cp_new/cp_new_all_annotations.tsv.gz` | **Complete annotation dump** — every dbNSFP/gnomAD/SpliceAI column for every variant in the 165 cp_new genes (69 columns). For analysis / QA / re-classification | 6.2 MB | 100,034 |
+| `data/exports/cp_new/cp_new_viz.db` | **Standalone SQLite for visualization tools** (Datasette, DB Browser, Metabase). Two indexed tables: `cp_new_variants` (100,034 rows wide layout) + `cp_new_classifications` (4,567 SeqNext rows) | 38 MB | — |
+| `data/sqlite/grch37-all-panels.db` | Production API database (NGSgenes + cp_new + others, panel-tagged via `variant_panels` table) | ~430 MB | 303,628 |
+
+Build all three of the new exports:
+
+```bash
+uv run python scripts/build_cp_new_exports.py            # builds all three
+uv run python scripts/build_cp_new_exports.py --drop-flagged   # excludes vv_status != ok from SeqNext-minimal
+uv run python scripts/build_cp_new_exports.py --only seqnext   # just the minimal TSV
+```
+
+### Visualization DB quick examples
+
+```bash
+# Browse with Datasette
+pip install datasette
+datasette data/exports/cp_new/cp_new_viz.db
+
+# Or sqlite3 CLI
+sqlite3 data/exports/cp_new/cp_new_viz.db
+```
+
+```sql
+-- top genes by classified-variant count
+SELECT gene, COUNT(*) AS n
+FROM cp_new_classifications
+GROUP BY gene ORDER BY n DESC LIMIT 10;
+
+-- variants in BRCA1 with their dbNSFP scores
+SELECT genename, hg19_chr || ':' || hg19_pos_1_based AS pos,
+       ref, alt, CADD_phred, REVEL_score, AlphaMissense_pred,
+       gnomad_v41_faf95_grpmax, spliceai_ds_max_masked
+FROM cp_new_variants
+WHERE genename = 'BRCA1' AND CADD_phred > 20
+ORDER BY CADD_phred DESC LIMIT 20;
+
+-- everything flagged by VariantValidator
+SELECT gene, transcript, hgvs_c, classification, vv_status
+FROM cp_new_classifications
+WHERE vv_status != 'ok';
+```
 
 ## The three workflows
 
