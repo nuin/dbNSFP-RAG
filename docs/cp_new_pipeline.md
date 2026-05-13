@@ -341,20 +341,61 @@ done
   → `NM_007294.4:c.5485G>C`, not the `c.2099G>C` dbNSFP would have given).
 - **SQLite DB**: 272,875 → 303,628 rows. `cp_new` panel = 99,433 variants.
 
-## Known issues & manual-review items
+## Manual-review lists
 
-1. **255 W2 calls at canonical splice positions** (`-1`/`-2`/`+1`/`+2`).
-   SpliceAI masked (`-M 1`) is *designed* to zero out scores at canonical
-   splice sites — the whole point of masking is to find disruption *outside*
-   the canonical positions. So variants at the canonical sites themselves
-   automatically pass the `SpliceAI <= 0.1` filter regardless of their true
-   effect, and the W2 rule fires Benign. Examples: `AIP c.469-2A>C`,
-   `ANKRD26 c.639-1G>T`, `ACD c.986+1G>T`. These need manual review or to be
-   filtered out of the classifier (add `--exclude-canonical-splice` flag).
-2. **70 intergenic flags** in the SeqNext output. VariantValidator says
-   these positions aren't coding on the BED's NM_ — mostly FANCD2
-   `NM_033084.5`. Drop from SeqNext upload or hand-review against an
-   alternative isoform.
-3. **`TSC1 c.1334-2A>G`** appears in W1 (FAF >5%). Splice-acceptor position;
-   population frequency overrides mechanistic prediction at >5% but worth
-   confirming the FAF isn't artifact (e.g. mismapping at this position).
+`scripts/extract_review_lists.py` derives two TSVs from the combined SeqNext
+output for items needing human review before SeqNext upload:
+
+```bash
+uv run python scripts/extract_review_lists.py
+```
+
+### `_review_canonical_splice.tsv` — 13 rows
+
+W2 'Benign synonymous' calls whose c. (on the BED's RefSeq NM_, after VV
+resolution) sits at a canonical splice acceptor or donor position
+(`-1` / `-2` / `+1` / `+2`).
+
+| Gene | Count |
+|---|---|
+| CASR | 6 |
+| SMARCA4 | 5 |
+| FANCD2 | 2 |
+
+**Why they're flagged**: SpliceAI `-M 1` (masked) is designed to **zero out
+scores at canonical splice sites** — the whole point of masking is to find
+disruption *outside* the canonical positions. So variants at the canonical
+sites themselves automatically pass the `SpliceAI <= 0.1` filter regardless
+of their true effect, and the W2 rule fires Benign. These calls are filter
+artifacts, not evidence of safety.
+
+(Historical note: pre-VV-resolver this list had **255** entries. Most were
+on dbNSFP's alternative-transcript HGVS where positions falsely looked like
+splice sites — coding positions on the canonical transcript. Once VV
+anchored HGVS to the BED's NM_, only 13 remained as truly canonical splice
+on the *correct* transcript.)
+
+Options: filter from SeqNext upload, or re-run classifier with an
+`--exclude-canonical-splice` flag (not yet implemented).
+
+### `_review_intergenic.tsv` — 70 rows
+
+Rows where VariantValidator returned `vv_status=flagged:intergenic` —
+i.e. the variant is non-coding on the BED's specified RefSeq NM_.
+
+| Gene | Count |
+|---|---|
+| FANCD2 (NM_033084.5) | 62 |
+| SMARCA4 | 8 |
+
+The classification probably still holds biologically (the SpliceAI / FAF /
+REVEL filters don't depend on transcript choice), but the c. notation in
+these rows is from a different transcript than the BED target and
+shouldn't be uploaded to SeqNext as-is. Drop or re-resolve against an
+alternative isoform.
+
+### Other one-off flags
+
+- **`TSC1 c.1334-2A>G`** in W1 (FAF >5%). Splice-acceptor position;
+  population frequency overrides mechanistic prediction at >5% but worth
+  confirming the FAF isn't artifact (e.g. mismapping at this position).
