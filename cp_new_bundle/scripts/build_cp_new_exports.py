@@ -31,6 +31,7 @@ from __future__ import annotations
 
 import argparse
 import gzip
+import re
 import sqlite3
 import sys
 from pathlib import Path
@@ -46,17 +47,38 @@ ALL_ANNOTATIONS = TSV_DIR / "cp_new_all_annotations.tsv.gz"
 VIZ_DB = TSV_DIR / "cp_new_viz.db"
 
 
-def build_seqnext_minimal(drop_flagged: bool) -> int:
-    """Write the 4-column SeqNext-ready TSV."""
+CANONICAL_SPLICE_RE = re.compile(r"c\.\d+[+\-][12][ACGT]>")
+
+
+def build_seqnext_minimal(drop_flagged: bool, strict: bool) -> int:
+    """Write the 4-column SeqNext-ready TSV.
+
+    --drop-flagged: exclude rows where vv_status != 'ok' (intergenic,
+        timeouts, 429s, etc.).
+    --strict: drop_flagged plus exclude any row whose hgvs_c sits at a
+        canonical splice acceptor/donor position (-1/-2/+1/+2). These
+        pass SpliceAI masked <=0.1 trivially (masked is near-zero at
+        canonical sites by design) so the rule fire is a filter artifact.
+    """
     if not SEQNEXT_COMBINED.exists():
         sys.exit(f"Missing input: {SEQNEXT_COMBINED}")
     df = pd.read_csv(SEQNEXT_COMBINED, sep="\t", dtype=str).fillna("")
     n_before = len(df)
-    if drop_flagged and "vv_status" in df.columns:
-        df = df[df["vv_status"] == "ok"].copy()
+    excluded = {"vv_flagged": 0, "canonical_splice": 0}
+    if (drop_flagged or strict) and "vv_status" in df.columns:
+        mask_flagged = df["vv_status"] != "ok"
+        excluded["vv_flagged"] = int(mask_flagged.sum())
+        df = df[~mask_flagged].copy()
+    if strict:
+        mask_splice = df["hgvs_c"].str.contains(CANONICAL_SPLICE_RE, na=False)
+        excluded["canonical_splice"] = int(mask_splice.sum())
+        df = df[~mask_splice].copy()
     cols = ["gene", "transcript", "hgvs_c", "classification"]
     df[cols].to_csv(SEQNEXT_MINIMAL, sep="\t", index=False)
     print(f"  SeqNext minimal:  {len(df):>6,} / {n_before:,} rows  -> {SEQNEXT_MINIMAL}")
+    if excluded["vv_flagged"] or excluded["canonical_splice"]:
+        print(f"    excluded vv_status != ok:    {excluded['vv_flagged']:>6,}")
+        print(f"    excluded canonical splice:    {excluded['canonical_splice']:>6,}")
     return len(df)
 
 
@@ -158,6 +180,9 @@ def main() -> int:
     p = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     p.add_argument("--drop-flagged", action="store_true",
                    help="Exclude vv_status != 'ok' rows from the SeqNext-minimal export")
+    p.add_argument("--strict", action="store_true",
+                   help="Like --drop-flagged plus exclude canonical-splice (-1/-2/+1/+2) "
+                        "positions. Produces the cleanest 'upload-ready' SeqNext file.")
     p.add_argument("--only", choices=["seqnext", "annotations", "viz"],
                    help="Build just one of the three artifacts")
     args = p.parse_args()
@@ -166,7 +191,7 @@ def main() -> int:
 
     if args.only in (None, "seqnext"):
         print("1. SeqNext minimal TSV (4 columns)")
-        build_seqnext_minimal(args.drop_flagged)
+        build_seqnext_minimal(args.drop_flagged, args.strict)
         print()
 
     if args.only in (None, "annotations"):

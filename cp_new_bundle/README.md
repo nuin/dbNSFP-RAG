@@ -16,8 +16,26 @@ changes, documentation, and produced artifacts. Built 2026-05-13.
 
 ## Outputs at a glance
 
-**Main upload**: `outputs/cp_new_seqnext_minimal.tsv` — 4-column SeqNext-ready
-TSV. 4,567 rows. Columns: `gene, transcript, hgvs_c, classification`.
+**Two SeqNext upload files** — pick one based on how much QA you want done
+before upload vs in SeqNext itself:
+
+- `outputs/cp_new_seqnext_strict.tsv` — **11,822 rows. Recommended for
+  direct SeqNext upload.** Excludes the 1,030 intergenic-flagged rows
+  (variants non-coding on the BED's NM_) and the 1,605 canonical-splice
+  rows (SpliceAI masked passes them trivially — those should always go
+  through clinical review, not auto-classification).
+- `outputs/cp_new_seqnext_minimal.tsv` — **14,457 rows.** Everything the
+  classifier produced, no QA filter. Includes the intergenic + canonical-
+  splice flag piles. Use for full transparency / audit, then filter
+  before upload.
+
+Both are 4-column: `gene, transcript, hgvs_c, classification`.
+
+Reproduce with:
+```
+uv run python scripts/build_cp_new_exports.py --only seqnext           # minimal (14,457)
+uv run python scripts/build_cp_new_exports.py --only seqnext --strict  # strict (11,822)
+```
 
 **For audit / review**:
 - `outputs/cp_new_seqnext_combined.tsv` — same 4,567 rows plus QA columns
