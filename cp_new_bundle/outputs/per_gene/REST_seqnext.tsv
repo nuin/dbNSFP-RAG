@@ -5,9 +5,19 @@ REST	NM_005612.5	c.303T>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0, Phylo
 REST	NM_005612.5	c.696A>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0, PhyloP<0.1	4	57777500	A	C	ok
 REST	NM_005612.5	c.696A>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0, PhyloP<0.1	4	57777500	A	G	ok
 REST	NM_005612.5	c.696A>T	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0, PhyloP<0.1	4	57777500	A	T	ok
+REST	NM_005612.5	c.1876G>A	Benign FAF >5%	4	57796900	G	A	ok
+REST	NM_005612.5	c.2076G>T	Benign FAF >5%	4	57797100	G	T	ok
+REST	NM_005612.5	c.2284A>C	Benign FAF >5%	4	57797308	A	C	ok
+REST	NM_005612.5	c.2390C>T	Benign FAF >5%	4	57797414	C	T	ok
 REST	NM_005612.5	c.2934A>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0, PhyloP<0.1	4	57797958	A	C	ok
 REST	NM_005612.5	c.2934A>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0, PhyloP<0.1	4	57797958	A	G	ok
 REST	NM_005612.5	c.2934A>T	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0, PhyloP<0.1	4	57797958	A	T	ok
 REST	NM_005612.5	c.2935G>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0, PhyloP<0.1	4	57797959	G	A	ok
 REST	NM_005612.5	c.2935G>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0, PhyloP<0.1	4	57797959	G	C	ok
 REST	NM_005612.5	c.2935G>T	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0, PhyloP<0.1	4	57797959	G	T	ok
+REST	NM_005612.5	c.899-2A>C (VV_FLAGGED:intergenic)	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	4	57832820	A	C	flagged:intergenic
+REST	NM_005612.5	c.899-2A>G (VV_FLAGGED:intergenic)	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	4	57832820	A	G	flagged:intergenic
+REST	NM_005612.5	c.899-2A>T (VV_FLAGGED:intergenic)	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	4	57832820	A	T	flagged:intergenic
+REST	NM_005612.5	c.899-1G>A (VV_FLAGGED:intergenic)	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	4	57832821	G	A	flagged:intergenic
+REST	NM_005612.5	c.899-1G>C (VV_FLAGGED:intergenic)	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	4	57832821	G	C	flagged:intergenic
+REST	NM_005612.5	c.899-1G>T (VV_FLAGGED:intergenic)	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	4	57832821	G	T	flagged:intergenic

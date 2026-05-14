@@ -1,4 +1,17 @@
 gene	transcript	hgvs_c	classification	chr_grch37	pos_grch37	ref	alt	vv_status
+RPS20	NM_001023.3	c.325T>C (VV_FLAGGED:intergenic)	Benign FAF >5%	8	56982383	A	G	flagged:intergenic
+RPS20	NM_001023.3	c.316-1G>T (VV_FLAGGED:intergenic)	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	8	56982393	C	A	flagged:intergenic
+RPS20	NM_001023.3	c.316-1G>C (VV_FLAGGED:intergenic)	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	8	56982393	C	G	flagged:intergenic
+RPS20	NM_001023.3	c.316-1G>A (VV_FLAGGED:intergenic)	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	8	56982393	C	T	flagged:intergenic
+RPS20	NM_001023.3	c.316-2A>T (VV_FLAGGED:intergenic)	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	8	56982394	T	A	flagged:intergenic
+RPS20	NM_001023.3	c.316-2A>G (VV_FLAGGED:intergenic)	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	8	56982394	T	C	flagged:intergenic
+RPS20	NM_001023.3	c.316-2A>C (VV_FLAGGED:intergenic)	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	8	56982394	T	G	flagged:intergenic
 RPS20	NM_001023.3	c.207T>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	8	56985802	A	C	ok
 RPS20	NM_001023.3	c.207T>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	8	56985802	A	T	ok
 RPS20	NM_001023.3	c.195A>G	Benign FAF >5%	8	56985814	T	C	ok
+RPS20	NM_001023.3	c.4-93T>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	8	56986811	A	C	ok
+RPS20	NM_001023.3	c.4-93T>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	8	56986811	A	G	ok
+RPS20	NM_001023.3	c.4-93T>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	8	56986811	A	T	ok
+RPS20	NM_001023.3	c.4-94G>T	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	8	56986812	C	A	ok
+RPS20	NM_001023.3	c.4-94G>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	8	56986812	C	G	ok
+RPS20	NM_001023.3	c.4-94G>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	8	56986812	C	T	ok

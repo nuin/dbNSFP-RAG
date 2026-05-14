@@ -9,10 +9,11 @@ per-gene TSVs ready for SeqNext import.
 
 - **Panel**: `cp_new` — 165 genes (98 overlap with `NGSgenes`, 67 are new).
   Defined in `src/panels.py`.
-- **BED**: `/Users/nuin/Projects/ahs/BED/CP_new/C+_ALL_IDPE_OCT2025.bed`
-  (166 unique genes, 2380 regions). The BED commits one RefSeq transcript per
-  region. 164 of 166 genes use a single transcript; **APC** and **RAD51D**
-  carry two each (alternative first exon / alternative E3 respectively).
+- **BED**: `/Users/nuin/Projects/ahs/new_bed/CP_new/C+_ALL_IDPE_APR2026.bed`
+  (165 unique genes, 2379 regions). The BED commits one RefSeq transcript per
+  region; APC and RAD51D carry two each (alternative first exon /
+  alternative E3 respectively). The previous OCT2025 BED had a stray "CHR2"
+  entry which the APR2026 version removes.
 
 ## Deliverables
 

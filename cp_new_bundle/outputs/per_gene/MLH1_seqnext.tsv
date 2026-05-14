@@ -1,9 +1,26 @@
 gene	transcript	hgvs_c	classification	chr_grch37	pos_grch37	ref	alt	vv_status
+MLH1	NM_000249.3	c.303T>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	3	37042541	T	A	ok
+MLH1	NM_000249.3	c.303T>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	3	37042541	T	C	ok
+MLH1	NM_000249.3	c.303T>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	3	37042541	T	G	ok
+MLH1	NM_000249.3	c.655A>G	Benign FAF >5%	3	37053568	A	G	ok
+MLH1	NM_000249.3	c.1668-21T>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	3	37083738	T	A	ok
+MLH1	NM_000249.3	c.1668-21T>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	3	37083738	T	G	ok
+MLH1	NM_000249.3	c.1668-19A>G	Benign FAF >5%	3	37083740	A	G	ok
+MLH1	NM_000249.3	c.1668-18C>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	3	37083741	C	A	ok
+MLH1	NM_000249.3	c.1668-18C>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	3	37083741	C	G	ok
+MLH1	NM_000249.3	c.1668-15C>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	3	37083744	C	A	ok
+MLH1	NM_000249.3	c.1668-15C>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	3	37083744	C	G	ok
+MLH1	NM_000249.3	c.1668-9T>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	3	37083750	T	A	ok
+MLH1	NM_000249.3	c.1668-9T>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	3	37083750	T	G	ok
+MLH1	NM_000249.3	c.1668-3C>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	3	37083756	C	A	ok
+MLH1	NM_000249.3	c.1668-3C>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	3	37083756	C	G	ok
+MLH1	NM_000249.3	c.1896+2T>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	3	37089176	T	A	ok
+MLH1	NM_000249.3	c.1896+2T>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	3	37089176	T	C	ok
+MLH1	NM_000249.3	c.1896+2T>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	3	37089176	T	G	ok
 MLH1	NM_000249.3	c.1896+5G>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	3	37089179	G	C	ok
 MLH1	NM_000249.3	c.1896+5G>T	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	3	37089179	G	T	ok
 MLH1	NM_000249.3	c.2105G>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	3	37091978	G	C	ok
 MLH1	NM_000249.3	c.2105G>T	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	3	37091978	G	T	ok
-MLH1	NM_000249.3	c.2107G>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	3	37091980	G	C	ok
 MLH1	NM_000249.3	c.2110G>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	3	37091983	G	C	ok
 MLH1	NM_000249.3	c.2110G>T	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	3	37091983	G	T	ok
 MLH1	NM_000249.3	c.2113C>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	3	37091986	C	A	ok
@@ -12,19 +29,12 @@ MLH1	NM_000249.3	c.2114C>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	3	370
 MLH1	NM_000249.3	c.2114C>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	3	37091987	C	G	ok
 MLH1	NM_000249.3	c.2125C>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	3	37091998	C	A	ok
 MLH1	NM_000249.3	c.2125C>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	3	37091998	C	G	ok
-MLH1	NM_000249.3	c.2128A>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	3	37092001	A	C	ok
-MLH1	NM_000249.3	c.2128A>T	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	3	37092001	A	T	ok
-MLH1	NM_000249.3	c.2156T>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	3	37092029	T	A	ok
-MLH1	NM_000249.3	c.2156T>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	3	37092029	T	G	ok
+MLH1	NM_000249.3	c.2152C>T	Benign FAF >5%	3	37092025	C	T	ok
 MLH1	NM_000249.3	c.2158G>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	3	37092031	G	C	ok
 MLH1	NM_000249.3	c.2158G>T	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	3	37092031	G	T	ok
 MLH1	NM_000249.3	c.2173C>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	3	37092046	C	A	ok
 MLH1	NM_000249.3	c.2173C>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	3	37092046	C	G	ok
-MLH1	NM_000249.3	c.2179C>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	3	37092052	C	A	ok
-MLH1	NM_000249.3	c.2179C>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	3	37092052	C	G	ok
 MLH1	NM_000249.3	c.2185C>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	3	37092058	C	A	ok
 MLH1	NM_000249.3	c.2185C>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	3	37092058	C	G	ok
-MLH1	NM_000249.3	c.2197C>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	3	37092070	C	A	ok
-MLH1	NM_000249.3	c.2197C>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	3	37092070	C	G	ok
 MLH1	NM_000249.3	c.2215A>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	3	37092088	A	C	ok
 MLH1	NM_000249.3	c.2215A>T	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	3	37092088	A	T	ok

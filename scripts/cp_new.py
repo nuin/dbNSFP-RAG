@@ -229,11 +229,16 @@ def read_dbnsfp_chr_for_genes(
             },
         )
         for chunk in reader:
-            up = chunk["genename"].fillna("").str.upper()
-            mask = up.isin(genes_upper)
+            # dbNSFP `genename` is sometimes a ';'-delimited multi-transcript
+            # string (e.g. "POLE;POLE;POLE"). Match if ANY part is in the panel.
+            up_raw = chunk["genename"].fillna("").str.upper()
+            up_first = up_raw.str.split(";").str[0].str.strip()
+            up_any = up_raw.apply(lambda g: next((p.strip() for p in g.split(";")
+                                                 if p.strip() in genes_upper), None))
+            mask = up_any.notna()
             if mask.any():
                 hit = chunk[mask].copy()
-                hit["_gene_upper"] = up[mask].values
+                hit["_gene_upper"] = up_any[mask].values
                 keep.append(hit)
     if not keep:
         return pd.DataFrame(columns=usecols + ["_gene_upper"])

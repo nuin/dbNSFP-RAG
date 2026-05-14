@@ -40,14 +40,14 @@ TSV. 4,567 rows. Columns: `gene, transcript, hgvs_c, classification`.
   SeqNext). 38 MB.
 
 **Per-gene splits**:
-- `outputs/per_gene_raw/{GENE}.tsv` — **raw dbNSFP + gnomAD + SpliceAI
-  annotations per gene, one file per gene (165 files, all panel genes).**
-  Every variant for that gene with all 59+ columns. Use for QA / debugging
-  / re-classification.
-- `outputs/per_gene/{GENE}_seqnext.tsv` — post-classification, 4-column
-  SeqNext-ready format, one file per gene **(100 files only — genes that
-  had at least one W1/W2/W3 hit).** The other 65 genes had no Benign/LB
-  calls, so they only appear in `per_gene_raw/`, not here.
+- `outputs/per_gene/{GENE}_seqnext.tsv` — post-classification, SeqNext rows
+  per gene (162 files — every cp_new gene that produced at least one
+  Benign/LB call). Same column layout as the combined file.
+
+(Per-gene raw dbNSFP+gnomAD+SpliceAI TSVs are not redistributed in the
+bundle — `outputs/cp_new_all_annotations.tsv.gz` contains the same
+1,057,357-row data with all 67 columns. Filter that gzip by `genename`
+to reconstruct per-gene raw files if needed.)
 
 ## Scripts (run order)
 
@@ -67,18 +67,23 @@ SpliceAI itself is run separately (not a script in this bundle); see the
 ## Counts summary
 
 ```
-100,034   raw dbNSFP rows across 165 cp_new genes
- 99,436   unique variants
- 53,984   in BED (assay-covered)
- 53,574   with SpliceAI masked DS_MAX
-  4,567   classified Benign / Likely_benign by the 3 rules
-            20  W1   FAF >5%
-         4,460  W2   synonymous + low splice + low conservation
-            87  W3   rare + low REVEL + low splice
-  4,497   c. resolved cleanly on BED transcript via VariantValidator
-     70   flagged intergenic (drop / re-resolve)
-     13   at canonical splice positions (clinical review)
+1,057,357   raw dbNSFP rows across 165 cp_new genes
+1,045,306   unique variants emitted to cp_new.vcf
+   14,457   classified Benign / Likely_benign by the 3 rules
+              328  W1   FAF >5%
+           14,010  W2   synonymous + low splice + low conservation
+              119  W3   rare + low REVEL + low splice
+   13,426   c. resolved cleanly on BED transcript via VariantValidator
+    1,029   flagged intergenic (drop / re-resolve)
+    1,797   at canonical splice positions (clinical review)
 ```
+
+(Earlier round-1 output had 4,567 classifications. The 3× jump came from
+two pipeline fixes between rounds: (a) cp_new.py now correctly matches
+';'-delimited multi-transcript genename values, recovering POLE/AXIN2/etc.
+which were previously 100% lost; (b) classify_cp_new.py no longer drops
+variants outside the BED region, using the gene's primary BED transcript
+as a fallback for HGVS reporting.)
 
 ## Workflows (full detail in `docs/cp_new_pipeline.md`)
 
