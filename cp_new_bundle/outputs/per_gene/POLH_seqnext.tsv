@@ -1,2 +1,2 @@
-gene	transcript	hgvs_c	classification	chr_grch37	pos_grch37	ref	alt	vv_status
-POLH	NM_006502.3	c.1939A>T	Benign FAF >5%	6	43582091	A	T	ok
+gene	transcript	hgvs_c	classification	chr_grch37	pos_grch37	ref	alt	PhastCons100way	PhyloP100way	REVEL	SpliceAI_masked	FAF95_grpmax	CADD_phred	AlphaMissense_pred	ClinVar_sig	vv_status
+POLH	NM_006502.3	c.1939A>T	Benign FAF >5%	6	43582091	A	T	0.997	2.897	.;.;.;0.141		0.312213	18.51	.;.;.;B	Benign	ok

@@ -1,53 +1,32 @@
-gene	transcript	hgvs_c	classification	chr_grch37	pos_grch37	ref	alt	vv_status
-BRCA2	NM_000059.3	c.476-2A>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	13	32900377	A	C	ok
-BRCA2	NM_000059.3	c.476-2A>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	13	32900377	A	G	ok
-BRCA2	NM_000059.3	c.476-2A>T	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	13	32900377	A	T	ok
-BRCA2	NM_000059.3	c.476-1G>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	13	32900378	G	A	ok
-BRCA2	NM_000059.3	c.476-1G>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	13	32900378	G	C	ok
-BRCA2	NM_000059.3	c.476-1G>T	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	13	32900378	G	T	ok
-BRCA2	NM_000059.3	c.632-2A>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	13	32903578	A	C	ok
-BRCA2	NM_000059.3	c.632-2A>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	13	32903578	A	G	ok
-BRCA2	NM_000059.3	c.632-2A>T	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	13	32903578	A	T	ok
-BRCA2	NM_000059.3	c.632-1G>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	13	32903579	G	A	ok
-BRCA2	NM_000059.3	c.632-1G>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	13	32903579	G	C	ok
-BRCA2	NM_000059.3	c.632-1G>T	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	13	32903579	G	T	ok
-BRCA2	NM_000059.3	c.793+1G>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	13	32905168	G	A	ok
-BRCA2	NM_000059.3	c.793+1G>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	13	32905168	G	C	ok
-BRCA2	NM_000059.3	c.793+1G>T	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	13	32905168	G	T	ok
-BRCA2	NM_000059.3	c.865A>C	Benign FAF >5%	13	32906480	A	C	ok
-BRCA2	NM_000059.3	c.1114A>C	Benign FAF >5%	13	32906729	A	C	ok
-BRCA2	NM_000059.3	c.2971A>G	Benign FAF >5%	13	32911463	A	G	ok
-BRCA2	NM_000059.3	c.7397=	Benign FAF >5%	13	32929387	T	C	ok
-BRCA2	NM_000059.3	c.7469T>C	Benign FAF >5%	13	32930598	T	C	ok
-BRCA2	NM_000059.3	c.8954-2A>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	13	32953885	A	C	ok
-BRCA2	NM_000059.3	c.8954-2A>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	13	32953885	A	G	ok
-BRCA2	NM_000059.3	c.8954-2A>T	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	13	32953885	A	T	ok
-BRCA2	NM_000059.3	c.9003A>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0, PhyloP<0.1	13	32953936	A	C	ok
-BRCA2	NM_000059.3	c.9003A>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0, PhyloP<0.1	13	32953936	A	G	ok
-BRCA2	NM_000059.3	c.9003A>T	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0, PhyloP<0.1	13	32953936	A	T	ok
-BRCA2	NM_000059.3	c.9649-2A>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	13	32972297	A	C	ok
-BRCA2	NM_000059.3	c.9649-2A>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	13	32972297	A	G	ok
-BRCA2	NM_000059.3	c.9649-2A>T	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	13	32972297	A	T	ok
-BRCA2	NM_000059.3	c.9710G>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0, PhyloP<0.1	13	32972360	G	A	ok
-BRCA2	NM_000059.3	c.9710G>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0, PhyloP<0.1	13	32972360	G	C	ok
-BRCA2	NM_000059.3	c.9710G>T	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0, PhyloP<0.1	13	32972360	G	T	ok
-BRCA2	NM_000059.3	c.9713A>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	13	32972363	A	C	ok
-BRCA2	NM_000059.3	c.9713A>T	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	13	32972363	A	T	ok
-BRCA2	NM_000059.3	c.9719T>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	13	32972369	T	A	ok
-BRCA2	NM_000059.3	c.9719T>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	13	32972369	T	G	ok
-BRCA2	NM_000059.3	c.9722C>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	13	32972372	C	A	ok
-BRCA2	NM_000059.3	c.9722C>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	13	32972372	C	G	ok
-BRCA2	NM_000059.3	c.9725C>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	13	32972375	C	A	ok
-BRCA2	NM_000059.3	c.9725C>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	13	32972375	C	G	ok
-BRCA2	NM_000059.3	c.9731T>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	13	32972381	T	A	ok
-BRCA2	NM_000059.3	c.9731T>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	13	32972381	T	G	ok
-BRCA2	NM_000059.3	c.9743T>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	13	32972393	T	A	ok
-BRCA2	NM_000059.3	c.9743T>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	13	32972393	T	G	ok
-BRCA2	NM_000059.3	c.9746C>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	13	32972396	C	A	ok
-BRCA2	NM_000059.3	c.9746C>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	13	32972396	C	G	ok
-BRCA2	NM_000059.3	c.9749C>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	13	32972399	C	A	ok
-BRCA2	NM_000059.3	c.9749C>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	13	32972399	C	G	ok
-BRCA2	NM_000059.3	c.9752A>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	13	32972402	A	C	ok
-BRCA2	NM_000059.3	c.9756T>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	13	32972406	T	A	ok
-BRCA2	NM_000059.3	c.9756T>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	13	32972406	T	G	ok
-BRCA2	NM_000059.3	c.10234A>G	Benign FAF >5%	13	32972884	A	G	ok
+gene	transcript	hgvs_c	classification	chr_grch37	pos_grch37	ref	alt	PhastCons100way	PhyloP100way	REVEL	SpliceAI_masked	FAF95_grpmax	CADD_phred	AlphaMissense_pred	ClinVar_sig	vv_status
+BRCA2	NM_000059.3	c.865A>C	Benign FAF >5%	13	32906480	A	C	0.239	0.498	0.086;.;0.086;.;0.086;.;.		0.114142	16.16	B;.;LB;.;LB;.;.	Benign	ok
+BRCA2	NM_000059.3	c.1114A>C	Benign FAF >5%	13	32906729	A	C	0.0	0.32	0.041;.;0.041;.;0.041;.;.		0.346579	14.68	B;.;LB;.;LB;.;.	Benign	ok
+BRCA2	NM_000059.3	c.2971A>G	Benign FAF >5%	13	32911463	A	G	0.0	-0.04	0.040;.;.;.;0.040;.;.		0.114095	0.239	B;.;.;.;LB;.;.	Benign	ok
+BRCA2	NM_000059.3	c.7397=	Benign FAF >5%	13	32929387	T	C	0.028	2.491	0.091;.;.;.;0.091;.;.		0.998295	8.683	B;.;.;.;LB;.;.	Benign	ok
+BRCA2	NM_000059.3	c.7469T>C	Benign FAF >5%	13	32930598	T	C	0.001	0.406	0.291;.;.;.;0.291;.;.		0.113394	0.502	B;.;.;.;LB;.;.	Benign	ok
+BRCA2	NM_000059.3	c.9003A>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	13	32953936	A	C	0.828	0.015				9.272			ok
+BRCA2	NM_000059.3	c.9003A>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	13	32953936	A	G	0.828	0.015				10.49			ok
+BRCA2	NM_000059.3	c.9003A>T	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	13	32953936	A	T	0.828	0.015				9.74			ok
+BRCA2	NM_000059.3	c.9710G>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	13	32972360	G	A	0.106	-0.084				0.723		Conflicting_classifications_of_pathogenicity	ok
+BRCA2	NM_000059.3	c.9710G>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	13	32972360	G	C	0.106	-0.084				5.676			ok
+BRCA2	NM_000059.3	c.9710G>T	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	13	32972360	G	T	0.106	-0.084				12.92		Uncertain_significance	ok
+BRCA2	NM_000059.3	c.9713A>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	13	32972363	A	C	0.987	2.076				16.49		Uncertain_significance	ok
+BRCA2	NM_000059.3	c.9713A>T	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	13	32972363	A	T	0.987	2.076				21.1			ok
+BRCA2	NM_000059.3	c.9719T>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	13	32972369	T	A	0.061	0.129				16.42			ok
+BRCA2	NM_000059.3	c.9719T>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	13	32972369	T	G	0.061	0.129				8.947		Uncertain_significance	ok
+BRCA2	NM_000059.3	c.9722C>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	13	32972372	C	A	0.0	0.777				19.07			ok
+BRCA2	NM_000059.3	c.9722C>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	13	32972372	C	G	0.0	0.777			6.80000e-07	12.72		Uncertain_significance	ok
+BRCA2	NM_000059.3	c.9725C>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	13	32972375	C	A	0.0	-0.207				13.61			ok
+BRCA2	NM_000059.3	c.9725C>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	13	32972375	C	G	0.0	-0.207				13.79			ok
+BRCA2	NM_000059.3	c.9731T>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	13	32972381	T	A	0.0	-0.156				4.006			ok
+BRCA2	NM_000059.3	c.9731T>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	13	32972381	T	G	0.0	-0.156				0.83			ok
+BRCA2	NM_000059.3	c.9743T>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	13	32972393	T	A	0.543	1.336				10.66			ok
+BRCA2	NM_000059.3	c.9743T>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	13	32972393	T	G	0.543	1.336				15.7		Uncertain_significance	ok
+BRCA2	NM_000059.3	c.9746C>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	13	32972396	C	A	0.235	0.837				20.3			ok
+BRCA2	NM_000059.3	c.9746C>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	13	32972396	C	G	0.235	0.837				17.85			ok
+BRCA2	NM_000059.3	c.9749C>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	13	32972399	C	A	0.002	1.305				36.0		Pathogenic	ok
+BRCA2	NM_000059.3	c.9749C>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	13	32972399	C	G	0.002	1.305				36.0			ok
+BRCA2	NM_000059.3	c.9752A>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	13	32972402	A	C	0.001	1.353				20.6			ok
+BRCA2	NM_000059.3	c.9756T>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	13	32972406	T	A	0.0	0.083				4.857			ok
+BRCA2	NM_000059.3	c.9756T>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	13	32972406	T	G	0.0	0.083				5.966			ok
+BRCA2	NM_000059.3	c.10234A>G	Benign FAF >5%	13	32972884	A	G	0.0	0.556	0.028;.;.;0.028;.;.		0.108134	0.466	B;.;.;LB;.;.	Benign	ok

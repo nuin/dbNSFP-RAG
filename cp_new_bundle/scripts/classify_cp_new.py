@@ -29,6 +29,8 @@ script counts those variants as 'pending' and does NOT emit a classification.
 from __future__ import annotations
 
 import argparse
+import json
+import re
 import sys
 from collections import defaultdict
 from pathlib import Path
@@ -41,6 +43,14 @@ sys.path.insert(0, str(Path(__file__).parent.parent))
 DEFAULT_BED = Path("/Users/nuin/Projects/ahs/new_bed/CP_new/C+_ALL_IDPE_APR2026.bed")
 DEFAULT_TSV_DIR = Path("data/exports/cp_new")
 DEFAULT_OUT_DIR = DEFAULT_TSV_DIR / "seqnext"
+DEFAULT_VV_CACHE = DEFAULT_TSV_DIR / ".vv_cache.json"
+
+# ROI for intronic variants relative to nearest exon boundary
+INTRONIC_ROI_NEG = -15   # acceptor side
+INTRONIC_ROI_POS = 6     # donor side
+
+# Parses ".c.1207-1G>A" -> -1, ".c.500A>G" -> 0, ".c.123+12C>T" -> 12
+INTRONIC_OFFSET_RE = re.compile(r"c\.(?:\*?-?)?\d+([+\-])(\d+)")
 
 
 # ---------------------------------------------------------------------------
@@ -139,26 +149,55 @@ def is_synonymous(row) -> bool:
     return False
 
 
-def is_intronic(row) -> bool:
-    """Heuristic: no protein change recorded and HGVSc has '+' or '-' offset."""
-    hgvsc = str(row.get("HGVSc_snpEff", ""))
-    hgvsp = str(row.get("HGVSp_snpEff", ""))
-    if hgvsp and hgvsp not in (".", "", "nan"):
-        return False
-    return ("+" in hgvsc) or ("-" in hgvsc and "c." in hgvsc)
+def parse_intronic_offset(hgvsc: str) -> int | None:
+    """Return the +/- offset from HGVSc, or None if it's a coding (non-intronic) c.
+
+    'c.1207-1G>A'  -> -1
+    'c.500+6A>T'   -> 6
+    'c.500A>G'     -> None  (coding, no offset)
+    'c.500-100G>T' -> -100  (deep intronic)
+    """
+    if not hgvsc:
+        return None
+    m = INTRONIC_OFFSET_RE.search(hgvsc)
+    if not m:
+        return None
+    sign, mag = m.group(1), int(m.group(2))
+    return -mag if sign == "-" else mag
 
 
-def classify(row) -> tuple[str, str] | None:
+def is_intronic(row, hgvsc_resolved: str | None = None) -> bool:
+    """Intronic if HGVSc has a +/- offset, regardless of HGVSp.
+
+    Prefers the VV-resolved hgvs_c when available (anchored to BED's NM_)
+    over dbNSFP's snpEff value (which may be on a different transcript).
+    """
+    src = hgvsc_resolved or str(row.get("HGVSc_snpEff", ""))
+    return parse_intronic_offset(src) is not None
+
+
+def in_splice_roi(offset: int) -> bool:
+    """True if the intronic offset is within the lab's reportable region
+    (-15 to +6 around the exon boundary)."""
+    return INTRONIC_ROI_NEG <= offset < 0 or 0 < offset <= INTRONIC_ROI_POS
+
+
+def classify(row, hgvsc_resolved: str | None = None) -> tuple[str, str] | None:
     """Return (classification, rule) or None if no workflow matches.
 
+    Args:
+        row: variant row from per-gene TSV.
+        hgvsc_resolved: VariantValidator-resolved HGVSc on the BED's NM_,
+            if known. Used for accurate intronic detection. If None, falls
+            back to dbNSFP's snpEff HGVSc (may be on a different transcript).
+
     SpliceAI handling: a missing spliceai_ds_max_masked is treated as 0
-    (no detected splice signal). This is necessary because SpliceAI v1.3
-    silently skips variants outside its GENCODE V24 canonical gene model
-    -- notably the BED's alternative-transcript regions (e.g. APC E01 on
-    NM_001127511.3, RAD51D alt-E3 on NM_001142571.2). Skipping those
-    variants would lose ~30+ legitimate Benign-synonymous calls per
-    alt-tx region. Variants where SpliceAI actually returned a non-zero
-    score keep their measured value.
+    (no detected splice signal). SpliceAI v1.3 silently skips variants
+    outside its GENCODE V24 canonical gene model.
+
+    Intronic ROI: variants whose intronic offset falls outside [-15, +6]
+    are not eligible for W2 -- deep intronic positions need separate
+    splice/regulatory evaluation, not benign-synonymous auto-call.
     """
     faf = safe_float(row.get("gnomad_v41_faf95_grpmax"))
     revel = safe_float(row.get("REVEL_score"))
@@ -171,13 +210,20 @@ def classify(row) -> tuple[str, str] | None:
     if faf is not None and faf > 0.05:
         return "Benign", "FAF >5%"
 
-    # Workflow 2 -- synonymous benign
+    # Workflow 2 -- synonymous / silent benign
     if is_synonymous(row):
         if spliceai <= 0.1 and phastcons is not None and phastcons < 1.0:
-            if is_intronic(row):
-                if phylop is not None and phylop < 0.1:
-                    return "Benign", "synonymous, SpliceAI<=0.1, PhastCons<1.0, PhyloP<0.1"
+            # Use resolved c. for intronic detection if available
+            offset = parse_intronic_offset(hgvsc_resolved or row.get("HGVSc_snpEff", ""))
+            if offset is not None:
+                # Intronic: enforce ROI + PhyloP gate (BOTH PhastCons AND PhyloP required)
+                if not in_splice_roi(offset):
+                    return None  # deep intronic -- not eligible for W2 auto-classify
+                if phylop is None or phylop >= 0.1:
+                    return None  # intronic but PhyloP fails or unknown
+                return "Benign", f"synonymous, SpliceAI<=0.1, PhastCons<1.0, PhyloP<0.1, intronic_ROI({offset:+d})"
             else:
+                # Coding-synonymous (no offset)
                 return "Benign", "synonymous, SpliceAI<=0.1, PhastCons<1.0"
 
     # Workflow 3 -- rare LB
@@ -205,6 +251,10 @@ def main() -> int:
     p.add_argument("--tsv-dir", type=Path, default=DEFAULT_TSV_DIR)
     p.add_argument("--bed", type=Path, default=DEFAULT_BED)
     p.add_argument("--out-dir", type=Path, default=DEFAULT_OUT_DIR)
+    p.add_argument("--vv-cache", type=Path, default=DEFAULT_VV_CACHE,
+                   help="VariantValidator cache for accurate intronic detection. "
+                        "Built incrementally by resolve_hgvs_vv.py; on the first "
+                        "pipeline run it's empty so classify uses dbNSFP's c.")
     args = p.parse_args()
 
     if not args.bed.exists():
@@ -221,7 +271,24 @@ def main() -> int:
     bed_idx, gene_default_tx = load_bed(args.bed)
     n_bed_regions = sum(len(v) for v in bed_idx.values())
     print(f"BED: {n_bed_regions} regions over {len(bed_idx)} (chr, gene) pairs, "
-          f"{len(gene_default_tx)} gene defaults\n")
+          f"{len(gene_default_tx)} gene defaults")
+
+    # Load VV cache for accurate intronic detection + status carry-over
+    vv_cache: dict[str, str] = {}        # key -> resolved c. (only "ok" entries)
+    vv_status_cache: dict[str, str] = {} # key -> raw status string (ok/flagged:*)
+    if args.vv_cache.exists():
+        with open(args.vv_cache) as f:
+            raw = json.load(f)
+        for k, v in raw.items():
+            if not (isinstance(v, list) and len(v) == 2):
+                continue
+            c_part, status = v
+            vv_status_cache[k] = status
+            if status == "ok" and c_part:
+                vv_cache[k] = "c." + c_part.split("c.", 1)[-1]
+        print(f"VV cache: {len(vv_status_cache):,} entries ({len(vv_cache):,} ok)\n")
+    else:
+        print("VV cache: not found -- using dbNSFP HGVSc for intronic detection\n")
 
     tsvs = sorted(args.tsv_dir.glob("*.tsv"))
     # Skip subdirs/seqnext output if rerunning
@@ -277,7 +344,11 @@ def main() -> int:
                 continue
             seen.add(key)
 
-            result = classify(row)
+            # Look up VV-resolved c. (anchored to BED's NM_) for intronic detection
+            vv_key = f"{hg19_chr}-{hg19_pos}-{ref}-{alt}|{transcript}"
+            hgvsc_resolved = vv_cache.get(vv_key)
+
+            result = classify(row, hgvsc_resolved=hgvsc_resolved)
             if result is None:
                 pending = workflow_pending(row)
                 if pending == "W2_synonymous_pending_spliceai":
@@ -295,9 +366,12 @@ def main() -> int:
             elif rule.startswith("FAF >0.1%"):
                 counters["w3_likely_benign"] += 1
 
-            hgvsc = str(row.get("HGVSc_snpEff") or "")
-            # dbNSFP HGVSc_snpEff may carry multiple ';'-delimited values; first is fine
-            hgvsc = hgvsc.split(";")[0] if hgvsc else ""
+            # Prefer VV-resolved c. when available, else first ';'-split value
+            if hgvsc_resolved:
+                hgvsc = hgvsc_resolved
+            else:
+                raw = str(row.get("HGVSc_snpEff") or "")
+                hgvsc = raw.split(";")[0] if raw else ""
 
             out_row = {
                 "gene": gene,
@@ -308,6 +382,16 @@ def main() -> int:
                 "pos_grch37": hg19_pos,
                 "ref": ref,
                 "alt": alt,
+                # Scores used by the rules -- analyst-facing for review
+                "PhastCons100way": row.get("phastCons100way_vertebrate") or "",
+                "PhyloP100way": row.get("phyloP100way_vertebrate") or "",
+                "REVEL": row.get("REVEL_score") or "",
+                "SpliceAI_masked": row.get("spliceai_ds_max_masked") or "",
+                "FAF95_grpmax": row.get("gnomad_v41_faf95_grpmax") or "",
+                "CADD_phred": row.get("CADD_phred") or "",
+                "AlphaMissense_pred": row.get("AlphaMissense_pred") or "",
+                "ClinVar_sig": row.get("clinvar_clnsig") or "",
+                "vv_status": vv_status_cache.get(vv_key, "not_resolved"),
             }
             gene_rows.append(out_row)
             combined_rows.append(out_row)

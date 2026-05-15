@@ -1,7 +1,7 @@
-gene	transcript	hgvs_c	classification	chr_grch37	pos_grch37	ref	alt	vv_status
-TMEM127	NM_001193304.3	c.268G>T	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	2	96920712	C	A	ok
-TMEM127	NM_001193304.3	c.268G>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	2	96920712	C	G	ok
-TMEM127	NM_001193304.3	c.268G>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	2	96920712	C	T	ok
-TMEM127	NM_001193304.3	c.267A>T	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	2	96920713	T	A	ok
-TMEM127	NM_001193304.3	c.267A>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	2	96920713	T	C	ok
-TMEM127	NM_001193304.3	c.267A>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	2	96920713	T	G	ok
+gene	transcript	hgvs_c	classification	chr_grch37	pos_grch37	ref	alt	PhastCons100way	PhyloP100way	REVEL	SpliceAI_masked	FAF95_grpmax	CADD_phred	AlphaMissense_pred	ClinVar_sig	vv_status
+TMEM127	NM_001193304.3	c.268G>T	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	2	96920712	C	A	0.998	3.611	.;.			19.93	.;.		ok
+TMEM127	NM_001193304.3	c.268G>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	2	96920712	C	G	0.998	3.611	.;.			19.89	.;.		ok
+TMEM127	NM_001193304.3	c.268G>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	2	96920712	C	T	0.998	3.611	.;.		0.00759321	23.2	.;.	Benign/Likely_benign	ok
+TMEM127	NM_001193304.3	c.267A>T	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	2	96920713	T	A	0.0	-1.982	.;.			0.803	.;.		ok
+TMEM127	NM_001193304.3	c.267A>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	2	96920713	T	C	0.0	-1.982	.;.		1.56700e-05	1.032	.;.	Likely_benign	ok
+TMEM127	NM_001193304.3	c.267A>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	2	96920713	T	G	0.0	-1.982	.;.			0.847	.;.		ok

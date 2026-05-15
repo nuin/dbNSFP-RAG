@@ -1,26 +1,8 @@
-gene	transcript	hgvs_c	classification	chr_grch37	pos_grch37	ref	alt	vv_status
-MEN1	NM_130803.2	c.1636=	Benign FAF >5%	11	64572018	T	C	ok
-MEN1	NM_130803.2	c.1065-116T>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	11	64573358	A	C	ok
-MEN1	NM_130803.2	c.1065-116T>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	11	64573358	A	G	ok
-MEN1	NM_130803.2	c.1065-116T>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	11	64573358	A	T	ok
-MEN1	NM_130803.2	c.1065-117G>T	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	11	64573359	C	A	ok
-MEN1	NM_130803.2	c.1065-117G>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	11	64573359	C	G	ok
-MEN1	NM_130803.2	c.1065-117G>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	11	64573359	C	T	ok
-MEN1	NM_130803.2	c.1064+222A>T	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0, PhyloP<0.1	11	64573482	T	A	ok
-MEN1	NM_130803.2	c.1064+222A>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0, PhyloP<0.1	11	64573482	T	C	ok
-MEN1	NM_130803.2	c.1064+222A>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0, PhyloP<0.1	11	64573482	T	G	ok
-MEN1	NM_130803.2	c.1064+218G>T	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	11	64573486	C	A	ok
-MEN1	NM_130803.2	c.1064+218G>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	11	64573486	C	G	ok
-MEN1	NM_130803.2	c.1064+218G>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	11	64573486	C	T	ok
-MEN1	NM_130803.2	c.1064+217A>T	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	11	64573487	T	A	ok
-MEN1	NM_130803.2	c.1064+217A>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	11	64573487	T	C	ok
-MEN1	NM_130803.2	c.1064+217A>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	11	64573487	T	G	ok
-MEN1	NM_130803.2	c.928-2A>T	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	11	64573842	T	A	ok
-MEN1	NM_130803.2	c.928-2A>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	11	64573842	T	C	ok
-MEN1	NM_130803.2	c.928-2A>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	11	64573842	T	G	ok
-MEN1	NM_130803.2	c.801G>T	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	11	64574689	C	A	ok
-MEN1	NM_130803.2	c.801G>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	11	64574689	C	G	ok
-MEN1	NM_130803.2	c.801G>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	11	64574689	C	T	ok
-MEN1	NM_130803.2	c.460+1G>T	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	11	64577121	C	A	ok
-MEN1	NM_130803.2	c.460+1G>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	11	64577121	C	G	ok
-MEN1	NM_130803.2	c.460+1G>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	11	64577121	C	T	ok
+gene	transcript	hgvs_c	classification	chr_grch37	pos_grch37	ref	alt	PhastCons100way	PhyloP100way	REVEL	SpliceAI_masked	FAF95_grpmax	CADD_phred	AlphaMissense_pred	ClinVar_sig	vv_status
+MEN1	NM_130803.2	c.1636=	Benign FAF >5%	11	64572018	T	C	0.007	0.139	0.302;.;.;0.302;.;.;.;.;.;.;.;.;.;.;0.302;.;0.302;0.302;.;.;.;.;.;.;.;0.302;.;0.302;.;.;.;.;.;.;.;.;.		0.995477	1.602	LB;.;.;.;.;.;.;.;.;.;.;.;.;.;.;.;.;LB;.;.;.;.;.;.;.;.;.;.;.;.;.;.;.;.;.;LB;LB	Benign	ok
+MEN1	NM_130803.2	c.928-2A>T	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0, PhyloP<0.1, intronic_ROI(-2)	11	64573842	T	A	0.998	0.077	.;.;.;.;.;.;.;.;.;.;.;.;.;.;.;.;.;.;.;.;.;.;.;.;.;.;.;.;.;.;.;.;.;.;.			29.9	.;.;.;.;.;.;.;.;.;.;.;.;.;.;.;.;.;.;.;.;.;.;.;.;.;.;.;.;.;.;.;.;.;.;.		ok
+MEN1	NM_130803.2	c.928-2A>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0, PhyloP<0.1, intronic_ROI(-2)	11	64573842	T	C	0.998	0.077	.;.;.;.;.;.;.;.;.;.;.;.;.;.;.;.;.;.;.;.;.;.;.;.;.;.;.;.;.;.;.;.;.;.;.			27.6	.;.;.;.;.;.;.;.;.;.;.;.;.;.;.;.;.;.;.;.;.;.;.;.;.;.;.;.;.;.;.;.;.;.;.	Pathogenic/Likely_pathogenic	ok
+MEN1	NM_130803.2	c.928-2A>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0, PhyloP<0.1, intronic_ROI(-2)	11	64573842	T	G	0.998	0.077	.;.;.;.;.;.;.;.;.;.;.;.;.;.;.;.;.;.;.;.;.;.;.;.;.;.;.;.;.;.;.;.;.;.;.			29.5	.;.;.;.;.;.;.;.;.;.;.;.;.;.;.;.;.;.;.;.;.;.;.;.;.;.;.;.;.;.;.;.;.;.;.	Likely_pathogenic	ok
+MEN1	NM_130803.2	c.801G>T	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	11	64574689	C	A	0.752	0.141	.;.;.;.			15.71	.;.;.;.		ok
+MEN1	NM_130803.2	c.801G>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	11	64574689	C	G	0.752	0.141	.;.;.;.			15.77	.;.;.;.		ok
+MEN1	NM_130803.2	c.801G>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	11	64574689	C	T	0.752	0.141	.;.;.;.			9.26	.;.;.;.	Benign/Likely_benign	ok

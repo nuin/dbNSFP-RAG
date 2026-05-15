@@ -1,23 +1,14 @@
-gene	transcript	hgvs_c	classification	chr_grch37	pos_grch37	ref	alt	vv_status
-RAD51D	NM_002878.3	c.736G>T	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0, PhyloP<0.1	17	33430275	C	A	ok
-RAD51D	NM_002878.3	c.736G>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0, PhyloP<0.1	17	33430275	C	G	ok
-RAD51D	NM_002878.3	c.736G>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0, PhyloP<0.1	17	33430275	C	T	ok
-RAD51D	NM_002878.3	c.577-2A>T	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	17	33430565	T	A	ok
-RAD51D	NM_002878.3	c.577-2A>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	17	33430565	T	C	ok
-RAD51D	NM_002878.3	c.577-2A>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	17	33430565	T	G	ok
-RAD51D	NM_002878.3	c.494G>A	Benign FAF >5%	17	33433487	C	T	ok
-RAD51D	NM_002878.3	c.480+2T>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	17	33434005	A	C	ok
-RAD51D	NM_002878.3	c.480+2T>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	17	33434005	A	G	ok
-RAD51D	NM_002878.3	c.480+2T>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	17	33434005	A	T	ok
-RAD51D	NM_001142571.2	c.323+2T>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	17	33443876	A	C	ok
-RAD51D	NM_001142571.2	c.323+2T>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	17	33443876	A	G	ok
-RAD51D	NM_001142571.2	c.323+2T>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	17	33443876	A	T	ok
-RAD51D	NM_001142571.2	c.323+1G>T	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	17	33443877	C	A	ok
-RAD51D	NM_001142571.2	c.323+1G>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	17	33443877	C	G	ok
-RAD51D	NM_001142571.2	c.323+1G>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	17	33443877	C	T	ok
-RAD51D	NM_001142571.2	c.145-1G>T	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	17	33444057	C	A	ok
-RAD51D	NM_001142571.2	c.145-1G>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	17	33444057	C	G	ok
-RAD51D	NM_001142571.2	c.145-1G>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	17	33444057	C	T	ok
-RAD51D	NM_001142571.2	c.145-2A>T	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	17	33444058	T	A	ok
-RAD51D	NM_001142571.2	c.145-2A>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	17	33444058	T	C	ok
-RAD51D	NM_001142571.2	c.145-2A>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	17	33444058	T	G	ok
+gene	transcript	hgvs_c	classification	chr_grch37	pos_grch37	ref	alt	PhastCons100way	PhyloP100way	REVEL	SpliceAI_masked	FAF95_grpmax	CADD_phred	AlphaMissense_pred	ClinVar_sig	vv_status
+RAD51D	NM_002878.3	c.736G>T	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	17	33430275	C	A	0.169	-0.651				4.574			ok
+RAD51D	NM_002878.3	c.736G>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	17	33430275	C	G	0.169	-0.651				2.565			ok
+RAD51D	NM_002878.3	c.736G>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	17	33430275	C	T	0.169	-0.651				12.01		Uncertain_significance	ok
+RAD51D	NM_002878.3	c.494G>A	Benign FAF >5%	17	33433487	C	T	1.0	1.179	.;.;0.127;.;.;0.127;.;.;.;0.127;.;.;.;.		0.264170	13.9	LB;LB;LB;LB;.;B;.;.;.;LB;.;.;.;LB	Benign	ok
+RAD51D	NM_001142571.2	c.323+2T>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0, PhyloP<0.1, intronic_ROI(+2)	17	33443876	A	C	0.0	-0.194	.;.			12.56	.;.		ok
+RAD51D	NM_001142571.2	c.323+2T>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0, PhyloP<0.1, intronic_ROI(+2)	17	33443876	A	G	0.0	-0.194	.;.			8.433	.;.	Uncertain_significance	ok
+RAD51D	NM_001142571.2	c.323+2T>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0, PhyloP<0.1, intronic_ROI(+2)	17	33443876	A	T	0.0	-0.194	.;.			12.61	.;.		ok
+RAD51D	NM_001142571.2	c.323+1G>T	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0, PhyloP<0.1, intronic_ROI(+1)	17	33443877	C	A	0.0	-0.731	.;.			13.67	.;.		ok
+RAD51D	NM_001142571.2	c.323+1G>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0, PhyloP<0.1, intronic_ROI(+1)	17	33443877	C	G	0.0	-0.731	.;.			12.08	.;.		ok
+RAD51D	NM_001142571.2	c.323+1G>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0, PhyloP<0.1, intronic_ROI(+1)	17	33443877	C	T	0.0	-0.731	.;.			11.97	.;.		ok
+RAD51D	NM_001142571.2	c.145-2A>T	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0, PhyloP<0.1, intronic_ROI(-2)	17	33444058	T	A	0.0	-0.533	.;.			10.71	.;.		ok
+RAD51D	NM_001142571.2	c.145-2A>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0, PhyloP<0.1, intronic_ROI(-2)	17	33444058	T	C	0.0	-0.533	.;.			10.79	.;.		ok
+RAD51D	NM_001142571.2	c.145-2A>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0, PhyloP<0.1, intronic_ROI(-2)	17	33444058	T	G	0.0	-0.533	.;.			10.19	.;.		ok

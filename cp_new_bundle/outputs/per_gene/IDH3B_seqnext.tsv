@@ -1,32 +1,10 @@
-gene	transcript	hgvs_c	classification	chr_grch37	pos_grch37	ref	alt	vv_status
-IDH3B	NM_006899.5	c.*309G>T	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	20	2639088	C	A	ok
-IDH3B	NM_006899.5	c.*309G>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	20	2639088	C	G	ok
-IDH3B	NM_006899.5	c.*303C>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	20	2639094	G	C	ok
-IDH3B	NM_006899.5	c.*303C>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	20	2639094	G	T	ok
-IDH3B	NM_006899.5	c.*279G>T	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	20	2639118	C	A	ok
-IDH3B	NM_006899.5	c.*279G>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	20	2639118	C	G	ok
-IDH3B	NM_006899.5	c.*267T>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	20	2639130	A	C	ok
-IDH3B	NM_006899.5	c.*267T>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	20	2639130	A	T	ok
-IDH3B	NM_006899.5	c.*235A>G	Benign FAF >5%	20	2639162	T	C	ok
-IDH3B	NM_006899.5	c.1071+271G>T	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	20	2639900	C	A	ok
-IDH3B	NM_006899.5	c.1071+271G>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	20	2639900	C	G	ok
-IDH3B	NM_006899.5	c.1071+257T>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	20	2639914	A	C	ok
-IDH3B	NM_006899.5	c.1071+257T>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	20	2639914	A	T	ok
-IDH3B	NM_006899.5	c.1071+249C>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	20	2639922	G	C	ok
-IDH3B	NM_006899.5	c.1071+249C>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	20	2639922	G	T	ok
-IDH3B	NM_006899.5	c.1071+245T>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	20	2639926	A	C	ok
-IDH3B	NM_006899.5	c.1071+245T>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	20	2639926	A	T	ok
-IDH3B	NM_006899.5	c.1071+237C>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	20	2639934	G	C	ok
-IDH3B	NM_006899.5	c.1071+237C>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	20	2639934	G	T	ok
-IDH3B	NM_006899.5	c.1071+211A>T	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0, PhyloP<0.1	20	2639960	T	A	ok
-IDH3B	NM_006899.5	c.1071+211A>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0, PhyloP<0.1	20	2639960	T	C	ok
-IDH3B	NM_006899.5	c.1071+211A>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0, PhyloP<0.1	20	2639960	T	G	ok
-IDH3B	NM_006899.5	c.217-2A>T	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	20	2644214	T	A	ok
-IDH3B	NM_006899.5	c.217-2A>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	20	2644214	T	C	ok
-IDH3B	NM_006899.5	c.217-2A>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	20	2644214	T	G	ok
-IDH3B	NM_006899.5	c.118-2A>T	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	20	2644406	T	A	ok
-IDH3B	NM_006899.5	c.118-2A>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	20	2644406	T	C	ok
-IDH3B	NM_006899.5	c.118-2A>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	20	2644406	T	G	ok
-IDH3B	NM_006899.5	c.117+2T>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	20	2644569	A	C	ok
-IDH3B	NM_006899.5	c.117+2T>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	20	2644569	A	G	ok
-IDH3B	NM_006899.5	c.117+2T>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	20	2644569	A	T	ok
+gene	transcript	hgvs_c	classification	chr_grch37	pos_grch37	ref	alt	PhastCons100way	PhyloP100way	REVEL	SpliceAI_masked	FAF95_grpmax	CADD_phred	AlphaMissense_pred	ClinVar_sig	vv_status
+IDH3B	NM_006899.5	c.*309G>T	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	20	2639088	C	A	0.01	0.11				7.129			ok
+IDH3B	NM_006899.5	c.*309G>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	20	2639088	C	G	0.01	0.11				7.31			ok
+IDH3B	NM_006899.5	c.*303C>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	20	2639094	G	C	0.0	-0.083	0.019			11.4	LB		ok
+IDH3B	NM_006899.5	c.*303C>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	20	2639094	G	T	0.0	-0.083	0.023			11.23	LB		ok
+IDH3B	NM_006899.5	c.*279G>T	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	20	2639118	C	A	0.999	0.671	0.090		6.80000e-07	16.39	LB		ok
+IDH3B	NM_006899.5	c.*279G>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	20	2639118	C	G	0.999	0.671	0.106			16.47	LB		ok
+IDH3B	NM_006899.5	c.*267T>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	20	2639130	A	C	0.027	-0.855	0.054		2.80000e-07	7.513	LB		ok
+IDH3B	NM_006899.5	c.*267T>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	20	2639130	A	T	0.027	-0.855	0.066			8.695	LB		ok
+IDH3B	NM_006899.5	c.*235A>G	Benign FAF >5%	20	2639162	T	C	1.0	6.832			0.187565	19.56	LB	Benign/Likely_benign	ok

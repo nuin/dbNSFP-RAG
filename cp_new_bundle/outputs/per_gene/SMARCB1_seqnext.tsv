@@ -1,28 +1,7 @@
-gene	transcript	hgvs_c	classification	chr_grch37	pos_grch37	ref	alt	vv_status
-SMARCB1	NM_003073.5	c.93+4G>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	22	24129453	G	A	ok
-SMARCB1	NM_003073.5	c.93+4G>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	22	24129453	G	C	ok
-SMARCB1	NM_003073.5	c.93+4G>T	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	22	24129453	G	T	ok
-SMARCB1	NM_003073.5	c.93+5C>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	22	24129454	C	A	ok
-SMARCB1	NM_003073.5	c.93+5C>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	22	24129454	C	G	ok
-SMARCB1	NM_003073.5	c.93+5C>T	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	22	24129454	C	T	ok
-SMARCB1	NM_003073.5	c.362+2288A>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	22	24138163	A	C	ok
-SMARCB1	NM_003073.5	c.362+2288A>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	22	24138163	A	G	ok
-SMARCB1	NM_003073.5	c.362+2288A>T	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	22	24138163	A	T	ok
-SMARCB1	NM_003073.5	c.362+2289G>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	22	24138164	G	A	ok
-SMARCB1	NM_003073.5	c.362+2289G>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	22	24138164	G	C	ok
-SMARCB1	NM_003073.5	c.362+2289G>T	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	22	24138164	G	T	ok
-SMARCB1	NM_003073.5	c.362+2341G>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	22	24138216	G	A	ok
-SMARCB1	NM_003073.5	c.362+2341G>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	22	24138216	G	C	ok
-SMARCB1	NM_003073.5	c.362+2341G>T	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	22	24138216	G	T	ok
-SMARCB1	NM_003073.5	c.362+2342T>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	22	24138217	T	A	ok
-SMARCB1	NM_003073.5	c.362+2342T>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	22	24138217	T	C	ok
-SMARCB1	NM_003073.5	c.362+2342T>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	22	24138217	T	G	ok
-SMARCB1	NM_003073.5	c.500+55G>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	22	24143323	G	A	ok
-SMARCB1	NM_003073.5	c.500+55G>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	22	24143323	G	C	ok
-SMARCB1	NM_003073.5	c.500+55G>T	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	22	24143323	G	T	ok
-SMARCB1	NM_003073.5	c.500+56C>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	22	24143324	C	A	ok
-SMARCB1	NM_003073.5	c.500+56C>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	22	24143324	C	G	ok
-SMARCB1	NM_003073.5	c.500+56C>T	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	22	24143324	C	T	ok
-SMARCB1	NM_003073.5	c.657A>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	22	24158985	A	C	ok
-SMARCB1	NM_003073.5	c.657A>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	22	24158985	A	G	ok
-SMARCB1	NM_003073.5	c.657A>T	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	22	24158985	A	T	ok
+gene	transcript	hgvs_c	classification	chr_grch37	pos_grch37	ref	alt	PhastCons100way	PhyloP100way	REVEL	SpliceAI_masked	FAF95_grpmax	CADD_phred	AlphaMissense_pred	ClinVar_sig	vv_status
+SMARCB1	NM_003073.5	c.93+5C>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0, PhyloP<0.1, intronic_ROI(+5)	22	24129454	C	A	0.979	-0.07	.;.;.		2.90000e-07	18.85	.;.;.	Uncertain_significance	ok
+SMARCB1	NM_003073.5	c.93+5C>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0, PhyloP<0.1, intronic_ROI(+5)	22	24129454	C	G	0.979	-0.07	.;.;.			18.74	.;.;.	Uncertain_significance	ok
+SMARCB1	NM_003073.5	c.93+5C>T	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0, PhyloP<0.1, intronic_ROI(+5)	22	24129454	C	T	0.979	-0.07	.;.;.			18.95	.;.;.		ok
+SMARCB1	NM_003073.5	c.657A>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	22	24158985	A	C	0.001	-1.778	.;.			8.245	.;.		ok
+SMARCB1	NM_003073.5	c.657A>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	22	24158985	A	G	0.001	-1.778	.;.			8.643	.;.		ok
+SMARCB1	NM_003073.5	c.657A>T	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	22	24158985	A	T	0.001	-1.778	.;.			8.135	.;.		ok

@@ -1,15 +1,15 @@
-gene	transcript	hgvs_c	classification	chr_grch37	pos_grch37	ref	alt	vv_status
-CASR	NM_001178065.2	c.1333A>G	Benign FAF >5%	3	121981215	A	G	ok
-CASR	NM_001178065.2	c.1609-2A>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0, PhyloP<0.1	3	122000928	A	C	ok
-CASR	NM_001178065.2	c.1609-2A>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0, PhyloP<0.1	3	122000928	A	G	ok
-CASR	NM_001178065.2	c.1609-2A>T	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0, PhyloP<0.1	3	122000928	A	T	ok
-CASR	NM_001178065.2	c.1609-1G>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0, PhyloP<0.1	3	122000929	G	A	ok
-CASR	NM_001178065.2	c.1609-1G>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0, PhyloP<0.1	3	122000929	G	C	ok
-CASR	NM_001178065.2	c.1609-1G>T	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0, PhyloP<0.1	3	122000929	G	T	ok
-CASR	NM_001178065.2	c.1620T>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	3	122000941	T	A	ok
-CASR	NM_001178065.2	c.1620T>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	3	122000941	T	G	ok
-CASR	NM_001178065.2	c.1624C>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	3	122000945	C	A	ok
-CASR	NM_001178065.2	c.1624C>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	3	122000945	C	G	ok
-CASR	NM_001178065.2	c.2986G>T	Benign FAF >5%	3	122003757	G	T	ok
-CASR	NM_001178065.2	c.2998A>G	Benign FAF >5%	3	122003769	A	G	ok
-CASR	NM_001178065.2	c.3061G>C	Benign FAF >5%	3	122003832	G	C	ok
+gene	transcript	hgvs_c	classification	chr_grch37	pos_grch37	ref	alt	PhastCons100way	PhyloP100way	REVEL	SpliceAI_masked	FAF95_grpmax	CADD_phred	AlphaMissense_pred	ClinVar_sig	vv_status
+CASR	NM_001178065.2	c.1333A>G	Benign FAF >5%	3	121981215	A	G	1.0	3.787	.;.;.;0.226;.;0.226		0.199180	15.02	LB;.;B;LB;.;LB	Benign/Likely_benign	ok
+CASR	NM_001178065.2	c.1609-2A>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0, PhyloP<0.1, intronic_ROI(-2)	3	122000928	A	C	0.0	-0.279				12.18			ok
+CASR	NM_001178065.2	c.1609-2A>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0, PhyloP<0.1, intronic_ROI(-2)	3	122000928	A	G	0.0	-0.279				12.66			ok
+CASR	NM_001178065.2	c.1609-2A>T	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0, PhyloP<0.1, intronic_ROI(-2)	3	122000928	A	T	0.0	-0.279				12.96			ok
+CASR	NM_001178065.2	c.1609-1G>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0, PhyloP<0.1, intronic_ROI(-1)	3	122000929	G	A	0.001	0.043			0.000205740	13.92			ok
+CASR	NM_001178065.2	c.1609-1G>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0, PhyloP<0.1, intronic_ROI(-1)	3	122000929	G	C	0.001	0.043			7.50500e-05	13.09			ok
+CASR	NM_001178065.2	c.1609-1G>T	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0, PhyloP<0.1, intronic_ROI(-1)	3	122000929	G	T	0.001	0.043				13.88			ok
+CASR	NM_001178065.2	c.1620T>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	3	122000941	T	A	0.0	-0.196	0.201			3.115	A		ok
+CASR	NM_001178065.2	c.1620T>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	3	122000941	T	G	0.0	-0.196	0.201			1.247	A		ok
+CASR	NM_001178065.2	c.1624C>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	3	122000945	C	A	0.001	-0.505	0.104			4.091	LB		ok
+CASR	NM_001178065.2	c.1624C>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	3	122000945	C	G	0.001	-0.505	0.117			3.887	LB		ok
+CASR	NM_001178065.2	c.2986G>T	Benign FAF >5%	3	122003757	G	T	1.0	3.227	.;.;.;0.287;.;0.287		0.257866	12.63	LB;.;B;LB;.;LB	Benign	ok
+CASR	NM_001178065.2	c.2998A>G	Benign FAF >5%	3	122003769	A	G	0.999	2.667	.;.;.;0.437;.;0.437		0.532892	19.13	LB;.;B;LB;.;LB	Benign	ok
+CASR	NM_001178065.2	c.3061G>C	Benign FAF >5%	3	122003832	G	C	1.0	1.199	.;.;.;0.240;.;0.240		0.976626	14.01	LB;.;B;LB;.;LB	Benign	ok

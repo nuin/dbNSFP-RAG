@@ -1,16 +1,8 @@
-gene	transcript	hgvs_c	classification	chr_grch37	pos_grch37	ref	alt	vv_status
-TSC1	NM_000368.5	c.1760A>G	Benign FAF >5%	9	135781205	T	C	ok
-TSC1	NM_000368.5	c.1335A>G	Benign FAF >5%	9	135782221	T	C	ok
-TSC1	NM_000368.5	c.1056T>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	9	135786474	A	C	ok
-TSC1	NM_000368.5	c.1056T>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	9	135786474	A	T	ok
-TSC1	NM_000368.5	c.1038T>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	9	135786492	A	C	ok
-TSC1	NM_000368.5	c.1038T>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	9	135786492	A	T	ok
-TSC1	NM_000368.5	c.1029+45T>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0, PhyloP<0.1	9	135786795	A	C	ok
-TSC1	NM_000368.5	c.1029+45T>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0, PhyloP<0.1	9	135786795	A	G	ok
-TSC1	NM_000368.5	c.1029+45T>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0, PhyloP<0.1	9	135786795	A	T	ok
-TSC1	NM_000368.5	c.1029+44G>T	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0, PhyloP<0.1	9	135786796	C	A	ok
-TSC1	NM_000368.5	c.1029+44G>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0, PhyloP<0.1	9	135786796	C	G	ok
-TSC1	NM_000368.5	c.1029+44G>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0, PhyloP<0.1	9	135786796	C	T	ok
-TSC1	NM_000368.5	c.965T>C	Benign FAF >5%	9	135786904	A	G	ok
-TSC1	NM_000368.5	c.913+8G>T	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	9	135787661	C	A	ok
-TSC1	NM_000368.5	c.913+8G>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	9	135787661	C	G	ok
+gene	transcript	hgvs_c	classification	chr_grch37	pos_grch37	ref	alt	PhastCons100way	PhyloP100way	REVEL	SpliceAI_masked	FAF95_grpmax	CADD_phred	AlphaMissense_pred	ClinVar_sig	vv_status
+TSC1	NM_000368.5	c.1760A>G	Benign FAF >5%	9	135781205	T	C	1.0	4.503	.;0.249;.;.;.;.;.;.;.;.;.;.;.;.;.;.;.;.;.;.		0.151872	18.79	.;.;.;.;.;.;.;.;LB;.;LB;.;B;.;.;.;LB;.;LB;LB	Benign	ok
+TSC1	NM_000368.5	c.1335A>G	Benign FAF >5%	9	135782221	T	C	1.0	0.929			0.211906	13.21		Benign	ok
+TSC1	NM_000368.5	c.1056T>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	9	135786474	A	C	0.51	0.263				6.243	LB		ok
+TSC1	NM_000368.5	c.1056T>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	9	135786474	A	T	0.51	0.263				12.59	LB		ok
+TSC1	NM_000368.5	c.1038T>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	9	135786492	A	C	0.232	-0.426				2.511	LB		ok
+TSC1	NM_000368.5	c.1038T>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	9	135786492	A	T	0.232	-0.426				2.241	LB		ok
+TSC1	NM_000368.5	c.965T>C	Benign FAF >5%	9	135786904	A	G	0.541	1.442	.;0.262;.;.;.;.;.;.;.;.;.;.;.;.;.;.;.;.;.;.;.;.;.;.;.;.;.;.;0.262		0.212000	16.02	.;.;.;LB;LB;.;LB;.;LB;.;LB;.;B;.;.;.;LB;.;LB;LB;.;.;.;.;LB;LB;LB;.;LB	Benign	ok

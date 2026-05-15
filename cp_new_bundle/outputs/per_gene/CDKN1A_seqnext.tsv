@@ -1,5 +1,5 @@
-gene	transcript	hgvs_c	classification	chr_grch37	pos_grch37	ref	alt	vv_status
-CDKN1A	NM_000389.5	c.93C>A	Benign FAF >5%	6	36651971	C	A	ok
-CDKN1A	NM_000389.5	c.183T>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0, PhyloP<0.1	6	36652061	T	A	ok
-CDKN1A	NM_000389.5	c.183T>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0, PhyloP<0.1	6	36652061	T	C	ok
-CDKN1A	NM_000389.5	c.183T>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0, PhyloP<0.1	6	36652061	T	G	ok
+gene	transcript	hgvs_c	classification	chr_grch37	pos_grch37	ref	alt	PhastCons100way	PhyloP100way	REVEL	SpliceAI_masked	FAF95_grpmax	CADD_phred	AlphaMissense_pred	ClinVar_sig	vv_status
+CDKN1A	NM_000389.5	c.93C>A	Benign FAF >5%	6	36651971	C	A	0.965	0.899	.;.;.;.;.;0.244;.;.;.;.;.;.;.;.;0.244;.;.;.;.;0.244;.;.;.;.;.;.;.;0.244;.;.;.;.;.;.;.;.		0.475759	2.378	.;.;.;.;.;.;.;.;.;.;.;.;.;.;LB;.;.;.;.;.;.;.;.;.;.;.;.;B;.;.;.;.;.;.;.;.	Benign	ok
+CDKN1A	NM_000389.5	c.183T>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	6	36652061	T	A	0.058	-0.627				11.35			ok
+CDKN1A	NM_000389.5	c.183T>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	6	36652061	T	C	0.058	-0.627				12.85			ok
+CDKN1A	NM_000389.5	c.183T>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	6	36652061	T	G	0.058	-0.627				11.49			ok

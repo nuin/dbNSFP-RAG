@@ -1,18 +1,3 @@
-gene	transcript	hgvs_c	classification	chr_grch37	pos_grch37	ref	alt	vv_status
-RFWD3	NM_018124.4	c.1690A>G	Benign FAF >5%	16	74664743	T	C	ok
-RFWD3	NM_018124.4	c.793-1G>T	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	16	74678634	C	A	ok
-RFWD3	NM_018124.4	c.793-1G>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	16	74678634	C	G	ok
-RFWD3	NM_018124.4	c.793-1G>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	16	74678634	C	T	ok
-RFWD3	NM_018124.4	c.793-2A>T	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	16	74678635	T	A	ok
-RFWD3	NM_018124.4	c.793-2A>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	16	74678635	T	C	ok
-RFWD3	NM_018124.4	c.793-2A>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	16	74678635	T	G	ok
-RFWD3	NM_018124.4	c.721+2T>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	16	74685816	A	C	ok
-RFWD3	NM_018124.4	c.721+2T>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	16	74685816	A	G	ok
-RFWD3	NM_018124.4	c.721+2T>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	16	74685816	A	T	ok
-RFWD3	NM_018124.4	c.519-1G>T	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	16	74686021	C	A	ok
-RFWD3	NM_018124.4	c.519-1G>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	16	74686021	C	G	ok
-RFWD3	NM_018124.4	c.519-1G>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	16	74686021	C	T	ok
-RFWD3	NM_018124.4	c.519-2A>T	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	16	74686022	T	A	ok
-RFWD3	NM_018124.4	c.519-2A>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	16	74686022	T	C	ok
-RFWD3	NM_018124.4	c.519-2A>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	16	74686022	T	G	ok
-RFWD3	NM_018124.4	c.269C>A	Benign FAF >5%	16	74695079	G	T	ok
+gene	transcript	hgvs_c	classification	chr_grch37	pos_grch37	ref	alt	PhastCons100way	PhyloP100way	REVEL	SpliceAI_masked	FAF95_grpmax	CADD_phred	AlphaMissense_pred	ClinVar_sig	vv_status
+RFWD3	NM_018124.4	c.1690A>G	Benign FAF >5%	16	74664743	T	C	0.895	1.571	.;.;.;.;0.037;.;.;.;.		0.504841	5.141	.;.;.;.;LB;.;.;.;B	Benign	ok
+RFWD3	NM_018124.4	c.269C>A	Benign FAF >5%	16	74695079	G	T	0.0	-2.403	.;.;.;.;.;0.012;.;.;.;.;.;.;.;.		0.838771	0.002	.;.;.;.;.;LB;.;.;.;.;B;LB;LB;LB	Benign	ok

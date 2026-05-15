@@ -1,16 +1,13 @@
-gene	transcript	hgvs_c	classification	chr_grch37	pos_grch37	ref	alt	vv_status
-ERCC5	NM_000123.3	c.760A>G	Benign FAF >5%	13	103513944	A	G	ok
-ERCC5	NM_000123.3	c.767A>G	Benign FAF >5%	13	103513951	A	G	ok
-ERCC5	NM_000123.3	c.1586G>C	Benign FAF >5%	13	103515085	G	C	ok
-ERCC5	NM_000123.3	c.2034A>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0, PhyloP<0.1	13	103518096	A	C	ok
-ERCC5	NM_000123.3	c.2034A>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0, PhyloP<0.1	13	103518096	A	G	ok
-ERCC5	NM_000123.3	c.2034A>T	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0, PhyloP<0.1	13	103518096	A	T	ok
-ERCC5	NM_000123.3	c.2880-2A>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	13	103525607	A	C	ok
-ERCC5	NM_000123.3	c.2880-2A>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	13	103525607	A	G	ok
-ERCC5	NM_000123.3	c.2880-2A>T	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	13	103525607	A	T	ok
-ERCC5	NM_000123.3	c.2880-1T>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	13	103525608	T	A	ok
-ERCC5	NM_000123.3	c.2880-1T>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	13	103525608	T	C	ok
-ERCC5	NM_000123.3	c.2880-1T>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	13	103525608	T	G	ok
-ERCC5	NM_000123.3	c.3157=	Benign FAF >5%	13	103527849	G	C	ok
-ERCC5	NM_000123.3	c.3238=	Benign FAF >5%	13	103527930	G	C	ok
-ERCC5	NM_000123.3	c.3310G>C	Benign FAF >5%	13	103528002	G	C	ok
+gene	transcript	hgvs_c	classification	chr_grch37	pos_grch37	ref	alt	PhastCons100way	PhyloP100way	REVEL	SpliceAI_masked	FAF95_grpmax	CADD_phred	AlphaMissense_pred	ClinVar_sig	vv_status
+ERCC5	NM_000123.3	c.760A>G	Benign FAF >5%	13	103513944	A	G	1.0	2.918	.;.;.;.;.;.;.		0.0614440	21.5	.;A;.;LP;.;A;.	Benign	ok
+ERCC5	NM_000123.3	c.767A>G	Benign FAF >5%	13	103513951	A	G	1.0	6.86	.;.;.;.;.;.;.		0.0769284	24.1	.;LB;.;LB;.;B;.	Benign/Likely_benign	ok
+ERCC5	NM_000123.3	c.1586G>C	Benign FAF >5%	13	103515085	G	C	0.0	0.247	.;.;.;.;.;.;.		0.0649270	0.161	.;LB;.;LB;.;B;.	Benign	ok
+ERCC5	NM_000123.3	c.2034A>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	13	103518096	A	C	0.262	0.07				2.938			ok
+ERCC5	NM_000123.3	c.2034A>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	13	103518096	A	G	0.262	0.07				3.338			ok
+ERCC5	NM_000123.3	c.2034A>T	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	13	103518096	A	T	0.262	0.07				2.553			ok
+ERCC5	NM_000123.3	c.2880-1T>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0, PhyloP<0.1, intronic_ROI(-1)	13	103525608	T	A	0.03	-0.013	.;.;.;.;.;.;.			14.77	.;.;.;.;.;.;.		ok
+ERCC5	NM_000123.3	c.2880-1T>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0, PhyloP<0.1, intronic_ROI(-1)	13	103525608	T	C	0.03	-0.013	.;.;.;.;.;.;.			14.38	.;.;.;.;.;.;.		ok
+ERCC5	NM_000123.3	c.2880-1T>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0, PhyloP<0.1, intronic_ROI(-1)	13	103525608	T	G	0.03	-0.013	.;.;.;.;.;.;.			14.17	.;.;.;.;.;.;.		ok
+ERCC5	NM_000123.3	c.3157=	Benign FAF >5%	13	103527849	G	C	0.95	3.466	.;.;.;.;.;.;.		0.998453	23.5	.;LB;.;LB;.;B;.	Benign	ok
+ERCC5	NM_000123.3	c.3238=	Benign FAF >5%	13	103527930	G	C	0.0	-0.26	.;.;.;.;.;.;.		0.998446	0.426	.;LB;.;LB;.;B;.	Benign	ok
+ERCC5	NM_000123.3	c.3310G>C	Benign FAF >5%	13	103528002	G	C	1.0	5.184	.;.;.;.;.;.;.		0.519411	22.4	.;LB;.;LB;.;B;.	Benign	ok

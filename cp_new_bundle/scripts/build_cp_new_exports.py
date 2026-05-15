@@ -73,7 +73,12 @@ def build_seqnext_minimal(drop_flagged: bool, strict: bool) -> int:
         mask_splice = df["hgvs_c"].str.contains(CANONICAL_SPLICE_RE, na=False)
         excluded["canonical_splice"] = int(mask_splice.sum())
         df = df[~mask_splice].copy()
-    cols = ["gene", "transcript", "hgvs_c", "classification"]
+    # Core SeqNext columns + review-friendly scores (the analyst opens this
+    # in Excel and wants to see WHY each call fired)
+    core = ["gene", "transcript", "hgvs_c", "classification"]
+    extras = ["PhastCons100way", "PhyloP100way", "REVEL", "SpliceAI_masked",
+              "FAF95_grpmax", "CADD_phred", "AlphaMissense_pred", "ClinVar_sig"]
+    cols = core + [c for c in extras if c in df.columns]
     df[cols].to_csv(SEQNEXT_MINIMAL, sep="\t", index=False)
     print(f"  SeqNext minimal:  {len(df):>6,} / {n_before:,} rows  -> {SEQNEXT_MINIMAL}")
     if excluded["vv_flagged"] or excluded["canonical_splice"]:

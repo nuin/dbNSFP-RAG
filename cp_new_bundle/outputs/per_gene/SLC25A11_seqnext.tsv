@@ -1,29 +1,7 @@
-gene	transcript	hgvs_c	classification	chr_grch37	pos_grch37	ref	alt	vv_status
-SLC25A11	NM_003562.5	c.249G>T	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	17	4842270	C	A	ok
-SLC25A11	NM_003562.5	c.249G>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	17	4842270	C	G	ok
-SLC25A11	NM_003562.5	c.249-11C>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	17	4842281	G	C	ok
-SLC25A11	NM_003562.5	c.249-11C>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	17	4842281	G	T	ok
-SLC25A11	NM_003562.5	c.249-20C>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	17	4842290	G	C	ok
-SLC25A11	NM_003562.5	c.249-20C>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	17	4842290	G	T	ok
-SLC25A11	NM_003562.5	c.249-24T>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	17	4842294	A	C	ok
-SLC25A11	NM_003562.5	c.249-24T>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	17	4842294	A	T	ok
-SLC25A11	NM_003562.5	c.249-36A>T	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	17	4842306	T	A	ok
-SLC25A11	NM_003562.5	c.249-36A>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	17	4842306	T	G	ok
-SLC25A11	NM_003562.5	c.249-38A>T	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	17	4842308	T	A	ok
-SLC25A11	NM_003562.5	c.249-38A>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	17	4842308	T	C	ok
-SLC25A11	NM_003562.5	c.249-42C>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	17	4842312	G	C	ok
-SLC25A11	NM_003562.5	c.249-42C>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	17	4842312	G	T	ok
-SLC25A11	NM_003562.5	c.248+29C>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	17	4842326	G	C	ok
-SLC25A11	NM_003562.5	c.248+29C>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	17	4842326	G	T	ok
-SLC25A11	NM_003562.5	c.248+28A>T	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	17	4842327	T	A	ok
-SLC25A11	NM_003562.5	c.248+28A>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	17	4842327	T	G	ok
-SLC25A11	NM_003562.5	c.248+26A>T	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	17	4842329	T	A	ok
-SLC25A11	NM_003562.5	c.248+26A>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	17	4842329	T	C	ok
-SLC25A11	NM_003562.5	c.248+22G>T	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	17	4842333	C	A	ok
-SLC25A11	NM_003562.5	c.248+22G>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	17	4842333	C	G	ok
-SLC25A11	NM_003562.5	c.248+16G>T	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	17	4842339	C	A	ok
-SLC25A11	NM_003562.5	c.248+16G>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	17	4842339	C	G	ok
-SLC25A11	NM_003562.5	c.248+14A>T	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	17	4842341	T	A	ok
-SLC25A11	NM_003562.5	c.248+14A>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	17	4842341	T	C	ok
-SLC25A11	NM_003562.5	c.248+4T>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	17	4842351	A	C	ok
-SLC25A11	NM_003562.5	c.248+4T>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	17	4842351	A	T	ok
+gene	transcript	hgvs_c	classification	chr_grch37	pos_grch37	ref	alt	PhastCons100way	PhyloP100way	REVEL	SpliceAI_masked	FAF95_grpmax	CADD_phred	AlphaMissense_pred	ClinVar_sig	vv_status
+SLC25A11	NM_003562.5	c.249G>T	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	17	4842270	C	A	0.993	0.322				16.09			ok
+SLC25A11	NM_003562.5	c.249G>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	17	4842270	C	G	0.993	0.322				15.13			ok
+SLC25A11	NM_003562.5	c.249-11C>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0, PhyloP<0.1, intronic_ROI(-11)	17	4842281	G	C	0.001	-0.644				6.123			ok
+SLC25A11	NM_003562.5	c.249-11C>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0, PhyloP<0.1, intronic_ROI(-11)	17	4842281	G	T	0.001	-0.644				5.885			ok
+SLC25A11	NM_003562.5	c.248+4T>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0, PhyloP<0.1, intronic_ROI(+4)	17	4842351	A	C	0.115	0.045				12.19			ok
+SLC25A11	NM_003562.5	c.248+4T>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0, PhyloP<0.1, intronic_ROI(+4)	17	4842351	A	T	0.115	0.045			1.24000e-06	12.06			ok

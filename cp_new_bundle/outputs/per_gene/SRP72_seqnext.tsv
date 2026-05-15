@@ -1,28 +1,3 @@
-gene	transcript	hgvs_c	classification	chr_grch37	pos_grch37	ref	alt	vv_status
-SRP72	NM_006947.4	c.19G>T	Benign FAF >5%	4	57333820	G	T	ok
-SRP72	NM_006947.4	c.610+8G>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	4	57340565	G	C	ok
-SRP72	NM_006947.4	c.610+8G>T	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	4	57340565	G	T	ok
-SRP72	NM_006947.4	c.610+11T>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	4	57340568	T	A	ok
-SRP72	NM_006947.4	c.610+11T>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	4	57340568	T	G	ok
-SRP72	NM_006947.4	c.610+17A>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	4	57340574	A	C	ok
-SRP72	NM_006947.4	c.610+17A>T	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	4	57340574	A	T	ok
-SRP72	NM_006947.4	c.610+26T>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	4	57340583	T	A	ok
-SRP72	NM_006947.4	c.610+26T>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	4	57340583	T	G	ok
-SRP72	NM_006947.4	c.610+29A>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	4	57340586	A	C	ok
-SRP72	NM_006947.4	c.610+29A>T	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	4	57340586	A	T	ok
-SRP72	NM_006947.4	c.610+32T>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	4	57340589	T	A	ok
-SRP72	NM_006947.4	c.610+32T>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	4	57340589	T	G	ok
-SRP72	NM_006947.4	c.610+35C>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	4	57340592	C	A	ok
-SRP72	NM_006947.4	c.610+35C>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	4	57340592	C	G	ok
-SRP72	NM_006947.4	c.610+41T>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	4	57340598	T	A	ok
-SRP72	NM_006947.4	c.610+41T>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	4	57340598	T	G	ok
-SRP72	NM_006947.4	c.610+48T>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	4	57340605	T	A	ok
-SRP72	NM_006947.4	c.610+48T>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	4	57340605	T	G	ok
-SRP72	NM_006947.4	c.610+50G>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	4	57340607	G	C	ok
-SRP72	NM_006947.4	c.610+50G>T	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	4	57340607	G	T	ok
-SRP72	NM_006947.4	c.610+53G>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	4	57340610	G	C	ok
-SRP72	NM_006947.4	c.610+53G>T	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	4	57340610	G	T	ok
-SRP72	NM_006947.4	c.686A>G	Benign FAF >5%	4	57344588	A	G	ok
-SRP72	NM_006947.4	c.1641-2A>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	4	57361521	A	C	ok
-SRP72	NM_006947.4	c.1641-2A>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	4	57361521	A	G	ok
-SRP72	NM_006947.4	c.1641-2A>T	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	4	57361521	A	T	ok
+gene	transcript	hgvs_c	classification	chr_grch37	pos_grch37	ref	alt	PhastCons100way	PhyloP100way	REVEL	SpliceAI_masked	FAF95_grpmax	CADD_phred	AlphaMissense_pred	ClinVar_sig	vv_status
+SRP72	NM_006947.4	c.19G>T	Benign FAF >5%	4	57333820	G	T	1.0	4.465	.;0.508;.;.;.		0.0508842	28.8	.;A;.;P;A	Benign	ok
+SRP72	NM_006947.4	c.686A>G	Benign FAF >5%	4	57344588	A	G	1.0	9.29	.;.		0.118198	19.86	.;B	Benign	ok

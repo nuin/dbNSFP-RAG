@@ -1,19 +1,8 @@
-gene	transcript	hgvs_c	classification	chr_grch37	pos_grch37	ref	alt	vv_status
-CEP57	NM_014679.5	c.46-3672G>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	11	95528724	G	A	ok
-CEP57	NM_014679.5	c.46-3672G>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	11	95528724	G	C	ok
-CEP57	NM_014679.5	c.46-3672G>T	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	11	95528724	G	T	ok
-CEP57	NM_014679.5	c.46-3671T>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	11	95528725	T	A	ok
-CEP57	NM_014679.5	c.46-3671T>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	11	95528725	T	C	ok
-CEP57	NM_014679.5	c.46-3671T>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	11	95528725	T	G	ok
-CEP57	NM_014679.5	c.164G>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	11	95532514	G	A	ok
-CEP57	NM_014679.5	c.164G>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	11	95532514	G	C	ok
-CEP57	NM_014679.5	c.164G>T	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	11	95532514	G	T	ok
-CEP57	NM_014679.5	c.165T>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	11	95532515	T	A	ok
-CEP57	NM_014679.5	c.165T>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	11	95532515	T	C	ok
-CEP57	NM_014679.5	c.165T>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	11	95532515	T	G	ok
-CEP57	NM_014679.5	c.807+5G>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	11	95555147	G	C	ok
-CEP57	NM_014679.5	c.807+5G>T	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	11	95555147	G	T	ok
-CEP57	NM_014679.5	c.1273-2A>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	11	95564188	A	C	ok
-CEP57	NM_014679.5	c.1273-2A>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	11	95564188	A	G	ok
-CEP57	NM_014679.5	c.1273-2A>T	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	11	95564188	A	T	ok
-CEP57	NM_014679.5	c.1342A>G	Benign FAF >5%	11	95564259	A	G	ok
+gene	transcript	hgvs_c	classification	chr_grch37	pos_grch37	ref	alt	PhastCons100way	PhyloP100way	REVEL	SpliceAI_masked	FAF95_grpmax	CADD_phred	AlphaMissense_pred	ClinVar_sig	vv_status
+CEP57	NM_014679.5	c.164G>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	11	95532514	G	A	0.019	0.281	.;.			12.29	.;.		ok
+CEP57	NM_014679.5	c.164G>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	11	95532514	G	C	0.019	0.281	.;.			12.72	.;.		ok
+CEP57	NM_014679.5	c.164G>T	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	11	95532514	G	T	0.019	0.281	.;.			16.09	.;.		ok
+CEP57	NM_014679.5	c.165T>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	11	95532515	T	A	0.108	0.114	.;.			15.36	.;.		ok
+CEP57	NM_014679.5	c.165T>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	11	95532515	T	C	0.108	0.114	.;.			10.97	.;.		ok
+CEP57	NM_014679.5	c.165T>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	11	95532515	T	G	0.108	0.114	.;.			15.45	.;.		ok
+CEP57	NM_014679.5	c.1342A>G	Benign FAF >5%	11	95564259	A	G	1.0	1.125	0.093;.;.;0.093;.;0.093;.;.;.;.;.;.;.;.;0.093		0.380705	18.67	LB;.;.;LB;.;B;.;.;.;.;.;.;.;.;LB	Benign	ok

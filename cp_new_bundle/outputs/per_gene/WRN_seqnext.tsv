@@ -1,68 +1,15 @@
-gene	transcript	hgvs_c	classification	chr_grch37	pos_grch37	ref	alt	vv_status
-WRN	NM_000553.6	c.97-2A>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	8	30916667	A	C	ok
-WRN	NM_000553.6	c.97-2A>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	8	30916667	A	G	ok
-WRN	NM_000553.6	c.97-2A>T	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	8	30916667	A	T	ok
-WRN	NM_000553.6	c.97-1G>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	8	30916668	G	A	ok
-WRN	NM_000553.6	c.97-1G>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	8	30916668	G	C	ok
-WRN	NM_000553.6	c.97-1G>T	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	8	30916668	G	T	ok
-WRN	NM_000553.6	c.340G>A	Benign FAF >5%	8	30921935	G	A	ok
-WRN	NM_000553.6	c.1161G>A	Benign FAF >5%	8	30938704	G	A	ok
-WRN	NM_000553.6	c.1270-2A>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	8	30941213	A	C	ok
-WRN	NM_000553.6	c.1270-2A>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	8	30941213	A	G	ok
-WRN	NM_000553.6	c.1270-2A>T	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	8	30941213	A	T	ok
-WRN	NM_000553.6	c.1270-1G>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	8	30941214	G	A	ok
-WRN	NM_000553.6	c.1270-1G>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	8	30941214	G	C	ok
-WRN	NM_000553.6	c.1270-1G>T	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	8	30941214	G	T	ok
-WRN	NM_000553.6	c.1351-2A>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	8	30942680	A	C	ok
-WRN	NM_000553.6	c.1351-2A>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	8	30942680	A	G	ok
-WRN	NM_000553.6	c.1351-2A>T	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	8	30942680	A	T	ok
-WRN	NM_000553.6	c.1351-1G>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	8	30942681	G	A	ok
-WRN	NM_000553.6	c.1351-1G>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	8	30942681	G	C	ok
-WRN	NM_000553.6	c.1351-1G>T	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	8	30942681	G	T	ok
-WRN	NM_000553.6	c.1653-2A>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	8	30947979	A	C	ok
-WRN	NM_000553.6	c.1653-2A>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	8	30947979	A	G	ok
-WRN	NM_000553.6	c.1653-2A>T	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	8	30947979	A	T	ok
-WRN	NM_000553.6	c.2089-17A>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0, PhyloP<0.1	8	30969114	A	C	ok
-WRN	NM_000553.6	c.2089-17A>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0, PhyloP<0.1	8	30969114	A	G	ok
-WRN	NM_000553.6	c.2089-17A>T	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0, PhyloP<0.1	8	30969114	A	T	ok
-WRN	NM_000553.6	c.2089-16G>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0, PhyloP<0.1	8	30969115	G	A	ok
-WRN	NM_000553.6	c.2089-16G>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0, PhyloP<0.1	8	30969115	G	C	ok
-WRN	NM_000553.6	c.2089-16G>T	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0, PhyloP<0.1	8	30969115	G	T	ok
-WRN	NM_000553.6	c.2089-13T>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	8	30969118	T	A	ok
-WRN	NM_000553.6	c.2089-13T>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	8	30969118	T	G	ok
-WRN	NM_000553.6	c.2089-10C>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	8	30969121	C	A	ok
-WRN	NM_000553.6	c.2089-10C>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	8	30969121	C	G	ok
-WRN	NM_000553.6	c.2826-2A>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	8	30989879	A	C	ok
-WRN	NM_000553.6	c.2826-2A>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	8	30989879	A	G	ok
-WRN	NM_000553.6	c.2826-2A>T	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	8	30989879	A	T	ok
-WRN	NM_000553.6	c.2826-1G>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	8	30989880	G	A	ok
-WRN	NM_000553.6	c.2826-1G>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	8	30989880	G	C	ok
-WRN	NM_000553.6	c.2826-1G>T	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	8	30989880	G	T	ok
-WRN	NM_000553.6	c.2826A>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	8	30989881	A	C	ok
-WRN	NM_000553.6	c.2826A>T	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	8	30989881	A	T	ok
-WRN	NM_000553.6	c.3222G>T	Benign FAF >5%	8	30999280	G	T	ok
-WRN	NM_000553.6	c.3233+2T>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	8	30999293	T	A	ok
-WRN	NM_000553.6	c.3233+2T>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	8	30999293	T	C	ok
-WRN	NM_000553.6	c.3233+2T>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	8	30999293	T	G	ok
-WRN	NM_000553.6	c.3310-2A>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	8	31001064	A	C	ok
-WRN	NM_000553.6	c.3310-2A>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	8	31001064	A	G	ok
-WRN	NM_000553.6	c.3310-2A>T	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	8	31001064	A	T	ok
-WRN	NM_000553.6	c.3310-1G>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	8	31001065	G	A	ok
-WRN	NM_000553.6	c.3310-1G>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	8	31001065	G	C	ok
-WRN	NM_000553.6	c.3310-1G>T	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	8	31001065	G	T	ok
-WRN	NM_000553.6	c.3459+2T>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	8	31004646	T	A	ok
-WRN	NM_000553.6	c.3459+2T>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	8	31004646	T	C	ok
-WRN	NM_000553.6	c.3459+2T>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	8	31004646	T	G	ok
-WRN	NM_000553.6	c.3822G>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0, PhyloP<0.1	8	31014886	G	A	ok
-WRN	NM_000553.6	c.3822G>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0, PhyloP<0.1	8	31014886	G	C	ok
-WRN	NM_000553.6	c.3822G>T	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0, PhyloP<0.1	8	31014886	G	T	ok
-WRN	NM_000553.6	c.4099T>C	Benign FAF >5%	8	31024654	T	C	ok
-WRN	NM_000553.6	c.4175T>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0, PhyloP<0.1	8	31024730	T	A	ok
-WRN	NM_000553.6	c.4175T>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0, PhyloP<0.1	8	31024730	T	C	ok
-WRN	NM_000553.6	c.4175T>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0, PhyloP<0.1	8	31024730	T	G	ok
-WRN	NM_000553.6	c.4192-2A>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	8	31030509	A	C	ok
-WRN	NM_000553.6	c.4192-2A>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	8	31030509	A	G	ok
-WRN	NM_000553.6	c.4192-2A>T	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	8	31030509	A	T	ok
-WRN	NM_000553.6	c.4192-1G>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	8	31030510	G	A	ok
-WRN	NM_000553.6	c.4192-1G>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	8	31030510	G	C	ok
-WRN	NM_000553.6	c.4192-1G>T	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	8	31030510	G	T	ok
+gene	transcript	hgvs_c	classification	chr_grch37	pos_grch37	ref	alt	PhastCons100way	PhyloP100way	REVEL	SpliceAI_masked	FAF95_grpmax	CADD_phred	AlphaMissense_pred	ClinVar_sig	vv_status
+WRN	NM_000553.6	c.340G>A	Benign FAF >5%	8	30921935	G	A	0.057	0.036	.;.;.;.;.;.;0.096;.;.		0.124060	9.775	.;.;.;.;.;.;B;.;.	Benign/Likely_benign	ok
+WRN	NM_000553.6	c.1161G>A	Benign FAF >5%	8	30938704	G	A	0.03	0.111	.;.;.;.;.;.;0.076;.;.;.		0.135492	6.061	.;.;.;.;.;.;B;.;.;LB	Benign	ok
+WRN	NM_000553.6	c.2089-10C>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0, PhyloP<0.1, intronic_ROI(-10)	8	30969121	C	A	0.0	-0.585				2.985			ok
+WRN	NM_000553.6	c.2089-10C>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0, PhyloP<0.1, intronic_ROI(-10)	8	30969121	C	G	0.0	-0.585				0.981			ok
+WRN	NM_000553.6	c.2826A>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	8	30989881	A	C	0.223	0.16				12.95			ok
+WRN	NM_000553.6	c.2826A>T	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	8	30989881	A	T	0.223	0.16				13.89			ok
+WRN	NM_000553.6	c.3222G>T	Benign FAF >5%	8	30999280	G	T	0.0	0.235	.;.;.;.;.;.;0.023;.;.		0.601087	1.691	.;.;.;.;.;.;B;.;.	Benign/Likely_benign	ok
+WRN	NM_000553.6	c.3822G>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	8	31014886	G	A	0.0	-0.482				0.207			ok
+WRN	NM_000553.6	c.3822G>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	8	31014886	G	C	0.0	-0.482				18.44		Uncertain_significance	ok
+WRN	NM_000553.6	c.3822G>T	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	8	31014886	G	T	0.0	-0.482				16.61			ok
+WRN	NM_000553.6	c.4099T>C	Benign FAF >5%	8	31024654	T	C	0.122	0.253	.;.;.;.;.;.;0.070;.;.		0.274986	13.25	.;.;.;.;.;.;B;.;.	Benign/Likely_benign	ok
+WRN	NM_000553.6	c.4175T>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	8	31024730	T	A	0.0	-0.505				9.556			ok
+WRN	NM_000553.6	c.4175T>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	8	31024730	T	C	0.0	-0.505				6.943		Uncertain_significance	ok
+WRN	NM_000553.6	c.4175T>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	8	31024730	T	G	0.0	-0.505				10.03			ok

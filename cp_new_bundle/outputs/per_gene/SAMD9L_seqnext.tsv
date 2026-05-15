@@ -1,6 +1,6 @@
-gene	transcript	hgvs_c	classification	chr_grch37	pos_grch37	ref	alt	vv_status
-SAMD9L	NM_152703.5	c.4547A>C	Benign FAF >5%	7	92760738	T	G	ok
-SAMD9L	NM_152703.5	c.3410G>C	Benign FAF >5%	7	92761875	C	G	ok
-SAMD9L	NM_152703.5	c.1217G>A	Benign FAF >5%	7	92764068	C	T	ok
-SAMD9L	NM_152703.5	c.866T>C	Benign FAF >5%	7	92764419	A	G	ok
-SAMD9L	NM_152703.5	c.796G>A	Benign FAF >5%	7	92764489	C	T	ok
+gene	transcript	hgvs_c	classification	chr_grch37	pos_grch37	ref	alt	PhastCons100way	PhyloP100way	REVEL	SpliceAI_masked	FAF95_grpmax	CADD_phred	AlphaMissense_pred	ClinVar_sig	vv_status
+SAMD9L	NM_152703.5	c.4547A>C	Benign FAF >5%	7	92760738	T	G	0.0	-0.511	0.023;0.023;.;0.023;.;.;.;.;.		0.198338	7.005	.;LB;.;B;.;.;.;.;.	Benign	ok
+SAMD9L	NM_152703.5	c.3410G>C	Benign FAF >5%	7	92761875	C	G	0.0	0.103	0.041;0.041;.;0.041;.;.;.;.;.		0.0587643	2.377	.;LB;.;B;.;.;.;.;.	Benign	ok
+SAMD9L	NM_152703.5	c.1217G>A	Benign FAF >5%	7	92764068	C	T	0.0	-1.157	0.041;0.041;.;0.041;.;.;.;.;.		0.100881	10.25	.;LB;.;B;.;.;.;.;.	Benign	ok
+SAMD9L	NM_152703.5	c.866T>C	Benign FAF >5%	7	92764419	A	G	1.0	8.969	0.441;0.441;.;0.441;.;.;.;.;.		0.0849225	24.7	.;LP;.;P;.;.;.;.;.	Benign	ok
+SAMD9L	NM_152703.5	c.796G>A	Benign FAF >5%	7	92764489	C	T	0.0	-3.91	0.020;0.020;.;0.020;.;.;.;.;.		0.197280	0.019	.;LB;.;B;.;.;.;.;.	Benign	ok

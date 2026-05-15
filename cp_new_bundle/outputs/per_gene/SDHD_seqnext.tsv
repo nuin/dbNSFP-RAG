@@ -1,51 +1,10 @@
-gene	transcript	hgvs_c	classification	chr_grch37	pos_grch37	ref	alt	vv_status
-SDHD	NM_003002.4	c.72A>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0, PhyloP<0.1	11	111958600	A	C	ok
-SDHD	NM_003002.4	c.72A>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0, PhyloP<0.1	11	111958600	A	G	ok
-SDHD	NM_003002.4	c.72A>T	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0, PhyloP<0.1	11	111958600	A	T	ok
-SDHD	NM_003002.4	c.169+1G>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	11	111958698	G	A	ok
-SDHD	NM_003002.4	c.169+1G>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	11	111958698	G	C	ok
-SDHD	NM_003002.4	c.169+1G>T	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	11	111958698	G	T	ok
-SDHD	NM_003002.4	c.309T>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0, PhyloP<0.1	11	111959730	T	A	ok
-SDHD	NM_003002.4	c.309T>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0, PhyloP<0.1	11	111959730	T	C	ok
-SDHD	NM_003002.4	c.309T>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0, PhyloP<0.1	11	111959730	T	G	ok
-SDHD	NM_003002.4	c.315-1727A>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0, PhyloP<0.1	11	111963802	A	C	ok
-SDHD	NM_003002.4	c.315-1727A>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0, PhyloP<0.1	11	111963802	A	G	ok
-SDHD	NM_003002.4	c.315-1727A>T	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0, PhyloP<0.1	11	111963802	A	T	ok
-SDHD	NM_003002.4	c.315-1724C>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	11	111963805	C	A	ok
-SDHD	NM_003002.4	c.315-1724C>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	11	111963805	C	G	ok
-SDHD	NM_003002.4	c.315-1719G>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	11	111963810	G	C	ok
-SDHD	NM_003002.4	c.315-1719G>T	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	11	111963810	G	T	ok
-SDHD	NM_003002.4	c.315-1716C>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	11	111963813	C	A	ok
-SDHD	NM_003002.4	c.315-1716C>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	11	111963813	C	G	ok
-SDHD	NM_003002.4	c.315-1713T>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	11	111963816	T	A	ok
-SDHD	NM_003002.4	c.315-1713T>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	11	111963816	T	G	ok
-SDHD	NM_003002.4	c.315-1708C>T	Benign FAF >5%	11	111963821	C	T	ok
-SDHD	NM_003002.4	c.315-1703T>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	11	111963826	T	A	ok
-SDHD	NM_003002.4	c.315-1703T>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	11	111963826	T	G	ok
-SDHD	NM_003002.4	c.315-1701G>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	11	111963828	G	C	ok
-SDHD	NM_003002.4	c.315-1701G>T	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	11	111963828	G	T	ok
-SDHD	NM_003002.4	c.315-1697C>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	11	111963832	C	G	ok
-SDHD	NM_003002.4	c.315-1697C>T	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	11	111963832	C	T	ok
-SDHD	NM_003002.4	c.315-1692C>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	11	111963837	C	A	ok
-SDHD	NM_003002.4	c.315-1692C>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	11	111963837	C	G	ok
-SDHD	NM_003002.4	c.315-1689T>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	11	111963840	T	A	ok
-SDHD	NM_003002.4	c.315-1689T>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	11	111963840	T	G	ok
-SDHD	NM_003002.4	c.315-1676C>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	11	111963853	C	G	ok
-SDHD	NM_003002.4	c.315-1676C>T	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	11	111963853	C	T	ok
-SDHD	NM_003002.4	c.315-1669A>G	Benign FAF >5%	11	111963860	A	G	ok
-SDHD	NM_003002.4	c.315-1668G>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	11	111963861	G	C	ok
-SDHD	NM_003002.4	c.315-1668G>T	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	11	111963861	G	T	ok
-SDHD	NM_003002.4	c.315-1647T>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	11	111963882	T	A	ok
-SDHD	NM_003002.4	c.315-1647T>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	11	111963882	T	G	ok
-SDHD	NM_003002.4	c.315-1646C>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	11	111963883	C	G	ok
-SDHD	NM_003002.4	c.315-1646C>T	Benign FAF >5%	11	111963883	C	T	ok
-SDHD	NM_003002.4	c.315-1638A>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	11	111963891	A	C	ok
-SDHD	NM_003002.4	c.315-1638A>T	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	11	111963891	A	T	ok
-SDHD	NM_003002.4	c.315-1628C>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	11	111963901	C	A	ok
-SDHD	NM_003002.4	c.315-1628C>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	11	111963901	C	G	ok
-SDHD	NM_003002.4	c.315-1620G>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	11	111963909	G	C	ok
-SDHD	NM_003002.4	c.315-1620G>T	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	11	111963909	G	T	ok
-SDHD	NM_003002.4	c.315-1611G>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	11	111963918	G	C	ok
-SDHD	NM_003002.4	c.315-1611G>T	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	11	111963918	G	T	ok
-SDHD	NM_003002.4	c.315-1608G>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	11	111963921	G	C	ok
-SDHD	NM_003002.4	c.315-1608G>T	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	11	111963921	G	T	ok
+gene	transcript	hgvs_c	classification	chr_grch37	pos_grch37	ref	alt	PhastCons100way	PhyloP100way	REVEL	SpliceAI_masked	FAF95_grpmax	CADD_phred	AlphaMissense_pred	ClinVar_sig	vv_status
+SDHD	NM_003002.4	c.72A>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	11	111958600	A	C	0.003	-0.696				7.091		Benign/Likely_benign	ok
+SDHD	NM_003002.4	c.72A>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	11	111958600	A	G	0.003	-0.696			3.65000e-06	7.399		Likely_benign	ok
+SDHD	NM_003002.4	c.72A>T	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	11	111958600	A	T	0.003	-0.696				6.889			ok
+SDHD	NM_003002.4	c.309T>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	11	111959730	T	A	0.952	0.019				7.661			ok
+SDHD	NM_003002.4	c.309T>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	11	111959730	T	C	0.952	0.019				8.049			ok
+SDHD	NM_003002.4	c.309T>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	11	111959730	T	G	0.952	0.019				8.198			ok
+SDHD	NM_003002.4	c.315-1708C>T	Benign FAF >5%	11	111963821	C	T	0.009	-0.97	0.101		0.0922551	3.564	LB	Benign	ok
+SDHD	NM_003002.4	c.315-1669A>G	Benign FAF >5%	11	111963860	A	G	0.001	-2.266	0.204		0.995409	0.747	LB	Benign	ok
+SDHD	NM_003002.4	c.315-1646C>T	Benign FAF >5%	11	111963883	C	T	0.002	-0.969	0.138		0.313089	2.146	LB	Benign	ok

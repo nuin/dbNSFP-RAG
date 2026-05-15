@@ -1,25 +1,10 @@
-gene	transcript	hgvs_c	classification	chr_grch37	pos_grch37	ref	alt	vv_status
-PALB2	NM_024675.4	c.2835-2A>T	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	16	23634453	T	A	ok
-PALB2	NM_024675.4	c.2835-2A>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	16	23634453	T	C	ok
-PALB2	NM_024675.4	c.2835-2A>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	16	23634453	T	G	ok
-PALB2	NM_024675.4	c.2515-1G>T	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	16	23640597	C	A	ok
-PALB2	NM_024675.4	c.2515-1G>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	16	23640597	C	G	ok
-PALB2	NM_024675.4	c.2515-1G>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	16	23640597	C	T	ok
-PALB2	NM_024675.4	c.2014G>C	Benign FAF >5%	16	23641461	C	G	ok
-PALB2	NM_024675.4	c.1685-1G>T	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	16	23641791	C	A	ok
-PALB2	NM_024675.4	c.1685-1G>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	16	23641791	C	G	ok
-PALB2	NM_024675.4	c.1685-1G>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	16	23641791	C	T	ok
-PALB2	NM_024675.4	c.1684+2T>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	16	23646181	A	C	ok
-PALB2	NM_024675.4	c.1684+2T>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	16	23646181	A	G	ok
-PALB2	NM_024675.4	c.1684+2T>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	16	23646181	A	T	ok
-PALB2	NM_024675.4	c.1684+1G>T	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	16	23646182	C	A	ok
-PALB2	NM_024675.4	c.1684+1G>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	16	23646182	C	G	ok
-PALB2	NM_024675.4	c.1684+1G>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	16	23646182	C	T	ok
-PALB2	NM_024675.4	c.1676A>G	Benign FAF >5%	16	23646191	T	C	ok
-PALB2	NM_024675.4	c.629C>T	Benign FAF >5%	16	23647238	G	A	ok
-PALB2	NM_024675.4	c.48+860T>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	16	23651571	A	C	ok
-PALB2	NM_024675.4	c.48+860T>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	16	23651571	A	G	ok
-PALB2	NM_024675.4	c.48+860T>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	16	23651571	A	T	ok
-PALB2	NM_024675.4	c.48+859G>T	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	16	23651572	C	A	ok
-PALB2	NM_024675.4	c.48+859G>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	16	23651572	C	G	ok
-PALB2	NM_024675.4	c.48+859G>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	16	23651572	C	T	ok
+gene	transcript	hgvs_c	classification	chr_grch37	pos_grch37	ref	alt	PhastCons100way	PhyloP100way	REVEL	SpliceAI_masked	FAF95_grpmax	CADD_phred	AlphaMissense_pred	ClinVar_sig	vv_status
+PALB2	NM_024675.4	c.2014G>C	Benign FAF >5%	16	23641461	C	G	0.0	0.103	.;.;0.029;.;.;.;.;.;.;.;.;.		0.0570171	12.24	.;.;B;.;.;LB;.;.;.;.;.;.	Benign	ok
+PALB2	NM_024675.4	c.1684+2T>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0, PhyloP<0.1, intronic_ROI(+2)	16	23646181	A	C	0.002	0.087	.;.;.;.;.;.;.;.;.;.;.;.			15.53	.;.;.;.;.;.;.;.;.;.;.;.		ok
+PALB2	NM_024675.4	c.1684+2T>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0, PhyloP<0.1, intronic_ROI(+2)	16	23646181	A	G	0.002	0.087	.;.;.;.;.;.;.;.;.;.;.;.			12.46	.;.;.;.;.;.;.;.;.;.;.;.		ok
+PALB2	NM_024675.4	c.1684+2T>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0, PhyloP<0.1, intronic_ROI(+2)	16	23646181	A	T	0.002	0.087	.;.;.;.;.;.;.;.;.;.;.;.			15.84	.;.;.;.;.;.;.;.;.;.;.;.	Conflicting_classifications_of_pathogenicity	ok
+PALB2	NM_024675.4	c.1684+1G>T	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0, PhyloP<0.1, intronic_ROI(+1)	16	23646182	C	A	0.0	0.093	.;.;.;.;.;.;.;.;.;.;.;.			18.69	.;.;.;.;.;.;.;.;.;.;.;.	Likely_pathogenic	ok
+PALB2	NM_024675.4	c.1684+1G>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0, PhyloP<0.1, intronic_ROI(+1)	16	23646182	C	G	0.0	0.093	.;.;.;.;.;.;.;.;.;.;.;.			17.65	.;.;.;.;.;.;.;.;.;.;.;.		ok
+PALB2	NM_024675.4	c.1684+1G>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0, PhyloP<0.1, intronic_ROI(+1)	16	23646182	C	T	0.0	0.093	.;.;.;.;.;.;.;.;.;.;.;.			18.15	.;.;.;.;.;.;.;.;.;.;.;.	Uncertain_significance	ok
+PALB2	NM_024675.4	c.1676A>G	Benign FAF >5%	16	23646191	T	C	0.01	0.387	.;.;0.023;.;.;.;.;.;.;.;.;.		0.213066	0.402	.;.;B;.;.;LB;.;.;.;.;.;.	Benign/Likely_benign	ok
+PALB2	NM_024675.4	c.629C>T	Benign FAF >5%	16	23647238	G	A	0.0	0.357	.;.;0.096;.;.;.;.;.;.		0.0675082	5.122	.;.;B;.;.;.;.;.;.	Conflicting_classifications_of_pathogenicity	ok

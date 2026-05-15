@@ -1,3 +1,3 @@
-gene	transcript	hgvs_c	classification	chr_grch37	pos_grch37	ref	alt	vv_status
-EPAS1	NM_001430.5	c.2296A>C	Benign FAF >5%	2	46609572	A	C	ok
-EPAS1	NM_001430.5	c.2353C>A (VV_FLAGGED:http_429)	Benign FAF >5%	2	46609629	C	A	flagged:http_429
+gene	transcript	hgvs_c	classification	chr_grch37	pos_grch37	ref	alt	PhastCons100way	PhyloP100way	REVEL	SpliceAI_masked	FAF95_grpmax	CADD_phred	AlphaMissense_pred	ClinVar_sig	vv_status
+EPAS1	NM_001430.5	c.2296A>C	Benign FAF >5%	2	46609572	A	C	0.826	0.571	0.061;.;.;.;.		0.417030	15.98	B;.;.;.;.	Benign	ok
+EPAS1	NM_001430.5	c.2353C>A	Benign FAF >5%	2	46609629	C	A	0.951	4.69	0.194;.;.;.;.		0.138816	20.5	B;.;.;.;.	Benign	flagged:http_429

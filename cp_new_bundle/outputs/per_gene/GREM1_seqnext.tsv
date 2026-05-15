@@ -1,4 +1,4 @@
-gene	transcript	hgvs_c	classification	chr_grch37	pos_grch37	ref	alt	vv_status
-GREM1	NM_013372.7	c.105G>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0, PhyloP<0.1	15	33022996	G	A	ok
-GREM1	NM_013372.7	c.105G>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0, PhyloP<0.1	15	33022996	G	C	ok
-GREM1	NM_013372.7	c.105G>T	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0, PhyloP<0.1	15	33022996	G	T	ok
+gene	transcript	hgvs_c	classification	chr_grch37	pos_grch37	ref	alt	PhastCons100way	PhyloP100way	REVEL	SpliceAI_masked	FAF95_grpmax	CADD_phred	AlphaMissense_pred	ClinVar_sig	vv_status
+GREM1	NM_013372.7	c.105G>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	15	33022996	G	A	0.0	-1.758			1.22100e-05	0.888		Likely_benign	ok
+GREM1	NM_013372.7	c.105G>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	15	33022996	G	C	0.0	-1.758				0.274			ok
+GREM1	NM_013372.7	c.105G>T	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	15	33022996	G	T	0.0	-1.758				0.593		Likely_benign	ok

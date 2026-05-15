@@ -1,13 +1,7 @@
-gene	transcript	hgvs_c	classification	chr_grch37	pos_grch37	ref	alt	vv_status
-ATM	NM_000051.3	c.378T>A	Benign FAF >5%	11	108106443	T	A	ok
-ATM	NM_000051.3	c.902-2A>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	11	108117689	A	C	ok
-ATM	NM_000051.3	c.902-2A>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	11	108117689	A	G	ok
-ATM	NM_000051.3	c.902-2A>T	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	11	108117689	A	T	ok
-ATM	NM_000051.3	c.1541G>A	Benign FAF >5%	11	108121733	G	A	ok
-ATM	NM_000051.3	c.3403-2A>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	11	108151720	A	C	ok
-ATM	NM_000051.3	c.3403-2A>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	11	108151720	A	G	ok
-ATM	NM_000051.3	c.3403-2A>T	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	11	108151720	A	T	ok
-ATM	NM_000051.3	c.4138C>T	Benign FAF >5%	11	108159732	C	T	ok
-ATM	NM_000051.3	c.4800A>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	11	108165677	A	C	ok
-ATM	NM_000051.3	c.4800A>T	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	11	108165677	A	T	ok
-ATM	NM_000051.3	c.5557G>A	Benign FAF >5%	11	108175462	G	A	ok
+gene	transcript	hgvs_c	classification	chr_grch37	pos_grch37	ref	alt	PhastCons100way	PhyloP100way	REVEL	SpliceAI_masked	FAF95_grpmax	CADD_phred	AlphaMissense_pred	ClinVar_sig	vv_status
+ATM	NM_000051.3	c.378T>A	Benign FAF >5%	11	108106443	T	A	0.135	-0.695	.;0.163;.;.;.;.;.;.;0.163;.		0.196027	4.363	LB;B;.;.;.;.;LB;.;.;.	Benign/Likely_benign	ok
+ATM	NM_000051.3	c.1541G>A	Benign FAF >5%	11	108121733	G	A	1.0	4.342	.;0.269;.;.;.;.;.;0.269		0.0602876	25.5	.;A;.;.;.;.;.;.	Benign/Likely_benign	ok
+ATM	NM_000051.3	c.4138C>T	Benign FAF >5%	11	108159732	C	T	0.317	0.1	.;0.164;.;.;.;.;.;0.164		0.0673217	12.72	.;B;.;.;.;.;.;.	Benign	ok
+ATM	NM_000051.3	c.4800A>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	11	108165677	A	C	0.01	-1.059				3.89			ok
+ATM	NM_000051.3	c.4800A>T	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	11	108165677	A	T	0.01	-1.059				2.547		Likely_benign	ok
+ATM	NM_000051.3	c.5557G>A	Benign FAF >5%	11	108175462	G	A	1.0	5.927	.;0.118;.;.;.;.;0.118		0.142954	23.4	.;B;.;.;.;.;.	Benign	ok
