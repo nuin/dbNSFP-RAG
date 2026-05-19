@@ -1,0 +1,33 @@
+gene	transcript	hgvs_c	classification	chr_grch37	pos_grch37	ref	alt	PhastCons100way	PhyloP100way	REVEL	SpliceAI_masked	FAF95_grpmax	CADD_phred	AlphaMissense_pred	ClinVar_sig	vv_status
+RTEL1	NM_001283009.2	c.371A>G	Benign FAF >5%	20	62293272	A	G	0.009	1.695	0.068;.;.;.;.;.;.;.;.;0.068;0.068;.;.;.;.;.;0.068;.;.		0.0829309	5.438	B;.;.;.;.;.;.;.;.;LB;LB;.;.;.;.;.;LB;.;.	Benign	ok
+RTEL1	NM_001283009.2	c.878G>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	20	62305405	G	A	0.044	1.487	.;.		3.65000e-06	10.64	.;.	Uncertain_significance	ok
+RTEL1	NM_001283009.2	c.878G>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	20	62305405	G	C	0.044	1.487	.;.		8.75000e-06	8.487	.;.		ok
+RTEL1	NM_001283009.2	c.878G>T	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	20	62305405	G	T	0.044	1.487	.;.			14.77	.;.	Uncertain_significance	ok
+RTEL1	NM_001283009.2	c.879T>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	20	62305406	T	A	0.037	-0.441	.;.			0.372	.;.		ok
+RTEL1	NM_001283009.2	c.879T>C	Benign FAF >5%	20	62305406	T	C	0.037	-0.441	.;.		0.187866	0.443	.;.	Benign	ok
+RTEL1	NM_001283009.2	c.879T>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	20	62305406	T	G	0.037	-0.441	.;.			0.458	.;.		ok
+RTEL1	NM_001283009.2	c.1038-74T>G	Benign FAF >5%	20	62311128	T	G	0.001	1.076			0.232879	9.815		Benign	ok
+RTEL1	NM_001283009.2	c.1038-73T>C	Benign FAF >5%	20	62311129	T	C	0.0	-1.174			0.232807	4.859		Benign	ok
+RTEL1	NM_001283009.2	c.2039A>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	20	62321116	A	C	0.975	1.856	.;.			25.0	.;.		ok
+RTEL1	NM_001283009.2	c.2039A>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	20	62321116	A	G	0.975	1.856	.;.			20.2	.;.	Uncertain_significance	ok
+RTEL1	NM_001283009.2	c.2039A>T	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	20	62321116	A	T	0.975	1.856	.;.			23.4	.;.	Uncertain_significance	ok
+RTEL1	NM_001283009.2	c.2040G>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	20	62321117	G	A	0.806	-0.246	.;.			5.895	.;.		ok
+RTEL1	NM_001283009.2	c.2040G>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	20	62321117	G	C	0.806	-0.246	.;.			13.05	.;.		ok
+RTEL1	NM_001283009.2	c.2040G>T	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	20	62321117	G	T	0.806	-0.246	.;.		0.000132520	13.02	.;.	Conflicting_classifications_of_pathogenicity	ok
+RTEL1	NM_001283009.2	c.2750A>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	20	62324255	A	C	0.002	0.005				17.77			ok
+RTEL1	NM_001283009.2	c.2750A>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	20	62324255	A	G	0.002	0.005				6.325			ok
+RTEL1	NM_001283009.2	c.2750A>T	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	20	62324255	A	T	0.002	0.005				15.64			ok
+RTEL1	NM_001283009.2	c.2823G>C	Benign FAF >5%	20	62324328	G	C	0.45	-0.291	0.075;.;.;.;.;.;.;.;.;0.075;0.075;.;0.075;.;.;.;.;.;.		0.109588	10.15	B;.;.;.;.;.;.;.;.;LB;LB;.;LB;.;.;.;.;.;.	Benign	ok
+RTEL1	NM_001283009.2	c.3126A>C	Benign FAF >5%	20	62326110	A	C	0.0	-0.643	0.173;.;.;.;.;.;.;.;.;0.173;0.173;.;0.173;.;.;.;.;.		0.936946	0.498	B;.;.;.;.;.;.;.;.;LB;LB;.;LB;.;.;.;.;.	Benign	ok
+RTEL1	NM_001283009.2	c.3343+2C>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0, PhyloP<0.1, intronic_ROI(+2)	20	62326329	C	A	0.649	0.056	.;.;.;.;.;.;.;.;.;.;.;.;.;.;.;.;.;.			20.5	.;.;.;.;.;.;.;.;.;.;.;.;.;.;.;.;.;.		ok
+RTEL1	NM_001283009.2	c.3343+2C>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0, PhyloP<0.1, intronic_ROI(+2)	20	62326329	C	G	0.649	0.056	.;.;.;.;.;.;.;.;.;.;.;.;.;.;.;.;.;.			20.3	.;.;.;.;.;.;.;.;.;.;.;.;.;.;.;.;.;.		ok
+RTEL1	NM_001283009.2	c.3343+2C>T	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0, PhyloP<0.1, intronic_ROI(+2)	20	62326329	C	T	0.649	0.056	.;.;.;.;.;.;.;.;.;.;.;.;.;.;.;.;.;.			19.1	.;.;.;.;.;.;.;.;.;.;.;.;.;.;.;.;.;.		ok
+RTEL1	NM_001283009.2	c.3500-1G>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0, PhyloP<0.1, intronic_ROI(-1)	20	62326680	G	A	0.0	-0.55	.;.;.;.;.;.;.;.;.;.;.;.;.;.;.;.;.;.;.		1.61100e-05	28.8	.;.;.;.;.;.;.;.;.;.;.;.;.;.;.;.;.;.;.	Likely_pathogenic	ok
+RTEL1	NM_001283009.2	c.3500-1G>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0, PhyloP<0.1, intronic_ROI(-1)	20	62326680	G	C	0.0	-0.55	.;.;.;.;.;.;.;.;.;.;.;.;.;.;.;.;.;.;.			24.7	.;.;.;.;.;.;.;.;.;.;.;.;.;.;.;.;.;.;.		ok
+RTEL1	NM_001283009.2	c.3500-1G>T	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0, PhyloP<0.1, intronic_ROI(-1)	20	62326680	G	T	0.0	-0.55	.;.;.;.;.;.;.;.;.;.;.;.;.;.;.;.;.;.;.			25.2	.;.;.;.;.;.;.;.;.;.;.;.;.;.;.;.;.;.;.		ok
+RTEL1	NM_001283009.2	c.3653G>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	20	62326834	G	A	0.014	0.211	.;.;.		1.83000e-06	20.9	.;.;.	Uncertain_significance	ok
+RTEL1	NM_001283009.2	c.3653G>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	20	62326834	G	C	0.014	0.211	.;.;.			19.65	.;.;.		ok
+RTEL1	NM_001283009.2	c.3653G>T	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	20	62326834	G	T	0.014	0.211	.;.;.			21.2	.;.;.		ok
+RTEL1	NM_001283009.2	c.3654T>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	20	62326835	T	A	0.0	-1.988	.;.;.			14.07	.;.;.		ok
+RTEL1	NM_001283009.2	c.3654T>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	20	62326835	T	C	0.0	-1.988	.;.;.			11.3	.;.;.		ok
+RTEL1	NM_001283009.2	c.3654T>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	20	62326835	T	G	0.0	-1.988	.;.;.			14.08	.;.;.		ok

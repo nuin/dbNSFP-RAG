@@ -1,0 +1,4 @@
+gene	transcript	hgvs_c	classification	chr_grch37	pos_grch37	ref	alt	PhastCons100way	PhyloP100way	REVEL	SpliceAI_masked	FAF95_grpmax	CADD_phred	AlphaMissense_pred	ClinVar_sig	vv_status
+SMARCE1	NM_003079.5	c.1028-570A>G	Benign FAF >5%	17	38785815	T	C	0.091	1.789			0.0779307	19.73	LB		ok
+SMARCE1	NM_003079.5	c.715-4G>T	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0, PhyloP<0.1, intronic_ROI(-4)	17	38787949	C	A	0.069	-0.845				6.6	LB		ok
+SMARCE1	NM_003079.5	c.715-4G>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0, PhyloP<0.1, intronic_ROI(-4)	17	38787949	C	G	0.069	-0.845				7.862	LB		ok

@@ -1,0 +1,8 @@
+gene	transcript	hgvs_c	classification	chr_grch37	pos_grch37	ref	alt	PhastCons100way	PhyloP100way	REVEL	SpliceAI_masked	FAF95_grpmax	CADD_phred	AlphaMissense_pred	ClinVar_sig	vv_status
+UBE2T	NM_014176.4	c.468+6A>T	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0, PhyloP<0.1, intronic_ROI(+6)	1	202302132	T	A	0.0	-0.746				6.158			ok
+UBE2T	NM_014176.4	c.468+6A>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0, PhyloP<0.1, intronic_ROI(+6)	1	202302132	T	G	0.0	-0.746			2.27500e-05	4.892			ok
+UBE2T	NM_014176.4	c.468+5A>T	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0, PhyloP<0.1, intronic_ROI(+5)	1	202302133	T	A	0.0	-0.317				14.86			ok
+UBE2T	NM_014176.4	c.468+5A>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0, PhyloP<0.1, intronic_ROI(+5)	1	202302133	T	G	0.0	-0.317				14.6			ok
+UBE2T	NM_014176.4	c.117A>T	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	1	202304179	T	A	0.928	-0.104				18.72			ok
+UBE2T	NM_014176.4	c.117A>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	1	202304179	T	C	0.928	-0.104				13.91			ok
+UBE2T	NM_014176.4	c.117A>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	1	202304179	T	G	0.928	-0.104				17.63			ok

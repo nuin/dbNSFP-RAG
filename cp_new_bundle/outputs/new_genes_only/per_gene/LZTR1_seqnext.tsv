@@ -1,0 +1,4 @@
+gene	transcript	hgvs_c	classification	chr_grch37	pos_grch37	ref	alt	PhastCons100way	PhyloP100way	REVEL	SpliceAI_masked	FAF95_grpmax	CADD_phred	AlphaMissense_pred	ClinVar_sig	vv_status
+LZTR1	NM_006767.4	c.1452G>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	22	21348395	G	A	0.923	0.097				3.55			ok
+LZTR1	NM_006767.4	c.1452G>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	22	21348395	G	C	0.923	0.097				19.24			ok
+LZTR1	NM_006767.4	c.1452G>T	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	22	21348395	G	T	0.923	0.097				19.29			ok

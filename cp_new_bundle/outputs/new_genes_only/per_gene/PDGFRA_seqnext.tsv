@@ -1,0 +1,9 @@
+gene	transcript	hgvs_c	classification	chr_grch37	pos_grch37	ref	alt	PhastCons100way	PhyloP100way	REVEL	SpliceAI_masked	FAF95_grpmax	CADD_phred	AlphaMissense_pred	ClinVar_sig	vv_status
+PDGFRA	NM_006206.6	c.-10T>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	4	55124926	T	A	0.357	-0.051	0.026			10.26	A		ok
+PDGFRA	NM_006206.6	c.-10T>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	4	55124926	T	G	0.357	-0.051	0.021			9.632	A		ok
+PDGFRA	NM_006206.6	c.-6A>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	4	55124930	A	G	0.0	-0.831	0.027			6.586	LB		ok
+PDGFRA	NM_006206.6	c.-6A>T	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	4	55124930	A	T	0.0	-0.831				6.402			ok
+PDGFRA	NM_006206.6	c.-4A>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	4	55124932	A	C	0.0	0.17	0.030			13.09	LB		ok
+PDGFRA	NM_006206.6	c.-4A>T	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	4	55124932	A	T	0.0	0.17	0.028		1.10900e-05	13.39	LB	Uncertain_significance	ok
+PDGFRA	NM_006206.6	c.1019G>A	Benign FAF >5%	4	55133806	G	A	1.0	2.914	.;.;.;.;.;0.115;.;.;.;.;.;.;.;.		0.0508919	15.92	.;.;.;.;.;B;.;.;.;.;.;.;.;.	Benign	ok
+PDGFRA	NM_006206.6	c.1432T>C	Benign FAF >5%	4	55139771	T	C	0.0	-1.151	.;.;.;.;.;0.088;.;.;.;.;.;.;.;.		0.252960	1.048	.;.;.;.;.;B;.;.;.;.;.;.;.;.	Benign	ok

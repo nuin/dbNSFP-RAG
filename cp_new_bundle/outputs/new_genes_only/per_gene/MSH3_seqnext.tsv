@@ -1,0 +1,8 @@
+gene	transcript	hgvs_c	classification	chr_grch37	pos_grch37	ref	alt	PhastCons100way	PhyloP100way	REVEL	SpliceAI_masked	FAF95_grpmax	CADD_phred	AlphaMissense_pred	ClinVar_sig	vv_status
+MSH3	NM_002439.5	c.235A>G	Benign FAF >5%	5	79950781	A	G	0.0	-0.243	.;.;0.242;.;.;.;.;.		0.912853	8.008	.;.;B;.;.;.;.;LB	Benign	ok
+MSH3	NM_002439.5	c.237+2T>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0, PhyloP<0.1, intronic_ROI(+2)	5	79950785	T	A	0.001	0.052	.;.;.;.;.;.;.;.			27.1	.;.;.;.;.;.;.;.		ok
+MSH3	NM_002439.5	c.237+2T>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0, PhyloP<0.1, intronic_ROI(+2)	5	79950785	T	C	0.001	0.052	.;.;.;.;.;.;.;.			27.0	.;.;.;.;.;.;.;.	Pathogenic/Likely_pathogenic	ok
+MSH3	NM_002439.5	c.237+2T>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0, PhyloP<0.1, intronic_ROI(+2)	5	79950785	T	G	0.001	0.052	.;.;.;.;.;.;.;.			27.2	.;.;.;.;.;.;.;.		ok
+MSH3	NM_002439.5	c.237+249A>G	Benign FAF >5%	5	79951032	A	G	0.001	1.144			0.163325	7.321	LB	Benign	ok
+MSH3	NM_002439.5	c.2846A>G	Benign FAF >5%	5	80149981	A	G	0.88	0.429	.;.;0.281;.;.;.;.;.;.		0.991776	2.337	.;.;B;.;.;.;.;LB;LB	Benign	ok
+MSH3	NM_002439.5	c.3133G>A	Benign FAF >5%	5	80168937	G	A	0.994	1.922	.;.;0.108;.;.;.;.;.;.		0.790363	4.658	.;.;B;.;.;.;.;LB;LB	Benign	ok

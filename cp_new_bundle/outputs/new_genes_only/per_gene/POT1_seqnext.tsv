@@ -1,0 +1,5 @@
+gene	transcript	hgvs_c	classification	chr_grch37	pos_grch37	ref	alt	PhastCons100way	PhyloP100way	REVEL	SpliceAI_masked	FAF95_grpmax	CADD_phred	AlphaMissense_pred	ClinVar_sig	vv_status
+POT1	NM_015450.3	c.1701G>T	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	7	124465397	C	A	0.941	-0.136				23.2			ok
+POT1	NM_015450.3	c.1701G>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	7	124465397	C	G	0.941	-0.136			2.80000e-07	22.0		Uncertain_significance	ok
+POT1	NM_015450.3	c.1701G>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	7	124465397	C	T	0.941	-0.136				17.13			ok
+POT1	NM_015450.3	c.548T>G	Benign FAF >5%	7	124499165	A	C	1.0	7.212	0.748;.;.;.;.;.;.;.;.;.;.;.;.;.;.;.;.;.;.		0.0626120	25.5	.;.;.;.;.;.;.;.;.;.;.;.;.;.;.;LP;P;LP;LP	Benign	ok

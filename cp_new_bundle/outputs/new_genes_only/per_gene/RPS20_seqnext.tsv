@@ -1,0 +1,8 @@
+gene	transcript	hgvs_c	classification	chr_grch37	pos_grch37	ref	alt	PhastCons100way	PhyloP100way	REVEL	SpliceAI_masked	FAF95_grpmax	CADD_phred	AlphaMissense_pred	ClinVar_sig	vv_status
+RPS20	NM_001023.3	c.325T>C	Benign FAF >5%	8	56982383	A	G	0.023	0.347	.;0.037		0.0603905	3.26	.;.	Benign	flagged:intergenic
+RPS20	NM_001023.3	c.316-1G>T	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0, PhyloP<0.1, intronic_ROI(-1)	8	56982393	C	A	0.022	-0.662	.;.			3.558	.;.		flagged:intergenic
+RPS20	NM_001023.3	c.316-1G>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0, PhyloP<0.1, intronic_ROI(-1)	8	56982393	C	G	0.022	-0.662	.;.			3.693	.;.		flagged:intergenic
+RPS20	NM_001023.3	c.316-1G>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0, PhyloP<0.1, intronic_ROI(-1)	8	56982393	C	T	0.022	-0.662	.;.			4.213	.;.		flagged:intergenic
+RPS20	NM_001023.3	c.207T>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	8	56985802	A	C	0.56	-0.098	0.069			6.322	LB		ok
+RPS20	NM_001023.3	c.207T>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	8	56985802	A	T	0.56	-0.098	0.103			6.405	LB		ok
+RPS20	NM_001023.3	c.195A>G	Benign FAF >5%	8	56985814	T	C	0.018	-0.837	0.026		0.250038	1.071	LB	Benign	ok
