@@ -16,7 +16,18 @@ DROPPED from CP:   7 genes
 
 Gene list at `_new_genes.txt`.
 
-## Counts (this subset)
+## Counts (this subset of 68 new genes)
+
+### By rule
+
+| Rule | Logic | Hits |
+|---|---|---|
+| **W1 Benign** | gnomAD FAF >5% | **126** |
+| **W2 Benign** | synonymous + SpliceAI≤0.1 + PhastCons<1.0 (+ PhyloP & ROI for intronic) | **2,040** |
+| **W3 Likely_benign** | FAF >0.1% + REVEL<0.29 + SpliceAI≤0.1 | **26** |
+| **Total** | | **2,192** |
+
+### By output file
 
 | File | Rows |
 |---|---|
@@ -27,8 +38,28 @@ Gene list at `_new_genes.txt`.
 | `_review_intergenic.tsv` | 442 |
 | `per_gene/{GENE}_seqnext.tsv` files | 66 |
 
-2 of the 68 new genes had zero Benign/LB classifications (silent — heavy
-purifying selection / conservation prevents the rules from firing).
+### Top contributors
+
+| Gene | Calls |
+|---|---|
+| TRPV6 | 451 |
+| GCM2 | 397 |
+| HOXB13 | 180 |
+| GNA11 | 171 |
+| CBL | 86 |
+| AP2S1 | 79 |
+| SMARCA4 | 71 |
+| SUCLG2 | 68 |
+| MITF | 65 |
+| KIF1B | 55 |
+
+### Silent genes (0 calls)
+
+5 of the 68 new genes had zero Benign/LB classifications — heavy purifying
+selection / conservation prevents the rules from firing, or the gene is
+non-coding (TERC is a non-coding RNA so it's not in dbNSFP at all):
+
+`CDKN2C, ETV6, PTH, SPRED1, TERC`
 
 ## Schema
 
