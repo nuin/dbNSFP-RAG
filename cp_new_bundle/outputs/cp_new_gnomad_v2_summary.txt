@@ -1,0 +1,40 @@
+======================================================================
+gnomAD v4.1 hg38 (via dbNSFP-lift) vs v2.1.1 hg19 native
+======================================================================
+Total variants in cp_new genes:    1,057,343
+  In both releases:                67,480
+  v4.1 only (newer / hg38 native): 154,596
+  v2.1.1 only (rare):              3,111
+  In neither (rare/novel):         832,156
+
+Variants with FAF/AF in BOTH releases: 47,800
+  Exact agreement (delta <= 1e-7):     119
+  Within 10% relative:                 2,744
+  Within 50% relative:                 13,136
+  >2x apart:                           0
+
+Rule-fire comparison (W1 = FAF > 5%, W3 needs FAF > 0.1%):
+  Both >5%:                            290
+  v4 >5% but v2 not:                   9
+  v2 >5% but v4 not:                   12
+  Both >0.1%:                          2,170
+  v4 >0.1% but v2 not:                 246
+  v2 >0.1% but v4 not:                 486
+
+=== Worst disagreements (top 15 by absolute FAF delta) ===
+                                                                                                                                   genename hg19_chr  hg19_pos ref alt  v4_faf_p  v2_af_p    delta
+                                                                                                  CDKN1C;CDKN1C;CDKN1C;CDKN1C;CDKN1C;CDKN1C       11   2906095   C   T  0.002126 0.500000 0.497874
+                                                                                    GALNT12;GALNT12;GALNT12;GALNT12;GALNT12;GALNT12;GALNT12        9 101570116   G   A  0.196742 0.022727 0.174015
+FANCD2;FANCD2;FANCD2;FANCD2;FANCD2;FANCD2;FANCD2;FANCD2;FANCD2;FANCD2;FANCD2;FANCD2;FANCD2;FANCD2;FANCD2;FANCD2;FANCD2;FANCD2;FANCD2;FANCD2        3  10088343   A   G  0.455825 0.284159 0.171666
+                                             POT1;POT1;POT1;POT1;POT1;POT1;POT1;POT1;POT1;POT1;POT1;POT1;POT1;POT1;POT1;POT1;POT1;POT1;POT1        7 124499165   A   C  0.062612 0.203318 0.140706
+                                                                                                         MAD2L2;MAD2L2;MAD2L2;MAD2L2;MAD2L2        1  11740542   C   A  0.074485 0.195968 0.121483
+                                                                                                                                    ALK;ALK        2  29451802   G   C  0.165990 0.057364 0.108625
+                                                                                                              FANCA;FANCA;FANCA;FANCA;FANCA       16  89839766   G   C  0.168840 0.256542 0.087702
+                                                                                                  FANCA;FANCA;FANCA;FANCA;FANCA;FANCA;FANCA       16  89805914   T   C  0.158363 0.237894 0.079531
+                                                                                                        FANCA;FANCA;FANCA;FANCA;FANCA;FANCA       16  89857935   G   A  0.160477 0.231596 0.071119
+                                                                                                                    EGLN1;EGLN1;EGLN1;EGLN1        1 231557255   C   G  0.444091 0.509653 0.065562
+                                                                                      RPS20;RPS20;RPS20;RPS20;RPS20;RPS20;RPS20;RPS20;RPS20        8  56986648   G   T  0.044536 0.109013 0.064477
+                                                                                                                                       SDHD       11 111963883   C   T  0.313089 0.248942 0.064147
+                                                                                                              CASR;CASR;CASR;CASR;CASR;CASR        3 122003757   G   T  0.257866 0.194328 0.063538
+                                                                                                                                  MSH2;MSH2        2  47739551   A   G  0.618925 0.681886 0.062961
+                                            KIF1B;KIF1B;KIF1B;KIF1B;KIF1B;KIF1B;KIF1B;KIF1B;KIF1B;KIF1B;KIF1B;KIF1B;KIF1B;KIF1B;KIF1B;KIF1B        1  10425476   A   C  0.015380 0.074161 0.058781
