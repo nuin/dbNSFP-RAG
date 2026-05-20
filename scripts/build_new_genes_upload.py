@@ -3,20 +3,21 @@
 
 Filters from cp_new_seqnext_FINAL.tsv:
   1. Only the 68 genes that are NEW in CP_new (APR2026) vs old CP (01JUN2021).
-     Established CP genes are excluded -- the lab is not auto-classifying
-     them yet to avoid disrupting the existing SeqNext mutation database.
-  2. Drop deep-intronic variants. Keep coding + splice-region (-15 to +6
-     from exon boundary). Deep intronic positions need separate splice/
-     regulatory evaluation; auto-call is unsafe.
-  3. vv_status in {ok, clinvar_assertion, local_enumeration} -- drop
-     flagged:intergenic rows where VV reports the variant isn't coding on
-     the BED's NM_.
-  4. Drop canonical splice positions (-1, -2, +1, +2). SpliceAI masked is
-     near-zero by design at canonical sites; auto-call would be a filter
-     artifact at those positions.
+  2. Drop deep-intronic. Keep coding + splice-region (-15 to +6).
+  3. vv_status in {ok, clinvar_assertion, local_enumeration}.
+  4. Drop canonical splice (-1, -2, +1, +2) -- SpliceAI masked artifact.
+  5. **Drop pure synonymous coding variants** -- they don't change the
+     protein. Clinically uninformative; takes up SeqNext database space
+     for no decision support. Keep synonymous-flagged variants ONLY if
+     they sit in the splice region (-15..+6, where they could affect
+     splicing). Detection sources, in order:
+       - hgvs_c has intronic offset -> not pure coding, keep
+       - Option A catalog row (source=synonymous_catalog) -> drop
+       - pipeline classification mentions 'synonymous' but no
+         'intronic_ROI' tag -> drop
+       - ClinVar clinvar_name contains 'p.XXX=' (synonymous marker) -> drop
 
-Output:
-  cp_new_bundle/outputs/new_genes_only/cp_new_seqnext_UPLOAD.tsv
+Output: cp_new_bundle/outputs/new_genes_only/cp_new_seqnext_UPLOAD.tsv
 """
 
 from __future__ import annotations
@@ -29,6 +30,7 @@ import pandas as pd
 
 NEW_GENES_TXT = Path("cp_new_bundle/outputs/new_genes_only/_new_genes.txt")
 FINAL = Path("data/exports/cp_new/seqnext/cp_new_seqnext_FINAL.tsv")
+CV = Path("data/exports/cp_new/seqnext/clinvar_benign_seqnext.tsv")
 OUT = Path("cp_new_bundle/outputs/new_genes_only/cp_new_seqnext_UPLOAD.tsv")
 
 # ROI in splice region (-15 to +6 from nearest exon boundary)
@@ -37,6 +39,8 @@ ROI_POS = 6
 
 OFFSET_RE = re.compile(r"c\.\d+([+\-])(\d+)")
 CANONICAL_SPLICE = re.compile(r"c\.\d+[+\-][12][ACGT]>")
+# 'p.Xxx123=' (3-letter) or 'p.X123=' (1-letter) -- ClinVar synonymous marker
+SYN_HGVSP = re.compile(r"p\.[A-Za-z]{1,3}\d+=")
 
 
 def intronic_offset(hgvsc: str) -> int | None:
@@ -59,6 +63,14 @@ def main() -> int:
     df = pd.read_csv(FINAL, sep="\t", dtype=str).fillna("")
     print(f"FINAL combined rows: {len(df):,}")
 
+    # Load ClinVar names for synonymous detection on clinvar-source rows
+    cv = pd.read_csv(CV, sep="\t", dtype=str).fillna("") if CV.exists() else pd.DataFrame()
+    cv_name = {}
+    if not cv.empty:
+        cv["key"] = cv["gene"] + "|" + cv["transcript"] + "|" + cv["hgvs_c"]
+        cv_name = dict(zip(cv["key"], cv["clinvar_name"]))
+    df["_cv_name"] = (df["gene"] + "|" + df["transcript"] + "|" + df["hgvs_c"]).map(cv_name).fillna("")
+
     # 1. Restrict to 68 new genes
     df = df[df["gene"].isin(new_genes)].copy()
     print(f"  after new-genes filter: {len(df):,}")
@@ -78,8 +90,23 @@ def main() -> int:
     n_before = len(df)
     df["_offset"] = df["hgvs_c"].apply(intronic_offset)
     in_roi = df["_offset"].isna() | df["_offset"].between(ROI_NEG, ROI_POS)
-    df = df[in_roi].drop(columns=["_offset"])
+    df = df[in_roi].copy()
     print(f"  dropped deep intronic (offset outside [-15,+6]): {n_before - len(df):,}  remaining: {len(df):,}")
+
+    # 5. Drop pure synonymous coding (no clinical value)
+    # Keep ONLY if the variant has an intronic offset (in ROI), regardless of
+    # synonymous status -- intronic variants in splice region need review.
+    n_before = len(df)
+    is_intronic_roi = df["_offset"].notna()  # already filtered to ROI in step 4
+    # Synonymous-coding detection across the 3 sources:
+    is_catalog = df["source"] == "synonymous_catalog"
+    pipeline_syn = (df["source"] == "pipeline") & \
+                    df["classification"].str.contains("synonymous", case=False, na=False) & \
+                    ~df["classification"].str.contains("intronic_ROI", case=False, na=False)
+    clinvar_syn = (df["source"] == "clinvar") & df["_cv_name"].str.contains(SYN_HGVSP, na=False)
+    pure_syn = (is_catalog | pipeline_syn | clinvar_syn) & ~is_intronic_roi
+    df = df[~pure_syn].drop(columns=["_offset", "_cv_name"])
+    print(f"  dropped pure synonymous coding (no clinical value): {n_before - len(df):,}  remaining: {len(df):,}")
 
     df.to_csv(OUT, sep="\t", index=False)
     print(f"\nWrote {len(df):,} upload rows -> {OUT}")
