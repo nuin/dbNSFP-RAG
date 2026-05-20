@@ -30,6 +30,8 @@ OUT  = DATA / "cp_new_seqnext_FINAL.tsv"
 OUT_STRICT = DATA / "cp_new_seqnext_FINAL_strict.tsv"
 
 CANONICAL_SPLICE = re.compile(r"c\.\d+[+\-][12][ACGT]>")
+# Extract intronic offset from HGVSc; None if coding (no offset)
+INTRONIC_OFFSET = re.compile(r"c\.\d+([+\-])(\d+)")
 
 
 def load_or_empty(p: Path, source: str) -> pd.DataFrame:
