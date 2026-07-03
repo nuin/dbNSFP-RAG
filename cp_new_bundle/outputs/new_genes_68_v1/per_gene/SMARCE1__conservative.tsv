@@ -1,0 +1,8 @@
+gene	transcript	hgvs_c	classification	PhastCons100way	PhyloP100way	REVEL	SpliceAI_masked	FAF95_grpmax	CADD_phred	AlphaMissense_pred	ClinVar_sig	chr_grch37	pos_grch37	ref	alt	vv_status	source
+SMARCE1	NM_003079.5	c.715-4G>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0, PhyloP<0.1, intronic_ROI(-4)	0.069	-0.845				7.862	LB		17	38787949	C	G	ok	pipeline
+SMARCE1	NM_003079.5	c.715-4G>T	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0, PhyloP<0.1, intronic_ROI(-4)	0.069	-0.845				6.6	LB		17	38787949	C	A	ok	pipeline
+SMARCE1	NM_003079.5	c.715-4G>A	Likely_benign ClinVar(2-star, criteria provided)								Likely benign	17	38787949			clinvar_assertion	clinvar
+SMARCE1	NM_003079.5	c.157-4G>A	Likely_benign ClinVar(2-star, criteria provided)								Likely benign	17	38793828			clinvar_assertion	clinvar
+SMARCE1	NM_003079.5	c.1231G>T	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	38785042			clinvar_assertion	clinvar
+SMARCE1	NM_003079.5	c.1079G>A	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	38785194			clinvar_assertion	clinvar
+SMARCE1	NM_003079.5	c.*110C>T	Benign ClinVar(2-star, criteria provided)								Benign	17	38784927			clinvar_assertion	clinvar

@@ -1,0 +1,22 @@
+gene	transcript	hgvs_c	classification	PhastCons100way	PhyloP100way	REVEL	SpliceAI_masked	FAF95_grpmax	CADD_phred	AlphaMissense_pred	ClinVar_sig	chr_grch37	pos_grch37	ref	alt	vv_status	source
+ACD	NM_001082486.2	c.1299-5T>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0, PhyloP<0.1, intronic_ROI(-5)	0.011	-0.007				6.615			16	67691592	A	C	ok	pipeline
+ACD	NM_001082486.2	c.1207-10C>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0, PhyloP<0.1, intronic_ROI(-10)	0.0	-0.394				7.957			16	67691766	G	T	ok	pipeline
+ACD	NM_001082486.2	c.1207-10C>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0, PhyloP<0.1, intronic_ROI(-10)	0.0	-0.394				10.64			16	67691766	G	C	ok	pipeline
+ACD	NM_001082486.2	c.1295T>C	Benign FAF >5%	0.145	-0.091	.;.		0.895011	5.452	.;.	Benign	16	67691668	A	G	ok	pipeline
+ACD	NM_001082486.2	c.1299-8C>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0, PhyloP<0.1, intronic_ROI(-8)	0.011	0.032			2.80000e-07	8.63			16	67691595	G	T	ok	pipeline
+ACD	NM_001082486.2	c.1299-8C>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0, PhyloP<0.1, intronic_ROI(-8)	0.011	0.032				3.208			16	67691595	G	C	ok	pipeline
+ACD	NM_001082486.2	c.1299-5T>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0, PhyloP<0.1, intronic_ROI(-5)	0.011	-0.007				13.86			16	67691592	A	T	ok	pipeline
+ACD	NM_001082486.2	c.243-13C>T	Likely_benign ClinVar(2-star, criteria provided)								Likely benign	16	67693711			clinvar_assertion	clinvar
+ACD	NM_001082486.2	c.-19G>T	Likely_benign ClinVar(2-star, criteria provided)								Likely benign	16	67694142			clinvar_assertion	clinvar
+ACD	NM_001082486.2	c.-18C>T	Likely_benign ClinVar(2-star, criteria provided)								Likely benign	16	67694141			clinvar_assertion	clinvar
+ACD	NM_001082486.2	c.830-11C>T	Likely_benign ClinVar(2-star, criteria provided)								Likely benign	16	67692276			clinvar_assertion	clinvar
+ACD	NM_001082486.2	c.-13T>G	Likely_benign ClinVar(2-star, criteria provided)								Likely benign	16	67694136			clinvar_assertion	clinvar
+ACD	NM_001082486.2	c.830-5C>T	Likely_benign ClinVar(2-star, criteria provided)								Likely benign	16	67692270			clinvar_assertion	clinvar
+ACD	NM_001082486.2	c.1207-10C>T	Benign ClinVar(2-star, criteria provided)								Benign	16	67691766			clinvar_assertion	clinvar
+ACD	NM_001082486.2	c.80G>A	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	16	67694044			clinvar_assertion	clinvar
+ACD	NM_001082486.2	c.923G>A	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	16	67692172			clinvar_assertion	clinvar
+ACD	NM_001082486.2	c.-37C>T	Likely_benign ClinVar(2-star, criteria provided)								Likely benign	16	67694160			clinvar_assertion	clinvar
+ACD	NM_001082486.2	c.*32T>A	Benign ClinVar(2-star, criteria provided)								Benign	16	67691477			clinvar_assertion	clinvar
+ACD	NM_001082486.2	c.413+3A>G	Benign ClinVar(2-star, criteria provided)								Benign	16	67693437			clinvar_assertion	clinvar
+ACD	NM_001082486.2	c.-1G>C	Likely_benign ClinVar(2-star, criteria provided)								Likely benign	16	67694124			clinvar_assertion	clinvar
+ACD	NM_001082486.2	c.-31C>A	Likely_benign ClinVar(2-star, criteria provided)								Likely benign	16	67694154			clinvar_assertion	clinvar

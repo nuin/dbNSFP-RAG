@@ -1,0 +1,10 @@
+gene	transcript	hgvs_c	classification	PhastCons100way	PhyloP100way	REVEL	SpliceAI_masked	FAF95_grpmax	CADD_phred	AlphaMissense_pred	ClinVar_sig	chr_grch37	pos_grch37	ref	alt	vv_status	source
+MBD4	NM_001276270.2	c.817G>A	Benign FAF >5%	0.001	0.275	0.212;0.212;.;0.212;.;.;.;.;0.212		0.116705	12.53	LB;B;.;LB;.;.;.;.;LB	Benign	3	129155670	C	T	ok	pipeline
+MBD4	NM_001276270.2	c.1024T>C	Benign FAF >5%	0.089	0.217	0.285;0.285;.;0.285;.;.;.;.;0.285		0.124457	12.47	LB;B;.;LB;.;.;.;.;LB	Benign	3	129155463	A	G	ok	pipeline
+MBD4	NM_001276270.2	c.1036G>A	Benign FAF >5%	0.0	-1.746	0.259;0.259;.;0.259;.;.;.;.;0.259		0.368178	0.002	LB;B;.;LB;.;.;.;.;LB	Benign	3	129155451	C	T	ok	pipeline
+MBD4	NM_001276270.2	c.1647+6G>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0, PhyloP<0.1, intronic_ROI(+6)	0.129	-0.08	0.034			6.482	LB		3	129151340	C	G	ok	pipeline
+MBD4	NM_001276270.2	c.1647+6G>T	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0, PhyloP<0.1, intronic_ROI(+6)	0.129	-0.08	0.034			6.42	LB		3	129151340	C	A	ok	pipeline
+MBD4	NM_001276270.2	c.1394-4C>T	Likely_benign ClinVar(2-star, criteria provided)								Likely benign	3	129152094			clinvar_assertion	clinvar
+MBD4	NM_001276270.2	c.368C>T	Likely_benign ClinVar(2-star, criteria provided)								Likely benign	3	129156119			clinvar_assertion	clinvar
+MBD4	NM_001276270.2	c.181T>C	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	3	129156717			clinvar_assertion	clinvar
+MBD4	NM_001276270.2	c.1073T>C	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	3	129155414			clinvar_assertion	clinvar

@@ -1,0 +1,11 @@
+gene	transcript	hgvs_c	classification	PhastCons100way	PhyloP100way	REVEL	SpliceAI_masked	FAF95_grpmax	CADD_phred	AlphaMissense_pred	ClinVar_sig	chr_grch37	pos_grch37	ref	alt	vv_status	source
+RPS20	NM_001023.3	c.195A>G	Benign FAF >5%	0.018	-0.837	0.026		0.250038	1.071	LB	Benign	8	56985814	T	C	ok	pipeline
+RPS20	NM_001023.3	c.178-9_178-8del	Likely_benign ClinVar(2-star, criteria provided)								Likely benign	8	56985839			clinvar_assertion	clinvar
+RPS20	NM_001023.3	c.-6A>G	Benign ClinVar(2-star, criteria provided)								Benign	8	56986948			clinvar_assertion	clinvar
+RPS20	NM_001023.3	c.343T>C	Benign ClinVar(2-star, criteria provided)								Benign	8	56982383			clinvar_assertion	clinvar
+RPS20	NM_001023.3		Benign ClinVar(2-star, criteria provided)								Benign	8	56987454			clinvar_assertion	clinvar
+RPS20	NM_001023.3	c.-117G>C	Benign ClinVar(2-star, criteria provided)								Benign	8	56987059			clinvar_assertion	clinvar
+RPS20	NM_001023.3	c.*35G>A	Benign ClinVar(2-star, criteria provided)								Benign	8	56982262			clinvar_assertion	clinvar
+RPS20	NM_001023.3	c.4-11T>C	Benign ClinVar(2-star, criteria provided)								Benign	8	56986729			clinvar_assertion	clinvar
+RPS20	NM_001023.3	c.4-3T>C	Benign ClinVar(2-star, criteria provided)								Benign	8	56986721			clinvar_assertion	clinvar
+RPS20	NM_001023.3	c.*14C>T	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	8	56982283			clinvar_assertion	clinvar

@@ -1,0 +1,296 @@
+gene	transcript	hgvs_c	classification	PhastCons100way	PhyloP100way	REVEL	SpliceAI_masked	SpliceAI_unmasked	FAF95_grpmax	CADD_phred	AlphaMissense_pred	ClinVar_sig	chr_grch37	pos_grch37	ref	alt	vv_status	source
+RPS20	NM_001023.3	c.195A>G	Benign FAF >5%	0.018	-0.837	0.026	0.0000		0.250038	1.071	LB	Benign	8	56985814	T	C	ok	pipeline
+RPS20	NM_001023.3	c.228G>A	rule_fails:W3_faf_none	1.0	7.761	0.461				26.8	LP	Benign/Likely benign	8	56985781	C	T	clinvar_assertion	clinvar
+RPS20	NM_001023.3	c.150G>A	rule_fails:W3_faf_none	1.0	7.404	0.280				22.8	LP	Likely benign	8	56986281	C	T	clinvar_assertion	clinvar
+RPS20	NM_001023.3	c.343T>C	Benign FAF >5%	0.023	0.347	0.037			0.0603905	3.26		Benign	8	56982383	A	G	clinvar_assertion	clinvar
+RPS20	NM_001023.3	c.70C>T	rule_fails:W3_faf_0.00000	1.0	7.564	0.503	0.0000	0.0000	2.80000e-07	26.8	LP	Likely benign	8	56986652	G	A	clinvar_assertion	clinvar
+RPS20	NM_001023.3	c.121A>C	rule_fails:W3_faf_none	1.0	7.871	0.358	0.0000	0.0000		25.6	LP	Likely benign	8	56986310	T	G	clinvar_assertion	clinvar
+RPS20	NM_001023.3	c.72A>T	rule_fails:W3_faf_none	0.079	-0.568	0.301				12.81	LP	Likely benign	8	56986650	T	A	clinvar_assertion	clinvar
+RPS20	NM_001023.3	c.183G>A	rule_fails:W3_faf_0.00010	1.0	2.45	0.021	0.0000		0.000100800	11.88	LB	Likely benign	8	56985826	C	T	clinvar_assertion	clinvar
+RPS20	NM_001023.3	c.189C>T	rule_fails:W3_faf_none	1.0	4.742	0.223	0.0000			9.838	LB	Likely benign	8	56985820	G	A	clinvar_assertion	clinvar
+RPS20	NM_001023.3	c.285T>G	rule_fails:W3_faf_none	0.981	0.22	0.563				16.75	LP	Likely benign	8	56985724	A	C	clinvar_assertion	clinvar
+RPS20	NM_001023.3	c.184A>C	rule_fails:W3_faf_none	1.0	7.817	0.817	0.0000			25.2	LP	Likely benign	8	56985825	T	G	clinvar_assertion	clinvar
+RPS20	NM_001023.3	c.75A>C	rule_fails:W3_faf_none	0.682	-0.121	0.422				20.8	LP	Likely benign	8	56986647	T	G	clinvar_assertion	clinvar
+RPS20	NM_001023.3	c.37C>G	rule_fails:W3_faf_none	1.0	7.838	0.547	0.0000	0.0000		26.7	LP	Likely benign	8	56986685	G	C	clinvar_assertion	clinvar
+RPS20	NM_001023.3	c.25A>G	rule_fails:W3_faf_none	1.0	7.817	0.697	0.0000	0.0000		25.9	LP	Likely benign	8	56986697	T	C	clinvar_assertion	clinvar
+RPS20	NM_001023.3	c.17C>G	rule_fails:W3_faf_0.00005	1.0	9.743	0.506	0.0100	0.0100	5.13700e-05	25.7	LP	Likely benign	8	56986705	G	C	clinvar_assertion	clinvar
+RPS20	NM_001023.3	c.102G>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.991	0.245		0.0000	0.0100					8	56986620	C	T	local_enumeration	synonymous_catalog
+RPS20	NM_001023.3	c.90A>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.079	-0.568		0.0100	0.0100					8	56986632	T	C	local_enumeration	synonymous_catalog
+RPS20	NM_001023.3	c.195A>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.018	-0.837		0.0000						8	56985814	T	G	local_enumeration	synonymous_catalog
+RPS20	NM_001023.3	c.192T>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.373	-0.204		0.0000						8	56985817	A	T	local_enumeration	synonymous_catalog
+RPS20	NM_001023.3	c.192T>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.373	-0.204		0.0000						8	56985817	A	C	local_enumeration	synonymous_catalog
+RPS20	NM_001023.3	c.180T>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.01	-0.74		0.0000						8	56985829	A	T	local_enumeration	synonymous_catalog
+RPS20	NM_001023.3	c.180T>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.01	-0.74		0.0000						8	56985829	A	G	local_enumeration	synonymous_catalog
+RPS20	NM_001023.3	c.180T>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.01	-0.74		0.0000						8	56985829	A	C	local_enumeration	synonymous_catalog
+RPS20	NM_001023.3	c.153A>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.909	0.015		0.0000	0.0000					8	56986278	T	C	local_enumeration	synonymous_catalog
+RPS20	NM_001023.3	c.147A>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.995	0.299		0.0200	0.0200					8	56986284	T	C	local_enumeration	synonymous_catalog
+RPS20	NM_001023.3	c.213T>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.52	-0.103		0.0000						8	56985796	A	C	local_enumeration	synonymous_catalog
+RPS20	NM_001023.3	c.321G>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.37	-0.298		0.0000	0.0000					8	56985688	C	T	local_enumeration	synonymous_catalog
+RPS20	NM_001023.3	c.315T>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.981	0.22		0.0000	0.0000					8	56985694	A	G	local_enumeration	synonymous_catalog
+RPS20	NM_001023.3	c.291T>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.332	-0.111		0.0000	0.0000					8	56985718	A	T	local_enumeration	synonymous_catalog
+RPS20	NM_001023.3	c.291T>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.332	-0.111		0.0000	0.0000					8	56985718	A	G	local_enumeration	synonymous_catalog
+RPS20	NM_001023.3	c.267T>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.955	0.132		0.0000	0.0000					8	56985742	A	T	local_enumeration	synonymous_catalog
+RPS20	NM_001023.3	c.267T>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.955	0.132		0.0000	0.0000					8	56985742	A	G	local_enumeration	synonymous_catalog
+RPS20	NM_001023.3	c.249A>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.682	-0.121		0.0000	0.0000					8	56985760	T	C	local_enumeration	synonymous_catalog
+RPS20	NM_001023.3	c.243G>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.994	0.455		0.0000	0.0000					8	56985766	C	T	local_enumeration	synonymous_catalog
+RPS20	NM_001023.3	c.213T>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.52	-0.103		0.0000						8	56985796	A	T	local_enumeration	synonymous_catalog
+RPS20	NM_001023.3	c.196A>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.999	3.064		0.0000						8	56985813	T	G	local_enumeration	synonymous_catalog
+RPS20	NM_001023.3	c.201A>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.949	0.065		0.0000						8	56985808	T	C	local_enumeration	synonymous_catalog
+RPS20	NM_001023.3	c.204T>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.001	-1.485		0.0000						8	56985805	A	G	local_enumeration	synonymous_catalog
+RPS20	NM_001023.3	c.195A>T	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.018	-0.837		0.0000						8	56985814	T	A	local_enumeration	synonymous_catalog
+RPS20	NM_001023.3	c.207T>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.56	-0.098		0.0000	0.0000					8	56985802	A	G	local_enumeration	synonymous_catalog
+RPS20	NM_001023.3	c.204T>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.001	-1.485		0.0000						8	56985805	A	T	local_enumeration	synonymous_catalog
+RPS20	NM_001023.3	c.204T>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.001	-1.485		0.0000						8	56985805	A	C	local_enumeration	synonymous_catalog
+RPS20	NM_001023.3	c.36G>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.0	-2.043		0.0000	0.0000					8	56986686	C	T	local_enumeration	synonymous_catalog
+RPS20	NM_001023.3	c.51T>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.982	0.172		0.0000	0.0000					8	56986671	A	G	local_enumeration	synonymous_catalog
+RPS20	NM_001023.3	c.51T>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.982	0.172		0.0000	0.0000					8	56986671	A	T	local_enumeration	synonymous_catalog
+RPS20	NM_001023.3	c.60T>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.889	0.037		0.0000	0.0000					8	56986662	A	G	local_enumeration	synonymous_catalog
+RPS20	NM_001023.3	c.66C>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.967	0.07		0.0000	0.0000					8	56986656	G	T	local_enumeration	synonymous_catalog
+RPS20	NM_001023.3	c.61C>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.943	0.626		0.0100	0.0100	3.26712e-05				8	56986661	G	T	local_enumeration	synonymous_catalog
+RPS20	NM_001023.3	c.60T>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.889	0.037		0.0000	0.0000					8	56986662	A	T	local_enumeration	synonymous_catalog
+RPS20	NM_001023.3	c.*3387G>A	Benign FAF >5%						0.142182						C	T	myvariant_resolved	gnomad_common
+RPS20	NM_001023.3	c.*3070G>A	Benign FAF >5%						0.0583272						C	T	myvariant_resolved	gnomad_common
+RPS20	NM_001023.3	c.*2940dup	Benign FAF >5%						0.220987						G	GT	myvariant_resolved	gnomad_common
+RPS20	NM_001023.3	c.*2552G>A	Benign FAF >5%						0.232755						C	T	myvariant_resolved	gnomad_common
+RPS20	NM_001023.3	c.*2352dup	Benign FAF >5%						0.300788						C	CA	myvariant_resolved	gnomad_common
+RPS20	NM_001023.3	c.*2151A>G	Benign FAF >5%						0.138413						T	C	myvariant_resolved	gnomad_common
+RPS20	NM_001023.3	c.*2054A>G	Benign FAF >5%						0.102794						T	C	myvariant_resolved	gnomad_common
+RPS20	NM_001023.3	c.*1926G>A	Benign FAF >5%						0.0584365						C	T	myvariant_resolved	gnomad_common
+RPS20	NM_001023.3	c.*1795A>G	Benign FAF >5%						0.108036						T	C	myvariant_resolved	gnomad_common
+RPS20	NM_001023.3	c.*1729A>T	Benign FAF >5%						0.138647						T	A	myvariant_resolved	gnomad_common
+RPS20	NM_001023.3	c.*1485T>G	Benign FAF >5%						0.0656532						A	C	myvariant_resolved	gnomad_common
+RPS20	NM_001023.3	c.*1257A>G	Benign FAF >5%						0.431337						T	C	myvariant_resolved	gnomad_common
+RPS20	NM_001023.3	c.*1151A>T	Benign FAF >5%						0.058222						T	A	myvariant_resolved	gnomad_common
+RPS20	NM_001023.3	c.*1150G>C	Benign FAF >5%						0.058222						C	G	myvariant_resolved	gnomad_common
+RPS20	NM_001023.3	c.*1118A>G	Benign FAF >5%						0.138336						T	C	myvariant_resolved	gnomad_common
+RPS20	NM_001023.3	c.*1045G>C	Benign FAF >5%						0.138609						C	G	myvariant_resolved	gnomad_common
+RPS20	NM_001023.3	c.*854T>C	Benign FAF >5%						0.0962024						A	G	myvariant_resolved	gnomad_common
+RPS20	NM_001023.3	c.*842T>A	Benign FAF >5%						0.080904						A	T	myvariant_resolved	gnomad_common
+RPS20	NM_001023.3	c.*672G>A	Benign FAF >5%						0.241278						C	T	myvariant_resolved	gnomad_common
+RPS20	NM_001023.3	c.*620A>G	Benign FAF >5%						0.081488						T	C	myvariant_resolved	gnomad_common
+RPS20	NM_001023.3	c.*541dup	Benign FAF >5%						0.0568087						T	TC	myvariant_resolved	gnomad_common
+RPS20	NM_001023.3	c.*535G>C	Benign FAF >5%						0.216529						C	G	myvariant_resolved	gnomad_common
+RPS20	NM_001023.3	c.*533G>T	Benign FAF >5%						0.258156						C	A	myvariant_resolved	gnomad_common
+RPS20	NM_001023.3	c.*532G>T	Benign FAF >5%						0.350896						C	A	myvariant_resolved	gnomad_common
+RPS20	NM_001023.3	c.*464_*465ins	Benign FAF >5%						0.132808						A	AAGGTTTAGTTCCTAAAACCCTAAAACTT	myvariant_resolved	gnomad_common
+RPS20	NM_001023.3	c.*455A>G	Benign FAF >5%						0.133708						T	C	myvariant_resolved	gnomad_common
+RPS20	NM_001023.3	c.*397C>T	Benign FAF >5%						0.138513						G	A	myvariant_resolved	gnomad_common
+RPS20	NM_001023.3	c.*236G>C	Benign FAF >5%						0.060067						C	G	myvariant_resolved	gnomad_common
+RPS20	NM_001023.3	c.178-181G>C	Benign FAF >5%						0.1376						C	G	myvariant_resolved	gnomad_common
+RPS20	NM_001023.3	c.177+180A>G	Benign FAF >5%						0.107376						T	C	myvariant_resolved	gnomad_common
+RPS20	NM_001023.3	c.177+76G>C	Benign FAF >5%						0.0678601						C	G	myvariant_resolved	gnomad_common
+RPS20	NM_001023.3	c.104-90T>C	Benign FAF >5%						0.248857						A	G	myvariant_resolved	gnomad_common
+RPS20	NM_001023.3	c.103+88G>C	Benign FAF >5%						0.301667						C	G	myvariant_resolved	gnomad_common
+RPS20	NM_001023.3	c.4-3T>C	Benign FAF >5%						0.140228						A	G	myvariant_resolved	gnomad_common
+RPS20	NM_001023.3	c.4-11T>C	Benign FAF >5%						0.0798016						A	G	myvariant_resolved	gnomad_common
+RPS20	NM_001023.3	c.4-19T>C	Benign FAF >5%						0.333947						A	G	myvariant_resolved	gnomad_common
+RPS20	NM_001023.3	c.4-90G>A	Benign FAF >5%						0.0689119						C	T	myvariant_resolved	gnomad_common
+RPS20	NM_001023.3	c.3+57C>G	Benign FAF >5%						0.236174						G	C	myvariant_resolved	gnomad_common
+RPS20	NM_001023.3	c.-6A>G	Benign FAF >5%						0.236192						T	C	myvariant_resolved	gnomad_common
+RPS20	NM_001023.3	c.403C>G	Likely_benign FAF >0.1%, REVEL<0.29, SpliceAI<=0.1	0.005	0.231	0.052			0.00248769	1.846		Likely_benign	8	56982305	G	C	pipeline_w3_catchup	pipeline
+RPS20	NM_001023.3	c.392C>T	Likely_benign FAF >0.1%, REVEL<0.29, SpliceAI<=0.1	0.0	-1.213	0.029			0.00248043	1.627		Uncertain_significance	8	56982316	G	A	pipeline_w3_catchup	pipeline
+RPS20	NM_001023.3	c.6T>G	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons unmeasured				0 (assumed)						8	56986716	A	C	local_enumeration	synonymous_catalog
+RPS20	NM_001023.3	c.6T>C	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons unmeasured				0 (assumed)						8	56986716	A	G	local_enumeration	synonymous_catalog
+RPS20	NM_001023.3	c.6T>A	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons unmeasured				0 (assumed)						8	56986716	A	T	local_enumeration	synonymous_catalog
+RPS20	NM_001023.3	c.9T>C	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons unmeasured				0.0000	0.0200					8	56986713	A	G	local_enumeration	synonymous_catalog
+RPS20	NM_001023.3	c.12G>A	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons unmeasured				0.0900	0.0900					8	56986710	C	T	local_enumeration	synonymous_catalog
+RPS20	NM_001023.3	c.15T>C	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons unmeasured				0.0000	0.0000					8	56986707	A	G	local_enumeration	synonymous_catalog
+RPS20	NM_001023.3	c.18C>T	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons unmeasured				0 (assumed)						8	56986704	G	A	local_enumeration	synonymous_catalog
+RPS20	NM_001023.3	c.18C>G	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons unmeasured				0 (assumed)						8	56986704	G	C	local_enumeration	synonymous_catalog
+RPS20	NM_001023.3	c.18C>A	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons unmeasured				0 (assumed)						8	56986704	G	T	local_enumeration	synonymous_catalog
+RPS20	NM_001023.3	c.21A>T	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons unmeasured				0 (assumed)						8	56986701	T	A	local_enumeration	synonymous_catalog
+RPS20	NM_001023.3	c.21A>G	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons unmeasured				0 (assumed)						8	56986701	T	C	local_enumeration	synonymous_catalog
+RPS20	NM_001023.3	c.21A>C	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons unmeasured				0 (assumed)						8	56986701	T	G	local_enumeration	synonymous_catalog
+RPS20	NM_001023.3	c.24A>G	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons unmeasured				0.0000	0.0000					8	56986698	T	C	local_enumeration	synonymous_catalog
+RPS20	NM_001023.3	c.27A>T	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons unmeasured				0 (assumed)						8	56986695	T	A	local_enumeration	synonymous_catalog
+RPS20	NM_001023.3	c.27A>G	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons unmeasured				0 (assumed)						8	56986695	T	C	local_enumeration	synonymous_catalog
+RPS20	NM_001023.3	c.27A>C	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons unmeasured				0 (assumed)						8	56986695	T	G	local_enumeration	synonymous_catalog
+RPS20	NM_001023.3	c.30C>T	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons unmeasured				0 (assumed)						8	56986692	G	A	local_enumeration	synonymous_catalog
+RPS20	NM_001023.3	c.30C>G	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons unmeasured				0 (assumed)						8	56986692	G	C	local_enumeration	synonymous_catalog
+RPS20	NM_001023.3	c.30C>A	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons unmeasured				0 (assumed)						8	56986692	G	T	local_enumeration	synonymous_catalog
+RPS20	NM_001023.3	c.33G>T	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons unmeasured				0 (assumed)						8	56986689	C	A	local_enumeration	synonymous_catalog
+RPS20	NM_001023.3	c.33G>C	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons unmeasured				0 (assumed)						8	56986689	C	G	local_enumeration	synonymous_catalog
+RPS20	NM_001023.3	c.33G>A	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons unmeasured				0 (assumed)						8	56986689	C	T	local_enumeration	synonymous_catalog
+RPS20	NM_001023.3	c.39G>T	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons unmeasured				0 (assumed)						8	56986683	C	A	local_enumeration	synonymous_catalog
+RPS20	NM_001023.3	c.39G>C	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons unmeasured				0 (assumed)						8	56986683	C	G	local_enumeration	synonymous_catalog
+RPS20	NM_001023.3	c.39G>A	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons unmeasured				0 (assumed)						8	56986683	C	T	local_enumeration	synonymous_catalog
+RPS20	NM_001023.3	c.42G>A	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons unmeasured				0.0000	0.0000					8	56986680	C	T	local_enumeration	synonymous_catalog
+RPS20	NM_001023.3	c.45G>T	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons unmeasured				0 (assumed)						8	56986677	C	A	local_enumeration	synonymous_catalog
+RPS20	NM_001023.3	c.45G>C	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons unmeasured				0 (assumed)						8	56986677	C	G	local_enumeration	synonymous_catalog
+RPS20	NM_001023.3	c.45G>A	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons unmeasured				0 (assumed)						8	56986677	C	T	local_enumeration	synonymous_catalog
+RPS20	NM_001023.3	c.48A>T	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons unmeasured				0 (assumed)						8	56986674	T	A	local_enumeration	synonymous_catalog
+RPS20	NM_001023.3	c.48A>G	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons unmeasured				0 (assumed)						8	56986674	T	C	local_enumeration	synonymous_catalog
+RPS20	NM_001023.3	c.48A>C	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons unmeasured				0 (assumed)						8	56986674	T	G	local_enumeration	synonymous_catalog
+RPS20	NM_001023.3	c.54C>T	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons unmeasured				0.0000	0.0000					8	56986668	G	A	local_enumeration	synonymous_catalog
+RPS20	NM_001023.3	c.55C>A	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons unmeasured				0 (assumed)						8	56986667	G	T	local_enumeration	synonymous_catalog
+RPS20	NM_001023.3	c.57A>T	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons unmeasured				0 (assumed)						8	56986665	T	A	local_enumeration	synonymous_catalog
+RPS20	NM_001023.3	c.57A>G	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons unmeasured				0 (assumed)						8	56986665	T	C	local_enumeration	synonymous_catalog
+RPS20	NM_001023.3	c.57A>C	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons unmeasured				0 (assumed)						8	56986665	T	G	local_enumeration	synonymous_catalog
+RPS20	NM_001023.3	c.63A>T	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons unmeasured				0 (assumed)						8	56986659	T	A	local_enumeration	synonymous_catalog
+RPS20	NM_001023.3	c.63A>G	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons unmeasured				0 (assumed)						8	56986659	T	C	local_enumeration	synonymous_catalog
+RPS20	NM_001023.3	c.63A>C	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons unmeasured				0 (assumed)						8	56986659	T	G	local_enumeration	synonymous_catalog
+RPS20	NM_001023.3	c.66C>T	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons unmeasured				0.0000	0.0000					8	56986656	G	A	local_enumeration	synonymous_catalog
+RPS20	NM_001023.3	c.69C>T	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons unmeasured				0 (assumed)						8	56986653	G	A	local_enumeration	synonymous_catalog
+RPS20	NM_001023.3	c.69C>G	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons unmeasured				0 (assumed)						8	56986653	G	C	local_enumeration	synonymous_catalog
+RPS20	NM_001023.3	c.69C>A	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons unmeasured				0 (assumed)						8	56986653	G	T	local_enumeration	synonymous_catalog
+RPS20	NM_001023.3	c.72A>G	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons unmeasured				0 (assumed)						8	56986650	T	C	local_enumeration	synonymous_catalog
+RPS20	NM_001023.3	c.72A>C	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons unmeasured				0 (assumed)						8	56986650	T	G	local_enumeration	synonymous_catalog
+RPS20	NM_001023.3	c.75A>T	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons unmeasured				0 (assumed)						8	56986647	T	A	local_enumeration	synonymous_catalog
+RPS20	NM_001023.3	c.75A>G	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons unmeasured				0 (assumed)						8	56986647	T	C	local_enumeration	synonymous_catalog
+RPS20	NM_001023.3	c.78C>T	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons unmeasured				0.0100	0.0100					8	56986644	G	A	local_enumeration	synonymous_catalog
+RPS20	NM_001023.3	c.81C>T	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons unmeasured				0 (assumed)						8	56986641	G	A	local_enumeration	synonymous_catalog
+RPS20	NM_001023.3	c.81C>G	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons unmeasured				0 (assumed)						8	56986641	G	C	local_enumeration	synonymous_catalog
+RPS20	NM_001023.3	c.81C>A	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons unmeasured				0 (assumed)						8	56986641	G	T	local_enumeration	synonymous_catalog
+RPS20	NM_001023.3	c.84C>T	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons unmeasured				0.0700	0.0700					8	56986638	G	A	local_enumeration	synonymous_catalog
+RPS20	NM_001023.3	c.87A>T	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons unmeasured				0 (assumed)						8	56986635	T	A	local_enumeration	synonymous_catalog
+RPS20	NM_001023.3	c.87A>G	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons unmeasured				0 (assumed)						8	56986635	T	C	local_enumeration	synonymous_catalog
+RPS20	NM_001023.3	c.87A>C	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons unmeasured				0 (assumed)						8	56986635	T	G	local_enumeration	synonymous_catalog
+RPS20	NM_001023.3	c.93C>T	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons unmeasured				0 (assumed)						8	56986629	G	A	local_enumeration	synonymous_catalog
+RPS20	NM_001023.3	c.93C>G	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons unmeasured				0 (assumed)						8	56986629	G	C	local_enumeration	synonymous_catalog
+RPS20	NM_001023.3	c.93C>A	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons unmeasured				0 (assumed)						8	56986629	G	T	local_enumeration	synonymous_catalog
+RPS20	NM_001023.3	c.94T>C	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons unmeasured				0.0000	0.0000					8	56986628	A	G	local_enumeration	synonymous_catalog
+RPS20	NM_001023.3	c.96G>A	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons unmeasured				0.0100	0.0100					8	56986626	C	T	local_enumeration	synonymous_catalog
+RPS20	NM_001023.3	c.99A>G	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons unmeasured				0.0100	0.0100					8	56986623	T	C	local_enumeration	synonymous_catalog
+RPS20	NM_001023.3	c.105G>T	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons unmeasured				0 (assumed)						8	56986326	C	A	local_enumeration	synonymous_catalog
+RPS20	NM_001023.3	c.105G>C	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons unmeasured				0 (assumed)						8	56986326	C	G	local_enumeration	synonymous_catalog
+RPS20	NM_001023.3	c.105G>A	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons unmeasured				0 (assumed)						8	56986326	C	T	local_enumeration	synonymous_catalog
+RPS20	NM_001023.3	c.108T>C	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons unmeasured				0 (assumed)						8	56986323	A	G	local_enumeration	synonymous_catalog
+RPS20	NM_001023.3	c.111T>G	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons unmeasured				0 (assumed)						8	56986320	A	C	local_enumeration	synonymous_catalog
+RPS20	NM_001023.3	c.111T>C	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons unmeasured				0 (assumed)						8	56986320	A	G	local_enumeration	synonymous_catalog
+RPS20	NM_001023.3	c.111T>A	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons unmeasured				0 (assumed)						8	56986320	A	T	local_enumeration	synonymous_catalog
+RPS20	NM_001023.3	c.114C>T	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons unmeasured				0.0000	0.0000					8	56986317	G	A	local_enumeration	synonymous_catalog
+RPS20	NM_001023.3	c.115T>C	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons unmeasured				0.0000	0.0000					8	56986316	A	G	local_enumeration	synonymous_catalog
+RPS20	NM_001023.3	c.117G>A	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons unmeasured				0.0000	0.0000					8	56986314	C	T	local_enumeration	synonymous_catalog
+RPS20	NM_001023.3	c.120A>T	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons unmeasured				0 (assumed)						8	56986311	T	A	local_enumeration	synonymous_catalog
+RPS20	NM_001023.3	c.120A>C	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons unmeasured				0 (assumed)						8	56986311	T	G	local_enumeration	synonymous_catalog
+RPS20	NM_001023.3	c.123A>G	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons unmeasured				0.0100	0.0100					8	56986308	T	C	local_enumeration	synonymous_catalog
+RPS20	NM_001023.3	c.126C>T	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons unmeasured				0 (assumed)						8	56986305	G	A	local_enumeration	synonymous_catalog
+RPS20	NM_001023.3	c.126C>G	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons unmeasured				0 (assumed)						8	56986305	G	C	local_enumeration	synonymous_catalog
+RPS20	NM_001023.3	c.126C>A	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons unmeasured				0 (assumed)						8	56986305	G	T	local_enumeration	synonymous_catalog
+RPS20	NM_001023.3	c.129A>T	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons unmeasured				0 (assumed)						8	56986302	T	A	local_enumeration	synonymous_catalog
+RPS20	NM_001023.3	c.129A>G	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons unmeasured				0 (assumed)						8	56986302	T	C	local_enumeration	synonymous_catalog
+RPS20	NM_001023.3	c.129A>C	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons unmeasured				0 (assumed)						8	56986302	T	G	local_enumeration	synonymous_catalog
+RPS20	NM_001023.3	c.132A>G	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons unmeasured				0 (assumed)						8	56986299	T	C	local_enumeration	synonymous_catalog
+RPS20	NM_001023.3	c.135A>G	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons unmeasured				0.0000	0.0000					8	56986296	T	C	local_enumeration	synonymous_catalog
+RPS20	NM_001023.3	c.138G>A	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons unmeasured				0.0000	0.0000					8	56986293	C	T	local_enumeration	synonymous_catalog
+RPS20	NM_001023.3	c.141T>C	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons unmeasured				0.0000	0.0000					8	56986290	A	G	local_enumeration	synonymous_catalog
+RPS20	NM_001023.3	c.144C>T	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons unmeasured				0 (assumed)						8	56986287	G	A	local_enumeration	synonymous_catalog
+RPS20	NM_001023.3	c.144C>G	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons unmeasured				0 (assumed)						8	56986287	G	C	local_enumeration	synonymous_catalog
+RPS20	NM_001023.3	c.144C>A	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons unmeasured				0 (assumed)						8	56986287	G	T	local_enumeration	synonymous_catalog
+RPS20	NM_001023.3	c.150G>T	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons unmeasured				0 (assumed)						8	56986281	C	A	local_enumeration	synonymous_catalog
+RPS20	NM_001023.3	c.150G>C	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons unmeasured				0 (assumed)						8	56986281	C	G	local_enumeration	synonymous_catalog
+RPS20	NM_001023.3	c.156A>T	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons unmeasured				0 (assumed)						8	56986275	T	A	local_enumeration	synonymous_catalog
+RPS20	NM_001023.3	c.156A>G	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons unmeasured				0 (assumed)						8	56986275	T	C	local_enumeration	synonymous_catalog
+RPS20	NM_001023.3	c.156A>C	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons unmeasured				0 (assumed)						8	56986275	T	G	local_enumeration	synonymous_catalog
+RPS20	NM_001023.3	c.159A>T	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons unmeasured				0 (assumed)						8	56986272	T	A	local_enumeration	synonymous_catalog
+RPS20	NM_001023.3	c.159A>G	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons unmeasured				0 (assumed)						8	56986272	T	C	local_enumeration	synonymous_catalog
+RPS20	NM_001023.3	c.159A>C	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons unmeasured				0 (assumed)						8	56986272	T	G	local_enumeration	synonymous_catalog
+RPS20	NM_001023.3	c.162T>G	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons unmeasured				0 (assumed)						8	56986269	A	C	local_enumeration	synonymous_catalog
+RPS20	NM_001023.3	c.162T>C	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons unmeasured				0 (assumed)						8	56986269	A	G	local_enumeration	synonymous_catalog
+RPS20	NM_001023.3	c.162T>A	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons unmeasured				0 (assumed)						8	56986269	A	T	local_enumeration	synonymous_catalog
+RPS20	NM_001023.3	c.163C>A	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons unmeasured				0.0200	0.0200					8	56986268	G	T	local_enumeration	synonymous_catalog
+RPS20	NM_001023.3	c.165A>T	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons unmeasured				0 (assumed)						8	56986266	T	A	local_enumeration	synonymous_catalog
+RPS20	NM_001023.3	c.165A>G	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons unmeasured				0 (assumed)						8	56986266	T	C	local_enumeration	synonymous_catalog
+RPS20	NM_001023.3	c.165A>C	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons unmeasured				0 (assumed)						8	56986266	T	G	local_enumeration	synonymous_catalog
+RPS20	NM_001023.3	c.171T>G	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons unmeasured				0 (assumed)						8	56986260	A	C	local_enumeration	synonymous_catalog
+RPS20	NM_001023.3	c.171T>C	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons unmeasured				0 (assumed)						8	56986260	A	G	local_enumeration	synonymous_catalog
+RPS20	NM_001023.3	c.171T>A	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons unmeasured				0 (assumed)						8	56986260	A	T	local_enumeration	synonymous_catalog
+RPS20	NM_001023.3	c.174C>T	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons unmeasured				0 (assumed)						8	56986257	G	A	local_enumeration	synonymous_catalog
+RPS20	NM_001023.3	c.174C>G	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons unmeasured				0 (assumed)						8	56986257	G	C	local_enumeration	synonymous_catalog
+RPS20	NM_001023.3	c.174C>A	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons unmeasured				0 (assumed)						8	56986257	G	T	local_enumeration	synonymous_catalog
+RPS20	NM_001023.3	c.177G>A	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons unmeasured				0 (assumed)						8	56986254	C	T	local_enumeration	synonymous_catalog
+RPS20	NM_001023.3	c.181T>C	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons unmeasured				0.0000						8	56985828	A	G	local_enumeration	synonymous_catalog
+RPS20	NM_001023.3	c.186A>G	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons unmeasured				0.0000						8	56985823	T	C	local_enumeration	synonymous_catalog
+RPS20	NM_001023.3	c.189C>A	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons unmeasured				0.0000						8	56985820	G	T	local_enumeration	synonymous_catalog
+RPS20	NM_001023.3	c.192T>C	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons unmeasured				0.0000						8	56985817	A	G	local_enumeration	synonymous_catalog
+RPS20	NM_001023.3	c.198A>G	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons unmeasured				0.0000						8	56985811	T	C	local_enumeration	synonymous_catalog
+RPS20	NM_001023.3	c.207T>G	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons unmeasured				0.0000						8	56985802	A	C	local_enumeration	synonymous_catalog
+RPS20	NM_001023.3	c.207T>A	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons unmeasured				0.0000						8	56985802	A	T	local_enumeration	synonymous_catalog
+RPS20	NM_001023.3	c.210T>C	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons unmeasured				0.0000						8	56985799	A	G	local_enumeration	synonymous_catalog
+RPS20	NM_001023.3	c.213T>C	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons unmeasured				0.0000						8	56985796	A	G	local_enumeration	synonymous_catalog
+RPS20	NM_001023.3	c.216A>G	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons unmeasured				0 (assumed)						8	56985793	T	C	local_enumeration	synonymous_catalog
+RPS20	NM_001023.3	c.219T>G	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons unmeasured				0 (assumed)						8	56985790	A	C	local_enumeration	synonymous_catalog
+RPS20	NM_001023.3	c.219T>C	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons unmeasured				0 (assumed)						8	56985790	A	G	local_enumeration	synonymous_catalog
+RPS20	NM_001023.3	c.219T>A	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons unmeasured				0 (assumed)						8	56985790	A	T	local_enumeration	synonymous_catalog
+RPS20	NM_001023.3	c.222T>G	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons unmeasured				0 (assumed)						8	56985787	A	C	local_enumeration	synonymous_catalog
+RPS20	NM_001023.3	c.222T>C	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons unmeasured				0 (assumed)						8	56985787	A	G	local_enumeration	synonymous_catalog
+RPS20	NM_001023.3	c.222T>A	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons unmeasured				0 (assumed)						8	56985787	A	T	local_enumeration	synonymous_catalog
+RPS20	NM_001023.3	c.225G>A	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons unmeasured				0.0000	0.0000					8	56985784	C	T	local_enumeration	synonymous_catalog
+RPS20	NM_001023.3	c.228G>T	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons unmeasured				0 (assumed)						8	56985781	C	A	local_enumeration	synonymous_catalog
+RPS20	NM_001023.3	c.228G>C	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons unmeasured				0 (assumed)						8	56985781	C	G	local_enumeration	synonymous_catalog
+RPS20	NM_001023.3	c.234T>C	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons unmeasured				0 (assumed)						8	56985775	A	G	local_enumeration	synonymous_catalog
+RPS20	NM_001023.3	c.237T>G	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons unmeasured				0 (assumed)						8	56985772	A	C	local_enumeration	synonymous_catalog
+RPS20	NM_001023.3	c.237T>C	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons unmeasured				0 (assumed)						8	56985772	A	G	local_enumeration	synonymous_catalog
+RPS20	NM_001023.3	c.237T>A	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons unmeasured				0 (assumed)						8	56985772	A	T	local_enumeration	synonymous_catalog
+RPS20	NM_001023.3	c.240C>T	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons unmeasured				0 (assumed)						8	56985769	G	A	local_enumeration	synonymous_catalog
+RPS20	NM_001023.3	c.247A>C	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons unmeasured				0 (assumed)						8	56985762	T	G	local_enumeration	synonymous_catalog
+RPS20	NM_001023.3	c.252T>C	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons unmeasured				0 (assumed)						8	56985757	A	G	local_enumeration	synonymous_catalog
+RPS20	NM_001023.3	c.252T>A	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons unmeasured				0.0000	0.0000					8	56985757	A	T	local_enumeration	synonymous_catalog
+RPS20	NM_001023.3	c.255C>T	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons unmeasured				0.0000	0.0000					8	56985754	G	A	local_enumeration	synonymous_catalog
+RPS20	NM_001023.3	c.258G>A	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons unmeasured				0.0000	0.0000					8	56985751	C	T	local_enumeration	synonymous_catalog
+RPS20	NM_001023.3	c.259C>A	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons unmeasured				0.0000	0.0000					8	56985750	G	T	local_enumeration	synonymous_catalog
+RPS20	NM_001023.3	c.261A>T	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons unmeasured				0 (assumed)						8	56985748	T	A	local_enumeration	synonymous_catalog
+RPS20	NM_001023.3	c.261A>G	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons unmeasured				0 (assumed)						8	56985748	T	C	local_enumeration	synonymous_catalog
+RPS20	NM_001023.3	c.261A>C	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons unmeasured				0 (assumed)						8	56985748	T	G	local_enumeration	synonymous_catalog
+RPS20	NM_001023.3	c.264C>T	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons unmeasured				0 (assumed)						8	56985745	G	A	local_enumeration	synonymous_catalog
+RPS20	NM_001023.3	c.264C>G	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons unmeasured				0 (assumed)						8	56985745	G	C	local_enumeration	synonymous_catalog
+RPS20	NM_001023.3	c.264C>A	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons unmeasured				0 (assumed)						8	56985745	G	T	local_enumeration	synonymous_catalog
+RPS20	NM_001023.3	c.270C>T	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons unmeasured				0.0000	0.0000					8	56985739	G	A	local_enumeration	synonymous_catalog
+RPS20	NM_001023.3	c.271T>C	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons unmeasured				0.0000	0.0000					8	56985738	A	G	local_enumeration	synonymous_catalog
+RPS20	NM_001023.3	c.273G>A	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons unmeasured				0.0000	0.0000					8	56985736	C	T	local_enumeration	synonymous_catalog
+RPS20	NM_001023.3	c.276C>T	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons unmeasured				0.0000	0.0000					8	56985733	G	A	local_enumeration	synonymous_catalog
+RPS20	NM_001023.3	c.279T>C	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons unmeasured				0.0000	0.0000					8	56985730	A	G	local_enumeration	synonymous_catalog
+RPS20	NM_001023.3	c.282T>G	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons unmeasured				0 (assumed)						8	56985727	A	C	local_enumeration	synonymous_catalog
+RPS20	NM_001023.3	c.282T>C	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons unmeasured				0 (assumed)						8	56985727	A	G	local_enumeration	synonymous_catalog
+RPS20	NM_001023.3	c.282T>A	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons unmeasured				0 (assumed)						8	56985727	A	T	local_enumeration	synonymous_catalog
+RPS20	NM_001023.3	c.285T>C	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons unmeasured				0 (assumed)						8	56985724	A	G	local_enumeration	synonymous_catalog
+RPS20	NM_001023.3	c.285T>A	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons unmeasured				0 (assumed)						8	56985724	A	T	local_enumeration	synonymous_catalog
+RPS20	NM_001023.3	c.288G>A	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons unmeasured				0.0000	0.0000					8	56985721	C	T	local_enumeration	synonymous_catalog
+RPS20	NM_001023.3	c.294T>G	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons unmeasured				0 (assumed)						8	56985715	A	C	local_enumeration	synonymous_catalog
+RPS20	NM_001023.3	c.294T>C	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons unmeasured				0 (assumed)						8	56985715	A	G	local_enumeration	synonymous_catalog
+RPS20	NM_001023.3	c.294T>A	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons unmeasured				0 (assumed)						8	56985715	A	T	local_enumeration	synonymous_catalog
+RPS20	NM_001023.3	c.297G>A	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons unmeasured				0.0000	0.0000					8	56985712	C	T	local_enumeration	synonymous_catalog
+RPS20	NM_001023.3	c.300G>A	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons unmeasured				0.0000	0.0000					8	56985709	C	T	local_enumeration	synonymous_catalog
+RPS20	NM_001023.3	c.303T>C	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons unmeasured				0 (assumed)						8	56985706	A	G	local_enumeration	synonymous_catalog
+RPS20	NM_001023.3	c.303T>A	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons unmeasured				0 (assumed)						8	56985706	A	T	local_enumeration	synonymous_catalog
+RPS20	NM_001023.3	c.306T>G	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons unmeasured				0 (assumed)						8	56985703	A	C	local_enumeration	synonymous_catalog
+RPS20	NM_001023.3	c.306T>C	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons unmeasured				0 (assumed)						8	56985703	A	G	local_enumeration	synonymous_catalog
+RPS20	NM_001023.3	c.306T>A	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons unmeasured				0 (assumed)						8	56985703	A	T	local_enumeration	synonymous_catalog
+RPS20	NM_001023.3	c.309C>T	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons unmeasured				0 (assumed)						8	56985700	G	A	local_enumeration	synonymous_catalog
+RPS20	NM_001023.3	c.309C>G	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons unmeasured				0 (assumed)						8	56985700	G	C	local_enumeration	synonymous_catalog
+RPS20	NM_001023.3	c.309C>A	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons unmeasured				0 (assumed)						8	56985700	G	T	local_enumeration	synonymous_catalog
+RPS20	NM_001023.3	c.312C>T	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons unmeasured				0 (assumed)						8	56985697	G	A	local_enumeration	synonymous_catalog
+RPS20	NM_001023.3	c.312C>A	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons unmeasured				0 (assumed)						8	56985697	G	T	local_enumeration	synonymous_catalog
+RPS20	NM_001023.3	c.318T>C	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons unmeasured				0 (assumed)						8	56985691	A	G	local_enumeration	synonymous_catalog
+RPS20	NM_001023.3	c.318T>A	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons unmeasured				0 (assumed)						8	56985691	A	T	local_enumeration	synonymous_catalog
+RPS20	NM_001023.3	c.324A>T	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons unmeasured				0 (assumed)						8	56985685	T	A	local_enumeration	synonymous_catalog
+RPS20	NM_001023.3	c.324A>G	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons unmeasured				0 (assumed)						8	56985685	T	C	local_enumeration	synonymous_catalog
+RPS20	NM_001023.3	c.324A>C	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons unmeasured				0 (assumed)						8	56985685	T	G	local_enumeration	synonymous_catalog
+RPS20	NM_001023.3	c.327A>T	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons unmeasured				0 (assumed)						8	56985682	T	A	local_enumeration	synonymous_catalog
+RPS20	NM_001023.3	c.327A>G	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons unmeasured				0 (assumed)						8	56985682	T	C	local_enumeration	synonymous_catalog
+RPS20	NM_001023.3	c.327A>C	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons unmeasured				0 (assumed)						8	56985682	T	G	local_enumeration	synonymous_catalog
+RPS20	NM_001023.3	c.330T>G	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons unmeasured				0 (assumed)						8	56985679	A	C	local_enumeration	synonymous_catalog
+RPS20	NM_001023.3	c.330T>C	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons unmeasured				0 (assumed)						8	56985679	A	G	local_enumeration	synonymous_catalog
+RPS20	NM_001023.3	c.330T>A	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons unmeasured				0 (assumed)						8	56985679	A	T	local_enumeration	synonymous_catalog
+RPS20	NM_001023.3	c.333G>A	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons unmeasured				0.0000	0.0000					8	56985676	C	T	local_enumeration	synonymous_catalog
+RPS20	NM_001023.3	c.336G>T	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons unmeasured				0 (assumed)						8	56985673	C	A	local_enumeration	synonymous_catalog
+RPS20	NM_001023.3	c.336G>C	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons unmeasured				0 (assumed)						8	56985673	C	G	local_enumeration	synonymous_catalog
+RPS20	NM_001023.3	c.336G>A	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons unmeasured				0 (assumed)						8	56985673	C	T	local_enumeration	synonymous_catalog
+RPS20	NM_001023.3	c.339A>G	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons unmeasured				0 (assumed)						8	56985670	T	C	local_enumeration	synonymous_catalog
+RPS20	NM_001023.3	c.342C>T	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons unmeasured				0 (assumed)						8	56985667	G	A	local_enumeration	synonymous_catalog
+RPS20	NM_001023.3	c.342C>G	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons unmeasured				0 (assumed)						8	56985667	G	C	local_enumeration	synonymous_catalog
+RPS20	NM_001023.3	c.342C>A	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons unmeasured				0 (assumed)						8	56985667	G	T	local_enumeration	synonymous_catalog
+RPS20	NM_001023.3	c.345C>T	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons unmeasured				0 (assumed)						8	56985664	G	A	local_enumeration	synonymous_catalog
+RPS20	NM_001023.3	c.345C>G	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons unmeasured				0 (assumed)						8	56985664	G	C	local_enumeration	synonymous_catalog
+RPS20	NM_001023.3	c.345C>A	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons unmeasured				0 (assumed)						8	56985664	G	T	local_enumeration	synonymous_catalog
+RPS20	NM_001023.3	c.348T>C	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons unmeasured				0.0000	0.0000					8	56985661	A	G	local_enumeration	synonymous_catalog
+RPS20	NM_001023.3	c.348T>A	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons unmeasured				0 (assumed)						8	56985661	A	T	local_enumeration	synonymous_catalog
+RPS20	NM_001023.3	c.351A>T	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons unmeasured				0 (assumed)						8	56985658	T	A	local_enumeration	synonymous_catalog
+RPS20	NM_001023.3	c.351A>G	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons unmeasured				0 (assumed)						8	56985658	T	C	local_enumeration	synonymous_catalog
+RPS20	NM_001023.3	c.351A>C	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons unmeasured				0 (assumed)						8	56985658	T	G	local_enumeration	synonymous_catalog
+RPS20	NM_001023.3	c.354T>C	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons unmeasured				0.0000	0.0000					8	56985655	A	G	local_enumeration	synonymous_catalog
+RPS20	NM_001023.3	c.357T>G	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons unmeasured				0 (assumed)						8	56985652	A	C	local_enumeration	synonymous_catalog
+RPS20	NM_001023.3	c.357T>C	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons unmeasured				0 (assumed)						8	56985652	A	G	local_enumeration	synonymous_catalog
+RPS20	NM_001023.3	c.357T>A	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons unmeasured				0 (assumed)						8	56985652	A	T	local_enumeration	synonymous_catalog
+RPS20	NM_001023.3	c.359A>G	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons unmeasured				0 (assumed)						8	56985650	T	C	local_enumeration	synonymous_catalog
+RPS20	NM_001023.3	c.360A>G	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons unmeasured				0 (assumed)						8	56985649	T	C	local_enumeration	synonymous_catalog

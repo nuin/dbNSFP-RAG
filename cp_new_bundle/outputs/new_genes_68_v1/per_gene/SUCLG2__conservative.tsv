@@ -1,0 +1,6 @@
+gene	transcript	hgvs_c	classification	PhastCons100way	PhyloP100way	REVEL	SpliceAI_masked	FAF95_grpmax	CADD_phred	AlphaMissense_pred	ClinVar_sig	chr_grch37	pos_grch37	ref	alt	vv_status	source
+SUCLG2	NM_003848.3	c.349G>A	Benign FAF >5%	1.0	4.728	0.253;.;.;0.253;.;.;0.253		0.0714697	21.9	LB;.;.;B;.;.;LB	Benign	3	67578624	C	T	ok	pipeline
+SUCLG2	NM_003848.3	c.1040A>G	Benign FAF >5%	1.0	7.674	0.117;.;.;0.117;.;.;0.117		0.0510329	20.5	LB;.;.;B;.;.;LB	Benign	3	67546244	T	C	ok	pipeline
+SUCLG2	NM_003848.3	c.1141C>T	Benign FAF >5%	1.0	2.018	0.224;.;.;0.224;.;.		0.184114	23.6	LB;.;.;B;.;.	Benign	3	67451197	G	A	ok	pipeline
+SUCLG2	NM_003848.3	c.302A>G	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	3	67579535			clinvar_assertion	clinvar
+SUCLG2	NM_003848.3	c.758-10_758-8del	Benign ClinVar(2-star, criteria provided)								Benign	3	67548727			clinvar_assertion	clinvar

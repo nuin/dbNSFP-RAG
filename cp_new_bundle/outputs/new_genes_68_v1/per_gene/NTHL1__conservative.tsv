@@ -1,0 +1,11 @@
+gene	transcript	hgvs_c	classification	PhastCons100way	PhyloP100way	REVEL	SpliceAI_masked	FAF95_grpmax	CADD_phred	AlphaMissense_pred	ClinVar_sig	chr_grch37	pos_grch37	ref	alt	vv_status	source
+NTHL1	NM_002528.7	c.686-5A>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0, PhyloP<0.1, intronic_ROI(-5)	0.0	-1.589	.;.;.			6.362	.;.;.	Uncertain_significance	16	2090244	T	G	ok	pipeline
+NTHL1	NM_002528.7	c.686-5A>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0, PhyloP<0.1, intronic_ROI(-5)	0.0	-1.589	.;.;.			8.219	.;.;.	Likely_benign	16	2090244	T	C	ok	pipeline
+NTHL1	NM_002528.7	c.686-5A>T	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0, PhyloP<0.1, intronic_ROI(-5)	0.0	-1.589	.;.;.			7.191	.;.;.		16	2090244	T	A	ok	pipeline
+NTHL1	NM_002528.7		Likely_benign ClinVar(2-star, criteria provided)								Likely benign	16	2097840			clinvar_assertion	clinvar
+NTHL1	NM_002528.7	c.-4C>T	Likely_benign ClinVar(2-star, criteria provided)								Likely benign	16	2097828			clinvar_assertion	clinvar
+NTHL1	NM_002528.7	c.115+6G>A	Likely_benign ClinVar(2-star, criteria provided)								Likely benign	16	2097704			clinvar_assertion	clinvar
+NTHL1	NM_002528.7	c.-7G>A	Likely_benign ClinVar(2-star, criteria provided)								Likely benign	16	2097831			clinvar_assertion	clinvar
+NTHL1	NM_002528.7	c.116-9dup	Likely_benign ClinVar(2-star, criteria provided)								Likely benign	16	2096371			clinvar_assertion	clinvar
+NTHL1	NM_002528.7	c.355-4G>A	Likely_benign ClinVar(2-star, criteria provided)								Likely benign	16	2094805			clinvar_assertion	clinvar
+NTHL1	NM_002528.7	c.116-10C>G	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	16	2096377			clinvar_assertion	clinvar

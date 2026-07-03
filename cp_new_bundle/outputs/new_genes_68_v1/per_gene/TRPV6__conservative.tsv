@@ -1,0 +1,10 @@
+gene	transcript	hgvs_c	classification	PhastCons100way	PhyloP100way	REVEL	SpliceAI_masked	FAF95_grpmax	CADD_phred	AlphaMissense_pred	ClinVar_sig	chr_grch37	pos_grch37	ref	alt	vv_status	source
+TRPV6	NM_018646.6	c.1909A>G	Likely_benign FAF >0.1%, REVEL <0.29, SpliceAI<=0.1	1.0	2.021	0.161		0.00432823	5.986	B	Likely_benign	7	142570231	T	C	ok	pipeline
+TRPV6	NM_018646.6	c.2162T>C	Benign FAF >5%	0.023	1.128	0.042		0.538110	0.603	B	Benign	7	142569596	A	G	ok	pipeline
+TRPV6	NM_018646.6	c.1141A>G	Likely_benign FAF >0.1%, REVEL <0.29, SpliceAI<=0.1	0.918	0.083	0.073		0.00292473	5.53	B	Likely_benign	7	142573322	T	C	ok	pipeline
+TRPV6	NM_018646.6	c.926C>T	Likely_benign FAF >0.1%, REVEL <0.29, SpliceAI<=0.1	0.922	2.221	0.178		0.00128176	19.26	B	Uncertain_significance	7	142573614	G	A	ok	pipeline
+TRPV6	NM_018646.6	c.1672G>A	Likely_benign FAF >0.1%, REVEL <0.29, SpliceAI<=0.1	0.0	-0.628	0.217		0.00201711	6.513	B	Uncertain_significance	7	142571437	C	T	ok	pipeline
+TRPV6	NM_018646.6	c.1252A>G	Benign FAF >5%	0.0	-1.077	0.175;0.175		0.518281	0.063	B;.	Benign	7	142572908	T	C	ok	pipeline
+TRPV6	NM_018646.6	c.535C>T	Likely_benign FAF >0.1%, REVEL <0.29, SpliceAI<=0.1	0.006	1.651	0.119		0.00183249	19.2	B	Likely_benign	7	142574967	G	A	ok	pipeline
+TRPV6	NM_018646.6	c.589T>C	Benign FAF >5%	0.0	0.42	0.049		0.515657	6.78	B	Benign	7	142574913	A	G	ok	pipeline
+TRPV6	NM_018646.6	c.787G>A	Likely_benign FAF >0.1%, REVEL <0.29, SpliceAI<=0.1	1.0	5.009	0.221		0.00132988	23.9	B	Uncertain_significance	7	142574256	C	T	ok	pipeline

@@ -1,0 +1,25 @@
+gene	transcript	hgvs_c	classification	PhastCons100way	PhyloP100way	REVEL	SpliceAI_masked	FAF95_grpmax	CADD_phred	AlphaMissense_pred	ClinVar_sig	chr_grch37	pos_grch37	ref	alt	vv_status	source
+HOXB13	NM_006361.5	c.634G>A	Likely_benign FAF >0.1%, REVEL <0.29, SpliceAI<=0.1	0.0	-0.345	0.142		0.00325977	12.56	B	Conflicting_classifications_of_pathogenicity	17	46804373	C	T	ok	pipeline
+HOXB13	NM_006361.5	c.832G>T	Likely_benign FAF >0.1%, REVEL <0.29, SpliceAI<=0.1	0.225	-0.238	0.272		0.00183299	16.82	B	Conflicting_classifications_of_pathogenicity	17	46804175	C	A	ok	pipeline
+HOXB13	NM_006361.5	c.602-11A>G	Likely_benign ClinVar(2-star, criteria provided)								Likely benign	17	46804416			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.*28C>A	Benign ClinVar(1-star, criteria provided)								Benign	17	46804124			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.706G>T	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	17	46804301			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.602-8C>T	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	17	46804413			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.*3G>A	Benign ClinVar(1-star, criteria provided)								Benign	17	46804149			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.*5T>A	Benign ClinVar(1-star, criteria provided)								Benign	17	46804147			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.*7T>C	Benign ClinVar(1-star, criteria provided)								Benign	17	46804145			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.*8C>A	Benign ClinVar(1-star, criteria provided)								Benign	17	46804144			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.602-13dup	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	17	46804417			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.67G>T	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	17	46805889			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.128T>A	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	17	46805828			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.295C>A	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	17	46805661			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.602-7C>T	Likely_benign ClinVar(2-star, criteria provided)								Likely benign	17	46804412			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.365G>A	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	17	46805591			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.145G>T	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	17	46805811			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.-47C>T	Benign ClinVar(1-star, criteria provided)								Benign	17	46806002			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.602-9G>A	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	46804414			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.-6G>A	Likely_benign ClinVar(2-star, criteria provided)								Likely benign	17	46805961			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.*57G>A	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	17	46804095			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.602-6G>T	Likely_benign ClinVar(2-star, criteria provided)								Likely benign	17	46804411			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.602-4G>T	Likely_benign ClinVar(2-star, criteria provided)								Likely benign	17	46804409			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.602-10C>T	Likely_benign ClinVar(2-star, criteria provided)								Likely benign	17	46804415			clinvar_assertion	clinvar

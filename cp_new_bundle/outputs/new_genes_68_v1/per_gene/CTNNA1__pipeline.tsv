@@ -1,0 +1,6 @@
+gene	transcript	hgvs_c	classification	PhastCons100way	PhyloP100way	REVEL	SpliceAI_masked	FAF95_grpmax	CADD_phred	AlphaMissense_pred	ClinVar_sig	chr_grch37	pos_grch37	ref	alt	vv_status	source
+CTNNA1	NM_001903.5	c.1338T>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.126	-0.638				4.434			5	138240079	T	A	ok	pipeline
+CTNNA1	NM_001903.5	c.1338T>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.126	-0.638				6.254		Likely_benign	5	138240079	T	G	ok	pipeline
+CTNNA1	NM_001903.5	c.2299-15C>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0, PhyloP<0.1, intronic_ROI(-15)	0.0	-0.361			2.54900e-05	0.658		Likely_benign	5	138268252	C	G	ok	pipeline
+CTNNA1	NM_001903.5	c.2299-15C>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0, PhyloP<0.1, intronic_ROI(-15)	0.0	-0.361				0.631			5	138268252	C	A	ok	pipeline
+CTNNA1	NM_001903.5	c.1338T>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.126	-0.638				5.001		Likely_benign	5	138240079	T	C	ok	pipeline

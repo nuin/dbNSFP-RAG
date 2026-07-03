@@ -1,0 +1,20 @@
+gene	transcript	hgvs_c	classification	PhastCons100way	PhyloP100way	REVEL	SpliceAI_masked	FAF95_grpmax	CADD_phred	AlphaMissense_pred	ClinVar_sig	chr_grch37	pos_grch37	ref	alt	vv_status	source
+REST	NM_005612.5	c.899-1G>T	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0, PhyloP<0.1, intronic_ROI(-1)	0.0	-3.975	.;.			0.084	.;.		4	57832821	G	T	flagged:intergenic	pipeline
+REST	NM_005612.5	c.899-1G>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0, PhyloP<0.1, intronic_ROI(-1)	0.0	-3.975	.;.			0.067	.;.		4	57832821	G	C	flagged:intergenic	pipeline
+REST	NM_005612.5	c.899-1G>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0, PhyloP<0.1, intronic_ROI(-1)	0.0	-3.975	.;.			0.115	.;.		4	57832821	G	A	flagged:intergenic	pipeline
+REST	NM_005612.5	c.2935G>T	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.0	-0.784				0.565			4	57797959	G	T	ok	pipeline
+REST	NM_005612.5	c.2935G>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.0	-0.784				0.431			4	57797959	G	C	ok	pipeline
+REST	NM_005612.5	c.2935G>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.0	-0.784			1.24000e-06	0.242			4	57797959	G	A	ok	pipeline
+REST	NM_005612.5	c.2934A>T	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.0	-1.049				6.584			4	57797958	A	T	ok	pipeline
+REST	NM_005612.5	c.2934A>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.0	-1.049				5.889		Likely_benign	4	57797958	A	G	ok	pipeline
+REST	NM_005612.5	c.2934A>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.0	-1.049				3.908			4	57797958	A	C	ok	pipeline
+REST	NM_005612.5	c.2390C>T	Benign FAF >5%	0.0	-0.025	.;0.009;.;.;.;.;.;.;.;.		0.391269	8.088	.;LB;.;.;.;.;.;.;.;.	Benign	4	57797414	C	T	ok	pipeline
+REST	NM_005612.5	c.2284A>C	Benign FAF >5%	0.0	0.633	.;0.014;.;.;.;.;.;.;.;.		0.0895844	0.146	.;LB;.;.;.;.;.;.;.;.	Benign	4	57797308	A	C	ok	pipeline
+REST	NM_005612.5	c.2076G>T	Benign FAF >5%	0.002	0.278	.;0.071;.;.;.;.;.;.;.;.		0.0894226	7.402	.;LB;.;.;.;.;.;.;.;.	Benign	4	57797100	G	T	ok	pipeline
+REST	NM_005612.5	c.1876G>A	Benign FAF >5%	0.0	-1.087	.;0.016;.;.;.;.;.;.;.;.		0.240296	0.547	.;LB;.;.;.;.;.;.;.;.	Benign	4	57796900	G	A	ok	pipeline
+REST	NM_005612.5	c.696A>T	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.954	-0.006				9.32			4	57777500	A	T	ok	pipeline
+REST	NM_005612.5	c.696A>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.954	-0.006				9.067			4	57777500	A	G	ok	pipeline
+REST	NM_005612.5	c.696A>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.954	-0.006				9.11			4	57777500	A	C	ok	pipeline
+REST	NM_005612.5	c.303T>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.543	-0.504				9.033			4	57777107	T	G	ok	pipeline
+REST	NM_005612.5	c.303T>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.543	-0.504				4.478			4	57777107	T	C	ok	pipeline
+REST	NM_005612.5	c.303T>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.543	-0.504				8.466			4	57777107	T	A	ok	pipeline

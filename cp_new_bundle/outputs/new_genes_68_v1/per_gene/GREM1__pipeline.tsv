@@ -1,0 +1,4 @@
+gene	transcript	hgvs_c	classification	PhastCons100way	PhyloP100way	REVEL	SpliceAI_masked	FAF95_grpmax	CADD_phred	AlphaMissense_pred	ClinVar_sig	chr_grch37	pos_grch37	ref	alt	vv_status	source
+GREM1	NM_013372.7	c.105G>T	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.0	-1.758				0.593		Likely_benign	15	33022996	G	T	ok	pipeline
+GREM1	NM_013372.7	c.105G>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.0	-1.758				0.274			15	33022996	G	C	ok	pipeline
+GREM1	NM_013372.7	c.105G>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.0	-1.758			1.22100e-05	0.888		Likely_benign	15	33022996	G	A	ok	pipeline

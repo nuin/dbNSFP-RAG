@@ -1,0 +1,15 @@
+gene	transcript	hgvs_c	classification	PhastCons100way	PhyloP100way	REVEL	SpliceAI_masked	FAF95_grpmax	CADD_phred	AlphaMissense_pred	ClinVar_sig	chr_grch37	pos_grch37	ref	alt	vv_status	source
+GALNT12	NM_024642.5	c.136G>A	Benign FAF >5%	0.0	-0.84	.;.;.;0.064;.;.;.		0.196742	4.333	.;.;.;B;.;.;.	Benign/Likely_benign	9	101570116	G	A	ok	pipeline
+GALNT12	NM_024642.5	c.372-13G>A	Likely_benign ClinVar(2-star, criteria provided)								Likely benign	9	101585525			clinvar_assertion	clinvar
+GALNT12	NM_024642.5	c.372-14C>T	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	9	101585524			clinvar_assertion	clinvar
+GALNT12	NM_024642.5	c.1691G>A	Likely_benign ClinVar(2-star, criteria provided)								Likely benign	9	101611319			clinvar_assertion	clinvar
+GALNT12	NM_024642.5	c.904G>A	Likely_benign ClinVar(2-star, criteria provided)								Likely benign	9	101594226			clinvar_assertion	clinvar
+GALNT12	NM_024642.5	c.1605+4G>A	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	9	101608409			clinvar_assertion	clinvar
+GALNT12	NM_024642.5	c.679C>G	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	9	101589171			clinvar_assertion	clinvar
+GALNT12	NM_024642.5	c.372-7T>A	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	9	101585531			clinvar_assertion	clinvar
+GALNT12	NM_024642.5	c.673A>T	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	9	101589165			clinvar_assertion	clinvar
+GALNT12	NM_024642.5	c.781G>A	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	9	101594103			clinvar_assertion	clinvar
+GALNT12	NM_024642.5	c.359G>C	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	9	101570339			clinvar_assertion	clinvar
+GALNT12	NM_024642.5	c.*171A>G	Benign ClinVar(2-star, criteria provided)								Benign	9	101611545			clinvar_assertion	clinvar
+GALNT12	NM_024642.5	c.542-4C>T	Likely_benign ClinVar(2-star, criteria provided)								Likely benign	9	101589030			clinvar_assertion	clinvar
+GALNT12	NM_024642.5	c.635G>C	Likely_benign ClinVar(2-star, criteria provided)								Likely benign	9	101589127			clinvar_assertion	clinvar

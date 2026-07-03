@@ -1,0 +1,38 @@
+version: 2
+
+models:
+  - name: mart_cp_new_upload
+    description: >
+      SeqNext upload, rule-based W1/W2/W3, gnomAD-anchored. These tests are the
+      guardrails that would have caught this week's rework (stale copies,
+      missing conservation, 5'UTR leakage, unanchored variants).
+    columns:
+      - name: cdot
+        description: HGVS c. on the project transcript
+        data_tests:
+          - not_null
+          - not_5utr           # custom: no c.-N (5'UTR) variants
+      - name: classification
+        data_tests:
+          - not_null
+          - accepted_values:
+              values:
+                - "Benign FAF >5%"
+                - "Likely_benign FAF >0.1%, REVEL<0.29"
+                - "Benign synonymous, PhastCons<1.0"
+                - "Synonymous conserved (review, not auto-benign)"
+      - name: gnomad_id
+        description: every row must be observed in gnomAD (the anchor)
+        data_tests:
+          - not_null
+      - name: phastcons
+        description: conservation must be present and in [0,1]
+        data_tests:
+          - not_null
+          - dbt_utils.accepted_range:
+              min_value: 0
+              max_value: 1
+      - name: consequence
+        data_tests:
+          - accepted_values:
+              values: ["missense", "synonymous"]   # nonsense must be excluded

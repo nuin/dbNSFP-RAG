@@ -1,0 +1,11 @@
+gene	transcript	hgvs_c	classification	PhastCons100way	PhyloP100way	REVEL	SpliceAI_masked	FAF95_grpmax	CADD_phred	AlphaMissense_pred	ClinVar_sig	chr_grch37	pos_grch37	ref	alt	vv_status	source
+GOT2	NM_002080.4	c.4G>T	Benign FAF >5%	1.0	3.42	.;.;.;.;0.106;.;.;.;.;.;.;.;.;.;.;.;.;0.106		0.139620	20.7	.;.;.;.;B;.;.;.;.;.;.;.;.;.;.;.;.;LB	Benign	16	58768129	C	A	ok	pipeline
+GOT2	NM_002080.4	c.460G>A	Benign FAF >5%	1.0	6.035	.;.;.;0.067;.;.;.;.;.;.;.;.;.;0.067		0.0500398	21.8	.;.;.;B;.;.;.;.;.;.;.;.;.;LB	Benign	16	58752568	C	T	ok	pipeline
+GOT2	NM_002080.4	c.562G>A	Benign FAF >5%	1.0	6.039	.;.;.;0.423;.;.;.;.;.;.;.;.;.;0.423		0.0879142	23.4	.;.;.;B;.;.;.;.;.;.;.;.;.;LB	Benign	16	58752466	C	T	ok	pipeline
+GOT2	NM_002080.4	c.1020-15A>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0, PhyloP<0.1, intronic_ROI(-15)	0.0	-3.295	.;.;.			0.007	.;.;.		16	58743486	T	G	ok	pipeline
+GOT2	NM_002080.4	c.1020-15A>T	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0, PhyloP<0.1, intronic_ROI(-15)	0.0	-3.295	.;.;.			0.006	.;.;.		16	58743486	T	A	ok	pipeline
+GOT2	NM_002080.4	c.1037T>G	Benign FAF >5%	1.0	2.618	.;.;.;.;0.219;.;.;.;.;.;.;.;.;.;.;.;0.219		0.872126	18.82	.;.;.;.;B;.;.;.;.;.;.;.;.;.;.;.;LB	Benign	16	58743454	A	C	ok	pipeline
+GOT2	NM_002080.4	c.1020-15A>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0, PhyloP<0.1, intronic_ROI(-15)	0.0	-3.295	.;.;.		0.00217823	0.008	.;.;.	Benign	16	58743486	T	C	ok	pipeline
+GOT2	NM_002080.4	c.89+5G>A	Likely_benign ClinVar(2-star, criteria provided)								Likely benign	16	58768039			clinvar_assertion	clinvar
+GOT2	NM_002080.4	c.665G>A	Benign ClinVar(2-star, criteria provided)								Benign	16	58752137			clinvar_assertion	clinvar
+GOT2	NM_002080.4	c.47C>G	Likely_benign ClinVar(2-star, criteria provided)								Likely benign	16	58768086			clinvar_assertion	clinvar

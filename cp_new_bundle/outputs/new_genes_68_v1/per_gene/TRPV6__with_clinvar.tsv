@@ -1,0 +1,35 @@
+gene	transcript	hgvs_c	classification	PhastCons100way	PhyloP100way	REVEL	SpliceAI_masked	FAF95_grpmax	CADD_phred	AlphaMissense_pred	ClinVar_sig	chr_grch37	pos_grch37	ref	alt	vv_status	source
+TRPV6	NM_018646.6	c.1909A>G	Likely_benign FAF >0.1%, REVEL <0.29, SpliceAI<=0.1	1.0	2.021	0.161		0.00432823	5.986	B	Likely_benign	7	142570231	T	C	ok	pipeline
+TRPV6	NM_018646.6	c.2162T>C	Benign FAF >5%	0.023	1.128	0.042		0.538110	0.603	B	Benign	7	142569596	A	G	ok	pipeline
+TRPV6	NM_018646.6	c.1141A>G	Likely_benign FAF >0.1%, REVEL <0.29, SpliceAI<=0.1	0.918	0.083	0.073		0.00292473	5.53	B	Likely_benign	7	142573322	T	C	ok	pipeline
+TRPV6	NM_018646.6	c.926C>T	Likely_benign FAF >0.1%, REVEL <0.29, SpliceAI<=0.1	0.922	2.221	0.178		0.00128176	19.26	B	Uncertain_significance	7	142573614	G	A	ok	pipeline
+TRPV6	NM_018646.6	c.1672G>A	Likely_benign FAF >0.1%, REVEL <0.29, SpliceAI<=0.1	0.0	-0.628	0.217		0.00201711	6.513	B	Uncertain_significance	7	142571437	C	T	ok	pipeline
+TRPV6	NM_018646.6	c.1252A>G	Benign FAF >5%	0.0	-1.077	0.175;0.175		0.518281	0.063	B;.	Benign	7	142572908	T	C	ok	pipeline
+TRPV6	NM_018646.6	c.535C>T	Likely_benign FAF >0.1%, REVEL <0.29, SpliceAI<=0.1	0.006	1.651	0.119		0.00183249	19.2	B	Likely_benign	7	142574967	G	A	ok	pipeline
+TRPV6	NM_018646.6	c.589T>C	Benign FAF >5%	0.0	0.42	0.049		0.515657	6.78	B	Benign	7	142574913	A	G	ok	pipeline
+TRPV6	NM_018646.6	c.787G>A	Likely_benign FAF >0.1%, REVEL <0.29, SpliceAI<=0.1	1.0	5.009	0.221		0.00132988	23.9	B	Uncertain_significance	7	142574256	C	T	ok	pipeline
+TRPV6	NM_018646.6	c.197G>A	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	7	142583185			clinvar_assertion	clinvar
+TRPV6	NM_018646.6	c.1909-12T>A	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	7	142570243			clinvar_assertion	clinvar
+TRPV6	NM_018646.6	c.1909-5C>T	Benign ClinVar(1-star, criteria provided)								Benign	7	142570236			clinvar_assertion	clinvar
+TRPV6	NM_018646.6	c.1909-9C>A	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	7	142570240			clinvar_assertion	clinvar
+TRPV6	NM_018646.6	c.1030-11T>G	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	7	142573444			clinvar_assertion	clinvar
+TRPV6	NM_018646.6	c.1407-9C>T	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	7	142572418			clinvar_assertion	clinvar
+TRPV6	NM_018646.6	c.1909-4G>A	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	7	142570235			clinvar_assertion	clinvar
+TRPV6	NM_018646.6	c.249-7T>C	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	7	142575786			clinvar_assertion	clinvar
+TRPV6	NM_018646.6	c.347-5G>A	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	7	142575531			clinvar_assertion	clinvar
+TRPV6	NM_018646.6	c.917C>T	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	7	142573623			clinvar_assertion	clinvar
+TRPV6	NM_018646.6	c.2197G>A	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	7	142569561			clinvar_assertion	clinvar
+TRPV6	NM_018646.6	c.2016-12C>T	Benign ClinVar(1-star, criteria provided)								Benign	7	142569754			clinvar_assertion	clinvar
+TRPV6	NM_018646.6	c.1243-13_1243-11del	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	7	142572928			clinvar_assertion	clinvar
+TRPV6	NM_018646.6	c.347-7A>C	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	7	142575533			clinvar_assertion	clinvar
+TRPV6	NM_018646.6	c.608-6C>T	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	7	142574596			clinvar_assertion	clinvar
+TRPV6	NM_018646.6	c.1407-5C>T	Benign ClinVar(1-star, criteria provided)								Benign	7	142572414			clinvar_assertion	clinvar
+TRPV6	NM_018646.6	c.1030-5T>C	Benign ClinVar(1-star, criteria provided)								Benign	7	142573438			clinvar_assertion	clinvar
+TRPV6	NM_018646.6	c.1909-14G>A	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	7	142570245			clinvar_assertion	clinvar
+TRPV6	NM_018646.6	c.2002C>T	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	7	142570138			clinvar_assertion	clinvar
+TRPV6	NM_018646.6	c.1573-4C>T	Benign ClinVar(1-star, criteria provided)								Benign	7	142571899			clinvar_assertion	clinvar
+TRPV6	NM_018646.6	c.1030-7G>A	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	7	142573440			clinvar_assertion	clinvar
+TRPV6	NM_018646.6	c.2016-11G>A	Benign ClinVar(1-star, criteria provided)								Benign	7	142569753			clinvar_assertion	clinvar
+TRPV6	NM_018646.6	c.470-8dup	Benign ClinVar(1-star, criteria provided)								Benign	7	142575039			clinvar_assertion	clinvar
+TRPV6	NM_018646.6	c.707-13G>C	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	7	142574349			clinvar_assertion	clinvar
+TRPV6	NM_018646.6	c.52G>T	Benign ClinVar(1-star, criteria provided)								Benign	7	142583330			clinvar_assertion	clinvar

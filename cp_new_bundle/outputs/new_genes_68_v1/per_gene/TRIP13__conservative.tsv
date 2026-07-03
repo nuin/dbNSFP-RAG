@@ -1,0 +1,5 @@
+gene	transcript	hgvs_c	classification	PhastCons100way	PhyloP100way	REVEL	SpliceAI_masked	FAF95_grpmax	CADD_phred	AlphaMissense_pred	ClinVar_sig	chr_grch37	pos_grch37	ref	alt	vv_status	source
+TRIP13	NM_004237.4	c.673-7G>A	Likely_benign ClinVar(2-star, criteria provided)								Likely benign	5	908096			clinvar_assertion	clinvar
+TRIP13	NM_004237.4	c.277T>C	Benign ClinVar(2-star, criteria provided)								Benign	5	896798			clinvar_assertion	clinvar
+TRIP13	NM_004237.4		Benign ClinVar(2-star, criteria provided)								Benign	5	892837			clinvar_assertion	clinvar
+TRIP13	NM_004237.4	c.1204-13G>A	Benign ClinVar(2-star, criteria provided)								Benign	5	917110			clinvar_assertion	clinvar

@@ -1,0 +1,14 @@
+name: cp_new_lake
+version: "0.1"
+profile: cp_new_lake
+model-paths: ["models"]
+target-path: "target"
+clean-targets: ["target", "dbt_packages"]
+models:
+  cp_new_lake:
+    staging:
+      +materialized: view
+    intermediate:
+      +materialized: table
+    marts:
+      +materialized: table

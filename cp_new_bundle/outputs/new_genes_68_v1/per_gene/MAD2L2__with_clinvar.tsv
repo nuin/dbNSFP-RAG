@@ -1,0 +1,30 @@
+gene	transcript	hgvs_c	classification	PhastCons100way	PhyloP100way	REVEL	SpliceAI_masked	FAF95_grpmax	CADD_phred	AlphaMissense_pred	ClinVar_sig	chr_grch37	pos_grch37	ref	alt	vv_status	source
+MAD2L2	NM_006341.4	c.41-14G>T	Benign FAF >5%	0.001	0.687	.;.;.;.;0.029		0.0744855	14.75	.;.;.;.;LB		1	11740542	C	A	ok	pipeline
+MAD2L2	NM_006341.4	c.232-4G>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0, PhyloP<0.1, intronic_ROI(-4)	0.033	-0.28				9.079			1	11737009	C	G	ok	pipeline
+MAD2L2	NM_006341.4	c.232-4G>T	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0, PhyloP<0.1, intronic_ROI(-4)	0.033	-0.28				8.248			1	11737009	C	A	ok	pipeline
+MAD2L2	NM_006341.4	c.502-15T>G	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	1	11735246			clinvar_assertion	clinvar
+MAD2L2	NM_006341.4	c.333-15T>C	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	1	11736212			clinvar_assertion	clinvar
+MAD2L2	NM_006341.4	c.502-14T>G	Benign ClinVar(1-star, criteria provided)								Benign	1	11735245			clinvar_assertion	clinvar
+MAD2L2	NM_006341.4	c.428-8C>T	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	1	11735796			clinvar_assertion	clinvar
+MAD2L2	NM_006341.4	c.232-11T>C	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	1	11737016			clinvar_assertion	clinvar
+MAD2L2	NM_006341.4	c.160-4G>A	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	1	11737675			clinvar_assertion	clinvar
+MAD2L2	NM_006341.4	c.41-6C>T	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	1	11740534			clinvar_assertion	clinvar
+MAD2L2	NM_006341.4	c.595-5G>A	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	1	11734878			clinvar_assertion	clinvar
+MAD2L2	NM_006341.4	c.41-8C>A	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	1	11740536			clinvar_assertion	clinvar
+MAD2L2	NM_006341.4	c.595-6C>T	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	1	11734879			clinvar_assertion	clinvar
+MAD2L2	NM_006341.4	c.-13+3286G>A	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	1	11748184			clinvar_assertion	clinvar
+MAD2L2	NM_006341.4	c.428-9C>T	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	1	11735797			clinvar_assertion	clinvar
+MAD2L2	NM_006341.4	c.333-13C>G	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	1	11736210			clinvar_assertion	clinvar
+MAD2L2	NM_006341.4	c.232-12CT[2]	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	1	11737012			clinvar_assertion	clinvar
+MAD2L2	NM_006341.4	c.333-8_333-5del	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	1	11736202			clinvar_assertion	clinvar
+MAD2L2	NM_006341.4	c.428-6C>T	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	1	11735794			clinvar_assertion	clinvar
+MAD2L2	NM_006341.4	c.502-10_502-7dup	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	1	11735237			clinvar_assertion	clinvar
+MAD2L2	NM_006341.4	c.41-6dup	Benign ClinVar(1-star, criteria provided)								Benign	1	11740533			clinvar_assertion	clinvar
+MAD2L2	NM_006341.4	c.502-13G>A	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	1	11735244			clinvar_assertion	clinvar
+MAD2L2	NM_006341.4	c.41-12G>A	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	1	11740540			clinvar_assertion	clinvar
+MAD2L2	NM_006341.4	c.502-4C>T	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	1	11735235			clinvar_assertion	clinvar
+MAD2L2	NM_006341.4	c.160-7T>C	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	1	11737678			clinvar_assertion	clinvar
+MAD2L2	NM_006341.4	c.333-11C>T	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	1	11736208			clinvar_assertion	clinvar
+MAD2L2	NM_006341.4	c.278G>A	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	1	11736959			clinvar_assertion	clinvar
+MAD2L2	NM_006341.4	c.232-5T>C	Benign ClinVar(1-star, criteria provided)								Benign	1	11737010			clinvar_assertion	clinvar
+MAD2L2	NM_006341.4	c.41-7C>A	Benign ClinVar(2-star, criteria provided)								Benign	1	11740535			clinvar_assertion	clinvar

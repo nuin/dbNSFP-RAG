@@ -1,12 +1,23 @@
 """RAG module - retrieval and LLM integration."""
 
+import os
 import re
 from pathlib import Path
 
+import braintrust
 import ollama
 import requests
+from braintrust import current_span, traced
 
 from .config import DEFAULT_MODEL, OLLAMA_URL, SQLITE_DB_PATH
+
+# Braintrust observability. Only initialize when BRAINTRUST_API_KEY is set, so
+# the app runs cleanly without Braintrust; the @traced spans below then become
+# no-ops. auto_instrument() patches any supported LLM libraries that are
+# installed; the local ollama client is traced explicitly via @traced(type="llm").
+if os.environ.get("BRAINTRUST_API_KEY"):
+    braintrust.init_logger(project="dbnsfp-rag")
+    braintrust.auto_instrument()
 
 
 SYSTEM_PROMPT = """You are a clinical genomics expert assistant at Alberta Precision Labs.
@@ -53,18 +64,44 @@ class VariantRAG:
         except requests.exceptions.ConnectionError:
             return False
 
+    @traced(type="llm", name="ollama.chat", notrace_io=True)
     def _query_ollama(self, prompt: str, system: str = SYSTEM_PROMPT) -> str:
         """Query local Ollama instance."""
+        messages = [
+            {"role": "system", "content": system},
+            {"role": "user", "content": prompt},
+        ]
         try:
-            response = ollama.chat(
-                model=self.model,
-                messages=[
-                    {"role": "system", "content": system},
-                    {"role": "user", "content": prompt},
-                ],
+            response = ollama.chat(model=self.model, messages=messages)
+            content = response["message"]["content"]
+
+            # ollama returns token counts as prompt_eval_count / eval_count
+            # (absent on some versions/responses); log them as LLM metrics.
+            metrics = {}
+            try:
+                metrics["prompt_tokens"] = int(response["prompt_eval_count"])
+            except (KeyError, TypeError, ValueError):
+                pass
+            try:
+                metrics["completion_tokens"] = int(response["eval_count"])
+            except (KeyError, TypeError, ValueError):
+                pass
+            if "prompt_tokens" in metrics and "completion_tokens" in metrics:
+                metrics["tokens"] = metrics["prompt_tokens"] + metrics["completion_tokens"]
+
+            current_span().log(
+                input=messages,
+                output=content,
+                metrics=metrics,
+                metadata={"model": self.model, "provider": "ollama"},
             )
-            return response["message"]["content"]
+            return content
         except Exception as e:
+            current_span().log(
+                input=messages,
+                error=str(e),
+                metadata={"model": self.model, "provider": "ollama"},
+            )
             return f"Error querying LLM: {e}"
 
     def exact_lookup(

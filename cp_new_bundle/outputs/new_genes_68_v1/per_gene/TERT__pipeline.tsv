@@ -1,0 +1,4 @@
+gene	transcript	hgvs_c	classification	PhastCons100way	PhyloP100way	REVEL	SpliceAI_masked	FAF95_grpmax	CADD_phred	AlphaMissense_pred	ClinVar_sig	chr_grch37	pos_grch37	ref	alt	vv_status	source
+TERT	NM_198253.3	c.3295+2C>T	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0, PhyloP<0.1, intronic_ROI(+2)	0.0	0.089	.;.;.;.			15.77	.;.;.;.	Uncertain_significance	5	1254481	G	A	ok	pipeline
+TERT	NM_198253.3	c.3295+2C>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0, PhyloP<0.1, intronic_ROI(+2)	0.0	0.089	.;.;.;.			17.38	.;.;.;.		5	1254481	G	C	ok	pipeline
+TERT	NM_198253.3	c.3295+2C>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0, PhyloP<0.1, intronic_ROI(+2)	0.0	0.089	.;.;.;.			17.51	.;.;.;.		5	1254481	G	T	ok	pipeline

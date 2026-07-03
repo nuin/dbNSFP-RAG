@@ -1,0 +1,348 @@
+gene	transcript	hgvs_c	classification	PhastCons100way	PhyloP100way	REVEL	SpliceAI_masked	FAF95_grpmax	CADD_phred	AlphaMissense_pred	ClinVar_sig	chr_grch37	pos_grch37	ref	alt	vv_status	source
+EGLN2	NM_080732.4	c.1173A>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.0	-1.639		0.2100		2.675			19	41313718	A	C	ok	pipeline
+EGLN2	NM_080732.4	c.1173A>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.0	-1.639		0.0800		3.154			19	41313718	A	G	ok	pipeline
+EGLN2	NM_080732.4	c.1173A>T	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.0	-1.639		0.1300		2.626			19	41313718	A	T	ok	pipeline
+EGLN2	NM_080732.4	c.1149C>T	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	19	41313437	C	T	clinvar_assertion	clinvar
+EGLN2	NM_080732.4	c.333C>T	Benign ClinVar(2-star, criteria provided)								Benign	19	41306810	C	T	clinvar_assertion	clinvar
+EGLN2	NM_080732.4	c.78G>C	Benign ClinVar(2-star, criteria provided)	0.368	0.171	0.025	0.0000	0.0144761	17.75	LB	Benign/Likely benign	19	41306555	G	C	clinvar_assertion	clinvar
+EGLN2	NM_080732.4	c.294G>A	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	19	41306771	G	A	clinvar_assertion	clinvar
+EGLN2	NM_080732.4	c.1214C>T	Likely_benign ClinVar(1-star, criteria provided)	0.951	2.373	0.288	0.0800	3.65000e-06	23.4	LB	Likely benign	19	41313759	C	T	clinvar_assertion	clinvar
+EGLN2	NM_080732.4	c.-234-10C>T	Benign ClinVar(2-star, criteria provided)								Benign	19	41306234	C	T	clinvar_assertion	clinvar
+EGLN2	NM_080732.4	c.-234-504A>G	Benign ClinVar(2-star, criteria provided)								Benign	19	41305740	A	G	clinvar_assertion	clinvar
+EGLN2	NM_080732.4	c.-234-447_-234-444del	Benign ClinVar(1-star, criteria provided)								Benign	19	41305793	CTCTG	C	clinvar_assertion	clinvar
+EGLN2	NM_080732.4	c.-235+84G>A	Benign ClinVar(1-star, criteria provided)								Benign	19	41305251	G	A	clinvar_assertion	clinvar
+EGLN2	NM_080732.4	c.-234-415_-234-414del	Benign ClinVar(1-star, criteria provided)								Benign	19	41305825	ACT	A	clinvar_assertion	clinvar
+EGLN2	NM_080732.4	c.-235+85dup	Benign ClinVar(1-star, criteria provided)								Benign	19	41305247	T	TG	clinvar_assertion	clinvar
+EGLN2	NM_080732.4	c.693G>A	Benign ClinVar(2-star, criteria provided)				0 (assumed)	0.263909			Benign	19	41307170	G	A	clinvar_assertion	clinvar
+EGLN2	NM_080732.4	c.-116G>A	Benign ClinVar(2-star, criteria provided)								Benign	19	41306362	G	A	clinvar_assertion	clinvar
+EGLN2	NM_080732.4	c.-235+140G>T	Benign ClinVar(2-star, criteria provided)								Benign	19	41305307	G	T	clinvar_assertion	clinvar
+EGLN2	NM_080732.4	c.-234-175C>T	Benign ClinVar(1-star, criteria provided)								Benign	19	41306069	C	T	clinvar_assertion	clinvar
+EGLN2	NM_080732.4	c.-234-12del	Benign ClinVar(1-star, criteria provided)								Benign	19	41306221	CT	C	clinvar_assertion	clinvar
+EGLN2	NM_080732.4	c.405C>T	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	19	41306882	C	T	clinvar_assertion	clinvar
+EGLN2	NM_080732.4	c.417A>G	Likely_benign ClinVar(1-star, criteria provided)				0.0000	7.74200e-05			Likely benign	19	41306894	A	G	clinvar_assertion	clinvar
+EGLN2	NM_080732.4	c.30A>G	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	19	41306507	A	G	clinvar_assertion	clinvar
+EGLN2	NM_080732.4	c.309G>A	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	19	41306786	G	A	clinvar_assertion	clinvar
+EGLN2	NM_080732.4	c.153A>G	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	19	41306630	A	G	clinvar_assertion	clinvar
+EGLN2	NM_080732.4	c.1044C>T	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	19	41313123	C	T	clinvar_assertion	clinvar
+EGLN2	NM_080732.4	c.1050C>T	Likely_benign ClinVar(1-star, criteria provided)				0.0100	2.74500e-05			Likely benign	19	41313129	C	T	clinvar_assertion	clinvar
+EGLN2	NM_080732.4	c.1158G>A	Likely_benign ClinVar(1-star, criteria provided)	0.839	-0.028		0.0500	9.7988e-05			Likely benign	19	41313446	G	A	clinvar_assertion	clinvar
+EGLN2	NM_080732.4	c.390A>T	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	19	41306867	A	T	clinvar_assertion	clinvar
+EGLN2	NM_080732.4	c.1143A>G	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	19	41313431	A	G	clinvar_assertion	clinvar
+EGLN2	NM_080732.4	c.351C>A	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	19	41306828	C	A	clinvar_assertion	clinvar
+EGLN2	NM_080732.4	c.366C>A	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	19	41306843	C	A	clinvar_assertion	clinvar
+EGLN2	NM_080732.4	c.411C>T	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	19	41306888	C	T	clinvar_assertion	clinvar
+EGLN2	NM_080732.4	c.412A>C	Likely_benign ClinVar(1-star, criteria provided)	0.901	0.858		0.0000	2.80000e-07			Likely benign	19	41306889	A	C	clinvar_assertion	clinvar
+EGLN2	NM_080732.4	c.414G>A	Likely_benign ClinVar(1-star, criteria provided)				0.0000				Likely benign	19	41306891	G	A	clinvar_assertion	clinvar
+EGLN2	NM_080732.4	c.432A>C	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	19	41306909	A	C	clinvar_assertion	clinvar
+EGLN2	NM_080732.4	c.453C>T	Likely_benign ClinVar(1-star, criteria provided)	0.245	0.598		0.0000				Likely benign	19	41306930	C	T	clinvar_assertion	clinvar
+EGLN2	NM_080732.4	c.495G>A	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	19	41306972	G	A	clinvar_assertion	clinvar
+EGLN2	NM_080732.4	c.118C>T	Likely_benign ClinVar(1-star, criteria provided)	1.0	2.022	0.781	0.0100	2.80000e-07	32.0	LP	Likely benign	19	41306595	C	T	clinvar_assertion	clinvar
+EGLN2	NM_080732.4	c.522C>T	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	19	41306999	C	T	clinvar_assertion	clinvar
+EGLN2	NM_080732.4	c.342T>A	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	19	41306819	T	A	clinvar_assertion	clinvar
+EGLN2	NM_080732.4	c.375T>G	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	19	41306852	T	G	clinvar_assertion	clinvar
+EGLN2	NM_080732.4	c.633G>A	Likely_benign ClinVar(1-star, criteria provided)	0.997	0.779		0.0000				Likely benign	19	41307110	G	A	clinvar_assertion	clinvar
+EGLN2	NM_080732.4	c.45T>G	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	19	41306522	T	G	clinvar_assertion	clinvar
+EGLN2	NM_080732.4	c.462C>T	Likely_benign ClinVar(1-star, criteria provided)	0.009	0.422		0.0000	7.90000e-07			Likely benign	19	41306939	C	T	clinvar_assertion	clinvar
+EGLN2	NM_080732.4	c.1188C>G	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	19	41313733	C	G	clinvar_assertion	clinvar
+EGLN2	NM_080732.4	c.42C>A	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	19	41306519	C	A	clinvar_assertion	clinvar
+EGLN2	NM_080732.4	c.546C>T	Likely_benign ClinVar(1-star, criteria provided)	0.021	-0.85		0.0000	3.26648e-05			Likely benign	19	41307023	C	T	clinvar_assertion	clinvar
+EGLN2	NM_080732.4	c.576C>T	Likely_benign ClinVar(1-star, criteria provided)	0.551	-0.08		0.0000	0.000115734			Likely benign	19	41307053	C	T	clinvar_assertion	clinvar
+EGLN2	NM_080732.4	c.600A>G	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	19	41307077	A	G	clinvar_assertion	clinvar
+EGLN2	NM_080732.4	c.507G>A	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	19	41306984	G	A	clinvar_assertion	clinvar
+EGLN2	NM_080732.4	c.531G>A	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	19	41307008	G	A	clinvar_assertion	clinvar
+EGLN2	NM_080732.4	c.528C>T	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	19	41307005	C	T	clinvar_assertion	clinvar
+EGLN2	NM_080732.4	c.120G>C	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	19	41306597	G	C	clinvar_assertion	clinvar
+EGLN2	NM_080732.4	c.510G>A	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	19	41306987	G	A	clinvar_assertion	clinvar
+EGLN2	NM_080732.4	c.1194A>C	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	19	41313739	A	C	clinvar_assertion	clinvar
+EGLN2	NM_080732.4	c.535C>T	Likely_benign ClinVar(1-star, criteria provided)	0.004	0.141		0.0000				Likely benign	19	41307012	C	T	clinvar_assertion	clinvar
+EGLN2	NM_080732.4	c.513C>T	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	19	41306990	C	T	clinvar_assertion	clinvar
+EGLN2	NM_080732.4	c.591C>T	Likely_benign ClinVar(1-star, criteria provided)				0.0000	2.80000e-07			Likely benign	19	41307068	C	T	clinvar_assertion	clinvar
+EGLN2	NM_080732.4	c.567C>T	Likely_benign ClinVar(1-star, criteria provided)	0.0	-1.255		0.0000	0.000106138			Likely benign	19	41307044	C	T	clinvar_assertion	clinvar
+EGLN2	NM_080732.4	c.117C>T	Likely_benign ClinVar(1-star, criteria provided)	0.998	1.299		0.0000	3.52529e-05			Likely benign	19	41306594	C	T	clinvar_assertion	clinvar
+EGLN2	NM_080732.4	c.483C>T	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	19	41306960	C	T	clinvar_assertion	clinvar
+EGLN2	NM_080732.4	c.504G>A	Likely_benign ClinVar(1-star, criteria provided)	0.001	0.772		0.0000	8.91059e-06			Likely benign	19	41306981	G	A	clinvar_assertion	clinvar
+EGLN2	NM_080732.4	c.609C>T	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	19	41307086	C	T	clinvar_assertion	clinvar
+EGLN2	NM_080732.4	c.636C>A	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	19	41307113	C	A	clinvar_assertion	clinvar
+EGLN2	NM_080732.4	c.60T>G	Likely_benign ClinVar(1-star, criteria provided)	0.0	-3.709	0.194			0.043	LB	Likely benign	19	41306537	T	G	clinvar_assertion	clinvar
+EGLN2	NM_080732.4	c.639C>T	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	19	41307116	C	T	clinvar_assertion	clinvar
+EGLN2	NM_080732.4	c.657G>C	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	19	41307134	G	C	clinvar_assertion	clinvar
+EGLN2	NM_080732.4	c.660A>G	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	19	41307137	A	G	clinvar_assertion	clinvar
+EGLN2	NM_080732.4	c.615C>T	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	19	41307092	C	T	clinvar_assertion	clinvar
+EGLN2	NM_080732.4	c.643C>A	Likely_benign ClinVar(1-star, criteria provided)	0.172	0.34		0.0000	4.43000e-06			Likely benign	19	41307120	C	A	clinvar_assertion	clinvar
+EGLN2	NM_080732.4	c.63G>A	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	19	41306540	G	A	clinvar_assertion	clinvar
+EGLN2	NM_080732.4	c.592C>T	Likely_benign ClinVar(1-star, criteria provided)				0.0000				Likely benign	19	41307069	C	T	clinvar_assertion	clinvar
+EGLN2	NM_080732.4	c.594G>A	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	19	41307071	G	A	clinvar_assertion	clinvar
+EGLN2	NM_080732.4	c.624C>T	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	19	41307101	C	T	clinvar_assertion	clinvar
+EGLN2	NM_080732.4	c.651G>A	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	19	41307128	G	A	clinvar_assertion	clinvar
+EGLN2	NM_080732.4	c.525G>A	Likely_benign ClinVar(1-star, criteria provided)				0.0000	6.15000e-06			Likely benign	19	41307002	G	A	clinvar_assertion	clinvar
+EGLN2	NM_080732.4	c.549G>T	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	19	41307026	G	T	clinvar_assertion	clinvar
+EGLN2	NM_080732.4	c.54A>G	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	19	41306531	A	G	clinvar_assertion	clinvar
+EGLN2	NM_080732.4	c.579C>T	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	19	41307056	C	T	clinvar_assertion	clinvar
+EGLN2	NM_080732.4	c.1209G>A	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	19	41313754	G	A	clinvar_assertion	clinvar
+EGLN2	NM_080732.4	c.552C>T	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	19	41307029	C	T	clinvar_assertion	clinvar
+EGLN2	NM_080732.4	c.687G>A	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	19	41307164	G	A	clinvar_assertion	clinvar
+EGLN2	NM_080732.4	c.663C>T	Likely_benign ClinVar(1-star, criteria provided)	0.147	-0.473		0.0000	0.00693663			Likely benign	19	41307140	C	T	clinvar_assertion	clinvar
+EGLN2	NM_080732.4	c.690C>T	Likely_benign ClinVar(1-star, criteria provided)	0.0	0.281		0.0000	2.89503e-05			Likely benign	19	41307167	C	T	clinvar_assertion	clinvar
+EGLN2	NM_080732.4	c.123C>G	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	19	41306600	C	G	clinvar_assertion	clinvar
+EGLN2	NM_080732.4	c.696G>A	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	19	41307173	G	A	clinvar_assertion	clinvar
+EGLN2	NM_080732.4	c.9C>T	Likely_benign ClinVar(1-star, criteria provided)	0.997	0.514		0.0100	6.67111e-05			Likely benign	19	41306486	C	T	clinvar_assertion	clinvar
+EGLN2	NM_080732.4	c.882C>T	Likely_benign ClinVar(1-star, criteria provided)	0.989	0.333		0.0100	0.00147638			Likely benign	19	41312498	C	T	clinvar_assertion	clinvar
+EGLN2	NM_080732.4	c.87T>A	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	19	41306564	T	A	clinvar_assertion	clinvar
+EGLN2	NM_080732.4	c.879G>A	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	19	41312495	G	A	clinvar_assertion	clinvar
+EGLN2	NM_080732.4	c.927C>T	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	19	41312543	C	T	clinvar_assertion	clinvar
+EGLN2	NM_080732.4	c.681G>A	Likely_benign ClinVar(1-star, criteria provided)				0.0000	6.80000e-07			Likely benign	19	41307158	G	A	clinvar_assertion	clinvar
+EGLN2	NM_080732.4	c.876C>T	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	19	41312492	C	T	clinvar_assertion	clinvar
+EGLN2	NM_080732.4	c.777T>C	Likely_benign ClinVar(1-star, criteria provided)	0.0	-3.709		0.0000	8.96057e-06			Likely benign	19	41307254	T	C	clinvar_assertion	clinvar
+EGLN2	NM_080732.4	c.780G>A	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	19	41307257	G	A	clinvar_assertion	clinvar
+EGLN2	NM_080732.4	c.811C>T	Likely_benign ClinVar(1-star, criteria provided)				0.0000				Likely benign	19	41307288	C	T	clinvar_assertion	clinvar
+EGLN2	NM_080732.4	c.855G>A	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	19	41312471	G	A	clinvar_assertion	clinvar
+EGLN2	NM_080732.4	c.813G>A	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	19	41307290	G	A	clinvar_assertion	clinvar
+EGLN2	NM_080732.4	c.786C>T	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	19	41307263	C	T	clinvar_assertion	clinvar
+EGLN2	NM_080732.4	c.81T>G	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	19	41306558	T	G	clinvar_assertion	clinvar
+EGLN2	NM_080732.4	c.867C>T	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	19	41312483	C	T	clinvar_assertion	clinvar
+EGLN2	NM_080732.4	c.789C>T	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	19	41307266	C	T	clinvar_assertion	clinvar
+EGLN2	NM_080732.4	c.822T>C	Likely_benign ClinVar(1-star, criteria provided)	0.362	0.122		0.0000	2.90175e-05			Likely benign	19	41307299	T	C	clinvar_assertion	clinvar
+EGLN2	NM_080732.4	c.864A>G	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	19	41312480	A	G	clinvar_assertion	clinvar
+EGLN2	NM_080732.4	c.795C>T	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	19	41307272	C	T	clinvar_assertion	clinvar
+EGLN2	NM_080732.4	c.783C>T	Likely_benign ClinVar(1-star, criteria provided)	0.001	-0.623		0.0000	2.54900e-05			Likely benign	19	41307260	C	T	clinvar_assertion	clinvar
+EGLN2	NM_080732.4	c.792C>T	Likely_benign ClinVar(1-star, criteria provided)	0.007	-0.125		0.0000				Likely benign	19	41307269	C	T	clinvar_assertion	clinvar
+EGLN2	NM_080732.4	c.831C>T	Likely_benign ClinVar(1-star, criteria provided)	0.0	-3.926		0.0000	0.000651636			Likely benign	19	41307308	C	T	clinvar_assertion	clinvar
+EGLN2	NM_080732.4	c.798C>T	Likely_benign ClinVar(1-star, criteria provided)	0.998	0.774		0.0000				Likely benign	19	41307275	C	T	clinvar_assertion	clinvar
+EGLN2	NM_080732.4	c.675G>A	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	19	41307152	G	A	clinvar_assertion	clinvar
+EGLN2	NM_080732.4	c.744A>T	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	19	41307221	A	T	clinvar_assertion	clinvar
+EGLN2	NM_080732.4	c.738T>C	Likely_benign ClinVar(1-star, criteria provided)	0.002	-0.853		0.0000	8.88368e-06			Likely benign	19	41307215	T	C	clinvar_assertion	clinvar
+EGLN2	NM_080732.4	c.73T>C	Likely_benign ClinVar(1-star, criteria provided)	1.0	8.017	0.522	0.0000		31.0	LP	Likely benign	19	41306550	T	C	clinvar_assertion	clinvar
+EGLN2	NM_080732.4	c.948G>A	Likely_benign ClinVar(1-star, criteria provided)	0.915	0.452		0.0100	4.43000e-06			Likely benign	19	41312564	G	A	clinvar_assertion	clinvar
+EGLN2	NM_080732.4	c.891C>T	Likely_benign ClinVar(1-star, criteria provided)	0.001	-1.395		0.0300	0.000144592			Likely benign	19	41312507	C	T	clinvar_assertion	clinvar
+EGLN2	NM_080732.4	c.933C>T	Likely_benign ClinVar(1-star, criteria provided)	0.751	-0.03		0.0000	6.15000e-06			Likely benign	19	41312549	C	T	clinvar_assertion	clinvar
+EGLN2	NM_080732.4	c.906C>T	Likely_benign ClinVar(1-star, criteria provided)	0.91	0.06		0.0400	3.26627e-05			Likely benign	19	41312522	C	T	clinvar_assertion	clinvar
+EGLN2	NM_080732.4	c.130C>T	Likely_benign ClinVar(1-star, criteria provided)	0.014	0.639	0.258	0.0200	2.80000e-07	25.2	LP	Likely benign	19	41306607	C	T	clinvar_assertion	clinvar
+EGLN2	NM_080732.4	c.804A>C	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	19	41307281	A	C	clinvar_assertion	clinvar
+EGLN2	NM_080732.4	c.126T>C	Likely_benign ClinVar(1-star, criteria provided)	0.01	0.279		0.0000				Likely benign	19	41306603	T	C	clinvar_assertion	clinvar
+EGLN2	NM_080732.4	c.840C>T	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	19	41307317	C	T	clinvar_assertion	clinvar
+EGLN2	NM_080732.4	c.801C>T	Likely_benign ClinVar(1-star, criteria provided)	0.003	-0.306		0.0000	0.000594809			Likely benign	19	41307278	C	T	clinvar_assertion	clinvar
+EGLN2	NM_080732.4	c.765C>T	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	19	41307242	C	T	clinvar_assertion	clinvar
+EGLN2	NM_080732.4	c.976C>T	Likely_benign ClinVar(1-star, criteria provided)	0.007	0.178		0.0100				Likely benign	19	41313055	C	T	clinvar_assertion	clinvar
+EGLN2	NM_080732.4	c.978G>A	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	19	41313057	G	A	clinvar_assertion	clinvar
+EGLN2	NM_080732.4	c.174G>C	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	19	41306651	G	C	clinvar_assertion	clinvar
+EGLN2	NM_080732.4	c.972C>T	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	19	41313051	C	T	clinvar_assertion	clinvar
+EGLN2	NM_080732.4	c.93G>A	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	19	41306570	G	A	clinvar_assertion	clinvar
+EGLN2	NM_080732.4	c.699C>T	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	19	41307176	C	T	clinvar_assertion	clinvar
+EGLN2	NM_080732.4	c.732A>G	Likely_benign ClinVar(1-star, criteria provided)				0.0000				Likely benign	19	41307209	A	G	clinvar_assertion	clinvar
+EGLN2	NM_080732.4	c.6C>T	Likely_benign ClinVar(1-star, criteria provided)	0.999	0.479		0.0200				Likely benign	19	41306483	C	T	clinvar_assertion	clinvar
+EGLN2	NM_080732.4	c.672A>T	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	19	41307149	A	T	clinvar_assertion	clinvar
+EGLN2	NM_080732.4	c.1020C>T	Likely_benign ClinVar(1-star, criteria provided)	0.023	-0.737		0.0000	1.75827e-05			Likely benign	19	41313099	C	T	clinvar_assertion	clinvar
+EGLN2	NM_080732.4	c.957C>T	Likely_benign ClinVar(1-star, criteria provided)	0.0	-2.161		0.0100	0.000123062			Likely benign	19	41312573	C	T	clinvar_assertion	clinvar
+EGLN2	NM_080732.4	c.1062G>T	Likely_benign ClinVar(1-star, criteria provided)	1.0	1.04	0.073			22.1	LP	Likely benign	19	41313141	G	T	clinvar_assertion	clinvar
+EGLN2	NM_080732.4	c.987C>A	Likely_benign ClinVar(1-star, criteria provided)	0.984	0.345		0.0000				Likely benign	19	41313066	C	A	clinvar_assertion	clinvar
+EGLN2	NM_080732.4	c.132G>C	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	19	41306609	G	C	clinvar_assertion	clinvar
+EGLN2	NM_080732.4	c.1029C>G	Likely_benign ClinVar(1-star, criteria provided)	1.0	1.803	0.806			27.5	LP	Likely benign	19	41313108	C	G	clinvar_assertion	clinvar
+EGLN2	NM_080732.4	c.1095C>T	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	19	41313174	C	T	clinvar_assertion	clinvar
+EGLN2	NM_080732.4	c.1056T>C	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	19	41313135	T	C	clinvar_assertion	clinvar
+EGLN2	NM_080732.4	c.171C>T	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	19	41306648	C	T	clinvar_assertion	clinvar
+EGLN2	NM_080732.4	c.129C>A	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	19	41306606	C	A	clinvar_assertion	clinvar
+EGLN2	NM_080732.4	c.12G>A	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	19	41306489	G	A	clinvar_assertion	clinvar
+EGLN2	NM_080732.4	c.1026A>T	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	19	41313105	A	T	clinvar_assertion	clinvar
+EGLN2	NM_080732.4	c.138C>T	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	19	41306615	C	T	clinvar_assertion	clinvar
+EGLN2	NM_080732.4	c.1038G>A	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	19	41313117	G	A	clinvar_assertion	clinvar
+EGLN2	NM_080732.4	c.1039T>C	Likely_benign ClinVar(1-star, criteria provided)	0.17	0.335		0.0000	0.000272499			Likely benign	19	41313118	T	C	clinvar_assertion	clinvar
+EGLN2	NM_080732.4	c.1071C>T	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	19	41313150	C	T	clinvar_assertion	clinvar
+EGLN2	NM_080732.4	c.1077G>A	Likely_benign ClinVar(1-star, criteria provided)				0.0100				Likely benign	19	41313156	G	A	clinvar_assertion	clinvar
+EGLN2	NM_080732.4	c.912T>C	Likely_benign ClinVar(1-star, criteria provided)	0.008	-1.048		0.0000	8.78997e-06			Likely benign	19	41312528	T	C	clinvar_assertion	clinvar
+EGLN2	NM_080732.4	c.873G>A	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	19	41312489	G	A	clinvar_assertion	clinvar
+EGLN2	NM_080732.4	c.870C>T	Likely_benign ClinVar(1-star, criteria provided)	0.002	-1.243		0.0100	5.43656e-05			Likely benign	19	41312486	C	T	clinvar_assertion	clinvar
+EGLN2	NM_080732.4	c.90C>T	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	19	41306567	C	T	clinvar_assertion	clinvar
+EGLN2	NM_080732.4	c.915G>T	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	19	41312531	G	T	clinvar_assertion	clinvar
+EGLN2	NM_080732.4	c.1005C>T	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	19	41313084	C	T	clinvar_assertion	clinvar
+EGLN2	NM_080732.4	c.204C>T	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	19	41306681	C	T	clinvar_assertion	clinvar
+EGLN2	NM_080732.4	c.207C>G	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	19	41306684	C	G	clinvar_assertion	clinvar
+EGLN2	NM_080732.4	c.1083G>A	Likely_benign ClinVar(1-star, criteria provided)				0.0000	1.74600e-05			Likely benign	19	41313162	G	A	clinvar_assertion	clinvar
+EGLN2	NM_080732.4	c.189C>G	Likely_benign ClinVar(1-star, criteria provided)	0.185	-0.146	0.415			23.0	LP	Likely benign	19	41306666	C	G	clinvar_assertion	clinvar
+EGLN2	NM_080732.4	c.1068C>T	Likely_benign ClinVar(1-star, criteria provided)				0.0000	2.80000e-07			Likely benign	19	41313147	C	T	clinvar_assertion	clinvar
+EGLN2	NM_080732.4	c.234C>T	Likely_benign ClinVar(1-star, criteria provided)	0.577	0.119		0.0000	0.000130907			Likely benign	19	41306711	C	T	clinvar_assertion	clinvar
+EGLN2	NM_080732.4	c.246G>A	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	19	41306723	G	A	clinvar_assertion	clinvar
+EGLN2	NM_080732.4	c.1089C>T	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	19	41313168	C	T	clinvar_assertion	clinvar
+EGLN2	NM_080732.4	c.210T>C	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	19	41306687	T	C	clinvar_assertion	clinvar
+EGLN2	NM_080732.4	c.1074C>T	Likely_benign ClinVar(1-star, criteria provided)	0.776	-0.055		0.0100	0.000144634			Likely benign	19	41313153	C	T	clinvar_assertion	clinvar
+EGLN2	NM_080732.4	c.1104C>T	Likely_benign ClinVar(1-star, criteria provided)	0.004	-1.166		0.0300	0.000738189			Likely benign	19	41313392	C	T	clinvar_assertion	clinvar
+EGLN2	NM_080732.4	c.243C>T	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	19	41306720	C	T	clinvar_assertion	clinvar
+EGLN2	NM_080732.4	c.219C>T	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	19	41306696	C	T	clinvar_assertion	clinvar
+EGLN2	NM_080732.4	c.21G>A	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	19	41306498	G	A	clinvar_assertion	clinvar
+EGLN2	NM_080732.4	c.1086A>T	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	19	41313165	A	T	clinvar_assertion	clinvar
+EGLN2	NM_080732.4	c.1098C>G	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	19	41313177	C	G	clinvar_assertion	clinvar
+EGLN2	NM_080732.4	c.27C>A	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	19	41306504	C	A	clinvar_assertion	clinvar
+EGLN2	NM_080732.4	c.1116C>T	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	19	41313404	C	T	clinvar_assertion	clinvar
+EGLN2	NM_080732.4	c.265C>T	Likely_benign ClinVar(1-star, criteria provided)	0.265	0.362	0.017	0.0000	2.55500e-05	19.48	LB	Likely benign	19	41306742	C	T	clinvar_assertion	clinvar
+EGLN2	NM_080732.4	c.295C>T	Likely_benign ClinVar(1-star, criteria provided)	0.136	0.407		0.0000	2.80000e-07			Likely benign	19	41306772	C	T	clinvar_assertion	clinvar
+EGLN2	NM_080732.4	c.285C>T	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	19	41306762	C	T	clinvar_assertion	clinvar
+EGLN2	NM_080732.4	c.28C>T	Likely_benign ClinVar(1-star, criteria provided)	1.0	3.141	0.185	0.0000	0.000332510	26.3	LB	Likely benign	19	41306505	C	T	clinvar_assertion	clinvar
+EGLN2	NM_080732.4	c.297G>A	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	19	41306774	G	A	clinvar_assertion	clinvar
+EGLN2	NM_080732.4	c.300C>T	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	19	41306777	C	T	clinvar_assertion	clinvar
+EGLN2	NM_080732.4	c.270G>A	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	19	41306747	G	A	clinvar_assertion	clinvar
+EGLN2	NM_080732.4	c.888G>A	Likely_benign ClinVar(1-star, criteria provided)	0.159	-0.463		0.0800	6.80000e-07			Likely benign	19	41312504	G	A	clinvar_assertion	clinvar
+EGLN2	NM_080732.4	c.816C>T	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	19	41307293	C	T	clinvar_assertion	clinvar
+EGLN2	NM_080732.4	c.1215G>A	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	19	41313760	G	A	clinvar_assertion	clinvar
+EGLN2	NM_080732.4	c.213C>T	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	19	41306690	C	T	clinvar_assertion	clinvar
+EGLN2	NM_080732.4	c.288T>C	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	19	41306765	T	C	clinvar_assertion	clinvar
+EGLN2	NM_080732.4	c.1185T>C	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	19	41313730	T	C	clinvar_assertion	clinvar
+EGLN2	NM_080732.4	c.426G>A	Likely_benign ClinVar(1-star, criteria provided)	0.015	0.846		0.0000				Likely benign	19	41306903	G	A	clinvar_assertion	clinvar
+EGLN2	NM_080732.4	c.540C>T	Likely_benign ClinVar(1-star, criteria provided)				0.0000	2.80000e-07			Likely benign	19	41307017	C	T	clinvar_assertion	clinvar
+EGLN2	NM_080732.4	c.158T>C	Likely_benign ClinVar(1-star, criteria provided)	0.0	-0.845	0.021	0.0100	1.37600e-05	1.096	LB	Likely benign	19	41306635	T	C	clinvar_assertion	clinvar
+EGLN2	NM_080732.4	c.84G>A	Likely_benign ClinVar(1-star, criteria provided)	0.657	1.166		0.0200				Likely benign	19	41306561	G	A	clinvar_assertion	clinvar
+EGLN2	NM_080732.4	c.192C>T	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	19	41306669	C	T	clinvar_assertion	clinvar
+EGLN2	NM_080732.4	c.720T>C	Likely_benign ClinVar(1-star, criteria provided)	0.605	-0.169		0.0000	0.000109099			Likely benign	19	41307197	T	C	clinvar_assertion	clinvar
+EGLN2	NM_080732.4	c.69G>A	Likely_benign ClinVar(1-star, criteria provided)	0.898	1.435		0.0200	8.82909e-06			Likely benign	19	41306546	G	A	clinvar_assertion	clinvar
+EGLN2	NM_080732.4	c.774C>A	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	19	41307251	C	A	clinvar_assertion	clinvar
+EGLN2	NM_080732.4	c.936T>C	Likely_benign ClinVar(1-star, criteria provided)				0.0100				Likely benign	19	41312552	T	C	clinvar_assertion	clinvar
+EGLN2	NM_080732.4	c.723C>T	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	19	41307200	C	T	clinvar_assertion	clinvar
+EGLN2	NM_080732.4	c.465C>T	Likely_benign ClinVar(1-star, criteria provided)	0.0	-1.644		0.0000				Likely benign	19	41306942	C	T	clinvar_assertion	clinvar
+EGLN2	NM_080732.4	c.402G>A	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	19	41306879	G	A	clinvar_assertion	clinvar
+EGLN2	NM_080732.4	c.477T>C	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	19	41306954	T	C	clinvar_assertion	clinvar
+EGLN2	NM_080732.4	c.885A>G	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	19	41312501	A	G	clinvar_assertion	clinvar
+EGLN2	NM_080732.4	c.564C>T	Likely_benign ClinVar(1-star, criteria provided)	0.0	-0.24		0.0000				Likely benign	19	41307041	C	T	clinvar_assertion	clinvar
+EGLN2	NM_080732.4	c.276G>A	Likely_benign ClinVar(1-star, criteria provided)	0.944	1.388		0.0000				Likely benign	19	41306753	G	A	clinvar_assertion	clinvar
+EGLN2	NM_080732.4	c.105A>C	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	19	41306582	A	C	clinvar_assertion	clinvar
+EGLN2	NM_080732.4	c.360A>G	Likely_benign ClinVar(1-star, criteria provided)	0.002	0.021		0.0000	3.003e-05			Likely benign	19	41306837	A	G	clinvar_assertion	clinvar
+EGLN2	NM_080732.4	c.225T>G	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	19	41306702	T	G	clinvar_assertion	clinvar
+EGLN2	NM_080732.4	c.834G>A	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	19	41307311	G	A	clinvar_assertion	clinvar
+EGLN2	NM_080732.4	c.66A>G	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	19	41306543	A	G	clinvar_assertion	clinvar
+EGLN2	NM_080732.4	c.345G>A	Likely_benign ClinVar(1-star, criteria provided)	0.913	0.434		0.0000				Likely benign	19	41306822	G	A	clinvar_assertion	clinvar
+EGLN2	NM_080732.4	c.306G>A	Likely_benign ClinVar(1-star, criteria provided)	0.496	0.571		0.0000	6.84182e-05			Likely benign	19	41306783	G	A	clinvar_assertion	clinvar
+EGLN2	NM_080732.4	c.57G>A	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	19	41306534	G	A	clinvar_assertion	clinvar
+EGLN2	NM_080732.4	c.264G>T	Likely_benign ClinVar(1-star, criteria provided)	0.82	-0.052	0.693			34.0	LP	Likely benign	19	41306741	G	T	clinvar_assertion	clinvar
+EGLN2	NM_080732.4	c.582G>A	Likely_benign ClinVar(1-star, criteria provided)				0.0000	2.80000e-07			Likely benign	19	41307059	G	A	clinvar_assertion	clinvar
+EGLN2	NM_080732.4	c.180G>C	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	19	41306657	G	C	clinvar_assertion	clinvar
+EGLN2	NM_080732.4	c.621G>T	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	19	41307098	G	T	clinvar_assertion	clinvar
+EGLN2	NM_080732.4	c.348C>T	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	19	41306825	C	T	clinvar_assertion	clinvar
+EGLN2	NM_080732.4	c.315G>A	Likely_benign ClinVar(1-star, criteria provided)				0.0000				Likely benign	19	41306792	G	A	clinvar_assertion	clinvar
+EGLN2	NM_080732.4	c.459C>T	Likely_benign ClinVar(1-star, criteria provided)	0.824	1.814		0.0000				Likely benign	19	41306936	C	T	clinvar_assertion	clinvar
+EGLN2	NM_080732.4	c.606G>A	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	19	41307083	G	A	clinvar_assertion	clinvar
+EGLN2	NM_080732.4	c.964-7C>A	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	19	41313036	C	A	clinvar_assertion	clinvar
+EGLN2	NM_080732.4	c.666G>A	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	19	41307143	G	A	clinvar_assertion	clinvar
+EGLN2	NM_080732.4	c.529C>T	Likely_benign ClinVar(1-star, criteria provided)	0.761	0.271		0.0000	2.80000e-07			Likely benign	19	41307006	C	T	clinvar_assertion	clinvar
+EGLN2	NM_080732.4	c.33T>C	Likely_benign ClinVar(1-star, criteria provided)	0.939	0.073		0.0000				Likely benign	19	41306510	T	C	clinvar_assertion	clinvar
+EGLN2	NM_080732.4	c.141C>G	Likely_benign ClinVar(1-star, criteria provided)	0.984	0.345	0.370		2.92000e-06	22.9	LP	Likely benign	19	41306618	C	G	clinvar_assertion	clinvar
+EGLN2	NM_080732.4	c.384C>T	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	19	41306861	C	T	clinvar_assertion	clinvar
+EGLN2	NM_080732.4	c.819C>T	Likely_benign ClinVar(1-star, criteria provided)	0.988	0.856		0.0000				Likely benign	19	41307296	C	T	clinvar_assertion	clinvar
+EGLN2	NM_080732.4	c.627G>A	Likely_benign ClinVar(1-star, criteria provided)				0.0000	2.47000e-06			Likely benign	19	41307104	G	A	clinvar_assertion	clinvar
+EGLN2	NM_080732.4	c.1170A>G	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	19	41313715	A	G	clinvar_assertion	clinvar
+EGLN2	NM_080732.4	c.561G>A	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	19	41307038	G	A	clinvar_assertion	clinvar
+EGLN2	NM_080732.4	c.585C>T	Likely_benign ClinVar(1-star, criteria provided)	0.916	1.856		0.0000				Likely benign	19	41307062	C	T	clinvar_assertion	clinvar
+EGLN2	NM_080732.4	c.604C>T	Likely_benign ClinVar(1-star, criteria provided)	0.0	-1.625		0.0000	3.26776e-05			Likely benign	19	41307081	C	T	clinvar_assertion	clinvar
+EGLN2	NM_080732.4	c.828C>A	Likely_benign ClinVar(1-star, criteria provided)				0.0100				Likely benign	19	41307305	C	A	clinvar_assertion	clinvar
+EGLN2	NM_080732.4	c.903C>A	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	19	41312519	C	A	clinvar_assertion	clinvar
+EGLN2	NM_080732.4	c.990C>T	Likely_benign ClinVar(1-star, criteria provided)	0.986	0.372		0.0000				Likely benign	19	41313069	C	T	clinvar_assertion	clinvar
+EGLN2	NM_080732.4	c.534C>T	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	19	41307011	C	T	clinvar_assertion	clinvar
+EGLN2	NM_080732.4	c.49T>C	Likely_benign ClinVar(1-star, criteria provided)	1.0	6.23	0.607	0.0000		32.0	LP	Likely benign	19	41306526	T	C	clinvar_assertion	clinvar
+EGLN2	NM_080732.4	c.271C>T	Likely_benign ClinVar(1-star, criteria provided)	0.075	0.796		0.0000	1.42600e-05			Likely benign	19	41306748	C	T	clinvar_assertion	clinvar
+EGLN2	NM_080732.4	c.39T>C	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	19	41306516	T	C	clinvar_assertion	clinvar
+EGLN2	NM_080732.4	c.279T>C	Likely_benign ClinVar(1-star, criteria provided)	0.997	0.135		0.0000				Likely benign	19	41306756	T	C	clinvar_assertion	clinvar
+EGLN2	NM_080732.4	c.1179G>A	Likely_benign ClinVar(1-star, criteria provided)				0.0100				Likely benign	19	41313724	G	A	clinvar_assertion	clinvar
+EGLN2	NM_080732.4	c.262C>T	Likely_benign ClinVar(1-star, criteria provided)	0.69	1.585		0.0300				Likely benign	19	41306739	C	T	clinvar_assertion	clinvar
+EGLN2	NM_080732.4	c.173C>T	Benign ClinVar(2-star, criteria provided)	0.016	0.23	0.038	0.0000	0.0254975	18.6	LB	Benign	19	41306650	C	T	clinvar_assertion	clinvar
+EGLN2	NM_080732.4	c.942G>C	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	19	41312558	G	C	clinvar_assertion	clinvar
+EGLN2	NM_080732.4	c.630G>A	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	19	41307107	G	A	clinvar_assertion	clinvar
+EGLN2	NM_080732.4	c.975C>A	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	19	41313054	C	A	clinvar_assertion	clinvar
+EGLN2	NM_080732.4	c.339G>A	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	19	41306816	G	A	clinvar_assertion	clinvar
+EGLN2	NM_080732.4	c.429G>A	Likely_benign ClinVar(1-star, criteria provided)	0.012	1.523		0.0000				Likely benign	19	41306906	G	A	clinvar_assertion	clinvar
+EGLN2	NM_080732.4	c.249G>A	Likely_benign ClinVar(1-star, criteria provided)				0.0000				Likely benign	19	41306726	G	A	clinvar_assertion	clinvar
+EGLN2	NM_080732.4	c.457A>G	Likely_benign ClinVar(1-star, criteria provided)	0.404	0.277	0.006	0.0000		6.936	LB	Likely benign	19	41306934	A	G	clinvar_assertion	clinvar
+EGLN2	NM_080732.4	c.1059C>T	Likely_benign ClinVar(1-star, criteria provided)	0.983	0.265		0.0000				Likely benign	19	41313138	C	T	clinvar_assertion	clinvar
+EGLN2	NM_080732.4	c.729G>T	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	19	41307206	G	T	clinvar_assertion	clinvar
+EGLN2	NM_080732.4	c.163A>G	Likely_benign ClinVar(1-star, criteria provided)	0.0	0.297	0.026	0.0400	1.74600e-05	6.969	LB	Likely benign	19	41306640	A	G	clinvar_assertion	clinvar
+EGLN2	NM_080732.4	c.435G>A	Likely_benign ClinVar(1-star, criteria provided)	0.0	-0.595		0.0000				Likely benign	19	41306912	G	A	clinvar_assertion	clinvar
+EGLN2	NM_080732.4	c.144C>T	Likely_benign ClinVar(1-star, criteria provided)	0.027	0.198		0.0300				Likely benign	19	41306621	C	T	clinvar_assertion	clinvar
+EGLN2	NM_080732.4	c.456C>T	Likely_benign ClinVar(1-star, criteria provided)	0.279	0.093		0.0000				Likely benign	19	41306933	C	T	clinvar_assertion	clinvar
+EGLN2	NM_080732.4	c.471C>T	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	19	41306948	C	T	clinvar_assertion	clinvar
+EGLN2	NM_080732.4	c.492G>A	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	19	41306969	G	A	clinvar_assertion	clinvar
+EGLN2	NM_080732.4	c.519G>A	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	19	41306996	G	A	clinvar_assertion	clinvar
+EGLN2	NM_080732.4	c.1017C>T	Likely_benign ClinVar(1-star, criteria provided)				0.0000				Likely benign	19	41313096	C	T	clinvar_assertion	clinvar
+EGLN2	NM_080732.4	c.963+5GGGTGA[4]	Likely_benign ClinVar(1-star, criteria provided)				0.0100	0.00412122			Likely benign	19	41312583	G	GGGGTGA	clinvar_assertion	clinvar
+EGLN2	NM_080732.4	c.1101G>A	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.82	-0.052		0.0400					19	41313389	G	A	local_enumeration	synonymous_catalog
+EGLN2	NM_080732.4	c.1224G>A	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.997	0.756		0.0300					19	41313769	G	A	local_enumeration	synonymous_catalog
+EGLN2	NM_080732.4	c.1182A>G	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.973	0.117		0.0100					19	41313727	A	G	local_enumeration	synonymous_catalog
+EGLN2	NM_080732.4	c.1138C>A	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.991	0.422		0.0800					19	41313426	C	A	local_enumeration	synonymous_catalog
+EGLN2	NM_080732.4	c.1110C>T	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.984	0.36		0.0500					19	41313398	C	T	local_enumeration	synonymous_catalog
+EGLN2	NM_080732.4	c.1110C>A	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.984	0.36		0.0700					19	41313398	C	A	local_enumeration	synonymous_catalog
+EGLN2	NM_080732.4	c.1023G>A	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.819	-0.071		0.0000					19	41313102	G	A	local_enumeration	synonymous_catalog
+EGLN2	NM_080732.4	c.1020C>A	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.023	-0.737		0.0000	8.79136e-06				19	41313099	C	A	local_enumeration	synonymous_catalog
+EGLN2	NM_080732.4	c.1000C>A	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.036	1.19		0.0000					19	41313079	C	A	local_enumeration	synonymous_catalog
+EGLN2	NM_080732.4	c.996G>A	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.998	0.734		0.0000					19	41313075	G	A	local_enumeration	synonymous_catalog
+EGLN2	NM_080732.4	c.987C>T	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.984	0.345		0.0000					19	41313066	C	T	local_enumeration	synonymous_catalog
+EGLN2	NM_080732.4	c.979C>T	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.998	2.721		0.1300	8.81461e-06				19	41313058	C	T	local_enumeration	synonymous_catalog
+EGLN2	NM_080732.4	c.969T>C	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.318	0.58		0.0000					19	41313048	T	C	local_enumeration	synonymous_catalog
+EGLN2	NM_080732.4	c.939C>T	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.992	0.373		0.0100					19	41312555	C	T	local_enumeration	synonymous_catalog
+EGLN2	NM_080732.4	c.1035C>T	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.185	-0.146		0.0000					19	41313114	C	T	local_enumeration	synonymous_catalog
+EGLN2	NM_080732.4	c.1036C>A	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.388	0.933		0.8000					19	41313115	C	A	local_enumeration	synonymous_catalog
+EGLN2	NM_080732.4	c.1047T>A	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.054	-0.676		0.0000					19	41313126	T	A	local_enumeration	synonymous_catalog
+EGLN2	NM_080732.4	c.1047T>C	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.054	-0.676		0.0100					19	41313126	T	C	local_enumeration	synonymous_catalog
+EGLN2	NM_080732.4	c.1099A>C	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.991	3.097		0.6700					19	41313178	A	C	local_enumeration	synonymous_catalog
+EGLN2	NM_080732.4	c.861C>T	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.998	0.686		0.0100					19	41312477	C	T	local_enumeration	synonymous_catalog
+EGLN2	NM_080732.4	c.924C>A	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.99	0.375		0.0900					19	41312540	C	A	local_enumeration	synonymous_catalog
+EGLN2	NM_080732.4	c.921C>T	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.338	0.705		0.0600	8.78997e-06				19	41312537	C	T	local_enumeration	synonymous_catalog
+EGLN2	NM_080732.4	c.900T>C	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.978	0.124		0.0000					19	41312516	T	C	local_enumeration	synonymous_catalog
+EGLN2	NM_080732.4	c.897C>T	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.898	0.091		0.0300					19	41312513	C	T	local_enumeration	synonymous_catalog
+EGLN2	NM_080732.4	c.858T>C	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.998	0.413		0.0100					19	41312474	T	C	local_enumeration	synonymous_catalog
+EGLN2	NM_080732.4	c.808C>A	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.987	1.558		0.0000					19	41307285	C	A	local_enumeration	synonymous_catalog
+EGLN2	NM_080732.4	c.792C>A	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.007	-0.125		0.0000					19	41307269	C	A	local_enumeration	synonymous_catalog
+EGLN2	NM_080732.4	c.924C>T	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.99	0.375		0.1100					19	41312540	C	T	local_enumeration	synonymous_catalog
+EGLN2	NM_080732.4	c.930T>C	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.995	0.304		0.0100					19	41312546	T	C	local_enumeration	synonymous_catalog
+EGLN2	NM_080732.4	c.933C>A	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.751	-0.03		0.0100					19	41312549	C	A	local_enumeration	synonymous_catalog
+EGLN2	NM_080732.4	c.1063C>A	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.012	0.246		0.0100					19	41313142	C	A	local_enumeration	synonymous_catalog
+EGLN2	NM_080732.4	c.756C>T	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.983	1.601		0.0000					19	41307233	C	T	local_enumeration	synonymous_catalog
+EGLN2	NM_080732.4	c.759T>C	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.079	-0.456		0.0000					19	41307236	T	C	local_enumeration	synonymous_catalog
+EGLN2	NM_080732.4	c.759T>A	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.079	-0.456		0.0000					19	41307236	T	A	local_enumeration	synonymous_catalog
+EGLN2	NM_080732.4	c.543T>C	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.966	0.207		0.0000					19	41307020	T	C	local_enumeration	synonymous_catalog
+EGLN2	NM_080732.4	c.508C>T	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.0	0.993		0.0000					19	41306985	C	T	local_enumeration	synonymous_catalog
+EGLN2	NM_080732.4	c.501G>A	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.034	1.253		0.0000					19	41306978	G	A	local_enumeration	synonymous_catalog
+EGLN2	NM_080732.4	c.493C>T	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.0	0.421		0.0000					19	41306970	C	T	local_enumeration	synonymous_catalog
+EGLN2	NM_080732.4	c.486T>C	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.0	-3.039		0.0000					19	41306963	T	C	local_enumeration	synonymous_catalog
+EGLN2	NM_080732.4	c.480G>A	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.079	0.521		0.0000					19	41306957	G	A	local_enumeration	synonymous_catalog
+EGLN2	NM_080732.4	c.468T>C	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.0	-0.67		0.0000					19	41306945	T	C	local_enumeration	synonymous_catalog
+EGLN2	NM_080732.4	c.24G>A	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.969	1.015		0.0000					19	41306501	G	A	local_enumeration	synonymous_catalog
+EGLN2	NM_080732.4	c.441G>A	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.0	-0.254		0.0000					19	41306918	G	A	local_enumeration	synonymous_catalog
+EGLN2	NM_080732.4	c.436C>A	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.0	0.484		0.0000					19	41306913	C	A	local_enumeration	synonymous_catalog
+EGLN2	NM_080732.4	c.750T>C	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.444	0.755		0.0000					19	41307227	T	C	local_enumeration	synonymous_catalog
+EGLN2	NM_080732.4	c.720T>A	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.605	-0.169		0.0000					19	41307197	T	A	local_enumeration	synonymous_catalog
+EGLN2	NM_080732.4	c.546C>A	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.021	-0.85		0.0100					19	41307023	C	A	local_enumeration	synonymous_catalog
+EGLN2	NM_080732.4	c.705C>T	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.993	0.386		0.0000					19	41307182	C	T	local_enumeration	synonymous_catalog
+EGLN2	NM_080732.4	c.702C>T	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.994	2.242		0.0000					19	41307179	C	T	local_enumeration	synonymous_catalog
+EGLN2	NM_080732.4	c.690C>A	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.0	0.281		0.0000					19	41307167	C	A	local_enumeration	synonymous_catalog
+EGLN2	NM_080732.4	c.684G>A	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.556	0.597		0.0000	0.000294137				19	41307161	G	A	local_enumeration	synonymous_catalog
+EGLN2	NM_080732.4	c.682A>C	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.994	1.976		0.0000					19	41307159	A	C	local_enumeration	synonymous_catalog
+EGLN2	NM_080732.4	c.658C>A	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.0	-0.007		0.0000					19	41307135	C	A	local_enumeration	synonymous_catalog
+EGLN2	NM_080732.4	c.642A>G	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.908	1.615		0.0000					19	41307119	A	G	local_enumeration	synonymous_catalog
+EGLN2	NM_080732.4	c.619C>T	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.992	1.216		0.0000					19	41307096	C	T	local_enumeration	synonymous_catalog
+EGLN2	NM_080732.4	c.588C>T	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.001	-0.009		0.0000					19	41307065	C	T	local_enumeration	synonymous_catalog
+EGLN2	NM_080732.4	c.423C>T	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.998	0.874		0.0000					19	41306900	C	T	local_enumeration	synonymous_catalog
+EGLN2	NM_080732.4	c.400C>A	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.998	1.55		0.0000					19	41306877	C	A	local_enumeration	synonymous_catalog
+EGLN2	NM_080732.4	c.183T>C	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.001	-0.503		0.0100					19	41306660	T	C	local_enumeration	synonymous_catalog
+EGLN2	NM_080732.4	c.150T>C	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.0	-1.115		0.0000					19	41306627	T	C	local_enumeration	synonymous_catalog
+EGLN2	NM_080732.4	c.705C>A	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.993	0.386		0.0000					19	41307182	C	A	local_enumeration	synonymous_catalog
+EGLN2	NM_080732.4	c.474T>C	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.0	-0.917		0.0000					19	41306951	T	C	local_enumeration	synonymous_catalog
+EGLN2	NM_080732.4	c.147C>T	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.373	1.351		0.0100					19	41306624	C	T	local_enumeration	synonymous_catalog
+EGLN2	NM_080732.4	c.114T>C	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.889	-0.509		0.0000					19	41306591	T	C	local_enumeration	synonymous_catalog
+EGLN2	NM_080732.4	c.97A>C	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.976	1.892		0.0000					19	41306574	A	C	local_enumeration	synonymous_catalog
+EGLN2	NM_080732.4	c.91C>A	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.393	0.632		0.0000					19	41306568	C	A	local_enumeration	synonymous_catalog
+EGLN2	NM_080732.4	c.78G>A	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.368	0.171		0.0100					19	41306555	G	A	local_enumeration	synonymous_catalog
+EGLN2	NM_080732.4	c.75G>A	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.029	0.24		0.0000					19	41306552	G	A	local_enumeration	synonymous_catalog
+EGLN2	NM_080732.4	c.51A>G	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.053	0.823		0.0000					19	41306528	A	G	local_enumeration	synonymous_catalog
+EGLN2	NM_080732.4	c.48G>A	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.983	2.412		0.4200					19	41306525	G	A	local_enumeration	synonymous_catalog
+EGLN2	NM_080732.4	c.36G>A	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.945	0.33		0.0600					19	41306513	G	A	local_enumeration	synonymous_catalog
+EGLN2	NM_080732.4	c.165T>C	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.0	-1.101		0.0100					19	41306642	T	C	local_enumeration	synonymous_catalog
+EGLN2	NM_080732.4	c.193A>C	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.001	-0.224		0.0000					19	41306670	A	C	local_enumeration	synonymous_catalog
+EGLN2	NM_080732.4	c.399A>G	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.989	0.299		0.0000					19	41306876	A	G	local_enumeration	synonymous_catalog
+EGLN2	NM_080732.4	c.195A>G	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.0	-0.422		0.0000					19	41306672	A	G	local_enumeration	synonymous_catalog
+EGLN2	NM_080732.4	c.396C>T	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.4	0.316		0.0000					19	41306873	C	T	local_enumeration	synonymous_catalog
+EGLN2	NM_080732.4	c.381T>C	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.666	-0.135		0.0000					19	41306858	T	C	local_enumeration	synonymous_catalog
+EGLN2	NM_080732.4	c.355C>A	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.304	0.34		0.0000					19	41306832	C	A	local_enumeration	synonymous_catalog
+EGLN2	NM_080732.4	c.354A>G	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.383	0.657		0.0000					19	41306831	A	G	local_enumeration	synonymous_catalog
+EGLN2	NM_080732.4	c.337C>A	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.004	0.38		0.0000					19	41306814	C	A	local_enumeration	synonymous_catalog
+EGLN2	NM_080732.4	c.282A>G	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.999	0.411		0.0000					19	41306759	A	G	local_enumeration	synonymous_catalog
+EGLN2	NM_080732.4	c.265C>A	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.265	0.362		0.0000					19	41306742	C	A	local_enumeration	synonymous_catalog
+EGLN2	NM_080732.4	c.261G>A	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.481	0.316		0.0000					19	41306738	G	A	local_enumeration	synonymous_catalog
+EGLN2	NM_080732.4	c.252T>C	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.189	0.116		0.0000					19	41306729	T	C	local_enumeration	synonymous_catalog
+EGLN2	NM_080732.4	c.240T>C	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.0	-1.747		0.0000					19	41306717	T	C	local_enumeration	synonymous_catalog
+EGLN2	NM_080732.4	c.229C>A	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.037	0.777		0.0100					19	41306706	C	A	local_enumeration	synonymous_catalog
+EGLN2	NM_080732.4	c.222C>T	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.984	0.482		0.0000					19	41306699	C	T	local_enumeration	synonymous_catalog
+EGLN2	NM_080732.4	c.751C>A	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.357	-0.169		0.0000					19	41307228	C	A	local_enumeration	synonymous_catalog

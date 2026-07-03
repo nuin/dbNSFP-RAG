@@ -1,0 +1,7 @@
+cp_new_lake:
+  target: dev
+  outputs:
+    dev:
+      type: duckdb
+      path: "lake.duckdb"
+      threads: 4

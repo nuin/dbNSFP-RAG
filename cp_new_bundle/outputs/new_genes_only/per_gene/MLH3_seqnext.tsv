@@ -1,9 +1,0 @@
-gene	transcript	hgvs_c	classification	chr_grch37	pos_grch37	ref	alt	PhastCons100way	PhyloP100way	REVEL	SpliceAI_masked	FAF95_grpmax	CADD_phred	AlphaMissense_pred	ClinVar_sig	vv_status
-MLH3	NM_001040108.1	c.3828-15A>T	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0, PhyloP<0.1, intronic_ROI(-15)	14	75497420	T	A	0.003	-0.216	.;.			10.81	.;.		ok
-MLH3	NM_001040108.1	c.3828-15A>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0, PhyloP<0.1, intronic_ROI(-15)	14	75497420	T	C	0.003	-0.216	.;.			10.62	.;.		ok
-MLH3	NM_001040108.1	c.3828-15A>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0, PhyloP<0.1, intronic_ROI(-15)	14	75497420	T	G	0.003	-0.216	.;.		0.000135770	10.71	.;.	Likely_benign	ok
-MLH3	NM_001040108.1	c.2825C>T	Benign FAF >5%	14	75513534	G	A	0.0	0.879	.;0.187;.;.;.;.;.;.;.;0.187;.;.		0.0525247	11.24	LB;LB;.;.;.;.;.;.;.;LB;.;.	Benign/Likely_benign	ok
-MLH3	NM_001040108.1	c.2531C>T	Benign FAF >5%	14	75513828	G	A	0.128	1.889	.;0.114;.;.;.;.;.;.;.;0.114;.;.		0.477188	11.8	LB;LB;.;.;.;.;.;.;.;LB;.;.	Benign	ok
-MLH3	NM_001040108.1	c.2476A>G	Benign FAF >5%	14	75513883	T	C	0.0	0.319	.;0.139;.;.;.;.;.;.;.;0.139;.;.		0.998445	0.404	LB;LB;.;.;.;.;.;.;.;LB;.;.	Benign	ok
-MLH3	NM_001040108.1	c.2390G>A	Benign FAF >5%	14	75513969	C	T	0.0	-0.043	.;0.083;.;.;.;.;.;.;.;0.083;.;.		0.0647360	0.104	LB;LB;.;.;.;.;.;.;.;LB;.;.	Benign	ok
-MLH3	NM_001040108.1	c.2159A>G	Benign FAF >5%	14	75514200	T	C	0.0	0.084	.;0.024;.;.;.;.;.;.;.;0.024;.;.		0.0961087	1.633	LB;LB;.;.;.;.;.;.;.;LB;.;.	Benign/Likely_benign	ok

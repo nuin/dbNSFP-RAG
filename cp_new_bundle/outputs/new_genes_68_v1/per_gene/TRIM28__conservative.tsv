@@ -1,0 +1,4 @@
+gene	transcript	hgvs_c	classification	PhastCons100way	PhyloP100way	REVEL	SpliceAI_masked	FAF95_grpmax	CADD_phred	AlphaMissense_pred	ClinVar_sig	chr_grch37	pos_grch37	ref	alt	vv_status	source
+TRIM28	NM_005762.3	c.-586T>C	Benign FAF >5%	0.0	-0.371			0.283912	2.688	LB		19	59055539	T	C	ok	pipeline
+TRIM28	NM_005762.3	c.1073A>C	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	19	59059519			clinvar_assertion	clinvar
+TRIM28	NM_005762.3	c.1699A>G	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	19	59060734			clinvar_assertion	clinvar

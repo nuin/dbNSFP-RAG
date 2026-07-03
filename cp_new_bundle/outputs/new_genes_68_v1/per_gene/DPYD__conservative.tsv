@@ -1,0 +1,11 @@
+gene	transcript	hgvs_c	classification	PhastCons100way	PhyloP100way	REVEL	SpliceAI_masked	FAF95_grpmax	CADD_phred	AlphaMissense_pred	ClinVar_sig	chr_grch37	pos_grch37	ref	alt	vv_status	source
+DPYD	NM_000110.4	c.1627A>G	Benign FAF >5%	0.994	1.397	.;.;0.123;.;.;.;.;.;.;.		0.275970	9.508	.;.;B;.;.;.;.;.;.;.	drug_response	1	97981395	T	C	ok	pipeline
+DPYD	NM_000110.4	c.2194G>A	Benign FAF >5%	1.0	7.499	.;.;0.297;.;.;.;.;.;.;.		0.117053	23.8	.;.;B;.;.;.;.;.;.;.	drug_response	1	97770920	C	T	ok	pipeline
+DPYD	NM_000110.4	c.681-8C>T	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	1	98157362			clinvar_assertion	clinvar
+DPYD	NM_000110.4	c.1129-15T>C	Benign ClinVar(2-star, criteria provided)								Benign	1	98039541			clinvar_assertion	clinvar
+DPYD	NM_000110.4	c.*573G>A	Benign ClinVar(2-star, criteria provided)								Benign	1	97543959			clinvar_assertion	clinvar
+DPYD	NM_000110.4	c.*780C>T	Benign ClinVar(2-star, criteria provided)								Benign	1	97543752			clinvar_assertion	clinvar
+DPYD	NM_000110.4	c.*768G>A	Benign ClinVar(2-star, criteria provided)								Benign	1	97543764			clinvar_assertion	clinvar
+DPYD	NM_000110.4	c.*274T>C	Benign ClinVar(2-star, criteria provided)								Benign	1	97544258			clinvar_assertion	clinvar
+DPYD	NM_000110.4	c.1525-11G>A	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	1	97981508			clinvar_assertion	clinvar
+DPYD	NM_000110.4	c.2180-3T>C	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	1	97770937			clinvar_assertion	clinvar

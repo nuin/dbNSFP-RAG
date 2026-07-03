@@ -1,0 +1,428 @@
+gene	transcript	hgvs_c	classification	PhastCons100way	PhyloP100way	REVEL	SpliceAI_masked	FAF95_grpmax	CADD_phred	AlphaMissense_pred	ClinVar_sig	chr_grch37	pos_grch37	ref	alt	vv_status	source
+TRIM28	NM_005762.3	c.-616T>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.0	-3.676				1.052	LB		19	59055509	T	A	ok	pipeline
+TRIM28	NM_005762.3	c.957G>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.249	-0.577		0.1900	1.96200e-05	5.846		Uncertain_significance	19	59059403	G	A	ok	pipeline
+TRIM28	NM_005762.3	c.957G>T	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.249	-0.577		0.0000		11.99			19	59059403	G	T	ok	pipeline
+TRIM28	NM_005762.3	c.957G>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.249	-0.577		0.0000		11.89			19	59059403	G	C	ok	pipeline
+TRIM28	NM_005762.3	c.-604C>T	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.0	-0.402				3.006	A		19	59055521	C	T	ok	pipeline
+TRIM28	NM_005762.3	c.-586T>C	Benign FAF >5%	0.0	-0.371			0.283912	2.688	LB		19	59055539	T	C	ok	pipeline
+TRIM28	NM_005762.3	c.-569G>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.0	0.065				4.464	LB		19	59055556	G	C	ok	pipeline
+TRIM28	NM_005762.3	c.-569G>T	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.0	0.065				4.761	LB		19	59055556	G	T	ok	pipeline
+TRIM28	NM_005762.3	c.-568A>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.0	-0.42				4.589	LB		19	59055557	A	G	ok	pipeline
+TRIM28	NM_005762.3	c.-568A>T	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.0	-0.42				2.556	LB		19	59055557	A	T	ok	pipeline
+TRIM28	NM_005762.3	c.-566G>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.0	-0.682				2.885	LB		19	59055559	G	C	ok	pipeline
+TRIM28	NM_005762.3	c.-566G>T	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.0	-0.682				2.594	LB		19	59055559	G	T	ok	pipeline
+TRIM28	NM_005762.3	c.-551T>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.0	-3.619				0.542			19	59055574	T	A	ok	pipeline
+TRIM28	NM_005762.3	c.-551T>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.0	-3.619				0.565			19	59055574	T	G	ok	pipeline
+TRIM28	NM_005762.3	c.-548A>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.0	-0.676				4.659	LB		19	59055577	A	C	ok	pipeline
+TRIM28	NM_005762.3	c.-548A>T	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.0	-0.676				7.505	LB		19	59055577	A	T	ok	pipeline
+TRIM28	NM_005762.3	c.-545T>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.0	-0.967				8.252			19	59055580	T	A	ok	pipeline
+TRIM28	NM_005762.3	c.-545T>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.0	-0.967				3.816			19	59055580	T	C	ok	pipeline
+TRIM28	NM_005762.3	c.-545T>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.0	-0.967				7.903			19	59055580	T	G	ok	pipeline
+TRIM28	NM_005762.3	c.591A>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.0	-5.043		0.0100		0.572			19	59058747	A	C	ok	pipeline
+TRIM28	NM_005762.3	c.591A>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.0	-5.043		0.0100	8.75000e-06	0.636			19	59058747	A	G	ok	pipeline
+TRIM28	NM_005762.3	c.591A>T	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.0	-5.043		0.0100		0.515			19	59058747	A	T	ok	pipeline
+TRIM28	NM_005762.3	c.849G>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.976	-0.03		0.0200		9.243			19	59059168	G	A	ok	pipeline
+TRIM28	NM_005762.3	c.849G>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.976	-0.03		0.1400	2.80000e-07	20.5			19	59059168	G	C	ok	pipeline
+TRIM28	NM_005762.3	c.849G>T	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.976	-0.03		0.3300		22.7			19	59059168	G	T	ok	pipeline
+TRIM28	NM_005762.3	c.-605G>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.0	-0.673				1.852	LB		19	59055520	G	C	ok	pipeline
+TRIM28	NM_005762.3	c.-614G>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.0	0.332				9.846	LB		19	59055511	G	C	ok	pipeline
+TRIM28	NM_005762.3	c.-616T>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.0	-3.676				1.307	LB		19	59055509	T	G	ok	pipeline
+TRIM28	NM_005762.3	c.1383A>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.998	0.213	.;.	0.0800		15.47	.;.		19	59060251	A	G	ok	pipeline
+TRIM28	NM_005762.3	c.1383A>T	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.998	0.213	.;.	0.0300		12.93	.;.		19	59060251	A	T	ok	pipeline
+TRIM28	NM_005762.3	c.1419A>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.147	-0.428	.;.	0.0100		5.592	.;.		19	59060364	A	C	ok	pipeline
+TRIM28	NM_005762.3	c.1419A>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.147	-0.428	.;.	0.0100		6.18	.;.		19	59060364	A	G	ok	pipeline
+TRIM28	NM_005762.3	c.1419A>T	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.147	-0.428	.;.	0.0100		5.405	.;.		19	59060364	A	T	ok	pipeline
+TRIM28	NM_005762.3	c.1420G>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.196	0.451	.;.	0.0800		19.68	.;.		19	59060365	G	A	ok	pipeline
+TRIM28	NM_005762.3	c.1420G>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.196	0.451	.;.	0.0100		20.2	.;.		19	59060365	G	C	ok	pipeline
+TRIM28	NM_005762.3	c.1420G>T	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.196	0.451	.;.	0.0100		22.5	.;.		19	59060365	G	T	ok	pipeline
+TRIM28	NM_005762.3	c.1383A>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.998	0.213	.;.	0.0600		13.78	.;.		19	59060251	A	C	ok	pipeline
+TRIM28	NM_005762.3	c.1362A>T	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.975	2.464	.;.	0.1000		14.97	.;.		19	59060230	A	T	ok	pipeline
+TRIM28	NM_005762.3	c.1362A>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.975	2.464	.;.	0.0800		15.38	.;.		19	59060230	A	G	ok	pipeline
+TRIM28	NM_005762.3	c.-604C>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.0	-0.402				2.191	LB		19	59055521	C	G	ok	pipeline
+TRIM28	NM_005762.3	c.1362A>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.975	2.464	.;.	0.0400		13.68	.;.		19	59060230	A	C	ok	pipeline
+TRIM28	NM_005762.3	c.-605G>T	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.0	-0.673				1.435	LB		19	59055520	G	T	ok	pipeline
+TRIM28	NM_005762.3	c.-614G>T	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.0	0.332				9.612	LB		19	59055511	G	T	ok	pipeline
+TRIM28	NM_005762.3	c.354C>T	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	19	59056805	C	T	clinvar_assertion	clinvar
+TRIM28	NM_005762.3	c.996C>T	Likely_benign ClinVar(1-star, criteria provided)	0.993	0.194		0.0100	6.15536e-05			Likely benign	19	59059442	C	T	clinvar_assertion	clinvar
+TRIM28	NM_005762.3	c.1170G>A	Benign ClinVar(2-star, criteria provided)	0.996	0.126		0.0000	0.335563			Benign	19	59059729	G	A	clinvar_assertion	clinvar
+TRIM28	NM_005762.3	c.1581C>T	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	19	59060526	C	T	clinvar_assertion	clinvar
+TRIM28	NM_005762.3	c.1020G>A	Likely_benign ClinVar(2-star, criteria provided)				0.0000	0.000925710			Likely benign	19	59059466	G	A	clinvar_assertion	clinvar
+TRIM28	NM_005762.3	c.1509A>T	Likely_benign ClinVar(1-star, criteria provided)	1.0	0.733	0.053			19.84	P	Likely benign	19	59060454	A	T	clinvar_assertion	clinvar
+TRIM28	NM_005762.3	c.51T>G	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	19	59056175	T	G	clinvar_assertion	clinvar
+TRIM28	NM_005762.3	c.12C>T	Likely_benign ClinVar(2-star, criteria provided)								Likely benign	19	59056136	C	T	clinvar_assertion	clinvar
+TRIM28	NM_005762.3	c.2118T>C	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	19	59061327	T	C	clinvar_assertion	clinvar
+TRIM28	NM_005762.3	c.1854G>A	Likely_benign ClinVar(2-star, criteria provided)								Likely benign	19	59060889	G	A	clinvar_assertion	clinvar
+TRIM28	NM_005762.3	c.1698T>G	Likely_benign ClinVar(2-star, criteria provided)								Likely benign	19	59060733	T	G	clinvar_assertion	clinvar
+TRIM28	NM_005762.3	c.1611G>A	Benign ClinVar(2-star, criteria provided)	1.0	3.226	0.059			20.8	A	Benign/Likely benign	19	59060556	G	A	clinvar_assertion	clinvar
+TRIM28	NM_005762.3	c.84C>T	Likely_benign ClinVar(2-star, criteria provided)								Likely benign	19	59056208	C	T	clinvar_assertion	clinvar
+TRIM28	NM_005762.3	c.114C>T	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	19	59056238	C	T	clinvar_assertion	clinvar
+TRIM28	NM_005762.3	c.1073A>C	Benign ClinVar(2-star, criteria provided)	1.0	3.387	0.054	0.0200	0.00460130	20.1	P	Benign/Likely benign	19	59059519	A	C	clinvar_assertion	clinvar
+TRIM28	NM_005762.3	c.1392T>C	Likely_benign ClinVar(2-star, criteria provided)	0.2	-1.177		0.0200	0.000668532			Likely benign	19	59060260	T	C	clinvar_assertion	clinvar
+TRIM28	NM_005762.3	c.1605G>A	Likely_benign ClinVar(2-star, criteria provided)								Likely benign	19	59060550	G	A	clinvar_assertion	clinvar
+TRIM28	NM_005762.3	c.1233G>A	Likely_benign ClinVar(1-star, criteria provided)				0.0000	0.00257703			Likely benign	19	59059869	G	A	clinvar_assertion	clinvar
+TRIM28	NM_005762.3	c.1324-15C>A	Likely_benign ClinVar(1-star, criteria provided)	0.0	-0.691		0.0000		0.502		Likely benign	19	59060092	C	A	clinvar_assertion	clinvar
+TRIM28	NM_005762.3	c.2107-11A>G	Benign ClinVar(1-star, criteria provided)								Benign	19	59061305	A	G	clinvar_assertion	clinvar
+TRIM28	NM_005762.3	c.2028G>A	Likely_benign ClinVar(1-star, criteria provided)				0.0000	0.000138450			Likely benign	19	59061149	G	A	clinvar_assertion	clinvar
+TRIM28	NM_005762.3	c.1699A>G	Benign ClinVar(2-star, criteria provided)	0.036	0.398	0.033	0.0000	0.00673880	6.348	B	Benign/Likely benign	19	59060734	A	G	clinvar_assertion	clinvar
+TRIM28	NM_005762.3	c.1258C>T	Likely_benign ClinVar(1-star, criteria provided)	0.801	0.53	0.198	0.0000	0.000133550	19.98	B	Likely benign	19	59059894	C	T	clinvar_assertion	clinvar
+TRIM28	NM_005762.3	c.341-13C>T	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	19	59056779	C	T	clinvar_assertion	clinvar
+TRIM28	NM_005762.3	c.1285C>A	Likely_benign ClinVar(1-star, criteria provided)	0.329	0.978	0.070	0.0000	0.000430490	21.6	B	Likely benign	19	59059921	C	A	clinvar_assertion	clinvar
+TRIM28	NM_005762.3	c.1983-5C>T	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	19	59061099	C	T	clinvar_assertion	clinvar
+TRIM28	NM_005762.3	c.1443T>C	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	19	59060388	T	C	clinvar_assertion	clinvar
+TRIM28	NM_005762.3	c.1047C>T	Benign ClinVar(1-star, criteria provided)								Benign	19	59059493	C	T	clinvar_assertion	clinvar
+TRIM28	NM_005762.3	c.1662+4A>G	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	19	59060611	A	G	clinvar_assertion	clinvar
+TRIM28	NM_005762.3	c.2148C>T	Benign ClinVar(1-star, criteria provided)				0 (assumed)	0.192428			Benign	19	59061357	C	T	clinvar_assertion	clinvar
+TRIM28	NM_005762.3	c.2183C>T	Likely_benign ClinVar(1-star, criteria provided)	0.067	0.745	0.049	0.0100	0.00122458	19.66	B	Likely benign	19	59061392	C	T	clinvar_assertion	clinvar
+TRIM28	NM_005762.3	c.192C>T	Benign ClinVar(1-star, criteria provided)	0.075	-1.047		0.0000	0.00400802			Benign	19	59056316	C	T	clinvar_assertion	clinvar
+TRIM28	NM_005762.3	c.1102-5A>C	Benign ClinVar(1-star, criteria provided)								Benign	19	59059656	A	C	clinvar_assertion	clinvar
+TRIM28	NM_005762.3	c.1983-15T>C	Benign ClinVar(1-star, criteria provided)								Benign	19	59061089	T	C	clinvar_assertion	clinvar
+TRIM28	NM_005762.3	c.189G>A	Likely_benign ClinVar(2-star, criteria provided)	0.993	1.701		0.0000	0.000689862			Likely benign	19	59056313	G	A	clinvar_assertion	clinvar
+TRIM28	NM_005762.3	c.669C>T	Likely_benign ClinVar(1-star, criteria provided)	0.857	-0.034		0.0000				Likely benign	19	59058825	C	T	clinvar_assertion	clinvar
+TRIM28	NM_005762.3	c.1950C>T	Likely_benign ClinVar(1-star, criteria provided)	0.991	0.243		0.0200	0.000652387			Likely benign	19	59060985	C	T	clinvar_assertion	clinvar
+TRIM28	NM_005762.3	c.840-6C>T	Benign ClinVar(1-star, criteria provided)								Benign	19	59059153	C	T	clinvar_assertion	clinvar
+TRIM28	NM_005762.3	c.1323+5G>A	Benign ClinVar(1-star, criteria provided)								Benign	19	59059964	G	A	clinvar_assertion	clinvar
+TRIM28	NM_005762.3	c.2184C>T	Benign ClinVar(1-star, criteria provided)								Benign	19	59061393	C	T	clinvar_assertion	clinvar
+TRIM28	NM_005762.3	c.723G>A	Likely_benign ClinVar(1-star, criteria provided)	0.996	0.148		0.0000	0.00191311			Likely benign	19	59058964	G	A	clinvar_assertion	clinvar
+TRIM28	NM_005762.3	c.2127G>A	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	19	59061336	G	A	clinvar_assertion	clinvar
+TRIM28	NM_005762.3	c.2175C>T	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	19	59061384	C	T	clinvar_assertion	clinvar
+TRIM28	NM_005762.3	c.174G>T	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	19	59056298	G	T	clinvar_assertion	clinvar
+TRIM28	NM_005762.3	c.1317C>T	Likely_benign ClinVar(1-star, criteria provided)	0.104	-0.791		0.0000	0.000129132			Likely benign	19	59059953	C	T	clinvar_assertion	clinvar
+TRIM28	NM_005762.3	c.198C>G	Likely_benign ClinVar(1-star, criteria provided)	1.0	1.063	0.122		2.47000e-06	19.86	P	Likely benign	19	59056322	C	G	clinvar_assertion	clinvar
+TRIM28	NM_005762.3	c.1293C>A	Likely_benign ClinVar(1-star, criteria provided)	1.0	1.063	0.122		4.29000e-06	19.79	P	Likely benign	19	59059929	C	A	clinvar_assertion	clinvar
+TRIM28	NM_005762.3	c.681C>A	Likely_benign ClinVar(1-star, criteria provided)	0.996	0.756				35.0		Likely benign	19	59058837	C	A	clinvar_assertion	clinvar
+TRIM28	NM_005762.3	c.63C>T	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	19	59056187	C	T	clinvar_assertion	clinvar
+TRIM28	NM_005762.3	c.1663-11C>T	Benign ClinVar(1-star, criteria provided)								Benign	19	59060687	C	T	clinvar_assertion	clinvar
+TRIM28	NM_005762.3	c.341-10C>T	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	19	59056782	C	T	clinvar_assertion	clinvar
+TRIM28	NM_005762.3	c.294C>T	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	19	59056418	C	T	clinvar_assertion	clinvar
+TRIM28	NM_005762.3	c.126C>T	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	19	59056250	C	T	clinvar_assertion	clinvar
+TRIM28	NM_005762.3	c.858C>T	Benign ClinVar(1-star, criteria provided)	0.0	-3.32		0.0200	0.0181278			Benign	19	59059177	C	T	clinvar_assertion	clinvar
+TRIM28	NM_005762.3	c.39C>T	Likely_benign ClinVar(2-star, criteria provided)								Likely benign	19	59056163	C	T	clinvar_assertion	clinvar
+TRIM28	NM_005762.3	c.1089T>C	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	19	59059535	T	C	clinvar_assertion	clinvar
+TRIM28	NM_005762.3	c.2070T>C	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	19	59061191	T	C	clinvar_assertion	clinvar
+TRIM28	NM_005762.3	c.1663-10C>T	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	19	59060688	C	T	clinvar_assertion	clinvar
+TRIM28	NM_005762.3	c.955-11_955-9del	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	19	59059387	CCTT	C	clinvar_assertion	clinvar
+TRIM28	NM_005762.3	c.732C>T	Likely_benign ClinVar(1-star, criteria provided)	0.005	-0.082		0.0100	0.00049334			Likely benign	19	59058973	C	T	clinvar_assertion	clinvar
+TRIM28	NM_005762.3	c.1146C>T	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	19	59059705	C	T	clinvar_assertion	clinvar
+TRIM28	NM_005762.3	c.309G>C	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	19	59056433	G	C	clinvar_assertion	clinvar
+TRIM28	NM_005762.3	c.165C>T	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	19	59056289	C	T	clinvar_assertion	clinvar
+TRIM28	NM_005762.3	c.2088C>T	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	19	59061209	C	T	clinvar_assertion	clinvar
+TRIM28	NM_005762.3	c.2121A>C	Likely_benign ClinVar(1-star, criteria provided)	0.994	0.101	0.041			18.75	P	Likely benign	19	59061330	A	C	clinvar_assertion	clinvar
+TRIM28	NM_005762.3	c.288C>T	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	19	59056412	C	T	clinvar_assertion	clinvar
+TRIM28	NM_005762.3	c.769G>A	Likely_benign ClinVar(1-star, criteria provided)	0.999	1.986	0.035	0.0000	4.29000e-06	25.1	B	Likely benign	19	59059010	G	A	clinvar_assertion	clinvar
+TRIM28	NM_005762.3	c.2286C>T	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	19	59061606	C	T	clinvar_assertion	clinvar
+TRIM28	NM_005762.3	c.1218C>G	Likely_benign ClinVar(1-star, criteria provided)	0.002	-2.452	0.067			6.259	P	Likely benign	19	59059854	C	G	clinvar_assertion	clinvar
+TRIM28	NM_005762.3	c.2373C>T	Likely_benign ClinVar(1-star, criteria provided)				0.0000	7.39000e-06			Likely benign	19	59061785	C	T	clinvar_assertion	clinvar
+TRIM28	NM_005762.3	c.1217-15C>G	Benign ClinVar(1-star, criteria provided)								Benign	19	59059838	C	G	clinvar_assertion	clinvar
+TRIM28	NM_005762.3	c.1125C>T	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	19	59059684	C	T	clinvar_assertion	clinvar
+TRIM28	NM_005762.3	c.744A>G	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	19	59058985	A	G	clinvar_assertion	clinvar
+TRIM28	NM_005762.3	c.1101+4T>A	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	19	59059551	T	A	clinvar_assertion	clinvar
+TRIM28	NM_005762.3	c.341-7C>T	Benign ClinVar(1-star, criteria provided)								Benign	19	59056785	C	T	clinvar_assertion	clinvar
+TRIM28	NM_005762.3	c.2154C>A	Likely_benign ClinVar(1-star, criteria provided)	0.002	-0.676	0.026			12.98	B	Likely benign	19	59061363	C	A	clinvar_assertion	clinvar
+TRIM28	NM_005762.3	c.1026G>A	Likely_benign ClinVar(1-star, criteria provided)				0.0000				Likely benign	19	59059472	G	A	clinvar_assertion	clinvar
+TRIM28	NM_005762.3	c.306C>T	Likely_benign ClinVar(1-star, criteria provided)	0.0	-0.192		0.0000	0.00041511			Likely benign	19	59056430	C	T	clinvar_assertion	clinvar
+TRIM28	NM_005762.3	c.1983-6C>A	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	19	59061098	C	A	clinvar_assertion	clinvar
+TRIM28	NM_005762.3	c.2262C>T	Benign ClinVar(1-star, criteria provided)								Benign	19	59061582	C	T	clinvar_assertion	clinvar
+TRIM28	NM_005762.3	c.184C>T	Likely_benign ClinVar(1-star, criteria provided)	0.329	0.978	0.080	0.0000	0.000511600	22.0	B	Likely benign	19	59056308	C	T	clinvar_assertion	clinvar
+TRIM28	NM_005762.3	c.1206C>T	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	19	59059765	C	T	clinvar_assertion	clinvar
+TRIM28	NM_005762.3	c.1639C>T	Likely_benign ClinVar(1-star, criteria provided)	1.0	1.832	0.596	0.0000	5.00000e-06	33.0	A	Likely benign	19	59060584	C	T	clinvar_assertion	clinvar
+TRIM28	NM_005762.3	c.2133A>G	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	19	59061342	A	G	clinvar_assertion	clinvar
+TRIM28	NM_005762.3	c.570T>C	Benign ClinVar(2-star, criteria provided)	0.995	0.438		0.0000	0.011348			Benign/Likely benign	19	59057247	T	C	clinvar_assertion	clinvar
+TRIM28	NM_005762.3	c.885C>G	Likely_benign ClinVar(1-star, criteria provided)	0.992	0.254	0.300			20.4	P	Likely benign	19	59059204	C	G	clinvar_assertion	clinvar
+TRIM28	NM_005762.3	c.129T>G	Likely_benign ClinVar(1-star, criteria provided)	0.778	-0.137	0.830			21.9	P	Likely benign	19	59056253	T	G	clinvar_assertion	clinvar
+TRIM28	NM_005762.3	c.2268C>T	Likely_benign ClinVar(1-star, criteria provided)	0.986	0.24		0.0000				Likely benign	19	59061588	C	T	clinvar_assertion	clinvar
+TRIM28	NM_005762.3	c.2082C>G	Likely_benign ClinVar(1-star, criteria provided)	0.03	-1.525	0.242			21.6	P	Likely benign	19	59061203	C	G	clinvar_assertion	clinvar
+TRIM28	NM_005762.3	c.168C>T	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	19	59056292	C	T	clinvar_assertion	clinvar
+TRIM28	NM_005762.3	c.1491C>T	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	19	59060436	C	T	clinvar_assertion	clinvar
+TRIM28	NM_005762.3	c.2481G>C	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	19	59061893	G	C	clinvar_assertion	clinvar
+TRIM28	NM_005762.3	c.933T>C	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	19	59059252	T	C	clinvar_assertion	clinvar
+TRIM28	NM_005762.3	c.921T>C	Likely_benign ClinVar(1-star, criteria provided)	0.997	0.448		0.0000	8.79446e-06			Likely benign	19	59059240	T	C	clinvar_assertion	clinvar
+TRIM28	NM_005762.3	c.2055T>C	Likely_benign ClinVar(1-star, criteria provided)	0.017	-0.755		0.0000				Likely benign	19	59061176	T	C	clinvar_assertion	clinvar
+TRIM28	NM_005762.3	c.2052G>T	Likely_benign ClinVar(1-star, criteria provided)	1.0	0.486	0.122			18.19	B	Likely benign	19	59061173	G	T	clinvar_assertion	clinvar
+TRIM28	NM_005762.3	c.948T>C	Likely_benign ClinVar(1-star, criteria provided)	0.995	0.05		0.0100				Likely benign	19	59059267	T	C	clinvar_assertion	clinvar
+TRIM28	NM_005762.3	c.870T>C	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	19	59059189	T	C	clinvar_assertion	clinvar
+TRIM28	NM_005762.3	c.2046C>G	Likely_benign ClinVar(1-star, criteria provided)	0.99	1.611	0.034			19.14	A	Likely benign	19	59061167	C	G	clinvar_assertion	clinvar
+TRIM28	NM_005762.3	c.945T>C	Likely_benign ClinVar(1-star, criteria provided)	0.001	-3.088		0.0000				Likely benign	19	59059264	T	C	clinvar_assertion	clinvar
+TRIM28	NM_005762.3	c.876A>G	Likely_benign ClinVar(1-star, criteria provided)				0.0200				Likely benign	19	59059195	A	G	clinvar_assertion	clinvar
+TRIM28	NM_005762.3	c.573T>C	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	19	59057250	T	C	clinvar_assertion	clinvar
+TRIM28	NM_005762.3	c.1653C>G	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	19	59060598	C	G	clinvar_assertion	clinvar
+TRIM28	NM_005762.3	c.454-13C>T	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	19	59057118	C	T	clinvar_assertion	clinvar
+TRIM28	NM_005762.3	c.1962G>A	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	19	59060997	G	A	clinvar_assertion	clinvar
+TRIM28	NM_005762.3	c.106C>T	Likely_benign ClinVar(1-star, criteria provided)	0.072	-0.682	0.069	0.0000	1.67500e-05	8.584	B	Likely benign	19	59056230	C	T	clinvar_assertion	clinvar
+TRIM28	NM_005762.3	c.243G>T	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	19	59056367	G	T	clinvar_assertion	clinvar
+TRIM28	NM_005762.3	c.2343C>T	Likely_benign ClinVar(2-star, criteria provided)	0.002	-2.452		0.0100	0.000184593			Likely benign	19	59061755	C	T	clinvar_assertion	clinvar
+TRIM28	NM_005762.3	c.1623C>A	Likely_benign ClinVar(1-star, criteria provided)	0.963	-0.066	0.288			16.9	B	Likely benign	19	59060568	C	A	clinvar_assertion	clinvar
+TRIM28	NM_005762.3	c.1281A>G	Benign ClinVar(1-star, criteria provided)	0.843	2.21		0.0000	0.00100794			Benign	19	59059917	A	G	clinvar_assertion	clinvar
+TRIM28	NM_005762.3	c.2385C>G	Likely_benign ClinVar(1-star, criteria provided)	0.236	-1.058	0.205			12.68	P	Likely benign	19	59061797	C	G	clinvar_assertion	clinvar
+TRIM28	NM_005762.3	c.1217-15_1217-12del	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	19	59059834	TTCTC	T	clinvar_assertion	clinvar
+TRIM28	NM_005762.3	c.261C>T	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	19	59056385	C	T	clinvar_assertion	clinvar
+TRIM28	NM_005762.3	c.1842A>G	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	19	59060877	A	G	clinvar_assertion	clinvar
+TRIM28	NM_005762.3	c.615T>C	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	19	59058771	T	C	clinvar_assertion	clinvar
+TRIM28	NM_005762.3	c.159G>A	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	19	59056283	G	A	clinvar_assertion	clinvar
+TRIM28	NM_005762.3	c.1274C>T	Likely_benign ClinVar(1-star, criteria provided)	0.028	1.524	0.104	0.0000	0.000276650	24.0	B	Likely benign	19	59059910	C	T	clinvar_assertion	clinvar
+TRIM28	NM_005762.3	c.1023C>T	Likely_benign ClinVar(1-star, criteria provided)	0.743	-0.331		0.0000	2.89118e-05			Likely benign	19	59059469	C	T	clinvar_assertion	clinvar
+TRIM28	NM_005762.3	c.630C>T	Likely_benign ClinVar(1-star, criteria provided)	0.0	-1.982		0.0200	6.15915e-05			Likely benign	19	59058786	C	T	clinvar_assertion	clinvar
+TRIM28	NM_005762.3	c.2502C>T	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	19	59061914	C	T	clinvar_assertion	clinvar
+TRIM28	NM_005762.3	c.605A>T	Likely_benign ClinVar(1-star, criteria provided)	0.995	3.446	0.169	0.0100		25.5	A	Likely benign	19	59058761	A	T	clinvar_assertion	clinvar
+TRIM28	NM_005762.3	c.1272C>T	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	19	59059908	C	T	clinvar_assertion	clinvar
+TRIM28	NM_005762.3	c.1356G>T	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	19	59060139	G	T	clinvar_assertion	clinvar
+TRIM28	NM_005762.3	c.2107-12C>A	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	19	59061304	C	A	clinvar_assertion	clinvar
+TRIM28	NM_005762.3	c.1217-13C>T	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	19	59059840	C	T	clinvar_assertion	clinvar
+TRIM28	NM_005762.3	c.840-7C>T	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	19	59059152	C	T	clinvar_assertion	clinvar
+TRIM28	NM_005762.3	c.2202C>T	Likely_benign ClinVar(2-star, criteria provided)								Likely benign	19	59061522	C	T	clinvar_assertion	clinvar
+TRIM28	NM_005762.3	c.318C>T	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	19	59056442	C	T	clinvar_assertion	clinvar
+TRIM28	NM_005762.3	c.144G>T	Likely_benign ClinVar(1-star, criteria provided)	1.0	6.051	0.303			25.8	P	Likely benign	19	59056268	G	T	clinvar_assertion	clinvar
+TRIM28	NM_005762.3	c.1029G>A	Likely_benign ClinVar(1-star, criteria provided)	0.966	-0.046		0.0000				Likely benign	19	59059475	G	A	clinvar_assertion	clinvar
+TRIM28	NM_005762.3	c.1191C>T	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	19	59059750	C	T	clinvar_assertion	clinvar
+TRIM28	NM_005762.3	c.33A>G	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	19	59056157	A	G	clinvar_assertion	clinvar
+TRIM28	NM_005762.3	c.2265C>T	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.737	-0.236		0.0200					19	59061585	C	T	local_enumeration	synonymous_catalog
+TRIM28	NM_005762.3	c.2253G>A	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.983	0.031		0.0100					19	59061573	G	A	local_enumeration	synonymous_catalog
+TRIM28	NM_005762.3	c.57C>T	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.005	0.566		0.0000					19	59056181	C	T	local_enumeration	synonymous_catalog
+TRIM28	NM_005762.3	c.72G>A	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.814	-0.012		0.0000					19	59056196	G	A	local_enumeration	synonymous_catalog
+TRIM28	NM_005762.3	c.90A>G	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.004	0.946		0.0000					19	59056214	A	G	local_enumeration	synonymous_catalog
+TRIM28	NM_005762.3	c.171G>A	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.889	0.874		0.0000					19	59056295	G	A	local_enumeration	synonymous_catalog
+TRIM28	NM_005762.3	c.492C>T	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.145	-0.517		0.0100					19	59057169	C	T	local_enumeration	synonymous_catalog
+TRIM28	NM_005762.3	c.495C>T	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.962	0.268		0.0000					19	59057172	C	T	local_enumeration	synonymous_catalog
+TRIM28	NM_005762.3	c.522T>C	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.498	-0.327		0.0000					19	59057199	T	C	local_enumeration	synonymous_catalog
+TRIM28	NM_005762.3	c.1437C>T	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.127	-1.418		0.0300	0.000246488				19	59060382	C	T	local_enumeration	synonymous_catalog
+TRIM28	NM_005762.3	c.1431G>A	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.836	-0.382		0.0000					19	59060376	G	A	local_enumeration	synonymous_catalog
+TRIM28	NM_005762.3	c.1425G>A	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.989	-0.06		0.0200	0.000123168				19	59060370	G	A	local_enumeration	synonymous_catalog
+TRIM28	NM_005762.3	c.1560T>A	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.09	-1.696		0.0400					19	59060505	T	A	local_enumeration	synonymous_catalog
+TRIM28	NM_005762.3	c.1566T>A	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.766	-0.62		0.6700					19	59060511	T	A	local_enumeration	synonymous_catalog
+TRIM28	NM_005762.3	c.1872T>C	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.927	-0.395		0.0200					19	59060907	T	C	local_enumeration	synonymous_catalog
+TRIM28	NM_005762.3	c.1566T>C	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.766	-0.62		0.0300					19	59060511	T	C	local_enumeration	synonymous_catalog
+TRIM28	NM_005762.3	c.1869C>T	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.963	-0.066		0.0000					19	59060904	C	T	local_enumeration	synonymous_catalog
+TRIM28	NM_005762.3	c.1861C>T	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.895	1.547		0.0100	3.51914e-05				19	59060896	C	T	local_enumeration	synonymous_catalog
+TRIM28	NM_005762.3	c.1827G>A	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.987	0.135		0.0600					19	59060862	G	A	local_enumeration	synonymous_catalog
+TRIM28	NM_005762.3	c.1812G>A	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.905	-0.434		0.0200					19	59060847	G	A	local_enumeration	synonymous_catalog
+TRIM28	NM_005762.3	c.1807C>T	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.486	0.293		0.0000					19	59060842	C	T	local_enumeration	synonymous_catalog
+TRIM28	NM_005762.3	c.1800C>T	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.175	-0.278		0.0000	6.53894e-05				19	59060835	C	T	local_enumeration	synonymous_catalog
+TRIM28	NM_005762.3	c.1794C>T	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.992	0.561		0.0100					19	59060829	C	T	local_enumeration	synonymous_catalog
+TRIM28	NM_005762.3	c.1788T>C	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.998	0.127		0.0000					19	59060823	T	C	local_enumeration	synonymous_catalog
+TRIM28	NM_005762.3	c.1774C>T	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.943	1.3		0.1600					19	59060809	C	T	local_enumeration	synonymous_catalog
+TRIM28	NM_005762.3	c.1764G>A	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.958	-0.084		0.0000	1.78428e-05				19	59060799	G	A	local_enumeration	synonymous_catalog
+TRIM28	NM_005762.3	c.1749G>A	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.998	0.66		0.1100					19	59060784	G	A	local_enumeration	synonymous_catalog
+TRIM28	NM_005762.3	c.1725A>G	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.998	0.15		0.0000	6.19272e-05				19	59060760	A	G	local_enumeration	synonymous_catalog
+TRIM28	NM_005762.3	c.1710G>A	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.951	0.033		0.0000					19	59060745	G	A	local_enumeration	synonymous_catalog
+TRIM28	NM_005762.3	c.1686T>C	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.959	-0.253		0.0000					19	59060721	T	C	local_enumeration	synonymous_catalog
+TRIM28	NM_005762.3	c.1686T>A	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.959	-0.253		0.0100					19	59060721	T	A	local_enumeration	synonymous_catalog
+TRIM28	NM_005762.3	c.1668G>A	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.998	0.333		0.0000					19	59060703	G	A	local_enumeration	synonymous_catalog
+TRIM28	NM_005762.3	c.1662G>A	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.999	1.234		0.0600	1.77443e-05				19	59060607	G	A	local_enumeration	synonymous_catalog
+TRIM28	NM_005762.3	c.1656T>C	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.266	-1.323		0.0000					19	59060601	T	C	local_enumeration	synonymous_catalog
+TRIM28	NM_005762.3	c.1656T>A	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.266	-1.323		0.0000					19	59060601	T	A	local_enumeration	synonymous_catalog
+TRIM28	NM_005762.3	c.1599G>A	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.992	2.003		0.0100	8.93176e-06				19	59060544	G	A	local_enumeration	synonymous_catalog
+TRIM28	NM_005762.3	c.249T>C	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.499	0.142		0.0000					19	59056373	T	C	local_enumeration	synonymous_catalog
+TRIM28	NM_005762.3	c.315C>T	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.687	-0.456		0.0000					19	59056439	C	T	local_enumeration	synonymous_catalog
+TRIM28	NM_005762.3	c.414T>C	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.036	-1.499		0.0000					19	59056865	T	C	local_enumeration	synonymous_catalog
+TRIM28	NM_005762.3	c.411T>C	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.167	-0.74		0.0100					19	59056862	T	C	local_enumeration	synonymous_catalog
+TRIM28	NM_005762.3	c.402C>T	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.093	-1.105		0.0100					19	59056853	C	T	local_enumeration	synonymous_catalog
+TRIM28	NM_005762.3	c.399T>C	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.022	-1.567		0.0000	3.26669e-05				19	59056850	T	C	local_enumeration	synonymous_catalog
+TRIM28	NM_005762.3	c.396T>C	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.962	-0.097		0.0000					19	59056847	T	C	local_enumeration	synonymous_catalog
+TRIM28	NM_005762.3	c.387C>T	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.036	-1.584		0.0200					19	59056838	C	T	local_enumeration	synonymous_catalog
+TRIM28	NM_005762.3	c.387C>A	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.036	-1.584		0.0300					19	59056838	C	A	local_enumeration	synonymous_catalog
+TRIM28	NM_005762.3	c.384C>T	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.989	0.151		0.0200					19	59056835	C	T	local_enumeration	synonymous_catalog
+TRIM28	NM_005762.3	c.375C>T	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.942	0.601		0.0100	6.17436e-05				19	59056826	C	T	local_enumeration	synonymous_catalog
+TRIM28	NM_005762.3	c.372C>T	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.962	0.016		0.0500					19	59056823	C	T	local_enumeration	synonymous_catalog
+TRIM28	NM_005762.3	c.369G>A	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.918	-0.163		0.0100	3.26669e-05				19	59056820	G	A	local_enumeration	synonymous_catalog
+TRIM28	NM_005762.3	c.366A>G	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.998	0.169		0.0400					19	59056817	A	G	local_enumeration	synonymous_catalog
+TRIM28	NM_005762.3	c.181C>T	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.395	0.394		0.0000					19	59056305	C	T	local_enumeration	synonymous_catalog
+TRIM28	NM_005762.3	c.180G>A	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.458	0.191		0.0000					19	59056304	G	A	local_enumeration	synonymous_catalog
+TRIM28	NM_005762.3	c.175C>T	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.002	-0.189		0.0000	0.00013331				19	59056299	C	T	local_enumeration	synonymous_catalog
+TRIM28	NM_005762.3	c.420C>T	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.001	-0.861		0.0000					19	59056871	C	T	local_enumeration	synonymous_catalog
+TRIM28	NM_005762.3	c.93G>A	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.107	3.312		0.0000					19	59056217	G	A	local_enumeration	synonymous_catalog
+TRIM28	NM_005762.3	c.423G>A	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.967	0.461		0.0000					19	59056874	G	A	local_enumeration	synonymous_catalog
+TRIM28	NM_005762.3	c.450C>T	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.303	-0.724		0.0000	6.24465e-05				19	59056901	C	T	local_enumeration	synonymous_catalog
+TRIM28	NM_005762.3	c.303C>T	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.0	0.422		0.0000					19	59056427	C	T	local_enumeration	synonymous_catalog
+TRIM28	NM_005762.3	c.276A>G	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.433	-1.221		0.0000					19	59056400	A	G	local_enumeration	synonymous_catalog
+TRIM28	NM_005762.3	c.274T>C	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.98	1.927		0.0000					19	59056398	T	C	local_enumeration	synonymous_catalog
+TRIM28	NM_005762.3	c.273C>T	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.969	-0.083		0.0000					19	59056397	C	T	local_enumeration	synonymous_catalog
+TRIM28	NM_005762.3	c.267T>C	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.405	-0.824		0.0000	0.00022686				19	59056391	T	C	local_enumeration	synonymous_catalog
+TRIM28	NM_005762.3	c.264T>C	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.405	0.003		0.0000					19	59056388	T	C	local_enumeration	synonymous_catalog
+TRIM28	NM_005762.3	c.255C>T	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.983	0.033		0.0000					19	59056379	C	T	local_enumeration	synonymous_catalog
+TRIM28	NM_005762.3	c.250T>C	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.486	0.121		0.0000					19	59056374	T	C	local_enumeration	synonymous_catalog
+TRIM28	NM_005762.3	c.241C>T	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.118	0.027		0.0000					19	59056365	C	T	local_enumeration	synonymous_catalog
+TRIM28	NM_005762.3	c.238C>T	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.01	0.304		0.0000	4.89764e-05				19	59056362	C	T	local_enumeration	synonymous_catalog
+TRIM28	NM_005762.3	c.226A>C	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.968	-0.144		0.0000					19	59056350	A	C	local_enumeration	synonymous_catalog
+TRIM28	NM_005762.3	c.217C>A	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.95	1.921		0.0000					19	59056341	C	A	local_enumeration	synonymous_catalog
+TRIM28	NM_005762.3	c.214C>T	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.858	1.453		0.0000					19	59056338	C	T	local_enumeration	synonymous_catalog
+TRIM28	NM_005762.3	c.210G>A	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.378	0.747		0.0000					19	59056334	G	A	local_enumeration	synonymous_catalog
+TRIM28	NM_005762.3	c.207A>G	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.073	-0.87		0.0000					19	59056331	A	G	local_enumeration	synonymous_catalog
+TRIM28	NM_005762.3	c.205A>C	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.675	1.192		0.0000					19	59056329	A	C	local_enumeration	synonymous_catalog
+TRIM28	NM_005762.3	c.204C>T	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.714	0.386		0.0000					19	59056328	C	T	local_enumeration	synonymous_catalog
+TRIM28	NM_005762.3	c.195C>T	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.947	0.011		0.0000	5.62873e-05				19	59056319	C	T	local_enumeration	synonymous_catalog
+TRIM28	NM_005762.3	c.333C>T	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.0	-0.634		0.0000					19	59056457	C	T	local_enumeration	synonymous_catalog
+TRIM28	NM_005762.3	c.348C>T	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.98	0.006		0.0100	8.86824e-06				19	59056799	C	T	local_enumeration	synonymous_catalog
+TRIM28	NM_005762.3	c.351T>C	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.987	-0.05		0.0200	8.86258e-06				19	59056802	T	C	local_enumeration	synonymous_catalog
+TRIM28	NM_005762.3	c.363G>A	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.999	0.295		0.1100					19	59056814	G	A	local_enumeration	synonymous_catalog
+TRIM28	NM_005762.3	c.477T>C	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.003	-1.489		0.0000					19	59057154	T	C	local_enumeration	synonymous_catalog
+TRIM28	NM_005762.3	c.471G>A	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.999	0.393		0.0000					19	59057148	G	A	local_enumeration	synonymous_catalog
+TRIM28	NM_005762.3	c.468T>C	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.671	-0.233		0.0000					19	59057145	T	C	local_enumeration	synonymous_catalog
+TRIM28	NM_005762.3	c.459C>T	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.999	0.75		0.0000					19	59057136	C	T	local_enumeration	synonymous_catalog
+TRIM28	NM_005762.3	c.456C>T	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.991	0.073		0.0000					19	59057133	C	T	local_enumeration	synonymous_catalog
+TRIM28	NM_005762.3	c.435C>T	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.016	-0.395		0.0000					19	59056886	C	T	local_enumeration	synonymous_catalog
+TRIM28	NM_005762.3	c.1459C>A	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.887	1.332		0.0100					19	59060404	C	A	local_enumeration	synonymous_catalog
+TRIM28	NM_005762.3	c.1477C>T	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.703	0.589		0.0300					19	59060422	C	T	local_enumeration	synonymous_catalog
+TRIM28	NM_005762.3	c.1483C>T	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.114	0.226		0.0200					19	59060428	C	T	local_enumeration	synonymous_catalog
+TRIM28	NM_005762.3	c.2251T>C	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.843	-0.399		0.1300					19	59061571	T	C	local_enumeration	synonymous_catalog
+TRIM28	NM_005762.3	c.612A>G	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.806	0.001		0.0600					19	59058768	A	G	local_enumeration	synonymous_catalog
+TRIM28	NM_005762.3	c.906C>A	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.992	0.254		0.0000					19	59059225	C	A	local_enumeration	synonymous_catalog
+TRIM28	NM_005762.3	c.606T>C	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.161	-1.365		0.0000					19	59058762	T	C	local_enumeration	synonymous_catalog
+TRIM28	NM_005762.3	c.601C>A	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.081	0.386		0.0800					19	59058757	C	A	local_enumeration	synonymous_catalog
+TRIM28	NM_005762.3	c.597G>A	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.996	2.474		0.0000					19	59058753	G	A	local_enumeration	synonymous_catalog
+TRIM28	NM_005762.3	c.558C>T	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.999	0.707		0.1500					19	59057235	C	T	local_enumeration	synonymous_catalog
+TRIM28	NM_005762.3	c.531T>C	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.778	-0.137		0.0600					19	59057208	T	C	local_enumeration	synonymous_catalog
+TRIM28	NM_005762.3	c.525G>A	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.997	0.531		0.0200					19	59057202	G	A	local_enumeration	synonymous_catalog
+TRIM28	NM_005762.3	c.696C>T	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.999	0.687		0.0100	3.26691e-05				19	59058852	C	T	local_enumeration	synonymous_catalog
+TRIM28	NM_005762.3	c.705T>C	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.0	-2.204		0.0000					19	59058861	T	C	local_enumeration	synonymous_catalog
+TRIM28	NM_005762.3	c.717C>T	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.969	0.044		0.0000					19	59058873	C	T	local_enumeration	synonymous_catalog
+TRIM28	NM_005762.3	c.898C>T	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.555	0.646		0.0100	0.000108731				19	59059217	C	T	local_enumeration	synonymous_catalog
+TRIM28	NM_005762.3	c.627C>T	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.989	2.225		0.0400					19	59058783	C	T	local_enumeration	synonymous_catalog
+TRIM28	NM_005762.3	c.897C>T	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.402	-0.248		0.0000	3.26627e-05				19	59059216	C	T	local_enumeration	synonymous_catalog
+TRIM28	NM_005762.3	c.882T>C	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.01	-1.714		0.0000					19	59059201	T	C	local_enumeration	synonymous_catalog
+TRIM28	NM_005762.3	c.843C>T	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.621	-0.119		0.0000	8.79631e-06				19	59059162	C	T	local_enumeration	synonymous_catalog
+TRIM28	NM_005762.3	c.843C>A	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.621	-0.119		0.0100					19	59059162	C	A	local_enumeration	synonymous_catalog
+TRIM28	NM_005762.3	c.819C>T	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.922	0.07		0.0000	8.79585e-06				19	59059060	C	T	local_enumeration	synonymous_catalog
+TRIM28	NM_005762.3	c.816G>A	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.998	0.523		0.0000					19	59059057	G	A	local_enumeration	synonymous_catalog
+TRIM28	NM_005762.3	c.808T>C	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.005	-0.187		0.0100					19	59059049	T	C	local_enumeration	synonymous_catalog
+TRIM28	NM_005762.3	c.801T>C	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.288	-0.688		0.0100	3.26627e-05				19	59059042	T	C	local_enumeration	synonymous_catalog
+TRIM28	NM_005762.3	c.798A>G	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.998	0.415		0.0000					19	59059039	A	G	local_enumeration	synonymous_catalog
+TRIM28	NM_005762.3	c.795C>T	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.876	-0.017		0.0000	8.79817e-06				19	59059036	C	T	local_enumeration	synonymous_catalog
+TRIM28	NM_005762.3	c.783G>A	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.894	-0.121		0.0000					19	59059024	G	A	local_enumeration	synonymous_catalog
+TRIM28	NM_005762.3	c.775C>T	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.002	-0.227		0.0000					19	59059016	C	T	local_enumeration	synonymous_catalog
+TRIM28	NM_005762.3	c.766C>T	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.866	0.1		0.0100	1.76066e-05				19	59059007	C	T	local_enumeration	synonymous_catalog
+TRIM28	NM_005762.3	c.897C>A	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.402	-0.248		0.0000					19	59059216	C	A	local_enumeration	synonymous_catalog
+TRIM28	NM_005762.3	c.642T>C	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.995	0.149		0.0000					19	59058798	T	C	local_enumeration	synonymous_catalog
+TRIM28	NM_005762.3	c.660T>C	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.914	0.064		0.0000					19	59058816	T	C	local_enumeration	synonymous_catalog
+TRIM28	NM_005762.3	c.663T>C	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.013	-1.118		0.0000					19	59058819	T	C	local_enumeration	synonymous_catalog
+TRIM28	NM_005762.3	c.1137T>A	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.062	-1.718		0.0000					19	59059696	T	A	local_enumeration	synonymous_catalog
+TRIM28	NM_005762.3	c.1137T>C	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.062	-1.718		0.0000					19	59059696	T	C	local_enumeration	synonymous_catalog
+TRIM28	NM_005762.3	c.1143T>C	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.808	0.009		0.0000					19	59059702	T	C	local_enumeration	synonymous_catalog
+TRIM28	NM_005762.3	c.1158T>C	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.373	-0.975		0.0000					19	59059717	T	C	local_enumeration	synonymous_catalog
+TRIM28	NM_005762.3	c.1368T>C	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.29	-0.54		0.0400					19	59060236	T	C	local_enumeration	synonymous_catalog
+TRIM28	NM_005762.3	c.1365T>C	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.998	0.35		0.0200					19	59060233	T	C	local_enumeration	synonymous_catalog
+TRIM28	NM_005762.3	c.1353T>C	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.0	-1.547		0.0800					19	59060136	T	C	local_enumeration	synonymous_catalog
+TRIM28	NM_005762.3	c.1347T>C	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.991	-0.165		0.0900					19	59060130	T	C	local_enumeration	synonymous_catalog
+TRIM28	NM_005762.3	c.1332G>A	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.001	-3.133		0.0100					19	59060115	G	A	local_enumeration	synonymous_catalog
+TRIM28	NM_005762.3	c.1320C>T	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.525	0.195		0.0000					19	59059956	C	T	local_enumeration	synonymous_catalog
+TRIM28	NM_005762.3	c.1294C>T	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.007	0.036		0.0000					19	59059930	C	T	local_enumeration	synonymous_catalog
+TRIM28	NM_005762.3	c.1279A>C	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.655	1.186		0.0000					19	59059915	A	C	local_enumeration	synonymous_catalog
+TRIM28	NM_005762.3	c.1248C>T	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.992	0.2		0.0000	5.43715e-05				19	59059884	C	T	local_enumeration	synonymous_catalog
+TRIM28	NM_005762.3	c.1224T>C	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.015	-2.365		0.0300					19	59059860	T	C	local_enumeration	synonymous_catalog
+TRIM28	NM_005762.3	c.1224T>A	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.015	-2.365		0.0400					19	59059860	T	A	local_enumeration	synonymous_catalog
+TRIM28	NM_005762.3	c.1221G>A	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.997	0.699		0.0100					19	59059857	G	A	local_enumeration	synonymous_catalog
+TRIM28	NM_005762.3	c.1215T>C	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.007	-2.371		0.0000					19	59059774	T	C	local_enumeration	synonymous_catalog
+TRIM28	NM_005762.3	c.1188T>C	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.208	-1.043		0.0000					19	59059747	T	C	local_enumeration	synonymous_catalog
+TRIM28	NM_005762.3	c.1173T>C	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.693	-0.586		0.0000					19	59059732	T	C	local_enumeration	synonymous_catalog
+TRIM28	NM_005762.3	c.937C>T	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.991	0.728		0.0000					19	59059256	C	T	local_enumeration	synonymous_catalog
+TRIM28	NM_005762.3	c.906C>T	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.992	0.254		0.0000					19	59059225	C	T	local_enumeration	synonymous_catalog
+TRIM28	NM_005762.3	c.498T>C	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.059	-0.837		0.0000					19	59057175	T	C	local_enumeration	synonymous_catalog
+TRIM28	NM_005762.3	c.624T>C	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.962	0.125		0.0000					19	59058780	T	C	local_enumeration	synonymous_catalog
+TRIM28	NM_005762.3	c.688C>A	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.996	0.836		0.0900					19	59058844	C	A	local_enumeration	synonymous_catalog
+TRIM28	NM_005762.3	c.687C>T	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.996	0.756		0.0000					19	59058843	C	T	local_enumeration	synonymous_catalog
+TRIM28	NM_005762.3	c.675T>C	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.223	0.738		0.0000	0.000185002				19	59058831	T	C	local_enumeration	synonymous_catalog
+TRIM28	NM_005762.3	c.672T>C	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.036	-0.866		0.0000					19	59058828	T	C	local_enumeration	synonymous_catalog
+TRIM28	NM_005762.3	c.741T>C	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.642	-0.409		0.0000					19	59058982	T	C	local_enumeration	synonymous_catalog
+TRIM28	NM_005762.3	c.733T>C	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.002	-0.402		0.0000					19	59058974	T	C	local_enumeration	synonymous_catalog
+TRIM28	NM_005762.3	c.726C>T	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.904	-0.013		0.0500	3.26691e-05				19	59058967	C	T	local_enumeration	synonymous_catalog
+TRIM28	NM_005762.3	c.1374C>T	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.0	-1.772		0.1400	6.15157e-05				19	59060242	C	T	local_enumeration	synonymous_catalog
+TRIM28	NM_005762.3	c.2196C>T	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.981	-0.117		0.0300					19	59061516	C	T	local_enumeration	synonymous_catalog
+TRIM28	NM_005762.3	c.2191C>T	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.25	-0.247		0.0000					19	59061400	C	T	local_enumeration	synonymous_catalog
+TRIM28	NM_005762.3	c.2187C>T	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.672	-0.111		0.0100	8.80468e-06				19	59061396	C	T	local_enumeration	synonymous_catalog
+TRIM28	NM_005762.3	c.2178C>T	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.002	-0.676		0.0000					19	59061387	C	T	local_enumeration	synonymous_catalog
+TRIM28	NM_005762.3	c.2167C>T	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.899	0.272		0.0100					19	59061376	C	T	local_enumeration	synonymous_catalog
+TRIM28	NM_005762.3	c.2166G>A	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.891	0.339		0.0000					19	59061375	G	A	local_enumeration	synonymous_catalog
+TRIM28	NM_005762.3	c.2163T>C	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.371	-0.887		0.0000	0.000615385				19	59061372	T	C	local_enumeration	synonymous_catalog
+TRIM28	NM_005762.3	c.2158C>T	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.141	-0.09		0.0500					19	59061367	C	T	local_enumeration	synonymous_catalog
+TRIM28	NM_005762.3	c.2145A>G	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.994	0.101		0.0200					19	59061354	A	G	local_enumeration	synonymous_catalog
+TRIM28	NM_005762.3	c.2142C>T	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.03	-1.525		0.0100	2.89201e-05				19	59061351	C	T	local_enumeration	synonymous_catalog
+TRIM28	NM_005762.3	c.2139T>C	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.995	0.231		0.0000					19	59061348	T	C	local_enumeration	synonymous_catalog
+TRIM28	NM_005762.3	c.2136C>T	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.529	-0.374		0.0300					19	59061345	C	T	local_enumeration	synonymous_catalog
+TRIM28	NM_005762.3	c.2131C>T	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.497	0.205		0.0600					19	59061340	C	T	local_enumeration	synonymous_catalog
+TRIM28	NM_005762.3	c.2122C>T	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.515	0.863		0.0400					19	59061331	C	T	local_enumeration	synonymous_catalog
+TRIM28	NM_005762.3	c.1884C>T	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.995	0.244		0.2100					19	59060919	C	T	local_enumeration	synonymous_catalog
+TRIM28	NM_005762.3	c.1881T>C	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.51	0.061		0.0700					19	59060916	T	C	local_enumeration	synonymous_catalog
+TRIM28	NM_005762.3	c.1881T>A	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.51	0.061		0.0100					19	59060916	T	A	local_enumeration	synonymous_catalog
+TRIM28	NM_005762.3	c.1560T>C	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.09	-1.696		0.0500					19	59060505	T	C	local_enumeration	synonymous_catalog
+TRIM28	NM_005762.3	c.1554C>T	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.995	0.112		0.0100					19	59060499	C	T	local_enumeration	synonymous_catalog
+TRIM28	NM_005762.3	c.1551C>T	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.995	0.114		0.0200					19	59060496	C	T	local_enumeration	synonymous_catalog
+TRIM28	NM_005762.3	c.1548C>T	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.64	-0.664		0.0100					19	59060493	C	T	local_enumeration	synonymous_catalog
+TRIM28	NM_005762.3	c.1536T>C	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.999	1.931		0.0200					19	59060481	T	C	local_enumeration	synonymous_catalog
+TRIM28	NM_005762.3	c.1527C>T	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.998	0.288		0.1800	6.53296e-05				19	59060472	C	T	local_enumeration	synonymous_catalog
+TRIM28	NM_005762.3	c.1521G>A	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.994	0.035		0.1400	3.26627e-05				19	59060466	G	A	local_enumeration	synonymous_catalog
+TRIM28	NM_005762.3	c.1503C>T	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.998	0.29		0.0500	8.81679e-06				19	59060448	C	T	local_enumeration	synonymous_catalog
+TRIM28	NM_005762.3	c.1500C>T	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.59	-0.73		0.0000					19	59060445	C	T	local_enumeration	synonymous_catalog
+TRIM28	NM_005762.3	c.1488C>T	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.984	-0.049		0.0200					19	59060433	C	T	local_enumeration	synonymous_catalog
+TRIM28	NM_005762.3	c.2199G>A	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.983	1.185		0.0000	8.68156e-05				19	59061519	G	A	local_enumeration	synonymous_catalog
+TRIM28	NM_005762.3	c.987G>A	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.538	0.092		0.0100					19	59059433	G	A	local_enumeration	synonymous_catalog
+TRIM28	NM_005762.3	c.2212C>T	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.367	-0.081		0.0000					19	59061532	C	T	local_enumeration	synonymous_catalog
+TRIM28	NM_005762.3	c.2229C>A	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.844	-0.382		0.0000					19	59061549	C	A	local_enumeration	synonymous_catalog
+TRIM28	NM_005762.3	c.1380T>C	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.999	0.191		0.0300					19	59060248	T	C	local_enumeration	synonymous_catalog
+TRIM28	NM_005762.3	c.2007C>T	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.992	0.368		0.0300					19	59061128	C	T	local_enumeration	synonymous_catalog
+TRIM28	NM_005762.3	c.2067C>T	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.648	0.324		0.0000					19	59061188	C	T	local_enumeration	synonymous_catalog
+TRIM28	NM_005762.3	c.2064C>T	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.762	-0.17		0.0000					19	59061185	C	T	local_enumeration	synonymous_catalog
+TRIM28	NM_005762.3	c.2050C>T	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.635	0.106		0.0000					19	59061171	C	T	local_enumeration	synonymous_catalog
+TRIM28	NM_005762.3	c.2049C>T	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.99	1.611		0.0000	6.54236e-05				19	59061170	C	T	local_enumeration	synonymous_catalog
+TRIM28	NM_005762.3	c.2043C>T	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.997	1.293		0.0000					19	59061164	C	T	local_enumeration	synonymous_catalog
+TRIM28	NM_005762.3	c.2037T>C	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.994	-0.044		0.0000					19	59061158	T	C	local_enumeration	synonymous_catalog
+TRIM28	NM_005762.3	c.2023C>T	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.066	0.374		0.0300	3.27311e-05				19	59061144	C	T	local_enumeration	synonymous_catalog
+TRIM28	NM_005762.3	c.2022C>T	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.017	-0.161		0.0100	2.89654e-05				19	59061143	C	T	local_enumeration	synonymous_catalog
+TRIM28	NM_005762.3	c.2010T>C	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.565	-0.924		0.0000					19	59061131	T	C	local_enumeration	synonymous_catalog
+TRIM28	NM_005762.3	c.1998C>T	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.998	0.463		0.0000					19	59061119	C	T	local_enumeration	synonymous_catalog
+TRIM28	NM_005762.3	c.1995C>T	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.98	-0.103		0.0300	3.32425e-05				19	59061116	C	T	local_enumeration	synonymous_catalog
+TRIM28	NM_005762.3	c.1989G>A	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.989	0.365		0.0000					19	59061110	G	A	local_enumeration	synonymous_catalog
+TRIM28	NM_005762.3	c.1966C>T	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.915	0.878		0.0200					19	59061001	C	T	local_enumeration	synonymous_catalog
+TRIM28	NM_005762.3	c.1953T>C	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.968	-0.018		0.0000					19	59060988	T	C	local_enumeration	synonymous_catalog
+TRIM28	NM_005762.3	c.1944C>T	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.994	0.157		0.0500					19	59060979	C	T	local_enumeration	synonymous_catalog
+TRIM28	NM_005762.3	c.1935T>C	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.999	0.281		0.0600					19	59060970	T	C	local_enumeration	synonymous_catalog
+TRIM28	NM_005762.3	c.1929T>C	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.623	-0.398		0.0700					19	59060964	T	C	local_enumeration	synonymous_catalog
+TRIM28	NM_005762.3	c.1920C>T	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.998	0.372		0.0000					19	59060955	C	T	local_enumeration	synonymous_catalog
+TRIM28	NM_005762.3	c.1908T>C	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.993	0.077		0.0600					19	59060943	T	C	local_enumeration	synonymous_catalog
+TRIM28	NM_005762.3	c.2085G>A	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.83	0.246		0.0100					19	59061206	G	A	local_enumeration	synonymous_catalog
+TRIM28	NM_005762.3	c.2104C>A	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.991	0.008		0.0000					19	59061225	C	A	local_enumeration	synonymous_catalog
+TRIM28	NM_005762.3	c.2109A>G	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.998	0.328		0.2200					19	59061318	A	G	local_enumeration	synonymous_catalog
+TRIM28	NM_005762.3	c.2112T>C	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.998	0.174		0.0000					19	59061321	T	C	local_enumeration	synonymous_catalog
+TRIM28	NM_005762.3	c.2250G>A	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.988	1.307		0.1600					19	59061570	G	A	local_enumeration	synonymous_catalog
+TRIM28	NM_005762.3	c.2229C>T	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.844	-0.382		0.0500					19	59061549	C	T	local_enumeration	synonymous_catalog
+TRIM28	NM_005762.3	c.2224C>T	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.122	0.131		0.0600					19	59061544	C	T	local_enumeration	synonymous_catalog
+TRIM28	NM_005762.3	c.988C>A	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.532	0.521		0.0300					19	59059434	C	A	local_enumeration	synonymous_catalog
+TRIM28	NM_005762.3	c.1014C>A	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.993	0.064		0.0000					19	59059460	C	A	local_enumeration	synonymous_catalog
+TRIM28	NM_005762.3	c.1014C>T	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.993	0.064		0.0000	2.89118e-05				19	59059460	C	T	local_enumeration	synonymous_catalog
+TRIM28	NM_005762.3	c.1482C>T	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.016	-1.304		0.0100					19	59060427	C	T	local_enumeration	synonymous_catalog
+TRIM28	NM_005762.3	c.1035T>A	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.007	-0.455		0.0000					19	59059481	T	A	local_enumeration	synonymous_catalog
+TRIM28	NM_005762.3	c.1120C>A	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.745	1.474		0.0100					19	59059679	C	A	local_enumeration	synonymous_catalog
+TRIM28	NM_005762.3	c.1119C>T	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.466	-0.643		0.0000					19	59059678	C	T	local_enumeration	synonymous_catalog
+TRIM28	NM_005762.3	c.1110C>T	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.967	-0.081		0.0700	2.89235e-05				19	59059669	C	T	local_enumeration	synonymous_catalog
+TRIM28	NM_005762.3	c.1107C>T	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.999	0.374		0.0800	8.79337e-06				19	59059666	C	T	local_enumeration	synonymous_catalog
+TRIM28	NM_005762.3	c.1084T>C	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.537	0.415		0.0800					19	59059530	T	C	local_enumeration	synonymous_catalog
+TRIM28	NM_005762.3	c.1068C>T	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.992	0.193		0.0100					19	59059514	C	T	local_enumeration	synonymous_catalog
+TRIM28	NM_005762.3	c.1065T>C	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.977	-0.011		0.0400					19	59059511	T	C	local_enumeration	synonymous_catalog
+TRIM28	NM_005762.3	c.1057C>T	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.019	-0.072		0.0000	2.89134e-05				19	59059503	C	T	local_enumeration	synonymous_catalog
+TRIM28	NM_005762.3	c.1036C>T	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.015	0.006		0.0000	8.78997e-06				19	59059482	C	T	local_enumeration	synonymous_catalog
+TRIM28	NM_005762.3	c.1035T>C	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.007	-0.455		0.0000					19	59059481	T	C	local_enumeration	synonymous_catalog
+TRIM28	NM_005762.3	c.1032C>T	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.998	0.497		0.0000					19	59059478	C	T	local_enumeration	synonymous_catalog
+TRIM28	NM_005762.3	c.2358C>T	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.577	-0.601		0.1200	3.26627e-05				19	59061770	C	T	local_enumeration	synonymous_catalog
+TRIM28	NM_005762.3	c.2464C>T	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.712	0.595		0.0000					19	59061876	C	T	local_enumeration	synonymous_catalog
+TRIM28	NM_005762.3	c.2449C>T	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.856	0.655		0.0000	3.26648e-05				19	59061861	C	T	local_enumeration	synonymous_catalog
+TRIM28	NM_005762.3	c.2448C>T	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.991	2.034		0.0000					19	59061860	C	T	local_enumeration	synonymous_catalog
+TRIM28	NM_005762.3	c.2433G>A	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.957	-0.006		0.0000					19	59061845	G	A	local_enumeration	synonymous_catalog
+TRIM28	NM_005762.3	c.2425C>T	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.989	0.058		0.0000					19	59061837	C	T	local_enumeration	synonymous_catalog
+TRIM28	NM_005762.3	c.2394G>A	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.992	-0.001		0.0000					19	59061806	G	A	local_enumeration	synonymous_catalog
+TRIM28	NM_005762.3	c.2391C>T	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.236	-1.058		0.0000	0.000130651				19	59061803	C	T	local_enumeration	synonymous_catalog
+TRIM28	NM_005762.3	c.2376C>T	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.054	-1.482		0.0000	0.000359289				19	59061788	C	T	local_enumeration	synonymous_catalog
+TRIM28	NM_005762.3	c.2362C>T	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.919	1.195		0.0800	8.81601e-06				19	59061774	C	T	local_enumeration	synonymous_catalog
+TRIM28	NM_005762.3	c.2358C>A	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.577	-0.601		0.0700					19	59061770	C	A	local_enumeration	synonymous_catalog
+TRIM28	NM_005762.3	c.2325A>G	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.975	-0.034		0.0000					19	59061645	A	G	local_enumeration	synonymous_catalog
+TRIM28	NM_005762.3	c.2323T>C	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.995	0.508		0.0000	5.7857e-05				19	59061643	T	C	local_enumeration	synonymous_catalog
+TRIM28	NM_005762.3	c.2322G>A	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.998	0.927		0.0000	5.43715e-05				19	59061642	G	A	local_enumeration	synonymous_catalog
+TRIM28	NM_005762.3	c.2319C>T	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.895	-0.239		0.0200					19	59061639	C	T	local_enumeration	synonymous_catalog
+TRIM28	NM_005762.3	c.2313A>G	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.997	0.143		0.0000					19	59061633	A	G	local_enumeration	synonymous_catalog
+TRIM28	NM_005762.3	c.2310G>A	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.995	0.101		0.0000					19	59061630	G	A	local_enumeration	synonymous_catalog
+TRIM28	NM_005762.3	c.2400C>T	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.02	-1.247		0.0000	0.000123213				19	59061812	C	T	local_enumeration	synonymous_catalog
+TRIM28	NM_005762.3	c.2307C>T	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.972	-0.076		0.0000					19	59061627	C	T	local_enumeration	synonymous_catalog
+TRIM28	NM_005762.3	c.2292T>C	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.999	0.293		0.0200					19	59061612	T	C	local_enumeration	synonymous_catalog
+TRIM28	NM_005762.3	c.2289G>A	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.999	0.603		0.0000					19	59061609	G	A	local_enumeration	synonymous_catalog
+TRIM28	NM_005762.3	c.2469T>C	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.315	-0.284		0.0000					19	59061881	T	C	local_enumeration	synonymous_catalog
+TRIM28	NM_005762.3	c.2475G>A	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.048	-0.184		0.0000					19	59061887	G	A	local_enumeration	synonymous_catalog
+TRIM28	NM_005762.3	c.2478G>A	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.008	0.149		0.0000					19	59061890	G	A	local_enumeration	synonymous_catalog
+TRIM28	NM_005762.3	c.2479C>T	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.002	0.137		0.0000					19	59061891	C	T	local_enumeration	synonymous_catalog
+TRIM28	NM_005762.3	c.2507G>A	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.043	1.362		0.0000					19	59061919	G	A	local_enumeration	synonymous_catalog
+TRIM28	NM_005762.3	c.2499T>C	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.998	0.027		0.0000					19	59061911	T	C	local_enumeration	synonymous_catalog

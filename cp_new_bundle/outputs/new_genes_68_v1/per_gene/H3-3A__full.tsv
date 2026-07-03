@@ -1,0 +1,49 @@
+gene	transcript	hgvs_c	classification	PhastCons100way	PhyloP100way	REVEL	SpliceAI_masked	FAF95_grpmax	CADD_phred	AlphaMissense_pred	ClinVar_sig	chr_grch37	pos_grch37	ref	alt	vv_status	source
+H3-3A	NM_002107.6	c.294+2T>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0, PhyloP<0.1, intronic_ROI(+2)	0.0	-0.284	.;.			6.139	.;.		1	226253524	T	A	flagged:intergenic	pipeline
+H3-3A	NM_002107.6	c.290+2T>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0, PhyloP<0.1, intronic_ROI(+2)	0.0	-1.997				0.049			1	226253520	T	G	flagged:intergenic	pipeline
+H3-3A	NM_002107.6	c.290+2T>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0, PhyloP<0.1, intronic_ROI(+2)	0.0	-1.997				0.053			1	226253520	T	C	flagged:intergenic	pipeline
+H3-3A	NM_002107.6	c.290+2T>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0, PhyloP<0.1, intronic_ROI(+2)	0.0	-1.997				0.046			1	226253520	T	A	flagged:intergenic	pipeline
+H3-3A	NM_002107.6	c.294+2T>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0, PhyloP<0.1, intronic_ROI(+2)	0.0	-0.284	.;.			6.511	.;.		1	226253524	T	C	flagged:intergenic	pipeline
+H3-3A	NM_002107.6	c.294+2T>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0, PhyloP<0.1, intronic_ROI(+2)	0.0	-0.284	.;.			6.21	.;.		1	226253524	T	G	flagged:intergenic	pipeline
+H3-3A	NM_002107.6	c.301A>T	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.058	0.449				2.775			1	226253529	A	T	flagged:intergenic	pipeline
+H3-3A	NM_002107.6	c.363T>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.0	-0.44				0.172			1	226253591	T	A	flagged:intergenic	pipeline
+H3-3A	NM_002107.6	c.357T>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.001	1.098	0.057			6.456	A		1	226253585	T	G	flagged:intergenic	pipeline
+H3-3A	NM_002107.6	c.357T>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.001	1.098				6.403			1	226253585	T	A	flagged:intergenic	pipeline
+H3-3A	NM_002107.6	c.345A>T	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.0	0.221	0.014			5.357	LB		1	226253573	A	T	flagged:intergenic	pipeline
+H3-3A	NM_002107.6	c.345A>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.0	0.221	0.015			5.652	LB		1	226253573	A	C	flagged:intergenic	pipeline
+H3-3A	NM_002107.6	c.342C>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.0	-1.021	0.056			4.293	LP		1	226253570	C	G	flagged:intergenic	pipeline
+H3-3A	NM_002107.6	c.342C>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.0	-1.021	0.073			3.793	LP		1	226253570	C	A	flagged:intergenic	pipeline
+H3-3A	NM_002107.6	c.339G>T	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.0	-2.751	0.017			0.078	LB		1	226253567	G	T	flagged:intergenic	pipeline
+H3-3A	NM_002107.6	c.339G>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.0	-2.751	0.017			0.08	LB		1	226253567	G	C	flagged:intergenic	pipeline
+H3-3A	NM_002107.6	c.336A>T	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.0	0.043	0.015			12.84	LB		1	226253564	A	T	flagged:intergenic	pipeline
+H3-3A	NM_002107.6	c.336A>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.0	0.043	0.015			12.9	LB		1	226253564	A	C	flagged:intergenic	pipeline
+H3-3A	NM_002107.6	c.333A>T	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.0	0.163	0.056			11.8	A		1	226253561	A	T	flagged:intergenic	pipeline
+H3-3A	NM_002107.6	c.333A>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.0	0.163	0.035			11.8	A		1	226253561	A	C	flagged:intergenic	pipeline
+H3-3A	NM_002107.6	c.330C>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.0	-0.724				6.429			1	226253558	C	G	flagged:intergenic	pipeline
+H3-3A	NM_002107.6	c.330C>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.0	-0.724				6.67			1	226253558	C	A	flagged:intergenic	pipeline
+H3-3A	NM_002107.6	c.315T>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.0	-2.15	0.045			0.72	A		1	226253543	T	G	flagged:intergenic	pipeline
+H3-3A	NM_002107.6	c.315T>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.0	-2.15				0.722			1	226253543	T	A	flagged:intergenic	pipeline
+H3-3A	NM_002107.6	c.309A>T	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.004	0.145	0.049			8.703	A		1	226253537	A	T	flagged:intergenic	pipeline
+H3-3A	NM_002107.6	c.309A>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.004	0.145	0.033			8.804	A		1	226253537	A	C	flagged:intergenic	pipeline
+H3-3A	NM_002107.6	c.307A>T	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.011	0.241				6.929			1	226253535	A	T	flagged:intergenic	pipeline
+H3-3A	NM_002107.6	c.307A>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.011	0.241	0.059		6.20800e-05	7.335	LB		1	226253535	A	G	flagged:intergenic	pipeline
+H3-3A	NM_002107.6	c.303A>T	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.0	-0.342	0.020			5.668	A		1	226253531	A	T	flagged:intergenic	pipeline
+H3-3A	NM_002107.6	c.303A>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.0	-0.342	0.020			5.807	A		1	226253531	A	C	flagged:intergenic	pipeline
+H3-3A	NM_002107.6	c.301A>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.058	0.449	0.019			2.734	LB		1	226253529	A	G	flagged:intergenic	pipeline
+H3-3A	NM_002107.6	c.363T>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.0	-0.44				0.187			1	226253591	T	G	flagged:intergenic	pipeline
+H3-3A	NM_002107.6	c.371A>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.0	-2.249				1.009			1	226253599	A	C	flagged:intergenic	pipeline
+H3-3A	NM_002107.6	c.372A>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.0	-1.809				0.587			1	226253600	A	C	flagged:intergenic	pipeline
+H3-3A	NM_002107.6	c.372A>T	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.0	-1.809				0.511			1	226253600	A	T	flagged:intergenic	pipeline
+H3-3A	NM_002107.6	c.371A>T	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.0	-2.249				0.819			1	226253599	A	T	flagged:intergenic	pipeline
+H3-3A	NM_002107.6	c.-20A>G	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	1	226252033			clinvar_assertion	clinvar
+H3-3A	NM_002107.6	c.344C>G	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	1	226259113			clinvar_assertion	clinvar
+H3-3A	NM_002107.6	c.128+11dup	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	1	226252185			clinvar_assertion	clinvar
+H3-3A	NM_002107.6	c.156T>A	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	1	226253384			clinvar_assertion	clinvar
+H3-3A	NM_002107.6	c.78T>C	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	1	226252130			clinvar_assertion	clinvar
+H3-3A	NM_002107.6	c.52A>C	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.705	1.512		0 (assumed)					1	226252104	A	C	local_enumeration	synonymous_catalog
+H3-3A	NM_002107.6	c.165T>C	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.996	0.385		0 (assumed)					1	226253393	T	C	local_enumeration	synonymous_catalog
+H3-3A	NM_002107.6	c.261C>T	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.264	-0.275		0 (assumed)	6.8171e-05				1	226253489	C	T	local_enumeration	synonymous_catalog
+H3-3A	NM_002107.6	c.270C>A	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.779	-0.035		0 (assumed)					1	226253498	C	A	local_enumeration	synonymous_catalog
+H3-3A	NM_002107.6	c.270C>T	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.779	-0.035		0 (assumed)					1	226253498	C	T	local_enumeration	synonymous_catalog
+H3-3A	NM_002107.6	c.291T>C	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.993	0.28		0 (assumed)					1	226259060	T	C	local_enumeration	synonymous_catalog
+H3-3A	NM_002107.6	c.30A>G	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.986	0.461		0 (assumed)					1	226252082	A	G	local_enumeration	synonymous_catalog

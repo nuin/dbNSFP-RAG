@@ -1,0 +1,14 @@
+gene	transcript	hgvs_c	classification	PhastCons100way	PhyloP100way	REVEL	SpliceAI_masked	FAF95_grpmax	CADD_phred	AlphaMissense_pred	ClinVar_sig	chr_grch37	pos_grch37	ref	alt	vv_status	source
+DKC1	NM_001363.5	c.1525G>T	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.01	0.746				10.12			X	154005122	G	T	ok	pipeline
+DKC1	NM_001363.5	c.1525G>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.01	0.746				10.02			X	154005122	G	C	ok	pipeline
+DKC1	NM_001363.5	c.1476+6T>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0, PhyloP<0.1, intronic_ROI(+6)	0.028	-0.011				14.29			X	154004605	T	G	ok	pipeline
+DKC1	NM_001363.5	c.1476+6T>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0, PhyloP<0.1, intronic_ROI(+6)	0.028	-0.011				6.147			X	154004605	T	C	ok	pipeline
+DKC1	NM_001363.5	c.1476+6T>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0, PhyloP<0.1, intronic_ROI(+6)	0.028	-0.011				14.82			X	154004605	T	A	ok	pipeline
+DKC1	NM_001363.5	c.1260T>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.193	-0.3			2.63300e-05	7.909			X	154003470	T	G	ok	pipeline
+DKC1	NM_001363.5	c.1260T>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.193	-0.3				8.699			X	154003470	T	A	ok	pipeline
+DKC1	NM_001363.5	c.1245G>T	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.001	-1.748				9.19			X	154002966	G	T	ok	pipeline
+DKC1	NM_001363.5	c.1245G>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.001	-1.748				7.57			X	154002966	G	C	ok	pipeline
+DKC1	NM_001363.5	c.1245G>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.001	-1.748				7.728		Likely_benign	X	154002966	G	A	ok	pipeline
+DKC1	NM_001363.5	c.567A>T	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.84	-0.075				14.97			X	153995584	A	T	ok	pipeline
+DKC1	NM_001363.5	c.567A>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.84	-0.075				15.22			X	153995584	A	G	ok	pipeline
+DKC1	NM_001363.5	c.567A>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.84	-0.075				14.77			X	153995584	A	C	ok	pipeline

@@ -1,0 +1,13 @@
+version: 2
+
+sources:
+  - name: raw
+    description: "Precomputed raw annotation lake (parquet), one file per public source."
+    meta:
+      external_location: "raw/{name}.parquet"
+    tables:
+      - name: raw_dbnsfp
+      - name: raw_gnomad_observed
+      - name: raw_gnomad_hgvsc
+      - name: raw_syn_catalog
+      - name: raw_conservation

@@ -1,0 +1,27 @@
+gene	transcript	hgvs_c	classification	PhastCons100way	PhyloP100way	REVEL	SpliceAI_masked	FAF95_grpmax	CADD_phred	AlphaMissense_pred	ClinVar_sig	chr_grch37	pos_grch37	ref	alt	vv_status	source
+ANKRD26	NM_014915.2	c.1565-1G>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0, PhyloP<0.1, intronic_ROI(-1)	0.011	-0.007	.;.;.;.;.;.;.;.			18.91	.;.;.;.;.;.;.;.		10	27342320	C	T	ok	pipeline
+ANKRD26	NM_014915.2	c.1565-1G>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0, PhyloP<0.1, intronic_ROI(-1)	0.011	-0.007	.;.;.;.;.;.;.;.			19.7	.;.;.;.;.;.;.;.		10	27342320	C	G	ok	pipeline
+ANKRD26	NM_014915.2	c.1565-1G>T	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0, PhyloP<0.1, intronic_ROI(-1)	0.011	-0.007	.;.;.;.;.;.;.;.			21.3	.;.;.;.;.;.;.;.		10	27342320	C	A	ok	pipeline
+ANKRD26	NM_014915.2	c.1815-1G>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0, PhyloP<0.1, intronic_ROI(-1)	0.0	0.054	.;.;.			17.18	.;.;.		10	27335453	C	T	ok	pipeline
+ANKRD26	NM_014915.2	c.1815-1G>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0, PhyloP<0.1, intronic_ROI(-1)	0.0	0.054	.;.;.			16.85	.;.;.		10	27335453	C	G	ok	pipeline
+ANKRD26	NM_014915.2	c.1815-1G>T	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0, PhyloP<0.1, intronic_ROI(-1)	0.0	0.054	.;.;.			18.12	.;.;.		10	27335453	C	A	ok	pipeline
+ANKRD26	NM_014915.2	c.1816A>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.029	2.493	.;.;.;.;.			17.03	.;.;.;.;.		10	27335451	T	G	ok	pipeline
+ANKRD26	NM_014915.2	c.1816A>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.029	2.493	.;.;.;.;.			17.06	.;.;.;.;.		10	27335451	T	C	ok	pipeline
+ANKRD26	NM_014915.2	c.1816A>T	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.029	2.493	.;.;.;.;.			20.8	.;.;.;.;.		10	27335451	T	A	ok	pipeline
+ANKRD26	NM_014915.2	c.1817G>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.002	0.22	.;.;.;.;.		4.47000e-06	15.23	.;.;.;.;.	Uncertain_significance	10	27335450	C	T	ok	pipeline
+ANKRD26	NM_014915.2	c.1817G>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.002	0.22	.;.;.;.;.			16.99	.;.;.;.;.		10	27335450	C	G	ok	pipeline
+ANKRD26	NM_014915.2	c.1817G>T	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.002	0.22	.;.;.;.;.			18.78	.;.;.;.;.		10	27335450	C	A	ok	pipeline
+ANKRD26	NM_014915.2	c.1868G>A	Benign FAF >5%	0.0	-0.387	0.014;.;.;.;.;0.014;.;.		0.0790293	0.069	B;.;.;.;.;.;.;.	Benign	10	27335399	C	T	ok	pipeline
+ANKRD26	NM_014915.2	c.2978A>C	Benign FAF >5%	1.0	6.445	0.176;.;.;.;0.176;.;.		0.0781689	23.2	B;.;.;.;.;.;.	Benign	10	27324401	T	G	ok	pipeline
+ANKRD26	NM_014915.2	c.3658G>C	Benign FAF >5%	0.0	0.416	0.096;.;.;.;0.096;.;.		0.194728	9.906	B;.;.;.;.;.;.	Benign	10	27322303	C	G	ok	pipeline
+ANKRD26	NM_014915.2	c.3913G>A	Benign FAF >5%	0.0	-1.891	0.070;.;.;.;0.070;.;.		0.568847	0.136	B;.;.;.;.;.;.	Benign	10	27317840	C	T	ok	pipeline
+ANKRD26	NM_014915.2	c.4542T>A	Benign FAF >5%	1.0	0.718	0.055;.;.;.;.;0.055;.;.		0.568678	10.88	B;.;.;.;.;.;.;.	Benign	10	27303605	A	T	ok	pipeline
+ANKRD26	NM_014915.2	c.1273A>G	Benign FAF >5%	0.005	-0.467	0.062;.;.;.;.;0.062;.;.;.		0.0994071	3.233	B;.;.;.;.;.;.;.;.	Benign	10	27353007	T	C	ok	pipeline
+ANKRD26	NM_014915.2	c.875-2A>T	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0, PhyloP<0.1, intronic_ROI(-2)	0.0	-0.158	.;.;.;.;.;.;.;.;.			19.73	.;.;.;.;.;.;.;.;.		10	27366471	T	A	ok	pipeline
+ANKRD26	NM_014915.2	c.875-2A>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0, PhyloP<0.1, intronic_ROI(-2)	0.0	-0.158	.;.;.;.;.;.;.;.;.			19.27	.;.;.;.;.;.;.;.;.		10	27366471	T	G	ok	pipeline
+ANKRD26	NM_014915.2	c.59A>G	Benign FAF >5%	0.0	-1.094	0.005;.;.;.;.;0.005;.;.		0.991935	0.076	B;.;.;.;.;LB;.;.	Benign	10	27389197	T	C	ok	pipeline
+ANKRD26	NM_014915.2	c.641G>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.0	-0.686			8.00000e-07	0.116		Likely_benign	10	27375536	C	T	ok	pipeline
+ANKRD26	NM_014915.2	c.641G>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.0	-0.686			1.06600e-05	0.216			10	27375536	C	G	ok	pipeline
+ANKRD26	NM_014915.2	c.641G>T	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.0	-0.686				2.011			10	27375536	C	A	ok	pipeline
+ANKRD26	NM_014915.2	c.793G>A	Benign FAF >5%	0.017	0.982	0.042;.;.;.;.;0.042;.;.;.		0.0598765	18.28	B;.;.;.;.;.;.;.;.	Benign	10	27368038	C	T	ok	pipeline
+ANKRD26	NM_014915.2	c.875-2A>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0, PhyloP<0.1, intronic_ROI(-2)	0.0	-0.158	.;.;.;.;.;.;.;.;.			19.86	.;.;.;.;.;.;.;.;.		10	27366471	T	C	ok	pipeline

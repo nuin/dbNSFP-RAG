@@ -1,0 +1,12 @@
+gene	transcript	hgvs_c	classification	PhastCons100way	PhyloP100way	REVEL	SpliceAI_masked	FAF95_grpmax	CADD_phred	AlphaMissense_pred	ClinVar_sig	chr_grch37	pos_grch37	ref	alt	vv_status	source
+MERTK	NM_006343.3	c.1493A>G	Benign FAF >5%	0.002	-0.091	0.145;0.145;.		0.0628941	1.086	LB;LB;.	Benign	2	112754942	A	G	ok	pipeline
+MERTK	NM_006343.3	c.1397G>A	Benign FAF >5%	0.0	-1.643	0.046;0.046;.		0.652974	0.006	LB;LB;.	Benign	2	112751928	G	A	ok	pipeline
+MERTK	NM_006343.3	c.353G>A	Benign FAF >5%	0.001	-0.33	0.060;.		0.299263	0.267	LB;.	Benign	2	112686988	G	A	ok	pipeline
+MERTK	NM_006343.3	c.1552A>G	Benign FAF >5%	0.0	-0.677	0.074;0.074;.		0.653042	0.166	LB;LB;.	Benign	2	112755001	A	G	ok	pipeline
+MERTK	NM_006343.3	c.2608G>A	Benign FAF >5%	0.002	0.29	0.076;0.076;.;0.076		0.182042	0.324	LB;LB;.;LB	Benign	2	112786049	G	A	ok	pipeline
+MERTK	NM_006343.3	c.782G>A	Benign ClinVar(2-star, criteria provided)								Benign	2	112722792			clinvar_assertion	clinvar
+MERTK	NM_006343.3	c.1984C>G	Benign ClinVar(2-star, criteria provided)								Benign	2	112767548			clinvar_assertion	clinvar
+MERTK	NM_006343.3	c.2851G>A	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	2	112786292			clinvar_assertion	clinvar
+MERTK	NM_006343.3	c.2080-11C>A	Benign ClinVar(2-star, criteria provided)								Benign	2	112776979			clinvar_assertion	clinvar
+MERTK	NM_006343.3	c.1282A>G	Likely_benign ClinVar(2-star, criteria provided)								Likely benign	2	112740556			clinvar_assertion	clinvar
+MERTK	NM_006343.3	c.1390G>A	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	2	112751921			clinvar_assertion	clinvar

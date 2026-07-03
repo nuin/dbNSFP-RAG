@@ -1,0 +1,28 @@
+gene	transcript	hgvs_c	classification	PhastCons100way	PhyloP100way	REVEL	SpliceAI_masked	FAF95_grpmax	CADD_phred	AlphaMissense_pred	ClinVar_sig	chr_grch37	pos_grch37	ref	alt	vv_status	source
+GCM2	NM_004752.4	c.35T>A	Likely_benign FAF >0.1%, REVEL <0.29, SpliceAI<=0.1	0.0	0.034	0.230		0.00114218	4.81	B		6	10881992	A	T	ok	pipeline
+GCM2	NM_004752.4	c.157G>A	Likely_benign FAF >0.1%, REVEL <0.29, SpliceAI<=0.1	0.553	2.355	0.195		0.00668089	15.28	B	Benign/Likely_benign	6	10877559	C	T	ok	pipeline
+GCM2	NM_004752.4	c.350C>T	Likely_benign FAF >0.1%, REVEL <0.29, SpliceAI<=0.1	0.135	1.156	0.067		0.0113040	8.889	B	Benign	6	10876784	G	A	ok	pipeline
+GCM2	NM_004752.4	c.941T>G	Likely_benign FAF >0.1%, REVEL <0.29, SpliceAI<=0.1	0.601	1.715	0.241		0.00100618	18.82	B	Uncertain_significance	6	10874808	A	C	ok	pipeline
+GCM2	NM_004752.4	c.943A>G	Likely_benign FAF >0.1%, REVEL <0.29, SpliceAI<=0.1	0.917	2.689	0.156		0.0143338	16.58	B	Benign/Likely_benign	6	10874806	T	C	ok	pipeline
+GCM2	NM_004752.4	c.944A>G	Likely_benign FAF >0.1%, REVEL <0.29, SpliceAI<=0.1	0.909	0.65	0.035		0.00129898	8.489	B		6	10874805	T	C	ok	pipeline
+GCM2	NM_004752.4	c.1060A>G	Likely_benign FAF >0.1%, REVEL <0.29, SpliceAI<=0.1	0.0	-0.044	0.157		0.0398705	0.009	B	Benign/Likely_benign	6	10874689	T	C	ok	pipeline
+GCM2	NM_004752.4	c.607G>A	Benign FAF >5%	0.964	2.219	0.173		0.0987754	19.51	B	Benign/Likely_benign	6	10875142	C	T	ok	pipeline
+GCM2	NM_004752.4	c.679A>G	Likely_benign FAF >0.1%, REVEL <0.29, SpliceAI<=0.1	0.001	-0.423	0.064		0.0263522	0.096	B	Benign	6	10875070	T	C	ok	pipeline
+GCM2	NM_004752.4	c.844T>G	Likely_benign FAF >0.1%, REVEL <0.29, SpliceAI<=0.1	0.592	3.116	0.165		0.0153959	14.44	B	Benign	6	10874905	A	C	ok	pipeline
+GCM2	NM_004752.4	c.1298C>T	Likely_benign FAF >0.1%, REVEL <0.29, SpliceAI<=0.1	0.049	0.64	0.063		0.00175249	13.27	B	Likely_benign	6	10874451	G	A	ok	pipeline
+GCM2	NM_004752.4	c.1217G>A	Likely_benign FAF >0.1%, REVEL <0.29, SpliceAI<=0.1	0.0	-0.212	0.039		0.00265183	0.798	B	Likely_benign	6	10874532	C	T	ok	pipeline
+GCM2	NM_004752.4	c.1504A>C	Likely_benign FAF >0.1%, REVEL <0.29, SpliceAI<=0.1	0.786	1.863	0.125		0.00208136	12.97	B	Uncertain_significance	6	10874245	T	G	ok	pipeline
+GCM2	NM_004752.4	c.91-11C>T	Benign ClinVar(1-star, criteria provided)								Benign	6	10877636			clinvar_assertion	clinvar
+GCM2	NM_004752.4	c.583-11C>T	Benign ClinVar(1-star, criteria provided)								Benign	6	10875177			clinvar_assertion	clinvar
+GCM2	NM_004752.4	c.344-8C>A	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	6	10876798			clinvar_assertion	clinvar
+GCM2	NM_004752.4	c.1149CAC[5]	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	6	10874588			clinvar_assertion	clinvar
+GCM2	NM_004752.4	c.344-4G>T	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	6	10876794			clinvar_assertion	clinvar
+GCM2	NM_004752.4	c.1286C>T	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	6	10874463			clinvar_assertion	clinvar
+GCM2	NM_004752.4	c.1177_1185dup	Likely_benign ClinVar(2-star, criteria provided)								Likely benign	6	10874563			clinvar_assertion	clinvar
+GCM2	NM_004752.4		Benign ClinVar(1-star, criteria provided)								Benign	6	10882100			clinvar_assertion	clinvar
+GCM2	NM_004752.4	c.*521C>A	Benign ClinVar(1-star, criteria provided)								Benign	6	10873707			clinvar_assertion	clinvar
+GCM2	NM_004752.4	c.*634C>T	Benign ClinVar(1-star, criteria provided)								Benign	6	10873594			clinvar_assertion	clinvar
+GCM2	NM_004752.4	c.-44T>C	Benign ClinVar(2-star, criteria provided)								Benign	6	10882070			clinvar_assertion	clinvar
+GCM2	NM_004752.4	c.-248G>C	Benign ClinVar(1-star, criteria provided)								Benign	6	10882274			clinvar_assertion	clinvar
+GCM2	NM_004752.4	c.-149G>A	Benign ClinVar(1-star, criteria provided)								Benign	6	10882175			clinvar_assertion	clinvar
+GCM2	NM_004752.4	c.*643A>T	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	6	10873585			clinvar_assertion	clinvar

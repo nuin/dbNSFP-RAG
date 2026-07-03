@@ -1,0 +1,7 @@
+gene	transcript	hgvs_c	classification	PhastCons100way	PhyloP100way	REVEL	SpliceAI_masked	FAF95_grpmax	CADD_phred	AlphaMissense_pred	ClinVar_sig	chr_grch37	pos_grch37	ref	alt	vv_status	source
+SAMD9	NM_017654.4	c.428T>C	Benign FAF >5%	0.0	-0.647	.;0.004;0.004		0.275762	0.088	LB;B;LB	Benign	7	92734983	A	G	ok	pipeline
+SAMD9	NM_017654.4	c.1346A>G	Benign FAF >5%	0.003	1.044	.;0.061;0.061		0.184280	8.036	LB;B;LB	Benign	7	92734065	T	C	ok	pipeline
+SAMD9	NM_017654.4	c.1360G>A	Benign FAF >5%	0.013	0.757	.;0.009;0.009		0.181718	11.73	LB;B;LB	Benign/Likely_benign	7	92734051	C	T	ok	pipeline
+SAMD9	NM_017654.4	c.1436C>T	Benign FAF >5%	0.0	-0.076	.;0.012;0.012		0.181984	9.458	LB;B;LB	Benign	7	92733975	G	A	ok	pipeline
+SAMD9	NM_017654.4	c.1645G>T	Benign FAF >5%	0.998	2.864	.;0.083;0.083		0.141561	14.18	A;A;LP	Benign	7	92733766	C	A	ok	pipeline
+SAMD9	NM_017654.4	c.2680A>G	Benign FAF >5%	0.0	-0.735	.;0.020;0.020		0.0722257	0.721	LB;B;LB	Benign	7	92732731	T	C	ok	pipeline

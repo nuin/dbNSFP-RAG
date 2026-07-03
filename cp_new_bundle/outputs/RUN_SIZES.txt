@@ -1,0 +1,75 @@
+cp_new SeqNext upload — row counts, ALL versions
+=================================================
+(rows = data rows, excluding header)
+
+DELIVERABLE UPLOADS (68 new genes)
+----------------------------------
+  v1                     5,796   original; dropped synonymous coding
+  v1_conservative        1,335   strictest undercall cut
+  v2                    39,331   kept synonymous + ClinVar variants
+  v2_scored             39,331   same rows, predictor/FAF scores backfilled
+  v3.3                  41,514   rule-based reclass + gnomAD anchor (position)
+  v3.4                  41,450   rule-based reclass + gnomAD anchor (c.-based, liftover-free)
+
+  CURRENT DELIVERABLES TO SEND: v3.3 and v3.4
+
+
+v3 BUILD CHAIN — stage by stage
+-------------------------------
+  v3      drop ClinVar classification, reclassify all by W1/W2/W3        38,314
+  v3.1    fix codon-degeneracy bug; drop rule_fails:no_rule_applies      16,025
+  v3.2    add high-FAF + missense-W3 + synonymous W2 catch-up           113,055   <-- ~100k peak
+  v3.3    gnomAD anchor, position-based                                  41,514
+  v3.4    gnomAD anchor, c.-based / liftover-free                        41,450
+
+  The ~113k peak at v3.2 is the synonymous-catalog catch-up: every possible
+  synonymous SNV enumerated for the 68 genes. The gnomAD anchor then removed
+  ~72k of those (never observed in gnomAD v4.1 = theoretical), leaving ~41.5k
+  real, observed variants.
+
+
+ANCHOR DROPS
+------------
+  v3.2 -> v3.3 (position)            v3.2 -> v3.4 (c.-based)
+    not_in_gnomad     67,992           not_in_gnomad_cdot   68,056
+    rule_fails         3,539           rule_fails            3,539
+    nonsense              10           nonsense                 10
+    kept              41,514           kept                 41,450
+
+
+SUPPORTING / INTERMEDIATE FILES
+-------------------------------
+  all_panel_165/FINAL.tsv             160,050   full 165-gene panel, all sources, pre-filter
+  all_panel_165/FINAL_strict.tsv      158,973   strict variant
+  new_genes_68_v1/FINAL.tsv            46,344   68-gene merge, all sources, pre-filter
+  new_genes_68_v1/FINAL_strict.tsv     45,883   strict variant
+  v1 UPLOAD_conservative_dropped       4,461    v1 audit trail
+  v3.3 UPLOAD_v3_3_dropped            71,541    v3.3 anchor audit
+  v3.4 UPLOAD_v3_4_dropped            71,605    v3.4 anchor audit
+
+
+v3.4 COMPOSITION (current best deliverable)
+-------------------------------------------
+  Benign W1 (FAF>5%)        11,709
+  Benign W2 (synonymous)    29,316
+  Likely_benign W3             425
+  -------------------------------
+  total                     41,450
+  gene coverage             67 / 68   (TERC = non-coding RNA, no rule applies)
+
+  by source:
+    synonymous_catalog      29,303
+    gnomad_common           11,481
+    pipeline                   345
+    clinvar                    321
+
+
+NOTES
+-----
+- v3.3 vs v3.4 differ by 64 rows (0.15%) -- the two anchoring methods agree,
+  confirming the gnomAD-observed filter is robust (position-match vs c.-match).
+- Every v3.3/v3.4 row is observed in gnomAD v4.1, classified purely by
+  W1/W2/W3, no ClinVar evidence used.
+- v2 -> v3 is not a simple subtraction: v3 ADDED ~24k recovered
+  high-FAF/missense/synonymous variants (the MSH3 fixes) while REMOVING ~84k
+  theoretical enumerated ones.

@@ -1,0 +1,24 @@
+gene	transcript	hgvs_c	classification	PhastCons100way	PhyloP100way	REVEL	SpliceAI_masked	FAF95_grpmax	CADD_phred	AlphaMissense_pred	ClinVar_sig	chr_grch37	pos_grch37	ref	alt	vv_status	source
+NTHL1	NM_002528.7	c.6T>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.004	1.539				14.24			16	2097843	A	T	flagged:intergenic	pipeline
+NTHL1	NM_002528.7	c.6T>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.004	1.539	0.067			14.37	B	Uncertain_significance	16	2097843	A	C	flagged:intergenic	pipeline
+NTHL1	NM_002528.7	c.9T>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.004	1.525	0.043			14.67	B		16	2097840	A	T	flagged:intergenic	pipeline
+NTHL1	NM_002528.7	c.9T>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.004	1.525	0.043			14.7	B		16	2097840	A	C	flagged:intergenic	pipeline
+NTHL1	NM_002528.7	c.-10G>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.007	2.365	0.112			15.48	B		16	2097834	C	G	ok	pipeline
+NTHL1	NM_002528.7	c.-10G>T	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.007	2.365	0.112			15.37	B	Uncertain_significance	16	2097834	C	A	ok	pipeline
+NTHL1	NM_002528.7	c.-7G>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.0	-0.058	0.023			9.179	B	Uncertain_significance	16	2097831	C	G	ok	pipeline
+NTHL1	NM_002528.7	c.-7G>T	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.0	-0.058	0.023			8.721	B	Uncertain_significance	16	2097831	C	A	ok	pipeline
+NTHL1	NM_002528.7	c.117A>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.001	0.113	.;.;.;.			12.25	.;.;.;.	Uncertain_significance	16	2096366	T	G	ok	pipeline
+NTHL1	NM_002528.7	c.117A>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.001	0.113	.;.;.;.			7.264	.;.;.;.		16	2096366	T	C	ok	pipeline
+NTHL1	NM_002528.7	c.117A>T	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.001	0.113	.;.;.;.			12.06	.;.;.;.		16	2096366	T	A	ok	pipeline
+NTHL1	NM_002528.7	c.118G>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.0	0.127	.;.;.;.			8.021	.;.;.;.	Uncertain_significance	16	2096365	C	T	ok	pipeline
+NTHL1	NM_002528.7	c.118G>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.0	0.127	.;.;.;.			7.346	.;.;.;.		16	2096365	C	G	ok	pipeline
+NTHL1	NM_002528.7	c.531G>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.824	-0.051				3.854		Likely_benign	16	2093722	C	T	ok	pipeline
+NTHL1	NM_002528.7	c.531G>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.824	-0.051				21.9		Uncertain_significance	16	2093722	C	G	ok	pipeline
+NTHL1	NM_002528.7	c.531G>T	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.824	-0.051				22.0			16	2093722	C	A	ok	pipeline
+NTHL1	NM_002528.7	c.686-5A>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0, PhyloP<0.1, intronic_ROI(-5)	0.0	-1.589	.;.;.			6.362	.;.;.	Uncertain_significance	16	2090244	T	G	ok	pipeline
+NTHL1	NM_002528.7	c.686-5A>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0, PhyloP<0.1, intronic_ROI(-5)	0.0	-1.589	.;.;.			8.219	.;.;.	Likely_benign	16	2090244	T	C	ok	pipeline
+NTHL1	NM_002528.7	c.686-5A>T	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0, PhyloP<0.1, intronic_ROI(-5)	0.0	-1.589	.;.;.			7.191	.;.;.		16	2090244	T	A	ok	pipeline
+NTHL1	NM_002528.7	c.687A>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.047	-1.479				0.337			16	2090238	T	G	ok	pipeline
+NTHL1	NM_002528.7	c.687A>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.047	-1.479				0.384			16	2090238	T	C	ok	pipeline
+NTHL1	NM_002528.7	c.687A>T	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.047	-1.479				0.58			16	2090238	T	A	ok	pipeline
+NTHL1	NM_002528.7	c.118G>T	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.0	0.127	.;.;.;.			5.326	.;.;.;.	Uncertain_significance	16	2096365	C	A	ok	pipeline

@@ -1,0 +1,7 @@
+gene	transcript	hgvs_c	classification	PhastCons100way	PhyloP100way	REVEL	SpliceAI_masked	FAF95_grpmax	CADD_phred	AlphaMissense_pred	ClinVar_sig	chr_grch37	pos_grch37	ref	alt	vv_status	source
+DPYD	NM_000110.4	c.2766+802T>G	Benign FAF >5%	0.0	-0.995			0.171710	0.577			1	97563243	A	C	ok	pipeline
+DPYD	NM_000110.4	c.496A>G	Benign FAF >5%	1.0	7.559	.;.;0.523;.;.;.;.;.;.;.;.		0.136474	26.3	.;.;B;.;.;.;.;.;.;.;.	drug_response	1	98165091	T	C	ok	pipeline
+DPYD	NM_000110.4	c.1218G>A	Benign FAF >5%	1.0	3.709	.;.;0.334;.;.;.;.;.;.;.;.		0.0692118	18.95	.;.;B;.;.;.;.;.;.;.;.	Conflicting_classifications_of_pathogenicity	1	98039437	C	T	ok	pipeline
+DPYD	NM_000110.4	c.1627A>G	Benign FAF >5%	0.994	1.397	.;.;0.123;.;.;.;.;.;.;.		0.275970	9.508	.;.;B;.;.;.;.;.;.;.	drug_response	1	97981395	T	C	ok	pipeline
+DPYD	NM_000110.4	c.2194G>A	Benign FAF >5%	1.0	7.499	.;.;0.297;.;.;.;.;.;.;.		0.117053	23.8	.;.;B;.;.;.;.;.;.;.	drug_response	1	97770920	C	T	ok	pipeline
+DPYD	NM_000110.4	c.2622+21901G>A	Benign FAF >5%	0.0	-0.263			0.0525384	0.789			1	97636724	C	T	ok	pipeline

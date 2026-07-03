@@ -125,26 +125,51 @@ def lookup_bed_transcript(
 # ---------------------------------------------------------------------------
 
 def safe_float(v) -> float | None:
+    """Coerce a dbNSFP value to float. Handles multi-transcript ';'-joined
+    strings (e.g. '.;.;0.220;.;.;.;.;.') by returning the first real number.
+
+    BUG HISTORY: earlier versions did `float(v)` directly, which raised on
+    every ';'-joined value and silently returned None. That caused
+    classify() to fail W3 on every multi-transcript dbNSFP row (i.e. most
+    missense variants), so the pipeline emitted ~8 rows per gene instead
+    of thousands. DO NOT remove the ';' handling.
+    """
     if v is None or v == "" or v == "." or (isinstance(v, float) and pd.isna(v)):
         return None
+    s = str(v)
+    if ";" in s:
+        for part in s.split(";"):
+            part = part.strip()
+            if part and part != ".":
+                try:
+                    return float(part)
+                except (TypeError, ValueError):
+                    continue
+        return None
     try:
-        return float(v)
+        return float(s)
     except (TypeError, ValueError):
         return None
 
 
 def is_synonymous(row) -> bool:
-    """Synonymous if HGVSp shows same AA (p.X=) or aaref == aaalt."""
+    """Synonymous if HGVSp shows same AA (p.X=) or aaref == aaalt.
+
+    NOTE: dbNSFP's `codon_degeneracy` describes the codon position's
+    degeneracy, NOT whether this specific alt is silent. At a 2-fold
+    degenerate site, only 1 of 3 alts is synonymous; the other 2 are
+    missense. Earlier versions of this function incorrectly treated any
+    variant at a 2- or 4-fold degenerate site as synonymous and produced
+    many mis-tagged "Benign synonymous" calls on missense / nonsense
+    variants (e.g. HOXB13 c.108C>A, c.144T>A). DO NOT re-introduce that
+    shortcut. Trust only the per-row aaref/aaalt comparison.
+    """
     hgvsp = str(row.get("HGVSp_snpEff", ""))
     if "p.=" in hgvsp or hgvsp.endswith("="):
         return True
     aaref = str(row.get("aaref", "")).strip().upper()
     aaalt = str(row.get("aaalt", "")).strip().upper()
     if aaref and aaref == aaalt and aaref != "X":
-        return True
-    # codon_degeneracy: 2 = synonymous in dbNSFP convention (4-fold degenerate sites)
-    cd = str(row.get("codon_degeneracy", "")).strip()
-    if cd in ("2", "4"):
         return True
     return False
 

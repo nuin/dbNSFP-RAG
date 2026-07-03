@@ -1,0 +1,490 @@
+gene	transcript	hgvs_c	classification	PhastCons100way	PhyloP100way	REVEL	SpliceAI_masked	FAF95_grpmax	CADD_phred	AlphaMissense_pred	ClinVar_sig	chr_grch37	pos_grch37	ref	alt	vv_status	source
+HOXB13	NM_006361.5	c.540C>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.127	-0.46	0.332			21.3	P		17	46805416	G	C	ok	pipeline
+HOXB13	NM_006361.5	c.543G>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.991	1.867	0.660			25.5	A		17	46805413	C	G	ok	pipeline
+HOXB13	NM_006361.5	c.543G>T	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.991	1.867	0.663		7.90000e-07	25.5	A	Uncertain_significance	17	46805413	C	A	ok	pipeline
+HOXB13	NM_006361.5	c.561A>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.005	-1.585	0.232			12.67	B		17	46805395	T	G	ok	pipeline
+HOXB13	NM_006361.5	c.561A>T	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.005	-1.585	0.232			12.63	B	Uncertain_significance	17	46805395	T	A	ok	pipeline
+HOXB13	NM_006361.5	c.564G>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.542	1.23	0.695			23.4	B		17	46805392	C	G	ok	pipeline
+HOXB13	NM_006361.5	c.564G>T	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.542	1.23	0.696			23.4	B	Uncertain_significance	17	46805392	C	A	ok	pipeline
+HOXB13	NM_006361.5	c.567C>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.002	-0.088	0.191			18.97	B		17	46805389	G	T	ok	pipeline
+HOXB13	NM_006361.5	c.567C>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.002	-0.088	0.191			19.0	B	Uncertain_significance	17	46805389	G	C	ok	pipeline
+HOXB13	NM_006361.5	c.582T>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.997	0.337	0.236			14.33	P		17	46805374	A	T	ok	pipeline
+HOXB13	NM_006361.5	c.582T>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.997	0.337	0.236			14.39	P		17	46805374	A	C	ok	pipeline
+HOXB13	NM_006361.5	c.588G>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.989	0.213	0.660			24.1	P	Uncertain_significance	17	46805368	C	G	ok	pipeline
+HOXB13	NM_006361.5	c.588G>T	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.989	0.213	0.659			24.1	P	Uncertain_significance	17	46805368	C	A	ok	pipeline
+HOXB13	NM_006361.5	c.597T>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.001	-0.183	0.232			16.38	P		17	46805359	A	T	ok	pipeline
+HOXB13	NM_006361.5	c.597T>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.001	-0.183	0.233			16.78	P		17	46805359	A	C	ok	pipeline
+HOXB13	NM_006361.5	c.603C>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.01	0.018	0.230			15.29	B	Uncertain_significance	17	46804404	G	T	ok	pipeline
+HOXB13	NM_006361.5	c.603C>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.01	0.018	0.237			15.64	B		17	46804404	G	C	ok	pipeline
+HOXB13	NM_006361.5	c.609C>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.0	-1.23	0.139		1.06400e-05	15.51	A	Uncertain_significance	17	46804398	G	T	ok	pipeline
+HOXB13	NM_006361.5	c.609C>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.0	-1.23	0.139			16.34	A	Uncertain_significance	17	46804398	G	C	ok	pipeline
+HOXB13	NM_006361.5	c.618C>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.997	0.388	0.464			19.94	B		17	46804389	G	T	ok	pipeline
+HOXB13	NM_006361.5	c.618C>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.997	0.388	0.464			19.95	B		17	46804389	G	C	ok	pipeline
+HOXB13	NM_006361.5	c.627C>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.0	-1.784	0.238			0.005	B		17	46804380	G	T	ok	pipeline
+HOXB13	NM_006361.5	c.627C>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.0	-1.784	0.236			0.006	B	Uncertain_significance	17	46804380	G	C	ok	pipeline
+HOXB13	NM_006361.5	c.540C>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.127	-0.46	0.332			21.3	P	Uncertain_significance	17	46805416	G	T	ok	pipeline
+HOXB13	NM_006361.5	c.633C>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.0	0.316			6.80000e-07	32.0		Uncertain_significance	17	46804374	G	T	ok	pipeline
+HOXB13	NM_006361.5	c.537C>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.001	0.033	0.314			21.6	A		17	46805419	G	C	ok	pipeline
+HOXB13	NM_006361.5	c.504T>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.992	0.519	0.612			27.7	P	Uncertain_significance	17	46805452	A	C	ok	pipeline
+HOXB13	NM_006361.5	c.435C>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.629	-0.126	0.674			20.9	P	Uncertain_significance	17	46805521	G	T	ok	pipeline
+HOXB13	NM_006361.5	c.435C>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.629	-0.126	0.674			20.9	P		17	46805521	G	C	ok	pipeline
+HOXB13	NM_006361.5	c.450G>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.022	-0.152	0.569		7.90000e-07	24.3	A	Uncertain_significance	17	46805506	C	G	ok	pipeline
+HOXB13	NM_006361.5	c.450G>T	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.022	-0.152	0.569			24.2	A		17	46805506	C	A	ok	pipeline
+HOXB13	NM_006361.5	c.454C>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.082	0.323	0.490			20.6	B	Uncertain_significance	17	46805502	G	T	ok	pipeline
+HOXB13	NM_006361.5	c.454C>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.082	0.323	0.424			17.49	B	Uncertain_significance	17	46805502	G	C	ok	pipeline
+HOXB13	NM_006361.5	c.471A>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.864	0.117	0.503			17.76	B	Uncertain_significance	17	46805485	T	G	ok	pipeline
+HOXB13	NM_006361.5	c.471A>T	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.864	0.117	0.503			17.7	B		17	46805485	T	A	ok	pipeline
+HOXB13	NM_006361.5	c.475C>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.136	0.617	0.697			24.1	B	Uncertain_significance	17	46805481	G	C	ok	pipeline
+HOXB13	NM_006361.5	c.475C>T	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.136	0.617			6.80000e-07	36.0		Uncertain_significance	17	46805481	G	A	ok	pipeline
+HOXB13	NM_006361.5	c.480T>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.076	-0.773	0.650			17.5	B	Uncertain_significance	17	46805476	A	T	ok	pipeline
+HOXB13	NM_006361.5	c.480T>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.076	-0.773	0.650			17.45	B		17	46805476	A	C	ok	pipeline
+HOXB13	NM_006361.5	c.483C>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.0	-2.082	0.261			2.741	B	Uncertain_significance	17	46805473	G	T	ok	pipeline
+HOXB13	NM_006361.5	c.483C>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.0	-2.082	0.261			2.93	B	Uncertain_significance	17	46805473	G	C	ok	pipeline
+HOXB13	NM_006361.5	c.487C>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.986	1.946	0.560			23.2	B	Uncertain_significance	17	46805469	G	T	ok	pipeline
+HOXB13	NM_006361.5	c.487C>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.986	1.946	0.643			22.6	B	Uncertain_significance	17	46805469	G	C	ok	pipeline
+HOXB13	NM_006361.5	c.490T>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.974	1.231	0.608			23.7	B	Uncertain_significance	17	46805466	A	T	ok	pipeline
+HOXB13	NM_006361.5	c.490T>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.974	1.231	0.666			23.0	B	Uncertain_significance	17	46805466	A	C	ok	pipeline
+HOXB13	NM_006361.5	c.492G>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.725	-0.047	0.676			21.8	B		17	46805464	C	G	ok	pipeline
+HOXB13	NM_006361.5	c.492G>T	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.725	-0.047	0.676			21.9	B		17	46805464	C	A	ok	pipeline
+HOXB13	NM_006361.5	c.501C>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.604	0.013	0.518			16.57	B		17	46805455	G	T	ok	pipeline
+HOXB13	NM_006361.5	c.501C>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.604	0.013	0.518			16.76	B	Uncertain_significance	17	46805455	G	C	ok	pipeline
+HOXB13	NM_006361.5	c.504T>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.992	0.519	0.612			21.0	P	Uncertain_significance	17	46805452	A	T	ok	pipeline
+HOXB13	NM_006361.5	c.537C>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.001	0.033	0.314			21.6	A	Uncertain_significance	17	46805419	G	T	ok	pipeline
+HOXB13	NM_006361.5	c.633C>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.0	0.316	0.489			19.65	A	Uncertain_significance	17	46804374	G	C	ok	pipeline
+HOXB13	NM_006361.5	c.634G>A	Likely_benign FAF >0.1%, REVEL <0.29, SpliceAI<=0.1	0.0	-0.345	0.142		0.00325977	12.56	B	Conflicting_classifications_of_pathogenicity	17	46804373	C	T	ok	pipeline
+HOXB13	NM_006361.5	c.657A>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.001	-1.164	0.629			20.6	P	Uncertain_significance	17	46804350	T	G	ok	pipeline
+HOXB13	NM_006361.5	c.795G>T	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.975	0.244	0.947			26.1	P	Uncertain_significance	17	46804212	C	A	ok	pipeline
+HOXB13	NM_006361.5	c.802C>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.0	-1.942	0.919			21.4	P	Uncertain_significance	17	46804205	G	C	ok	pipeline
+HOXB13	NM_006361.5	c.802C>T	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.0	-1.942	0.906		1.83000e-06	22.5	P	Uncertain_significance	17	46804205	G	A	ok	pipeline
+HOXB13	NM_006361.5	c.810A>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.993	0.423	0.900			25.7	P		17	46804197	T	G	ok	pipeline
+HOXB13	NM_006361.5	c.810A>T	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.993	0.423	0.900			25.5	P		17	46804197	T	A	ok	pipeline
+HOXB13	NM_006361.5	c.816G>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.985	0.336	0.878			24.1	P		17	46804191	C	G	ok	pipeline
+HOXB13	NM_006361.5	c.816G>T	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.985	0.336	0.878			24.1	P	Uncertain_significance	17	46804191	C	A	ok	pipeline
+HOXB13	NM_006361.5	c.819G>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.363	-0.216	0.859			23.2	P	Uncertain_significance	17	46804188	C	G	ok	pipeline
+HOXB13	NM_006361.5	c.819G>T	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.363	-0.216	0.859			22.9	P		17	46804188	C	A	ok	pipeline
+HOXB13	NM_006361.5	c.831G>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.635	0.983	0.663			24.5	P	Uncertain_significance	17	46804176	C	G	ok	pipeline
+HOXB13	NM_006361.5	c.831G>T	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.635	0.983	0.665			24.4	P		17	46804176	C	A	ok	pipeline
+HOXB13	NM_006361.5	c.832G>T	Likely_benign FAF >0.1%, REVEL <0.29, SpliceAI<=0.1	0.225	-0.238	0.272		0.00183299	16.82	B	Conflicting_classifications_of_pathogenicity	17	46804175	C	A	ok	pipeline
+HOXB13	NM_006361.5	c.837G>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.957	0.215	0.432			23.3	P	Uncertain_significance	17	46804170	C	G	ok	pipeline
+HOXB13	NM_006361.5	c.837G>T	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.957	0.215	0.432			25.7	P		17	46804170	C	A	ok	pipeline
+HOXB13	NM_006361.5	c.840C>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.996	1.478	0.194			17.63	A	Uncertain_significance	17	46804167	G	T	ok	pipeline
+HOXB13	NM_006361.5	c.840C>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.996	1.478	0.194			17.17	A		17	46804167	G	C	ok	pipeline
+HOXB13	NM_006361.5	c.843C>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.076	1.442	0.210			16.84	P	Uncertain_significance	17	46804164	G	T	ok	pipeline
+HOXB13	NM_006361.5	c.843C>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.076	1.442	0.211			18.97	P	Uncertain_significance	17	46804164	G	C	ok	pipeline
+HOXB13	NM_006361.5	c.854A>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.14	0.082				10.78			17	46804153	T	G	ok	pipeline
+HOXB13	NM_006361.5	c.854A>T	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.14	0.082				13.2			17	46804153	T	A	ok	pipeline
+HOXB13	NM_006361.5	c.855A>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.237	2.976				16.34			17	46804152	T	G	ok	pipeline
+HOXB13	NM_006361.5	c.855A>T	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.237	2.976				16.39			17	46804152	T	A	ok	pipeline
+HOXB13	NM_006361.5	c.795G>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.975	0.244	0.948			26.4	P		17	46804212	C	G	ok	pipeline
+HOXB13	NM_006361.5	c.771G>T	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.999	0.804	0.765			24.2	P		17	46804236	C	A	ok	pipeline
+HOXB13	NM_006361.5	c.771G>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.999	0.804	0.765			24.3	P		17	46804236	C	G	ok	pipeline
+HOXB13	NM_006361.5	c.729G>T	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.459	-0.141	0.790			25.5	P		17	46804278	C	A	ok	pipeline
+HOXB13	NM_006361.5	c.657A>T	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.001	-1.164	0.629			20.5	P		17	46804350	T	A	ok	pipeline
+HOXB13	NM_006361.5	c.675G>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.975	0.271	0.682		2.80000e-07	24.9	P	Uncertain_significance	17	46804332	C	G	ok	pipeline
+HOXB13	NM_006361.5	c.675G>T	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.975	0.271	0.682			24.9	P		17	46804332	C	A	ok	pipeline
+HOXB13	NM_006361.5	c.681G>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.97	0.208	0.942			24.5	P		17	46804326	C	G	ok	pipeline
+HOXB13	NM_006361.5	c.681G>T	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.97	0.208	0.942			24.5	P		17	46804326	C	A	ok	pipeline
+HOXB13	NM_006361.5	c.682T>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.994	1.237	0.755		6.80000e-07	21.9	P	Uncertain_significance	17	46804325	A	T	ok	pipeline
+HOXB13	NM_006361.5	c.682T>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.994	1.237	0.750			21.3	P		17	46804325	A	C	ok	pipeline
+HOXB13	NM_006361.5	c.684G>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.096	-0.546	0.780			23.4	P		17	46804323	C	G	ok	pipeline
+HOXB13	NM_006361.5	c.684G>T	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.096	-0.546	0.780			23.2	P	Uncertain_significance	17	46804323	C	A	ok	pipeline
+HOXB13	NM_006361.5	c.685C>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.999	4.013	0.689			26.3	P	Uncertain_significance	17	46804322	G	C	ok	pipeline
+HOXB13	NM_006361.5	c.685C>T	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.999	4.013	0.702		1.24000e-06	31.0	A	Uncertain_significance	17	46804322	G	A	ok	pipeline
+HOXB13	NM_006361.5	c.690G>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.791	-0.005	0.816			24.9	P		17	46804317	C	G	ok	pipeline
+HOXB13	NM_006361.5	c.696G>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.857	0.206	0.868			23.8	P	Uncertain_significance	17	46804311	C	G	ok	pipeline
+HOXB13	NM_006361.5	c.696G>T	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.857	0.206	0.868			23.7	P		17	46804311	C	A	ok	pipeline
+HOXB13	NM_006361.5	c.697C>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.895	3.288	0.751			27.6	A	Uncertain_significance	17	46804310	G	C	ok	pipeline
+HOXB13	NM_006361.5	c.697C>T	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.895	3.288	0.840		6.80000e-07	32.0	A	Uncertain_significance	17	46804310	G	A	ok	pipeline
+HOXB13	NM_006361.5	c.702G>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.999	0.659	0.846			23.2	P	Uncertain_significance	17	46804305	C	G	ok	pipeline
+HOXB13	NM_006361.5	c.702G>T	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.999	0.659	0.846			23.2	P		17	46804305	C	A	ok	pipeline
+HOXB13	NM_006361.5	c.705T>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.996	0.439				35.0			17	46804302	A	T	ok	pipeline
+HOXB13	NM_006361.5	c.705T>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.996	0.439				35.0			17	46804302	A	C	ok	pipeline
+HOXB13	NM_006361.5	c.717G>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.8	-0.068	0.620			25.0	P		17	46804290	C	G	ok	pipeline
+HOXB13	NM_006361.5	c.717G>T	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.8	-0.068	0.620			25.0	P	Uncertain_significance	17	46804290	C	A	ok	pipeline
+HOXB13	NM_006361.5	c.729G>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.459	-0.141	0.790			25.6	P		17	46804278	C	G	ok	pipeline
+HOXB13	NM_006361.5	c.690G>T	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.791	-0.005	0.816			24.9	P		17	46804317	C	A	ok	pipeline
+HOXB13	NM_006361.5	c.426T>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.98	0.173	0.781			32.0	P	Uncertain_significance	17	46805530	A	C	ok	pipeline
+HOXB13	NM_006361.5	c.426T>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.98	0.173	0.781			24.8	P		17	46805530	A	T	ok	pipeline
+HOXB13	NM_006361.5	c.399T>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.99	0.478				36.0		Uncertain_significance	17	46805557	A	T	ok	pipeline
+HOXB13	NM_006361.5	c.399T>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.99	0.478				36.0			17	46805557	A	C	ok	pipeline
+HOXB13	NM_006361.5	c.30T>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.963	0.14	0.381			17.82	B		17	46805926	A	T	ok	pipeline
+HOXB13	NM_006361.5	c.30T>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.963	0.14	0.381			17.95	B	Uncertain_significance	17	46805926	A	C	ok	pipeline
+HOXB13	NM_006361.5	c.42T>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.999	0.616	0.277			12.78	B		17	46805914	A	T	ok	pipeline
+HOXB13	NM_006361.5	c.42T>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.999	0.616	0.279			12.78	B		17	46805914	A	C	ok	pipeline
+HOXB13	NM_006361.5	c.48A>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.501	-0.368	0.191			16.02	B		17	46805908	T	G	ok	pipeline
+HOXB13	NM_006361.5	c.48A>T	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.501	-0.368	0.191			16.11	B	Uncertain_significance	17	46805908	T	A	ok	pipeline
+HOXB13	NM_006361.5	c.52T>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.993	0.581	0.486			23.2	B		17	46805904	A	T	ok	pipeline
+HOXB13	NM_006361.5	c.52T>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.993	0.581	0.520			20.5	B		17	46805904	A	C	ok	pipeline
+HOXB13	NM_006361.5	c.54G>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.68	-0.033	0.289			18.15	B		17	46805902	C	G	ok	pipeline
+HOXB13	NM_006361.5	c.54G>T	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.68	-0.033	0.289			18.16	B	Uncertain_significance	17	46805902	C	A	ok	pipeline
+HOXB13	NM_006361.5	c.55C>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.897	1.489	0.108			20.9	B		17	46805901	G	T	ok	pipeline
+HOXB13	NM_006361.5	c.55C>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.897	1.489	0.142			18.64	B		17	46805901	G	C	ok	pipeline
+HOXB13	NM_006361.5	c.73C>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.773	0.931	0.375			22.6	B		17	46805883	G	C	ok	pipeline
+HOXB13	NM_006361.5	c.73C>T	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.773	0.931	0.480			25.2	B	Uncertain_significance	17	46805883	G	A	ok	pipeline
+HOXB13	NM_006361.5	c.97C>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.988	2.452	0.080			22.9	B		17	46805859	G	T	ok	pipeline
+HOXB13	NM_006361.5	c.97C>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.988	2.452	0.101			19.85	B	Uncertain_significance	17	46805859	G	C	ok	pipeline
+HOXB13	NM_006361.5	c.108C>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.667	0.574	0.396			22.1	B	Uncertain_significance	17	46805848	G	T	ok	pipeline
+HOXB13	NM_006361.5	c.108C>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.667	0.574	0.396			22.2	B		17	46805848	G	C	ok	pipeline
+HOXB13	NM_006361.5	c.124C>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.97	1.135	0.302			23.6	B	Uncertain_significance	17	46805832	G	T	ok	pipeline
+HOXB13	NM_006361.5	c.124C>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.97	1.135	0.333			18.25	B	Uncertain_significance	17	46805832	G	C	ok	pipeline
+HOXB13	NM_006361.5	c.294A>T	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.34	-0.344	0.275			21.7	P		17	46805662	T	A	ok	pipeline
+HOXB13	NM_006361.5	c.300T>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.926	1.356				36.0			17	46805656	A	T	ok	pipeline
+HOXB13	NM_006361.5	c.300T>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.926	1.356	0.310			22.9	A	Uncertain_significance	17	46805656	A	C	ok	pipeline
+HOXB13	NM_006361.5	c.316C>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.967	2.088	0.083			18.73	B		17	46805640	G	T	ok	pipeline
+HOXB13	NM_006361.5	c.316C>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.967	2.088	0.063			17.19	B		17	46805640	G	C	ok	pipeline
+HOXB13	NM_006361.5	c.327C>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.042	0.282				36.0		Uncertain_significance	17	46805629	G	T	ok	pipeline
+HOXB13	NM_006361.5	c.327C>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.042	0.282			6.88000e-06	36.0		Uncertain_significance	17	46805629	G	C	ok	pipeline
+HOXB13	NM_006361.5	c.336G>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.998	0.355	0.026			11.31	B		17	46805620	C	G	ok	pipeline
+HOXB13	NM_006361.5	c.336G>T	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.998	0.355	0.026			11.21	B		17	46805620	C	A	ok	pipeline
+HOXB13	NM_006361.5	c.354A>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.487	-0.175	0.092			16.45	B		17	46805602	T	G	ok	pipeline
+HOXB13	NM_006361.5	c.354A>T	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.487	-0.175	0.094			16.46	B		17	46805602	T	A	ok	pipeline
+HOXB13	NM_006361.5	c.357G>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.0	-2.675	0.051			14.27	B		17	46805599	C	G	ok	pipeline
+HOXB13	NM_006361.5	c.357G>T	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.0	-2.675	0.051			14.23	B		17	46805599	C	A	ok	pipeline
+HOXB13	NM_006361.5	c.360C>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.276	1.206				35.0			17	46805596	G	T	ok	pipeline
+HOXB13	NM_006361.5	c.360C>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.276	1.206				35.0			17	46805596	G	C	ok	pipeline
+HOXB13	NM_006361.5	c.366C>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.046	1.75	0.153		3.58400e-05	20.2	P	Uncertain_significance	17	46805590	G	T	ok	pipeline
+HOXB13	NM_006361.5	c.366C>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.046	1.75	0.153			20.2	P		17	46805590	G	C	ok	pipeline
+HOXB13	NM_006361.5	c.378G>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.12	-0.276	0.599			21.1	B	Uncertain_significance	17	46805578	C	G	ok	pipeline
+HOXB13	NM_006361.5	c.378G>T	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.12	-0.276	0.599			21.0	B	Uncertain_significance	17	46805578	C	A	ok	pipeline
+HOXB13	NM_006361.5	c.381T>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.185	-0.372	0.341			18.99	P		17	46805575	A	T	ok	pipeline
+HOXB13	NM_006361.5	c.381T>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.185	-0.372	0.341			18.9	P		17	46805575	A	C	ok	pipeline
+HOXB13	NM_006361.5	c.390T>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.99	0.241				35.0			17	46805566	A	T	ok	pipeline
+HOXB13	NM_006361.5	c.390T>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.99	0.241				35.0			17	46805566	A	C	ok	pipeline
+HOXB13	NM_006361.5	c.294A>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.34	-0.344	0.275			21.8	P		17	46805662	T	G	ok	pipeline
+HOXB13	NM_006361.5	c.289C>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.35	0.818	0.089			22.5	B	Uncertain_significance	17	46805667	G	C	ok	pipeline
+HOXB13	NM_006361.5	c.289C>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.35	0.818	0.081			25.0	B		17	46805667	G	T	ok	pipeline
+HOXB13	NM_006361.5	c.285C>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.705	2.97	0.115			24.0	P	Uncertain_significance	17	46805671	G	C	ok	pipeline
+HOXB13	NM_006361.5	c.144T>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.027	-0.329				34.0			17	46805812	A	T	ok	pipeline
+HOXB13	NM_006361.5	c.144T>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.027	-0.329				34.0			17	46805812	A	C	ok	pipeline
+HOXB13	NM_006361.5	c.151T>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.092	0.163	0.026			15.87	B		17	46805805	A	T	ok	pipeline
+HOXB13	NM_006361.5	c.151T>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.092	0.163	0.027			13.57	B		17	46805805	A	C	ok	pipeline
+HOXB13	NM_006361.5	c.156T>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.004	-1.243	0.053			9.667	B		17	46805800	A	T	ok	pipeline
+HOXB13	NM_006361.5	c.156T>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.004	-1.243	0.052			9.752	B		17	46805800	A	C	ok	pipeline
+HOXB13	NM_006361.5	c.157C>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.789	1.785	0.038			20.3	B	Uncertain_significance	17	46805799	G	T	ok	pipeline
+HOXB13	NM_006361.5	c.157C>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.789	1.785	0.055			16.48	B	Uncertain_significance	17	46805799	G	C	ok	pipeline
+HOXB13	NM_006361.5	c.174G>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.928	-0.008	0.060			14.7	B	Uncertain_significance	17	46805782	C	G	ok	pipeline
+HOXB13	NM_006361.5	c.174G>T	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.928	-0.008	0.060			14.47	B		17	46805782	C	A	ok	pipeline
+HOXB13	NM_006361.5	c.183G>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.999	0.688	0.117			25.0	P		17	46805773	C	G	ok	pipeline
+HOXB13	NM_006361.5	c.183G>T	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.999	0.688	0.117			25.0	P	Uncertain_significance	17	46805773	C	A	ok	pipeline
+HOXB13	NM_006361.5	c.192C>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.989	0.498	0.092			17.42	B		17	46805764	G	C	ok	pipeline
+HOXB13	NM_006361.5	c.198C>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.998	0.673			1.83000e-06	35.0		Uncertain_significance	17	46805758	G	T	ok	pipeline
+HOXB13	NM_006361.5	c.213G>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.997	1.256	0.174			23.3	B		17	46805743	C	G	ok	pipeline
+HOXB13	NM_006361.5	c.213G>T	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.997	1.256	0.174			23.3	B		17	46805743	C	A	ok	pipeline
+HOXB13	NM_006361.5	c.240T>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.007	-1.003			2.80000e-07	33.0		Uncertain_significance	17	46805716	A	T	ok	pipeline
+HOXB13	NM_006361.5	c.240T>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.007	-1.003				33.0			17	46805716	A	C	ok	pipeline
+HOXB13	NM_006361.5	c.249T>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.207	-0.267	0.279			21.6	P		17	46805707	A	T	ok	pipeline
+HOXB13	NM_006361.5	c.249T>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.207	-0.267	0.279			21.8	P		17	46805707	A	C	ok	pipeline
+HOXB13	NM_006361.5	c.264C>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.548	0.006				36.0		Uncertain_significance	17	46805692	G	T	ok	pipeline
+HOXB13	NM_006361.5	c.264C>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.548	0.006				36.0			17	46805692	G	C	ok	pipeline
+HOXB13	NM_006361.5	c.285C>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.705	2.97	0.115			23.9	P		17	46805671	G	T	ok	pipeline
+HOXB13	NM_006361.5	c.192C>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.989	0.498	0.095			17.38	B		17	46805764	G	T	ok	pipeline
+HOXB13	NM_006361.5	c.198C>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.998	0.673	0.287			19.56	P	Uncertain_significance	17	46805758	G	C	ok	pipeline
+HOXB13	NM_006361.5	c.594A>G	Likely_benign ClinVar(2-star, criteria provided)								Likely benign	17	46805362			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.723C>T	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	46804284			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.783C>T	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	17	46804224			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.234G>C	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	46805722			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.601+11T>C	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	17	46805344			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.602-18C>T	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	17	46804423			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.601+16T>A	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	17	46805339			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.243T>C	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	17	46805713			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.846T>C	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	17	46804161			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.602-11A>G	Likely_benign ClinVar(2-star, criteria provided)								Likely benign	17	46804416			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.*28C>A	Benign ClinVar(1-star, criteria provided)								Benign	17	46804124			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.435C>T	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	17	46805521			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.52T>C	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	46805904			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.540C>T	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	17	46805416			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.441T>C	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	17	46805515			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.432G>A	Likely_benign ClinVar(2-star, criteria provided)								Likely benign	17	46805524			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.141C>T	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	46805815			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.192C>T	Likely_benign ClinVar(2-star, criteria provided)								Likely benign	17	46805764			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.672C>T	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	17	46804335			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.601+49G>A	Benign ClinVar(1-star, criteria provided)								Benign	17	46805306			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.601+17_601+25del	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	17	46805330			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.810A>G	Likely_benign ClinVar(2-star, criteria provided)								Likely benign	17	46804197			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.117G>T	Likely_benign ClinVar(2-star, criteria provided)								Likely benign	17	46805839			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.90C>T	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	46805866			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.602-20del	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	17	46804425			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.602-19T>G	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	17	46804424			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.717G>A	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	46804290			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.855A>G	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	17	46804152			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.648C>T	Likely_benign ClinVar(2-star, criteria provided)								Likely benign	17	46804359			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.453T>C	Likely_benign ClinVar(2-star, criteria provided)								Likely benign	17	46805503			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.177G>T	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	46805779			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.601+14C>G	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	17	46805341			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.306G>A	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	46805650			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.261C>T	Likely_benign ClinVar(2-star, criteria provided)								Likely benign	17	46805695			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.231C>T	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	46805725			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.87C>T	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	46805869			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.642T>C	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	46804365			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.807C>T	Likely_benign ClinVar(2-star, criteria provided)								Likely benign	17	46804200			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.843C>T	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	46804164			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.333G>T	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	46805623			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.702G>A	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	46804305			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.669C>T	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	17	46804338			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.102C>T	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	46805854			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.693G>A	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	17	46804314			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.831G>A	Likely_benign ClinVar(2-star, criteria provided)								Likely benign	17	46804176			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.759C>T	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	46804248			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.706G>T	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	17	46804301			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.18T>C	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	46805938			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.207G>A	Likely_benign ClinVar(2-star, criteria provided)								Likely benign	17	46805749			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.318G>A	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	46805638			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.372C>T	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	17	46805584			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.354A>G	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	46805602			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.339T>A	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	17	46805617			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.483C>T	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	17	46805473			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.510G>A	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	17	46805446			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.618C>T	Likely_benign ClinVar(2-star, criteria provided)								Likely benign	17	46804389			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.487C>T	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	46805469			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.501C>T	Benign ClinVar(1-star, criteria provided)								Benign	17	46805455			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.24C>G	Benign ClinVar(1-star, criteria provided)								Benign	17	46805932			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.405A>T	Benign ClinVar(1-star, criteria provided)								Benign	17	46805551			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.699G>A	Benign ClinVar(1-star, criteria provided)								Benign	17	46804308			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.615G>A	Benign ClinVar(1-star, criteria provided)								Benign	17	46804392			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.601+7C>A	Likely_benign ClinVar(2-star, criteria provided)								Likely benign	17	46805348			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.602-8C>T	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	17	46804413			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.*3G>A	Benign ClinVar(1-star, criteria provided)								Benign	17	46804149			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.396A>G	Benign ClinVar(1-star, criteria provided)								Benign	17	46805560			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.687G>C	Benign ClinVar(1-star, criteria provided)								Benign	17	46804320			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.741C>T	Benign ClinVar(1-star, criteria provided)								Benign	17	46804266			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.108C>T	Benign ClinVar(1-star, criteria provided)								Benign	17	46805848			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.*5T>A	Benign ClinVar(1-star, criteria provided)								Benign	17	46804147			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.69G>C	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	46805887			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.570A>T	Benign ClinVar(1-star, criteria provided)								Benign	17	46805386			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.300T>C	Benign ClinVar(1-star, criteria provided)								Benign	17	46805656			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.*7T>C	Benign ClinVar(1-star, criteria provided)								Benign	17	46804145			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.378G>A	Benign ClinVar(1-star, criteria provided)								Benign	17	46805578			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.*8C>A	Benign ClinVar(1-star, criteria provided)								Benign	17	46804144			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.249T>C	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	46805707			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.477A>T	Benign ClinVar(1-star, criteria provided)								Benign	17	46805479			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.414G>A	Benign ClinVar(1-star, criteria provided)								Benign	17	46805542			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.602-17C>T	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	17	46804422			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.684G>A	Benign ClinVar(1-star, criteria provided)								Benign	17	46804323			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.15T>C	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	46805941			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.279C>T	Benign ClinVar(1-star, criteria provided)								Benign	17	46805677			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.429C>T	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	46805527			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.602-13dup	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	17	46804417			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.316C>T	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	46805640			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.660C>T	Likely_benign ClinVar(2-star, criteria provided)								Likely benign	17	46804347			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.27G>A	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	46805929			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.601+12dup	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	17	46805342			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.601+17G>A	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	17	46805338			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.135T>C	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	17	46805821			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.42T>C	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	17	46805914			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.624T>G	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	17	46804383			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.690G>A	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	17	46804317			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.399T>C	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	17	46805557			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.67G>T	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	17	46805889			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.381T>C	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	17	46805575			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.144T>C	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	17	46805812			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.744G>A	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	17	46804263			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.128T>A	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	17	46805828			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.295C>A	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	17	46805661			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.561A>G	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	46805395			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.495T>C	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	46805461			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.171G>A	Likely_benign ClinVar(2-star, criteria provided)								Likely benign	17	46805785			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.25T>C	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	46805931			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.124C>T	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	17	46805832			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.840C>T	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	17	46804167			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.45C>A	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	17	46805911			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.426T>C	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	17	46805530			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.602-7C>T	Likely_benign ClinVar(2-star, criteria provided)								Likely benign	17	46804412			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.777G>A	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	46804230			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.774C>T	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	46804233			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.198C>T	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	17	46805758			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.201T>A	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	17	46805755			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.612G>T	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	46804395			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.525T>G	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	17	46805431			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.462T>C	Likely_benign ClinVar(2-star, criteria provided)								Likely benign	17	46805494			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.369C>T	Likely_benign ClinVar(2-star, criteria provided)								Likely benign	17	46805587			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.609C>T	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	46804398			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.825C>T	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	46804182			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.321C>A	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	46805635			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.324G>A	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	46805632			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.411C>T	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	46805545			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.474G>A	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	46805482			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.513T>C	Benign ClinVar(2-star, criteria provided)								Benign	17	46805443			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.666G>A	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	46804341			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.39G>A	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	46805917			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.210C>T	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	46805746			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.258G>C	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	46805698			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.33A>T	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	46805923			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.705T>C	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	46804302			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.711T>C	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	46804296			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.849C>T	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	46804158			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.330C>A	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	46805626			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.366C>T	Benign ClinVar(2-star, criteria provided)								Benign	17	46805590			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.522C>G	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	46805434			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.489G>C	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	46805467			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.507C>T	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	46805449			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.567C>T	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	46805389			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.601+134G>A	Benign ClinVar(2-star, criteria provided)								Benign	17	46805221			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.336G>A	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	46805620			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.365G>A	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	17	46805591			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.459T>G	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	46805497			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.519T>C	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	46805437			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.528T>G	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	46805428			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.555G>A	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	46805401			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.591A>G	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	17	46805365			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.597T>C	Benign ClinVar(1-star, criteria provided)								Benign	17	46805359			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.603C>T	Likely_benign ClinVar(2-star, criteria provided)								Likely benign	17	46804404			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.639T>C	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	17	46804368			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.654G>A	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	17	46804353			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.720C>T	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	46804287			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.297C>T	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	17	46805659			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.726C>T	Benign ClinVar(1-star, criteria provided)								Benign	17	46804281			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.750G>C	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	46804257			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.762C>T	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	46804245			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.765C>T	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	46804242			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.816G>A	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	17	46804191			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.747C>T	Likely_benign ClinVar(2-star, criteria provided)								Likely benign	17	46804260			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.255C>G	Benign ClinVar(1-star, criteria provided)								Benign	17	46805701			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.219G>T	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	17	46805737			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.601+19G>A	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	17	46805336			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.246C>T	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	46805710			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.602-16C>T	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	17	46804421			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.21C>T	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	46805935			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.60A>G	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	46805896			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.81G>T	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	46805875			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.111A>T	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	17	46805845			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.132T>C	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	17	46805824			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.138C>T	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	17	46805818			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.145G>T	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	17	46805811			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.159G>C	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	17	46805797			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.162A>G	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	46805794			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.165C>T	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	46805791			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.174G>A	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	46805782			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.195A>C	Likely_benign ClinVar(2-star, criteria provided)								Likely benign	17	46805761			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.9C>G	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	46805947			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.456G>C	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	46805500			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.360C>T	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	46805596			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.735G>A	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	46804272			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.-47C>T	Benign ClinVar(1-star, criteria provided)								Benign	17	46806002			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.602-9G>A	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	46804414			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.-6G>A	Likely_benign ClinVar(2-star, criteria provided)								Likely benign	17	46805961			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.*57G>A	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	17	46804095			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.678G>A	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	46804329			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.675G>A	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	46804332			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.601+9A>G	Likely_benign ClinVar(2-star, criteria provided)								Likely benign	17	46805346			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.348C>G	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	46805608			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.486C>G	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	46805470			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.315C>A	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	46805641			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.345G>T	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	46805611			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.57G>A	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	46805899			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.96T>A	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	46805860			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.601+10T>C	Likely_benign ClinVar(2-star, criteria provided)								Likely benign	17	46805345			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.602-6G>T	Likely_benign ClinVar(2-star, criteria provided)								Likely benign	17	46804411			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.657A>G	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	17	46804350			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.801C>T	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	46804206			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.417T>C	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	46805539			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.819G>A	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	46804188			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.270C>T	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	17	46805686			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.312C>T	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	46805644			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.579C>T	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	17	46805377			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.240T>C	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	46805716			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.282G>A	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	46805674			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.294A>G	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	46805662			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.682T>C	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	46804325			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.549T>C	Likely_benign ClinVar(2-star, criteria provided)								Likely benign	17	46805407			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.552C>T	Likely_benign ClinVar(2-star, criteria provided)								Likely benign	17	46805404			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.601+12del	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	17	46805343			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.73C>A	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	46805883			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.252A>G	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	46805704			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.72G>A	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	46805884			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.573A>G	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	46805383			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.601+15C>G	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	17	46805340			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.213G>A	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	46805743			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.402G>A	Likely_benign ClinVar(2-star, criteria provided)								Likely benign	17	46805554			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.602-335G>A	Benign ClinVar(1-star, criteria provided)								Benign	17	46804740			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.627C>T	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	46804380			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.222C>A	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	17	46805734			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.651C>T	Likely_benign ClinVar(2-star, criteria provided)								Likely benign	17	46804356			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.147C>T	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	46805809			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.12C>A	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	46805944			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.63G>C	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	46805893			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.93C>T	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	46805863			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.105C>T	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	46805851			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.114G>C	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	46805842			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.123G>A	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	46805833			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.150C>G	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	46805806			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.183G>A	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	46805773			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.189C>T	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	46805767			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.216G>A	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	46805740			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.271C>A	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	46805685			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.288G>T	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	46805668			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.303C>G	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	46805653			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.342C>T	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	46805614			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.351G>C	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	46805605			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.357G>A	Likely_benign ClinVar(2-star, criteria provided)								Likely benign	17	46805599			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.384C>T	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	46805572			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.387C>T	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	46805569			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.430C>T	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	46805526			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.447G>T	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	46805509			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.468A>G	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	46805488			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.490T>C	Likely_benign ClinVar(2-star, criteria provided)								Likely benign	17	46805466			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.492G>A	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	46805464			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.606C>T	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	46804401			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.633C>T	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	46804374			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.636C>T	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	46804371			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.696G>A	Likely_benign ClinVar(2-star, criteria provided)								Likely benign	17	46804311			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.697C>A	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	46804310			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.708G>A	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	46804299			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.768G>A	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	46804239			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.738G>A	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	46804269			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.273A>T	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	46805683			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.802C>A	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	46804205			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.75G>A	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	46805881			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.84C>T	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	46805872			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.168G>A	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	46805788			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.280C>A	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	17	46805676			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.327C>T	Likely_benign ClinVar(2-star, criteria provided)								Likely benign	17	46805629			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.465T>G	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	46805491			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.475C>A	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	17	46805481			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.645C>G	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	46804362			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.780T>A	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	17	46804227			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.786C>A	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	46804221			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.795G>A	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	17	46804212			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.798C>T	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	46804209			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.204G>T	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	46805752			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.602-4G>T	Likely_benign ClinVar(2-star, criteria provided)								Likely benign	17	46804409			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.393G>A	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	46805563			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.99G>C	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	46805857			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.126G>A	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	17	46805830			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.237T>C	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	46805719			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.285C>T	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	46805671			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.363C>T	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	46805593			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.408C>T	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	46805548			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.454C>T	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	46805502			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.685C>A	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	46804322			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.732C>T	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	17	46804275			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.602-10C>T	Likely_benign ClinVar(2-star, criteria provided)								Likely benign	17	46804415			clinvar_assertion	clinvar
+HOXB13	NM_006361.5	c.582T>C	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.997	0.337		0 (assumed)					17	46805374	A	G	local_enumeration	synonymous_catalog
+HOXB13	NM_006361.5	c.588G>A	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.989	0.213		0 (assumed)					17	46805368	C	T	local_enumeration	synonymous_catalog
+HOXB13	NM_006361.5	c.663T>C	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.195	-0.354		0 (assumed)					17	46804344	A	G	local_enumeration	synonymous_catalog
+HOXB13	NM_006361.5	c.663T>A	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.195	-0.354		0 (assumed)					17	46804344	A	T	local_enumeration	synonymous_catalog
+HOXB13	NM_006361.5	c.681G>A	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.97	0.208		0 (assumed)					17	46804326	C	T	local_enumeration	synonymous_catalog
+HOXB13	NM_006361.5	c.564G>A	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.542	1.23		0 (assumed)					17	46805392	C	T	local_enumeration	synonymous_catalog
+HOXB13	NM_006361.5	c.390T>C	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.99	0.241		0 (assumed)					17	46805566	A	G	local_enumeration	synonymous_catalog
+HOXB13	NM_006361.5	c.450G>A	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.022	-0.152		0 (assumed)					17	46805506	C	T	local_enumeration	synonymous_catalog
+HOXB13	NM_006361.5	c.471A>G	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.864	0.117		0 (assumed)					17	46805485	T	C	local_enumeration	synonymous_catalog
+HOXB13	NM_006361.5	c.480T>C	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.076	-0.773		0 (assumed)					17	46805476	A	G	local_enumeration	synonymous_catalog
+HOXB13	NM_006361.5	c.504T>C	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.992	0.519		0 (assumed)					17	46805452	A	G	local_enumeration	synonymous_catalog
+HOXB13	NM_006361.5	c.537C>T	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.001	0.033		0 (assumed)					17	46805419	G	A	local_enumeration	synonymous_catalog
+HOXB13	NM_006361.5	c.543G>A	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.991	1.867		0 (assumed)					17	46805413	C	T	local_enumeration	synonymous_catalog
+HOXB13	NM_006361.5	c.729G>A	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.459	-0.141		0 (assumed)					17	46804278	C	T	local_enumeration	synonymous_catalog
+HOXB13	NM_006361.5	c.747C>A	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.119	-0.463		0 (assumed)					17	46804260	G	T	local_enumeration	synonymous_catalog
+HOXB13	NM_006361.5	c.771G>A	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.999	0.804		0 (assumed)					17	46804236	C	T	local_enumeration	synonymous_catalog
+HOXB13	NM_006361.5	c.780T>C	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.702	-0.155		0 (assumed)					17	46804227	A	G	local_enumeration	synonymous_catalog
+HOXB13	NM_006361.5	c.837G>A	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.957	0.215		0 (assumed)					17	46804170	C	T	local_enumeration	synonymous_catalog
+HOXB13	NM_006361.5	c.854A>G	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.14	0.082		0 (assumed)					17	46804153	T	C	local_enumeration	synonymous_catalog
+HOXB13	NM_006361.5	c.97C>T	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.988	2.452		0 (assumed)					17	46805859	G	A	local_enumeration	synonymous_catalog
+HOXB13	NM_006361.5	c.151T>C	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.092	0.163		0 (assumed)					17	46805805	A	G	local_enumeration	synonymous_catalog
+HOXB13	NM_006361.5	c.156T>C	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.004	-1.243		0 (assumed)					17	46805800	A	G	local_enumeration	synonymous_catalog
+HOXB13	NM_006361.5	c.157C>T	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.789	1.785		0 (assumed)					17	46805799	G	A	local_enumeration	synonymous_catalog
+HOXB13	NM_006361.5	c.264C>T	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.548	0.006		0 (assumed)					17	46805692	G	A	local_enumeration	synonymous_catalog
+HOXB13	NM_006361.5	c.289C>T	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.35	0.818		0 (assumed)					17	46805667	G	A	local_enumeration	synonymous_catalog
+HOXB13	NM_006361.5	c.55C>T	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.897	1.489		0 (assumed)					17	46805901	G	A	local_enumeration	synonymous_catalog
+HOXB13	NM_006361.5	c.54G>A	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.68	-0.033		0 (assumed)					17	46805902	C	T	local_enumeration	synonymous_catalog
+HOXB13	NM_006361.5	c.48A>G	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.501	-0.368		0 (assumed)					17	46805908	T	C	local_enumeration	synonymous_catalog
+HOXB13	NM_006361.5	c.30T>C	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.963	0.14		0 (assumed)					17	46805926	A	G	local_enumeration	synonymous_catalog
+HOXB13	NM_006361.5	c.45C>T	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.988	0.25		0 (assumed)					17	46805911	G	A	local_enumeration	synonymous_catalog

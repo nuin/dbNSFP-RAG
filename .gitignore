@@ -47,3 +47,17 @@ logs/
 hg38.fa
 hg38.fa.fai
 hg38.fa.gz
+
+# dbt POC — venv and build artifacts (regenerable)
+.venv-dbt/
+lake_poc/lake.duckdb
+lake_poc/target/
+lake_poc/dbt_packages/
+lake_poc/logs/
+lake_poc/package-lock.yml
+
+# Large regenerable data dumps (never commit — exceed GitHub 100MB)
+*viz.db
+*all_annotations.tsv.gz
+cp_new_bundle/outputs/_raw/viz.db
+cp_new_bundle/outputs/_raw/all_annotations.tsv.gz

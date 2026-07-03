@@ -1,0 +1,7 @@
+gene	transcript	hgvs_c	classification	PhastCons100way	PhyloP100way	REVEL	SpliceAI_masked	FAF95_grpmax	CADD_phred	AlphaMissense_pred	ClinVar_sig	chr_grch37	pos_grch37	ref	alt	vv_status	source
+MAD2L2	NM_006341.4	c.41-14G>T	Benign FAF >5%	0.001	0.687	.;.;.;.;0.029		0.0744855	14.75	.;.;.;.;LB		1	11740542	C	A	ok	pipeline
+MAD2L2	NM_006341.4	c.232-4G>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0, PhyloP<0.1, intronic_ROI(-4)	0.033	-0.28				9.079			1	11737009	C	G	ok	pipeline
+MAD2L2	NM_006341.4	c.232-4G>T	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0, PhyloP<0.1, intronic_ROI(-4)	0.033	-0.28				8.248			1	11737009	C	A	ok	pipeline
+MAD2L2	NM_006341.4	c.441A>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.001	-1.967	.;.			0.256	.;.		1	11735775	T	G	ok	pipeline
+MAD2L2	NM_006341.4	c.441A>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.001	-1.967	.;.			0.302	.;.		1	11735775	T	C	ok	pipeline
+MAD2L2	NM_006341.4	c.441A>T	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.001	-1.967	.;.			0.252	.;.		1	11735775	T	A	ok	pipeline

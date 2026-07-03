@@ -1,0 +1,3 @@
+gene	transcript	hgvs_c	classification	PhastCons100way	PhyloP100way	REVEL	SpliceAI_masked	FAF95_grpmax	CADD_phred	AlphaMissense_pred	ClinVar_sig	chr_grch37	pos_grch37	ref	alt	vv_status	source
+CDKN1A	NM_000389.5	c.93C>A	Benign FAF >5%	0.965	0.899	.;.;.;.;.;0.244;.;.;.;.;.;.;.;.;0.244;.;.;.;.;0.244;.;.;.;.;.;.;.;0.244;.;.;.;.;.;.;.;.		0.475759	2.378	.;.;.;.;.;.;.;.;.;.;.;.;.;.;LB;.;.;.;.;.;.;.;.;.;.;.;.;B;.;.;.;.;.;.;.;.	Benign	6	36651971	C	A	ok	pipeline
+CDKN1A	NM_000389.5	c.251G>A	Likely_benign ClinVar(2-star, criteria provided)								Likely benign	6	36652129			clinvar_assertion	clinvar

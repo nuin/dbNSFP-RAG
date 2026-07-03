@@ -1,0 +1,166 @@
+gene	transcript	hgvs_c	classification	PhastCons100way	PhyloP100way	REVEL	SpliceAI_masked	FAF95_grpmax	CADD_phred	AlphaMissense_pred	ClinVar_sig	chr_grch37	pos_grch37	ref	alt	vv_status	source
+ELP1	NM_003640.5	c.3473C>T	Benign FAF >5%	0.988	3.177	0.045;.;.;.;.;.;.;.;.;.;0.045;.;.		0.316832	12.91	B;.;.;.;.;.;.;.;.;.;LB;.;.	Benign	9	111641825	G	A	ok	pipeline
+ELP1	NM_003640.5	c.3037G>A	Benign FAF >5%	1.0	7.159	0.149;.;.;.;.;.;.;.;.;.;0.149;.;.		0.109286	24.4	B;.;.;.;.;.;.;.;.;.;LB;.;.	Benign/Likely_benign	9	111653606	C	T	ok	pipeline
+ELP1	NM_003640.5	c.545T>A	Benign FAF >5%	1.0	4.157	0.070;.;.;.;.;.;.;.;.;.;.;.		0.215327	18.3	B;.;.;.;.;.;.;.;.;.;.;.	Benign/Likely_benign	9	111685129	A	T	ok	pipeline
+ELP1	NM_003640.5	c.1574G>A	Benign FAF >5%	0.993	0.301	0.008;.;.;.;.;.;.;.;.;.;0.008;.;.		0.107605	6.009	B;.;.;.;.;.;.;.;.;.;LB;.;.	Benign	9	111668652	C	T	ok	pipeline
+ELP1	NM_003640.5	c.2294G>A	Benign FAF >5%	1.0	1.947	0.109;.;.;.;.;.;.;.;.;.;0.109;.;.		0.411944	15.74	B;.;.;.;.;.;.;.;.;.;LB;.;.	Benign	9	111660851	C	T	ok	pipeline
+ELP1	NM_003640.5	c.2446A>C	Benign FAF >5%	1.0	1.827	0.073;.;.;.;.;.;.;.;.;.;0.073;.;.		0.439043	12.3	B;.;.;.;.;.;.;.;.;.;LB;.;.	Benign	9	111659483	T	G	ok	pipeline
+ELP1	NM_003640.5	c.2490A>G	Benign FAF >5%	0.761	-0.097	0.134;.;.;.;.;.;.;.;.;.;0.134;.;.		0.172479	12.2	B;.;.;.;.;.;.;.;.;.;LB;.;.	Benign	9	111659439	T	C	ok	pipeline
+ELP1	NM_003640.5	c.2855A>T	Benign FAF >5%	1.0	3.511	0.161;.;.;.;.;.;.;.;.;.;0.161;.;.		0.0501195	23.1	B;.;.;.;.;.;.;.;.;.;LB;.;.	Benign/Likely_benign	9	111656228	T	A	ok	pipeline
+ELP1	NM_003640.5	c.3214T>A	Benign FAF >5%	1.0	6.717	0.111;.;.;.;.;.;.;.;.;.;0.111;.;.		0.318333	23.3	B;.;.;.;.;.;.;.;.;.;LB;.;.	Benign	9	111651620	A	T	ok	pipeline
+ELP1	NM_003640.5	c.865-15T>A	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	9	111678592			clinvar_assertion	clinvar
+ELP1	NM_003640.5	c.386-5C>G	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	9	111688888			clinvar_assertion	clinvar
+ELP1	NM_003640.5	c.1190-8C>T	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	9	111673468			clinvar_assertion	clinvar
+ELP1	NM_003640.5	c.650-9C>G	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	9	111681190			clinvar_assertion	clinvar
+ELP1	NM_003640.5	c.2015-10GT[2]	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	9	111662660			clinvar_assertion	clinvar
+ELP1	NM_003640.5	c.1190-14_1190-11del	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	9	111673471			clinvar_assertion	clinvar
+ELP1	NM_003640.5	c.865-7dup	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	9	111678583			clinvar_assertion	clinvar
+ELP1	NM_003640.5	c.2205-4A>G	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	9	111661033			clinvar_assertion	clinvar
+ELP1	NM_003640.5	c.2861-8del	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	9	111655371			clinvar_assertion	clinvar
+ELP1	NM_003640.5	c.2364-10C>G	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	9	111659575			clinvar_assertion	clinvar
+ELP1	NM_003640.5	c.2284-5G>T	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	9	111660866			clinvar_assertion	clinvar
+ELP1	NM_003640.5	c.3461-14T>C	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	9	111641851			clinvar_assertion	clinvar
+ELP1	NM_003640.5	c.3932-14T>C	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	9	111631476			clinvar_assertion	clinvar
+ELP1	NM_003640.5	c.1751-15C>T	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	9	111665237			clinvar_assertion	clinvar
+ELP1	NM_003640.5	c.386-12T>C	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	9	111688895			clinvar_assertion	clinvar
+ELP1	NM_003640.5	c.1751-10A>C	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	9	111665232			clinvar_assertion	clinvar
+ELP1	NM_003640.5	c.553-6T>C	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	9	111681635			clinvar_assertion	clinvar
+ELP1	NM_003640.5	c.959-9C>T	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	9	111674783			clinvar_assertion	clinvar
+ELP1	NM_003640.5	c.1921A>G	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	9	111663798			clinvar_assertion	clinvar
+ELP1	NM_003640.5	c.2039A>G	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	9	111662631			clinvar_assertion	clinvar
+ELP1	NM_003640.5	c.1190-9T>A	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	9	111673469			clinvar_assertion	clinvar
+ELP1	NM_003640.5	c.1461-6C>T	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	9	111668771			clinvar_assertion	clinvar
+ELP1	NM_003640.5	c.1909-14G>A	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	9	111663824			clinvar_assertion	clinvar
+ELP1	NM_003640.5	c.2284-9T>C	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	9	111660870			clinvar_assertion	clinvar
+ELP1	NM_003640.5	c.2588-5G>A	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	9	111658929			clinvar_assertion	clinvar
+ELP1	NM_003640.5	c.3701-6C>T	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	9	111640435			clinvar_assertion	clinvar
+ELP1	NM_003640.5	c.741-5_741-4dup	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	9	111679953			clinvar_assertion	clinvar
+ELP1	NM_003640.5	c.2284-4G>C	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	9	111660865			clinvar_assertion	clinvar
+ELP1	NM_003640.5	c.1855-4G>C	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	9	111663965			clinvar_assertion	clinvar
+ELP1	NM_003640.5	c.2364-12A>C	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	9	111659577			clinvar_assertion	clinvar
+ELP1	NM_003640.5	c.2502-6C>T	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	9	111659324			clinvar_assertion	clinvar
+ELP1	NM_003640.5	c.2502-9T>C	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	9	111659327			clinvar_assertion	clinvar
+ELP1	NM_003640.5	c.650-10T>G	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	9	111681191			clinvar_assertion	clinvar
+ELP1	NM_003640.5	c.3347-10G>T	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	9	111642455			clinvar_assertion	clinvar
+ELP1	NM_003640.5	c.151-2del	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	9	111692203			clinvar_assertion	clinvar
+ELP1	NM_003640.5	c.2015-14A>G	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	9	111662669			clinvar_assertion	clinvar
+ELP1	NM_003640.5	c.2364-13C>T	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	9	111659578			clinvar_assertion	clinvar
+ELP1	NM_003640.5	c.3701-13T>G	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	9	111640442			clinvar_assertion	clinvar
+ELP1	NM_003640.5	c.741-13A>G	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	9	111679963			clinvar_assertion	clinvar
+ELP1	NM_003640.5	c.2737-12T>C	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	9	111656358			clinvar_assertion	clinvar
+ELP1	NM_003640.5	c.2131-6_2131-3del	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	9	111662178			clinvar_assertion	clinvar
+ELP1	NM_003640.5	c.2502-10A>G	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	9	111659328			clinvar_assertion	clinvar
+ELP1	NM_003640.5	c.3573-14_3573-13del	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	9	111641043			clinvar_assertion	clinvar
+ELP1	NM_003640.5	c.467-4G>A	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	9	111685211			clinvar_assertion	clinvar
+ELP1	NM_003640.5	c.2737-15T>G	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	9	111656361			clinvar_assertion	clinvar
+ELP1	NM_003640.5	c.2205-9T>C	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	9	111661038			clinvar_assertion	clinvar
+ELP1	NM_003640.5	c.3461-6T>C	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	9	111641843			clinvar_assertion	clinvar
+ELP1	NM_003640.5	c.304-11C>G	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	9	111689744			clinvar_assertion	clinvar
+ELP1	NM_003640.5	c.3573-9T>C	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	9	111641039			clinvar_assertion	clinvar
+ELP1	NM_003640.5	c.3573-10T>C	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	9	111641040			clinvar_assertion	clinvar
+ELP1	NM_003640.5	c.2015-11G>C	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	9	111662666			clinvar_assertion	clinvar
+ELP1	NM_003640.5	c.1361-15A>G	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	9	111670699			clinvar_assertion	clinvar
+ELP1	NM_003640.5	c.2284-11T>C	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	9	111660872			clinvar_assertion	clinvar
+ELP1	NM_003640.5	c.865-11T>A	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	9	111678588			clinvar_assertion	clinvar
+ELP1	NM_003640.5	c.959-11T>A	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	9	111674785			clinvar_assertion	clinvar
+ELP1	NM_003640.5	c.2284-12T>C	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	9	111660873			clinvar_assertion	clinvar
+ELP1	NM_003640.5	c.1644-9T>C	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	9	111665958			clinvar_assertion	clinvar
+ELP1	NM_003640.5	c.2131-6T>C	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	9	111662181			clinvar_assertion	clinvar
+ELP1	NM_003640.5	c.2959-10C>T	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	9	111653694			clinvar_assertion	clinvar
+ELP1	NM_003640.5	c.3461-13T>C	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	9	111641850			clinvar_assertion	clinvar
+ELP1	NM_003640.5	c.2588-9C>T	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	9	111658933			clinvar_assertion	clinvar
+ELP1	NM_003640.5	c.650-11C>T	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	9	111681192			clinvar_assertion	clinvar
+ELP1	NM_003640.5	c.1644-15C>G	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	9	111665964			clinvar_assertion	clinvar
+ELP1	NM_003640.5	c.3223-15C>G	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	9	111644482			clinvar_assertion	clinvar
+ELP1	NM_003640.5	c.650-12A>G	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	9	111681193			clinvar_assertion	clinvar
+ELP1	NM_003640.5	c.3461-7T>G	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	9	111641844			clinvar_assertion	clinvar
+ELP1	NM_003640.5	c.3161-4A>G	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	9	111651677			clinvar_assertion	clinvar
+ELP1	NM_003640.5	c.2205-12G>A	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	9	111661041			clinvar_assertion	clinvar
+ELP1	NM_003640.5	c.2861-15A>G	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	9	111655378			clinvar_assertion	clinvar
+ELP1	NM_003640.5	c.2284-14C>T	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	9	111660875			clinvar_assertion	clinvar
+ELP1	NM_003640.5	c.2502-5C>T	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	9	111659323			clinvar_assertion	clinvar
+ELP1	NM_003640.5	c.467-9G>A	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	9	111685216			clinvar_assertion	clinvar
+ELP1	NM_003640.5	c.2364-15C>T	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	9	111659580			clinvar_assertion	clinvar
+ELP1	NM_003640.5	c.1461-11A>G	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	9	111668776			clinvar_assertion	clinvar
+ELP1	NM_003640.5	c.3286-14G>T	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	9	111644059			clinvar_assertion	clinvar
+ELP1	NM_003640.5	c.1190-12T>C	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	9	111673472			clinvar_assertion	clinvar
+ELP1	NM_003640.5	c.151-14T>C	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	9	111692215			clinvar_assertion	clinvar
+ELP1	NM_003640.5	c.1721C>T	Benign ClinVar(2-star, criteria provided)								Benign	9	111665872			clinvar_assertion	clinvar
+ELP1	NM_003640.5	c.1644-15_1644-13del	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	9	111665962			clinvar_assertion	clinvar
+ELP1	NM_003640.5	c.3856-14dup	Likely_benign ClinVar(2-star, criteria provided)								Likely benign	9	111637263			clinvar_assertion	clinvar
+ELP1	NM_003640.5	c.650-7C>T	Likely_benign ClinVar(2-star, criteria provided)								Likely benign	9	111681188			clinvar_assertion	clinvar
+ELP1	NM_003640.5	c.1017C>A	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	9	111674716			clinvar_assertion	clinvar
+ELP1	NM_003640.5	c.617T>G	Likely_benign ClinVar(2-star, criteria provided)								Likely benign	9	111681565			clinvar_assertion	clinvar
+ELP1	NM_003640.5	c.304-7G>A	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	9	111689740			clinvar_assertion	clinvar
+ELP1	NM_003640.5	c.2588-11_2588-10insAC	Likely_benign ClinVar(2-star, criteria provided)								Likely benign	9	111658934			clinvar_assertion	clinvar
+ELP1	NM_003640.5	c.-56+101G>C	Benign ClinVar(2-star, criteria provided)								Benign	9	111696043			clinvar_assertion	clinvar
+ELP1	NM_003640.5	c.1644-13dup	Likely_benign ClinVar(2-star, criteria provided)								Likely benign	9	111665954			clinvar_assertion	clinvar
+ELP1	NM_003640.5	c.959-10T>C	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	9	111674784			clinvar_assertion	clinvar
+ELP1	NM_003640.5	c.2205-7C>T	Likely_benign ClinVar(2-star, criteria provided)								Likely benign	9	111661036			clinvar_assertion	clinvar
+ELP1	NM_003640.5	c.3347-6C>T	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	9	111642451			clinvar_assertion	clinvar
+ELP1	NM_003640.5	c.865-9C>T	Likely_benign ClinVar(2-star, criteria provided)								Likely benign	9	111678586			clinvar_assertion	clinvar
+ELP1	NM_003640.5	c.-31G>C	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	9	111693457			clinvar_assertion	clinvar
+ELP1	NM_003640.5	c.2588-6T>G	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	9	111658930			clinvar_assertion	clinvar
+ELP1	NM_003640.5	c.-71G>C	Benign ClinVar(2-star, criteria provided)								Benign	9	111696159			clinvar_assertion	clinvar
+ELP1	NM_003640.5	c.959-15C>T	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	9	111674789			clinvar_assertion	clinvar
+ELP1	NM_003640.5	c.934G>A	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	9	111678508			clinvar_assertion	clinvar
+ELP1	NM_003640.5	c.751A>G	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	9	111679940			clinvar_assertion	clinvar
+ELP1	NM_003640.5	c.-17G>A	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	9	111693443			clinvar_assertion	clinvar
+ELP1	NM_003640.5	c.286A>G	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	9	111692066			clinvar_assertion	clinvar
+ELP1	NM_003640.5	c.-64G>A	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	9	111696152			clinvar_assertion	clinvar
+ELP1	NM_003640.5	c.741-15dup	Benign ClinVar(2-star, criteria provided)								Benign	9	111679964			clinvar_assertion	clinvar
+ELP1	NM_003640.5	c.2543C>A	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	9	111659277			clinvar_assertion	clinvar
+ELP1	NM_003640.5	c.-126T>G	Benign ClinVar(2-star, criteria provided)								Benign	9	111696214			clinvar_assertion	clinvar
+ELP1	NM_003640.5	c.-301C>G	Benign ClinVar(2-star, criteria provided)								Benign	9	111696389			clinvar_assertion	clinvar
+ELP1	NM_003640.5	c.*1259C>G	Benign ClinVar(2-star, criteria provided)								Benign	9	111630136			clinvar_assertion	clinvar
+ELP1	NM_003640.5	c.*1247T>C	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	9	111630148			clinvar_assertion	clinvar
+ELP1	NM_003640.5	c.-155A>G	Likely_benign ClinVar(2-star, criteria provided)								Likely benign	9	111696243			clinvar_assertion	clinvar
+ELP1	NM_003640.5	c.*392A>G	Benign ClinVar(2-star, criteria provided)								Benign	9	111631003			clinvar_assertion	clinvar
+ELP1	NM_003640.5	c.*1071G>A	Benign ClinVar(2-star, criteria provided)								Benign	9	111630324			clinvar_assertion	clinvar
+ELP1	NM_003640.5	c.*861T>G	Benign ClinVar(1-star, criteria provided)								Benign	9	111630534			clinvar_assertion	clinvar
+ELP1	NM_003640.5	c.*1260C>T	Benign ClinVar(2-star, criteria provided)								Benign	9	111630135			clinvar_assertion	clinvar
+ELP1	NM_003640.5	c.*1351C>A	Benign ClinVar(2-star, criteria provided)								Benign	9	111630044			clinvar_assertion	clinvar
+ELP1	NM_003640.5		Benign ClinVar(2-star, criteria provided)								Benign	9	111696621			clinvar_assertion	clinvar
+ELP1	NM_003640.5	c.3856-6C>T	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	9	111637256			clinvar_assertion	clinvar
+ELP1	NM_003640.5	c.3701-4C>T	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	9	111640433			clinvar_assertion	clinvar
+ELP1	NM_003640.5	c.1909-10T>C	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	9	111663820			clinvar_assertion	clinvar
+ELP1	NM_003640.5	c.2737-10A>C	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	9	111656356			clinvar_assertion	clinvar
+ELP1	NM_003640.5	c.151-9T>C	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	9	111692210			clinvar_assertion	clinvar
+ELP1	NM_003640.5	c.304-9_304-8del	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	9	111689741			clinvar_assertion	clinvar
+ELP1	NM_003640.5	c.865-8C>A	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	9	111678585			clinvar_assertion	clinvar
+ELP1	NM_003640.5	c.959-5T>C	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	9	111674779			clinvar_assertion	clinvar
+ELP1	NM_003640.5	c.1190-6C>T	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	9	111673466			clinvar_assertion	clinvar
+ELP1	NM_003640.5	c.2737-9dup	Benign ClinVar(1-star, criteria provided)								Benign	9	111656348			clinvar_assertion	clinvar
+ELP1	NM_003640.5	c.3223-5G>A	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	9	111644472			clinvar_assertion	clinvar
+ELP1	NM_003640.5	c.467-12A>T	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	9	111685219			clinvar_assertion	clinvar
+ELP1	NM_003640.5	c.2737-8T>A	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	9	111656354			clinvar_assertion	clinvar
+ELP1	NM_003640.5	c.1909-12C>T	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	9	111663822			clinvar_assertion	clinvar
+ELP1	NM_003640.5	c.2588-8A>G	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	9	111658932			clinvar_assertion	clinvar
+ELP1	NM_003640.5	c.2588-13T>C	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	9	111658937			clinvar_assertion	clinvar
+ELP1	NM_003640.5	c.3932-4T>C	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	9	111631466			clinvar_assertion	clinvar
+ELP1	NM_003640.5	c.2737-9T>A	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	9	111656355			clinvar_assertion	clinvar
+ELP1	NM_003640.5	c.2364-4T>C	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	9	111659569			clinvar_assertion	clinvar
+ELP1	NM_003640.5	c.741-8G>A	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	9	111679958			clinvar_assertion	clinvar
+ELP1	NM_003640.5	c.2131-8T>G	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	9	111662183			clinvar_assertion	clinvar
+ELP1	NM_003640.5	c.1361-10T>C	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	9	111670694			clinvar_assertion	clinvar
+ELP1	NM_003640.5	c.1461-7A>G	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	9	111668772			clinvar_assertion	clinvar
+ELP1	NM_003640.5	c.1909-8T>C	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	9	111663818			clinvar_assertion	clinvar
+ELP1	NM_003640.5	c.1909-7C>T	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	9	111663817			clinvar_assertion	clinvar
+ELP1	NM_003640.5	c.2959-8T>C	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	9	111653692			clinvar_assertion	clinvar
+ELP1	NM_003640.5	c.553-9C>T	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	9	111681638			clinvar_assertion	clinvar
+ELP1	NM_003640.5	c.3223-10C>G	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	9	111644477			clinvar_assertion	clinvar
+ELP1	NM_003640.5	c.3932-7C>T	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	9	111631469			clinvar_assertion	clinvar
+ELP1	NM_003640.5	c.553-8C>G	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	9	111681637			clinvar_assertion	clinvar
+ELP1	NM_003640.5	c.650-5CA[3]	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	9	111681182			clinvar_assertion	clinvar
+ELP1	NM_003640.5	c.1190-4G>A	Likely_benign ClinVar(2-star, criteria provided)								Likely benign	9	111673464			clinvar_assertion	clinvar
+ELP1	NM_003640.5	c.2502-7A>G	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	9	111659325			clinvar_assertion	clinvar
+ELP1	NM_003640.5	c.2861-6C>T	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	9	111655369			clinvar_assertion	clinvar
+ELP1	NM_003640.5	c.2959-9T>C	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	9	111653693			clinvar_assertion	clinvar
+ELP1	NM_003640.5	c.3461-9C>G	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	9	111641846			clinvar_assertion	clinvar
+ELP1	NM_003640.5	c.3701-10T>G	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	9	111640439			clinvar_assertion	clinvar
+ELP1	NM_003640.5	c.3223-9C>T	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	9	111644476			clinvar_assertion	clinvar
+ELP1	NM_003640.5	c.304-9C>T	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	9	111689742			clinvar_assertion	clinvar
+ELP1	NM_003640.5	c.1909-9C>T	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	9	111663819			clinvar_assertion	clinvar
+ELP1	NM_003640.5	c.2205-5C>T	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	9	111661034			clinvar_assertion	clinvar
+ELP1	NM_003640.5	c.553-4_553-3del	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	9	111681632			clinvar_assertion	clinvar
+ELP1	NM_003640.5	c.151-10T>C	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	9	111692211			clinvar_assertion	clinvar

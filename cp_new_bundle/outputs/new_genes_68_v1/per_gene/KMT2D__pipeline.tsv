@@ -1,0 +1,11 @@
+gene	transcript	hgvs_c	classification	PhastCons100way	PhyloP100way	REVEL	SpliceAI_masked	FAF95_grpmax	CADD_phred	AlphaMissense_pred	ClinVar_sig	chr_grch37	pos_grch37	ref	alt	vv_status	source
+KMT2D	NM_003482.3	c.1426G>A	Benign FAF >5%	0.0	-2.148	.;0.168;.;.		0.306915	0.375	.;B;.;.	Benign	12	49446040	C	T	ok	pipeline
+KMT2D	NM_003482.3	c.7144C>T	Benign FAF >5%	1.0	6.613	.;0.451;.;.		0.0775357	22.4	.;B;.;.	Benign	12	49434409	G	A	ok	pipeline
+KMT2D	NM_003482.3	c.10441-6T>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0, PhyloP<0.1, intronic_ROI(-6)	0.0	-0.023				5.574			12	49428265	A	T	ok	pipeline
+KMT2D	NM_003482.3	c.10441-6T>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0, PhyloP<0.1, intronic_ROI(-6)	0.0	-0.023				14.26			12	49428265	A	C	ok	pipeline
+KMT2D	NM_003482.3	c.10441-4G>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0, PhyloP<0.1, intronic_ROI(-4)	0.0	-1.014				0.808			12	49428263	C	G	ok	pipeline
+KMT2D	NM_003482.3	c.10441-4G>T	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0, PhyloP<0.1, intronic_ROI(-4)	0.0	-1.014				0.728			12	49428263	C	A	ok	pipeline
+KMT2D	NM_003482.3	c.16344A>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.214	-0.571				9.119			12	49416131	T	C	ok	pipeline
+KMT2D	NM_003482.3	c.16344A>T	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.214	-0.571				7.696			12	49416131	T	A	ok	pipeline
+KMT2D	NM_003482.3	c.16350C>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.999	0.574				9.746			12	49416125	G	T	ok	pipeline
+KMT2D	NM_003482.3	c.2438C>T	Benign FAF >5%	0.0	-0.479	.;0.023;.;.		0.0567237	0.939	.;B;.;.	Benign	12	49445028	G	A	ok	pipeline

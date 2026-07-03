@@ -1,0 +1,12 @@
+gene	transcript	hgvs_c	classification	PhastCons100way	PhyloP100way	REVEL	SpliceAI_masked	FAF95_grpmax	CADD_phred	AlphaMissense_pred	ClinVar_sig	chr_grch37	pos_grch37	ref	alt	vv_status	source
+TINF2	NM_001099274.3	c.614T>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.0	0.066				13.77			14	24710072	A	T	ok	pipeline
+TINF2	NM_001099274.3	c.614T>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.0	0.066				13.37			14	24710072	A	C	ok	pipeline
+TINF2	NM_001099274.3	c.710G>A	Benign FAF >5%	0.0	0.398	0.170;0.170;.;.;.;.;.;.;.;.;.		0.120204	7.668	B;LB;LB;.;.;.;.;LB;.;.;LB	Benign	14	24709976	C	T	ok	pipeline
+TINF2	NM_001099274.3	c.981G>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.001	-0.103				2.217			14	24709705	C	T	ok	pipeline
+TINF2	NM_001099274.3	c.981G>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.001	-0.103				16.23			14	24709705	C	G	ok	pipeline
+TINF2	NM_001099274.3	c.981G>T	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.001	-0.103				16.17			14	24709705	C	A	ok	pipeline
+TINF2	NM_001099274.3	c.1115G>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.0	-0.948				6.01			14	24709483	C	T	ok	pipeline
+TINF2	NM_001099274.3	c.1115G>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.0	-0.948				7.875			14	24709483	C	G	ok	pipeline
+TINF2	NM_001099274.3	c.1115G>T	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.0	-0.948				10.86			14	24709483	C	A	ok	pipeline
+TINF2	NM_001099274.3	c.1116G>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.165	0.464				14.49			14	24709482	C	G	ok	pipeline
+TINF2	NM_001099274.3	c.1116G>T	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.165	0.464				14.39			14	24709482	C	A	ok	pipeline

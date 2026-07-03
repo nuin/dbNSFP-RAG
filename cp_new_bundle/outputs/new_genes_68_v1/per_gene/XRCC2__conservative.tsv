@@ -1,0 +1,7 @@
+gene	transcript	hgvs_c	classification	PhastCons100way	PhyloP100way	REVEL	SpliceAI_masked	FAF95_grpmax	CADD_phred	AlphaMissense_pred	ClinVar_sig	chr_grch37	pos_grch37	ref	alt	vv_status	source
+XRCC2	NM_005431.2	c.563G>A	Benign FAF >5%	0.998	1.575	0.030;.		0.104390	17.85	B;.	Benign	7	152346007	C	T	ok	pipeline
+XRCC2	NM_005431.2	c.*1T>C	Benign ClinVar(2-star, criteria provided)								Benign	7	152345726			clinvar_assertion	clinvar
+XRCC2	NM_005431.2	c.121+3dup	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	7	152357777			clinvar_assertion	clinvar
+XRCC2	NM_005431.2	c.40-10C>T	Benign ClinVar(2-star, criteria provided)								Benign	7	152357877			clinvar_assertion	clinvar
+XRCC2	NM_005431.2	c.808T>G	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	7	152345762			clinvar_assertion	clinvar
+XRCC2	NM_005431.2		Benign ClinVar(2-star, criteria provided)								Benign	7	152373233			clinvar_assertion	clinvar

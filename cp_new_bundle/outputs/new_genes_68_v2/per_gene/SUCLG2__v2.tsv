@@ -1,0 +1,132 @@
+gene	transcript	hgvs_c	classification	PhastCons100way	PhyloP100way	REVEL	SpliceAI_masked	FAF95_grpmax	CADD_phred	AlphaMissense_pred	ClinVar_sig	chr_grch37	pos_grch37	ref	alt	vv_status	source
+SUCLG2	NM_003848.3	c.1186A>G	Benign FAF >5%	1.0	7.191	.;.;0.757;.;.	0.0300	0.168649	25.1	.;.;P;.;.	Benign	3	67426281	T	C	ok	pipeline
+SUCLG2	NM_003848.3	c.1141C>T	Benign FAF >5%	1.0	2.018	0.224;.;.;0.224;.;.	0.0000	0.184114	23.6	LB;.;.;B;.;.	Benign	3	67451197	G	A	ok	pipeline
+SUCLG2	NM_003848.3	c.1040A>G	Benign FAF >5%	1.0	7.674	0.117;.;.;0.117;.;.;0.117	0.0000	0.0510329	20.5	LB;.;.;B;.;.;LB	Benign	3	67546244	T	C	ok	pipeline
+SUCLG2	NM_003848.3	c.349G>A	Benign FAF >5%	1.0	4.728	0.253;.;.;0.253;.;.;0.253	0.0000	0.0714697	21.9	LB;.;.;B;.;.;LB	Benign	3	67578624	C	T	ok	pipeline
+SUCLG2	NM_003848.3	c.758-10_758-8del	Benign ClinVar(2-star, criteria provided)								Benign	3	67548726	AAAG	A	clinvar_assertion	clinvar
+SUCLG2	NM_003848.3	c.302A>G	Benign ClinVar(2-star, criteria provided)	1.0	7.991	0.459	0.0100	0.00948673	23.5	LB	Benign/Likely benign	3	67579535	T	C	clinvar_assertion	clinvar
+SUCLG2	NM_003848.3	c.522C>T	Likely_benign ClinVar(2-star, criteria provided)								Likely benign	3	67570954	G	A	clinvar_assertion	clinvar
+SUCLG2	NM_003848.3	c.1203del	Benign ClinVar(1-star, criteria provided)					0.0211436			Benign	3	67411172	CT	C	clinvar_assertion	clinvar
+SUCLG2	NM_003848.3	c.1041A>G	Likely_benign ClinVar(1-star, criteria provided)	0.965	0.082		0.0000				Likely benign	3	67546243	T	C	clinvar_assertion	clinvar
+SUCLG2	NM_003848.3	c.633A>G	Benign ClinVar(2-star, criteria provided)								Benign	3	67568698	T	C	clinvar_assertion	clinvar
+SUCLG2	NM_003848.3	c.1098C>T	Likely_benign ClinVar(1-star, criteria provided)	0.003	-0.905		0.0000	1.06500e-05			Likely benign	3	67451240	G	A	clinvar_assertion	clinvar
+SUCLG2	NM_003848.3	c.492C>A	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	3	67570984	G	T	clinvar_assertion	clinvar
+SUCLG2	NM_003848.3	c.327-5C>G	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	3	67578651	G	C	clinvar_assertion	clinvar
+SUCLG2	NM_003848.3	c.795C>T	Likely_benign ClinVar(1-star, criteria provided)	0.613	-0.086		0.0500	6.46412e-05			Likely benign	3	67548682	G	A	clinvar_assertion	clinvar
+SUCLG2	NM_003848.3	c.585T>A	Likely_benign ClinVar(1-star, criteria provided)	1.0	1.462	0.054	0.0000	0.000542620	17.05	A	Likely benign	3	67568746	A	T	clinvar_assertion	clinvar
+SUCLG2	NM_003848.3	c.46C>T	Benign ClinVar(1-star, criteria provided)	0.001	0.539		0.0000	0.00469169			Benign	3	67704965	G	A	clinvar_assertion	clinvar
+SUCLG2	NM_003848.3	c.920-12T>C	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	3	67546376	A	G	clinvar_assertion	clinvar
+SUCLG2	NM_003848.3	c.85-15C>T	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	3	67660035	G	A	clinvar_assertion	clinvar
+SUCLG2	NM_003848.3	c.1142G>A	Likely_benign ClinVar(1-star, criteria provided)	0.969	1.448	0.076	0.0000	0.00256425	18.06	LB	Likely benign	3	67451196	C	T	clinvar_assertion	clinvar
+SUCLG2	NM_003848.3	c.920-15A>T	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	3	67546379	T	A	clinvar_assertion	clinvar
+SUCLG2	NM_003848.3	c.837A>G	Likely_benign ClinVar(1-star, criteria provided)	0.983	0.19		0.0000	0.000323123			Likely benign	3	67548640	T	C	clinvar_assertion	clinvar
+SUCLG2	NM_003848.3	c.957C>T	Likely_benign ClinVar(1-star, criteria provided)				0.0000	0.000977040			Likely benign	3	67546327	G	A	clinvar_assertion	clinvar
+SUCLG2	NM_003848.3	c.57G>A	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	3	67704954	C	T	clinvar_assertion	clinvar
+SUCLG2	NM_003848.3	c.495C>T	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	3	67570981	G	A	clinvar_assertion	clinvar
+SUCLG2	NM_003848.3	c.27C>T	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	3	67704984	G	A	clinvar_assertion	clinvar
+SUCLG2	NM_003848.3	c.346C>T	Benign ClinVar(1-star, criteria provided)				0.0200	0.00822014			Benign	3	67578627	G	A	clinvar_assertion	clinvar
+SUCLG2	NM_003848.3	c.678G>A	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	3	67559310	C	T	clinvar_assertion	clinvar
+SUCLG2	NM_003848.3	c.758-14T>C	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	3	67548733	A	G	clinvar_assertion	clinvar
+SUCLG2	NM_003848.3	c.639C>T	Likely_benign ClinVar(1-star, criteria provided)				0.0100	0.000176950			Likely benign	3	67568692	G	A	clinvar_assertion	clinvar
+SUCLG2	NM_003848.3	c.64T>C	Likely_benign ClinVar(1-star, criteria provided)	0.243	1.263	0.050	0.0000		12.39	A	Likely benign	3	67704947	A	G	clinvar_assertion	clinvar
+SUCLG2	NM_003848.3	c.418-12C>T	Benign ClinVar(1-star, criteria provided)								Benign	3	67571070	G	A	clinvar_assertion	clinvar
+SUCLG2	NM_003848.3	c.645G>A	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	3	67568686	C	T	clinvar_assertion	clinvar
+SUCLG2	NM_003848.3	c.366G>T	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	3	67578607	C	A	clinvar_assertion	clinvar
+SUCLG2	NM_003848.3		Likely_benign ClinVar(1-star, criteria provided)								Likely benign	3	67411104			clinvar_assertion	clinvar
+SUCLG2	NM_003848.3	c.85-4G>A	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	3	67660024	C	T	clinvar_assertion	clinvar
+SUCLG2	NM_003848.3	c.624C>T	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	3	67568707	G	A	clinvar_assertion	clinvar
+SUCLG2	NM_003848.3	c.1063-8G>C	Benign ClinVar(1-star, criteria provided)								Benign	3	67451283	C	G	clinvar_assertion	clinvar
+SUCLG2	NM_003848.3	c.63C>T	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	3	67704948	G	A	clinvar_assertion	clinvar
+SUCLG2	NM_003848.3	c.207C>T	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	3	67659898	G	A	clinvar_assertion	clinvar
+SUCLG2	NM_003848.3	c.1152A>G	Likely_benign ClinVar(1-star, criteria provided)				0.0000	5.00000e-06			Likely benign	3	67451186	T	C	clinvar_assertion	clinvar
+SUCLG2	NM_003848.3	c.24G>A	Likely_benign ClinVar(1-star, criteria provided)	0.395	1.514		0.0000	0.000698510			Likely benign	3	67704987	C	T	clinvar_assertion	clinvar
+SUCLG2	NM_003848.3	c.37C>T	Likely_benign ClinVar(1-star, criteria provided)	0.994	0.959		0.0000				Likely benign	3	67704974	G	A	clinvar_assertion	clinvar
+SUCLG2	NM_003848.3	c.546T>A	Likely_benign ClinVar(1-star, criteria provided)	1.0	4.195				38.0		Likely benign	3	67570930	A	T	clinvar_assertion	clinvar
+SUCLG2	NM_003848.3	c.85-12C>T	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	3	67660032	G	A	clinvar_assertion	clinvar
+SUCLG2	NM_003848.3	c.132G>A	Likely_benign ClinVar(1-star, criteria provided)	0.992	1.396		0.0100				Likely benign	3	67659973	C	T	clinvar_assertion	clinvar
+SUCLG2	NM_003848.3	c.483C>A	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	3	67570993	G	T	clinvar_assertion	clinvar
+SUCLG2	NM_003848.3	c.384A>G	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.99	0.327		0.0200					3	67578589	T	C	local_enumeration	synonymous_catalog
+SUCLG2	NM_003848.3	c.345G>A	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.995	0.427		0.0000					3	67578628	C	T	local_enumeration	synonymous_catalog
+SUCLG2	NM_003848.3	c.831C>T	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.014	-0.677		0.0000	5.57041e-05				3	67548646	G	A	local_enumeration	synonymous_catalog
+SUCLG2	NM_003848.3	c.849G>A	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.995	0.284		0.0000					3	67548628	C	T	local_enumeration	synonymous_catalog
+SUCLG2	NM_003848.3	c.855T>C	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.991	0.324		0.0000					3	67548622	A	G	local_enumeration	synonymous_catalog
+SUCLG2	NM_003848.3	c.1116T>A	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.74	0.099		0.0000					3	67451222	A	T	local_enumeration	synonymous_catalog
+SUCLG2	NM_003848.3	c.1116T>C	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.74	0.099		0.0000					3	67451222	A	G	local_enumeration	synonymous_catalog
+SUCLG2	NM_003848.3	c.1098C>A	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.003	-0.905		0.0000					3	67451240	G	T	local_enumeration	synonymous_catalog
+SUCLG2	NM_003848.3	c.1086A>C	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.963	0.208		0.0000					3	67451252	T	G	local_enumeration	synonymous_catalog
+SUCLG2	NM_003848.3	c.1086A>T	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.963	0.208		0.0000					3	67451252	T	A	local_enumeration	synonymous_catalog
+SUCLG2	NM_003848.3	c.1042T>C	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.999	1.862		0.0000					3	67546242	A	G	local_enumeration	synonymous_catalog
+SUCLG2	NM_003848.3	c.1017A>G	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.973	1.536		0.0000					3	67546267	T	C	local_enumeration	synonymous_catalog
+SUCLG2	NM_003848.3	c.399A>G	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.983	0.164		0.0000					3	67578574	T	C	local_enumeration	synonymous_catalog
+SUCLG2	NM_003848.3	c.991T>C	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.999	0.683		0.0000					3	67546293	A	G	local_enumeration	synonymous_catalog
+SUCLG2	NM_003848.3	c.960T>C	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.995	0.57		0.0000					3	67546324	A	G	local_enumeration	synonymous_catalog
+SUCLG2	NM_003848.3	c.909T>A	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.998	0.667		0.0000					3	67548568	A	T	local_enumeration	synonymous_catalog
+SUCLG2	NM_003848.3	c.909T>C	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.998	0.667		0.0000					3	67548568	A	G	local_enumeration	synonymous_catalog
+SUCLG2	NM_003848.3	c.900T>C	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.997	0.692		0.0000					3	67548577	A	G	local_enumeration	synonymous_catalog
+SUCLG2	NM_003848.3	c.891A>C	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.996	0.252		0.0000					3	67548586	T	G	local_enumeration	synonymous_catalog
+SUCLG2	NM_003848.3	c.891A>T	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.996	0.252		0.0000					3	67548586	T	A	local_enumeration	synonymous_catalog
+SUCLG2	NM_003848.3	c.885A>G	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.999	0.569		0.0000	5.79912e-05				3	67548592	T	C	local_enumeration	synonymous_catalog
+SUCLG2	NM_003848.3	c.876T>C	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.921	0.145		0.0000					3	67548601	A	G	local_enumeration	synonymous_catalog
+SUCLG2	NM_003848.3	c.861T>C	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.761	0.047		0.0000					3	67548616	A	G	local_enumeration	synonymous_catalog
+SUCLG2	NM_003848.3	c.855T>A	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.991	0.324		0.0000					3	67548622	A	T	local_enumeration	synonymous_catalog
+SUCLG2	NM_003848.3	c.333T>C	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.968	0.016		0.0000					3	67578640	A	G	local_enumeration	synonymous_catalog
+SUCLG2	NM_003848.3	c.240T>A	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.998	0.85		0.0600					3	67579597	A	T	local_enumeration	synonymous_catalog
+SUCLG2	NM_003848.3	c.960T>A	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.995	0.57		0.0000					3	67546324	A	T	local_enumeration	synonymous_catalog
+SUCLG2	NM_003848.3	c.414C>T	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.947	0.022		0.0000					3	67578559	G	A	local_enumeration	synonymous_catalog
+SUCLG2	NM_003848.3	c.436T>C	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.995	1.281		0.0000					3	67571040	A	G	local_enumeration	synonymous_catalog
+SUCLG2	NM_003848.3	c.450A>G	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.998	0.487		0.4000					3	67571026	T	C	local_enumeration	synonymous_catalog
+SUCLG2	NM_003848.3	c.579T>A	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.997	0.36		0.0100					3	67568752	A	T	local_enumeration	synonymous_catalog
+SUCLG2	NM_003848.3	c.816C>T	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.437	-0.259		0.0000					3	67548661	G	A	local_enumeration	synonymous_catalog
+SUCLG2	NM_003848.3	c.789T>C	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.997	0.581		0.0000					3	67548688	A	G	local_enumeration	synonymous_catalog
+SUCLG2	NM_003848.3	c.741A>G	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.999	0.558		0.0200					3	67559247	T	C	local_enumeration	synonymous_catalog
+SUCLG2	NM_003848.3	c.735T>C	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.989	0.46		0.0000					3	67559253	A	G	local_enumeration	synonymous_catalog
+SUCLG2	NM_003848.3	c.615G>A	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.999	0.532		0.0000					3	67568716	C	T	local_enumeration	synonymous_catalog
+SUCLG2	NM_003848.3	c.609A>G	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.999	0.436		0.0000					3	67568722	T	C	local_enumeration	synonymous_catalog
+SUCLG2	NM_003848.3	c.603C>T	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.998	0.437		0.0000					3	67568728	G	A	local_enumeration	synonymous_catalog
+SUCLG2	NM_003848.3	c.597A>C	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.993	0.168		0.0000					3	67568734	T	G	local_enumeration	synonymous_catalog
+SUCLG2	NM_003848.3	c.597A>T	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.993	0.168		0.0000					3	67568734	T	A	local_enumeration	synonymous_catalog
+SUCLG2	NM_003848.3	c.579T>C	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.997	0.36		0.0100					3	67568752	A	G	local_enumeration	synonymous_catalog
+SUCLG2	NM_003848.3	c.294T>C	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.756	0.006		0.0000					3	67579543	A	G	local_enumeration	synonymous_catalog
+SUCLG2	NM_003848.3	c.558G>A	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.998	0.485		0.0000					3	67570918	C	T	local_enumeration	synonymous_catalog
+SUCLG2	NM_003848.3	c.537G>A	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.93	0.04		0.0000					3	67570939	C	T	local_enumeration	synonymous_catalog
+SUCLG2	NM_003848.3	c.516G>A	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.983	0.311		0.0000	8.83642e-06				3	67570960	C	T	local_enumeration	synonymous_catalog
+SUCLG2	NM_003848.3	c.499C>T	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.705	0.811		0.0000					3	67570977	G	A	local_enumeration	synonymous_catalog
+SUCLG2	NM_003848.3	c.1146G>A	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.954	0.173		0.0000					3	67451192	C	T	local_enumeration	synonymous_catalog
+SUCLG2	NM_003848.3	c.1158G>A	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.997	0.587		0.0000					3	67451180	C	T	local_enumeration	synonymous_catalog
+SUCLG2	NM_003848.3	c.1284T>C	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.153	-0.243		0.0000					3	67426183	A	G	local_enumeration	synonymous_catalog
+SUCLG2	NM_003848.3	c.1272G>A	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.942	0.037		0.0000					3	67426195	C	T	local_enumeration	synonymous_catalog
+SUCLG2	NM_003848.3	c.1260T>C	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.999	0.758		0.0000	5.56669e-05				3	67426207	A	G	local_enumeration	synonymous_catalog
+SUCLG2	NM_003848.3	c.1257G>A	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.709	-0.124		0.0000					3	67426210	C	T	local_enumeration	synonymous_catalog
+SUCLG2	NM_003848.3	c.1248T>A	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.0	-0.643		0.0000					3	67426219	A	T	local_enumeration	synonymous_catalog
+SUCLG2	NM_003848.3	c.1248T>C	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.0	-0.643		0.0000					3	67426219	A	G	local_enumeration	synonymous_catalog
+SUCLG2	NM_003848.3	c.1134A>G	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.998	0.447		0.0000					3	67451204	T	C	local_enumeration	synonymous_catalog
+SUCLG2	NM_003848.3	c.1122T>C	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.997	0.718		0.0000					3	67451216	A	G	local_enumeration	synonymous_catalog
+SUCLG2	NM_003848.3	c.52C>T	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.003	0.57		0.0000					3	67704959	G	A	local_enumeration	synonymous_catalog
+SUCLG2	NM_003848.3	c.240T>C	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.998	0.85		0.0000					3	67579597	A	G	local_enumeration	synonymous_catalog
+SUCLG2	NM_003848.3	c.33G>A	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.001	-0.483		0.0000	3.64405e-05				3	67704978	C	T	local_enumeration	synonymous_catalog
+SUCLG2	NM_003848.3	c.234A>G	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.998	0.465		0.0100					3	67579603	T	C	local_enumeration	synonymous_catalog
+SUCLG2	NM_003848.3	c.210G>A	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.97	0.204		0.0000					3	67659895	C	T	local_enumeration	synonymous_catalog
+SUCLG2	NM_003848.3	c.201A>G	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.847	-0.02		0.0100					3	67659904	T	C	local_enumeration	synonymous_catalog
+SUCLG2	NM_003848.3	c.198T>C	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.002	-0.198		0.0000					3	67659907	A	G	local_enumeration	synonymous_catalog
+SUCLG2	NM_003848.3	c.180T>C	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.381	-0.052		0.0000					3	67659925	A	G	local_enumeration	synonymous_catalog
+SUCLG2	NM_003848.3	c.171A>G	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.928	0.055		0.0000	0.000111334				3	67659934	T	C	local_enumeration	synonymous_catalog
+SUCLG2	NM_003848.3	c.165A>G	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.817	-0.192		0.0000					3	67659940	T	C	local_enumeration	synonymous_catalog
+SUCLG2	NM_003848.3	c.156C>T	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.013	-0.672		0.0000	1.77032e-05				3	67659949	G	A	local_enumeration	synonymous_catalog
+SUCLG2	NM_003848.3	c.141A>G	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.997	0.436		0.0000					3	67659964	T	C	local_enumeration	synonymous_catalog
+SUCLG2	NM_003848.3	c.126A>G	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.999	0.548		0.0000	0.000163409				3	67659979	T	C	local_enumeration	synonymous_catalog
+SUCLG2	NM_003848.3	c.96A>G	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.948	0.232		0.0000	5.57227e-05				3	67660009	T	C	local_enumeration	synonymous_catalog
+SUCLG2	NM_003848.3	c.94T>C	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.169	0.836		0.0000					3	67660011	A	G	local_enumeration	synonymous_catalog
+SUCLG2	NM_003848.3	c.93A>G	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.0	-2.302		0.0100					3	67660012	T	C	local_enumeration	synonymous_catalog
+SUCLG2	NM_003848.3	c.67C>T	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.57	0.698		0.0000					3	67704944	G	A	local_enumeration	synonymous_catalog
+SUCLG2	NM_003848.3	c.66C>T	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.581	1.419		0.0000					3	67704945	G	A	local_enumeration	synonymous_catalog
+SUCLG2	NM_003848.3	c.55C>A	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.025	1.994		0.0000					3	67704956	G	T	local_enumeration	synonymous_catalog
+SUCLG2	NM_003848.3	c.40C>A	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.932	2.998		0.0000					3	67704971	G	T	local_enumeration	synonymous_catalog
+SUCLG2	NM_003848.3	c.1236T>A	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.998	0.468		0.0000					3	67426231	A	T	local_enumeration	synonymous_catalog
+SUCLG2	NM_003848.3	c.1236T>C	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.998	0.468		0.0000					3	67426231	A	G	local_enumeration	synonymous_catalog
+SUCLG2	NM_003848.3	c.1224C>T	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.165	-0.386		0.0000	0.000111334				3	67426243	G	A	local_enumeration	synonymous_catalog
+SUCLG2	NM_003848.3	c.1218C>T	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.0	-0.808		0.0100					3	67426249	G	A	local_enumeration	synonymous_catalog
+SUCLG2	NM_003848.3	c.1212A>C	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.583	-0.495		0.0000					3	67426255	T	G	local_enumeration	synonymous_catalog
+SUCLG2	NM_003848.3	c.1212A>T	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.583	-0.495		0.0000					3	67426255	T	A	local_enumeration	synonymous_catalog
+SUCLG2	NM_003848.3	c.1209G>A	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.965	0.078		0.0100					3	67426258	C	T	local_enumeration	synonymous_catalog
+SUCLG2	NM_003848.3	c.1197A>G	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.0	-4.662		0.0100	8.85928e-06				3	67426270	T	C	local_enumeration	synonymous_catalog
+SUCLG2	NM_003848.3	c.1165C>T	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.999	2.557		0.0000					3	67451173	G	A	local_enumeration	synonymous_catalog

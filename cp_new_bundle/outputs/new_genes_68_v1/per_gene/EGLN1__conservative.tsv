@@ -1,0 +1,19 @@
+gene	transcript	hgvs_c	classification	PhastCons100way	PhyloP100way	REVEL	SpliceAI_masked	FAF95_grpmax	CADD_phred	AlphaMissense_pred	ClinVar_sig	chr_grch37	pos_grch37	ref	alt	vv_status	source
+EGLN1	NM_022051.2	c.380G>C	Benign FAF >5%	0.299	1.268	0.214;.;.;.		0.444091	12.26	B;.;.;.	Benign	1	231557255	C	G	ok	pipeline
+EGLN1	NM_022051.2	c.1012-5C>G	Likely_benign ClinVar(2-star, criteria provided)								Likely benign	1	231506449			clinvar_assertion	clinvar
+EGLN1	NM_022051.2	c.568G>T	Likely_benign ClinVar(2-star, criteria provided)								Likely benign	1	231557067			clinvar_assertion	clinvar
+EGLN1	NM_022051.2	c.569C>T	Likely_benign ClinVar(2-star, criteria provided)								Likely benign	1	231557066			clinvar_assertion	clinvar
+EGLN1	NM_022051.2	c.372_392del	Likely_benign ClinVar(2-star, criteria provided)								Likely benign	1	231557243			clinvar_assertion	clinvar
+EGLN1	NM_022051.2	c.471G>C	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	1	231557164			clinvar_assertion	clinvar
+EGLN1	NM_022051.2	c.12C>G	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	1	231557623			clinvar_assertion	clinvar
+EGLN1	NM_022051.2	c.-1706T>C	Benign ClinVar(2-star, criteria provided)								Benign	1	231559340			clinvar_assertion	clinvar
+EGLN1	NM_022051.2	c.-2448A>C	Benign ClinVar(2-star, criteria provided)								Benign	1	231560082			clinvar_assertion	clinvar
+EGLN1	NM_022051.2	c.-698G>A	Benign ClinVar(2-star, criteria provided)								Benign	1	231558332			clinvar_assertion	clinvar
+EGLN1	NM_022051.2	c.-2923C>T	Benign ClinVar(2-star, criteria provided)								Benign	1	231560557			clinvar_assertion	clinvar
+EGLN1	NM_022051.2	c.-536C>T	Benign ClinVar(2-star, criteria provided)								Benign	1	231558170			clinvar_assertion	clinvar
+EGLN1	NM_022051.2	c.-2599T>C	Benign ClinVar(2-star, criteria provided)								Benign	1	231560233			clinvar_assertion	clinvar
+EGLN1	NM_022051.2	c.-1592T>C	Benign ClinVar(2-star, criteria provided)								Benign	1	231559226			clinvar_assertion	clinvar
+EGLN1	NM_022051.2	c.-2592T>G	Benign ClinVar(2-star, criteria provided)								Benign	1	231560226			clinvar_assertion	clinvar
+EGLN1	NM_022051.2	c.-2586T>C	Benign ClinVar(2-star, criteria provided)								Benign	1	231560220			clinvar_assertion	clinvar
+EGLN1	NM_022051.2	c.-544C>T	Benign ClinVar(2-star, criteria provided)								Benign	1	231558178			clinvar_assertion	clinvar
+EGLN1	NM_022051.2	c.280A>G	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	1	231557355			clinvar_assertion	clinvar

@@ -1,0 +1,917 @@
+gene	transcript	hgvs_c	classification	PhastCons100way	PhyloP100way	REVEL	SpliceAI_masked	FAF95_grpmax	CADD_phred	AlphaMissense_pred	ClinVar_sig	chr_grch37	pos_grch37	ref	alt	vv_status	source
+AXIN2	NM_004655.4	c.148C>T	Benign FAF >5%	0.996	1.136	.;.;.;.;.;0.126;.;.;.;0.126;.;.;.;0.126	0.0400	0.522727	20.8	.;.;.;.;.;B;.;.;.;LB;LB;LB;LB;LB	Benign	17	63554591	G	A	ok	pipeline
+AXIN2	NM_004655.4	c.2124G>C	Benign ClinVar(2-star, criteria provided)	0.934	0.937	0.553			21.5	P	Benign/Likely benign	17	63532455	C	G	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1952C>T	Benign ClinVar(2-star, criteria provided)	0.0	-0.889	0.079	0.0100	0.00348435	0.082	B	Benign/Likely benign	17	63532627	G	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.2237+3G>A	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	63531741	C	T	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.2013_2024del	Benign ClinVar(2-star, criteria provided)								Benign	17	63532554	ACGGGGGGTGGTG	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.828G>A	Benign ClinVar(2-star, criteria provided)	0.999	0.784		0.0300	9.87557e-05			Benign/Likely benign	17	63545766	C	T	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.144C>T	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	63554595	G	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.-116-13del	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	63554866	AG	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.2433G>A	Benign ClinVar(2-star, criteria provided)	0.998	0.695		0.0000	0.000211193			Benign/Likely benign	17	63526193	C	T	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1377C>G	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	63533777	G	C	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.261C>T	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	63554478	G	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1386C>T	Benign ClinVar(2-star, criteria provided)				0 (assumed)	0.663811			Benign	17	63533768	G	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1365A>G	Benign ClinVar(2-star, criteria provided)				0 (assumed)	0.954878			Benign	17	63533789	T	C	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.432T>C	Benign ClinVar(2-star, criteria provided)	0.452	-0.117		0.0000	0.166957			Benign	17	63554307	A	G	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.2062C>T	Benign ClinVar(2-star, criteria provided)	1.0	2.306		0.0000	0.270715			Benign	17	63532517	G	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.780T>C	Benign ClinVar(2-star, criteria provided)	0.0	-0.676		0.0000	0.000518773			Benign/Likely benign	17	63553959	A	G	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.2213C>T	Benign ClinVar(2-star, criteria provided)	1.0	2.225	0.086	0.0000	0.0124599	21.8	B	Benign/Likely benign	17	63531768	G	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.2439C>T	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	63526187	G	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.2406-8C>G	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	63526228	G	C	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.2394G>A	Benign ClinVar(2-star, criteria provided)				0.0000	1.83000e-06			Benign/Likely benign	17	63530041	C	T	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.2238-7T>C	Likely_benign ClinVar(2-star, criteria provided)								Likely benign	17	63530204	A	G	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.815+3dup	Likely_benign ClinVar(2-star, criteria provided)								Likely benign	17	63553919	C	CT	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.2184C>T	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	63531797	G	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.295C>T	Benign ClinVar(2-star, criteria provided)				0.0000	0.000368140			Benign/Likely benign	17	63554444	G	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.129C>T	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	63554610	G	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.435C>A	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	63554304	G	T	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.876A>G	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	63545718	T	C	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1975C>T	Benign ClinVar(2-star, criteria provided)	1.0	4.113	0.220	0.0000	0.00967231	25.0	B	Benign/Likely benign	17	63532604	G	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1962C>A	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	63532617	G	T	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1827C>T	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	63533067	G	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1623C>T	Benign ClinVar(2-star, criteria provided)				0.0000	3.58700e-05			Benign/Likely benign	17	63533531	G	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1599G>A	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	63533555	C	T	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1389C>T	Likely_benign ClinVar(2-star, criteria provided)								Likely benign	17	63533765	G	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1383C>T	Benign ClinVar(2-star, criteria provided)				0.0000	0.0427005			Benign/Likely benign	17	63533771	G	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1338C>A	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	63533816	G	T	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1092C>T	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	63534429	G	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1089C>A	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	63534432	G	T	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.879A>G	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	63545715	T	C	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.2004G>A	Benign ClinVar(2-star, criteria provided)	1.0	3.035	0.092			23.4	B	Benign/Likely benign	17	63532575	C	T	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.*1012T>A	Benign ClinVar(2-star, criteria provided)								Benign	17	63525082	A	T	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.*846G>A	Benign ClinVar(1-star, criteria provided)								Benign	17	63525248	C	T	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.*794C>A	Benign ClinVar(2-star, criteria provided)								Benign	17	63525300	G	T	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.*957T>G	Benign ClinVar(1-star, criteria provided)								Benign	17	63525137	A	C	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.*309C>A	Benign ClinVar(2-star, criteria provided)								Benign	17	63525785	G	T	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.*500T>G	Benign ClinVar(1-star, criteria provided)								Benign	17	63525594	A	C	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1242G>A	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	63533912	C	T	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.30C>A	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	63554709	G	T	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.984C>T	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	63537648	G	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.894C>T	Benign ClinVar(2-star, criteria provided)	0.423	-0.288		0.0000	0.000132538			Benign/Likely benign	17	63545700	G	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.681C>T	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	63554058	G	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.672T>C	Benign ClinVar(2-star, criteria provided)	0.989	0.116		0.0000	0.000123031			Benign/Likely benign	17	63554067	A	G	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.600G>C	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	63554139	C	G	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.540G>A	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	63554199	C	T	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.-116-20C>T	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	17	63554874	G	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1060-10C>T	Likely_benign ClinVar(2-star, criteria provided)								Likely benign	17	63534471	G	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.-130C>T	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	17	63557581	G	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.2112A>T	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	63532467	T	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.2079G>A	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	63532500	C	T	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1816C>T	Benign ClinVar(2-star, criteria provided)	1.0	9.359	0.332	0.0000	0.000153970	27.0	B	Benign/Likely benign	17	63533078	G	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1758G>A	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	63533136	C	T	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1149G>C	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	63534372	C	G	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1020T>C	Benign ClinVar(2-star, criteria provided)	0.848	-0.02		0.0000	6.15157e-05			Benign/Likely benign	17	63537612	A	G	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.204G>C	Likely_benign ClinVar(2-star, criteria provided)								Likely benign	17	63554535	C	G	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.888C>T	Benign ClinVar(2-star, criteria provided)	0.676	-0.063		0.0000	5.68764e-05			Benign/Likely benign	17	63545706	G	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1293C>T	Benign ClinVar(2-star, criteria provided)	0.0	-1.375		0.0200	0.000363138			Benign/Likely benign	17	63533861	G	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1266C>A	Benign ClinVar(2-star, criteria provided)	0.997	1.332	0.052			13.71	B	Benign/Likely benign	17	63533888	G	T	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1327C>T	Benign ClinVar(2-star, criteria provided)				0.0100	0.000169470			Benign/Likely benign	17	63533827	G	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.738C>T	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	63554001	G	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1482G>T	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	63533672	C	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1491C>T	Benign ClinVar(2-star, criteria provided)				0.0000	0.000471790			Benign/Likely benign	17	63533663	G	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1887G>A	Benign ClinVar(2-star, criteria provided)	0.999	0.59		0.0300	0.000217533			Benign/Likely benign	17	63533007	C	T	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.-21A>C	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	17	63554759	T	G	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.2430T>C	Benign ClinVar(2-star, criteria provided)	0.84	0.004		0.0000	5.43656e-05			Benign/Likely benign	17	63526196	A	G	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.2238-15C>T	Likely_benign ClinVar(2-star, criteria provided)								Likely benign	17	63530212	G	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1275A>G	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	63533879	T	C	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1986G>A	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	63532593	C	T	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.-7C>T	Likely_benign ClinVar(2-star, criteria provided)								Likely benign	17	63554745	G	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.-28C>G	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	17	63554766	G	C	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.270C>T	Benign ClinVar(2-star, criteria provided)	0.968	0.185		0.0000	0.0018625			Benign/Likely benign	17	63554469	G	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.2052G>A	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	63532527	C	T	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.2109G>A	Benign ClinVar(2-star, criteria provided)				0.0000	0.0115467			Benign/Likely benign	17	63532470	C	T	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.2282C>A	Benign ClinVar(2-star, criteria provided)	1.0	4.888	0.202	0.0200	0.0202368	20.8	B	Benign/Likely benign	17	63530153	G	T	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1807G>C	Benign ClinVar(2-star, criteria provided)	0.002	0.872	0.132	0.0000	0.0411997	16.38	B	Benign/Likely benign	17	63533087	C	G	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1573C>G	Benign ClinVar(2-star, criteria provided)	1.0	5.148	0.047	0.0000	0.0283693	20.7	B	Benign	17	63533581	G	C	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1101C>T	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	63534420	G	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1235A>G	Benign ClinVar(2-star, criteria provided)	0.0	0.023	0.119	0.0000	0.0399903	0.426	B	Benign/Likely benign	17	63533919	T	C	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1250C>T	Benign ClinVar(2-star, criteria provided)	1.0	9.352	0.275	0.0200	2.90000e-07	27.9	B	Benign/Likely benign	17	63533904	G	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1305G>A	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	63533849	C	T	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1410C>T	Benign ClinVar(2-star, criteria provided)				0.0000	0.0115076			Benign/Likely benign	17	63533744	G	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1530G>A	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	63533624	C	T	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1545C>T	Benign ClinVar(2-star, criteria provided)				0.0000	0.000385610			Benign/Likely benign	17	63533609	G	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1615G>A	Benign ClinVar(2-star, criteria provided)	1.0	7.418	0.231	0.0000	0.0425975	25.0	B	Benign/Likely benign	17	63533539	C	T	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1665C>T	Benign ClinVar(2-star, criteria provided)				0.0000	1.06400e-05			Benign/Likely benign	17	63533489	G	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.2103T>C	Benign ClinVar(2-star, criteria provided)	0.93	0.09		0.0000				Benign/Likely benign	17	63532476	A	G	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.-116-16T>G	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	17	63554870	A	C	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1479G>C	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	63533675	C	G	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.2403T>C	Benign ClinVar(2-star, criteria provided)	0.989	0.274		0.0000	3.26755e-05			Benign/Likely benign	17	63530032	A	G	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.*5T>G	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	63526089	A	C	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.2343G>A	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	63530092	C	T	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1908-13A>T	Likely_benign ClinVar(2-star, criteria provided)								Likely benign	17	63532684	T	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1201-12C>T	Likely_benign ClinVar(2-star, criteria provided)								Likely benign	17	63533965	G	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.831C>T	Benign ClinVar(2-star, criteria provided)	0.021	-0.086		0.4600	0.000115674			Benign/Likely benign	17	63545763	G	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.645C>T	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	63554094	G	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.-3A>G	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	17	63554741	T	C	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.2142-9T>C	Likely_benign ClinVar(2-star, criteria provided)								Likely benign	17	63531848	A	G	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1698C>T	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	63533456	G	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.2130C>A	Benign ClinVar(2-star, criteria provided)	0.01	-0.14	0.134			0.02	B	Benign/Likely benign	17	63532449	G	T	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.2070A>G	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	63532509	T	C	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.2010C>G	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	63532569	G	C	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1485C>T	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	63533669	G	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1470G>A	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	63533684	C	T	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1438C>T	Benign ClinVar(2-star, criteria provided)	0.999	2.675		0.0000	6.71682e-05			Benign/Likely benign	17	63533716	G	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1380T>C	Benign ClinVar(2-star, criteria provided)				0.0000	0.00540567			Benign/Likely benign	17	63533774	A	G	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1446G>T	Benign ClinVar(2-star, criteria provided)	1.0	3.71	0.155			20.8	B	Benign/Likely benign	17	63533708	C	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1368C>T	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	63533786	G	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1125C>T	Benign ClinVar(2-star, criteria provided)				0.0000	0.000112050			Benign/Likely benign	17	63534396	G	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.105G>A	Likely_benign ClinVar(2-star, criteria provided)								Likely benign	17	63554634	C	T	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.237C>T	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	63554502	G	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1131G>A	Benign ClinVar(2-star, criteria provided)	0.977	0.171		0.0000	7.26100e-05			Benign/Likely benign	17	63534390	C	T	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1065C>T	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	63534456	G	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1320C>T	Benign ClinVar(2-star, criteria provided)	0.798	-0.08		0.0000	3.05437e-05			Benign/Likely benign	17	63533834	G	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1803C>T	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	63533091	G	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1644G>A	Benign ClinVar(2-star, criteria provided)	0.825	-0.247		0.0000	3.59000e-06			Benign/Likely benign	17	63533510	C	T	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1353C>T	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	63533801	G	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1422T>C	Benign ClinVar(2-star, criteria provided)	0.0	-1.338		0.0000	2.13174e-05			Benign/Likely benign	17	63533732	A	G	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.2262A>G	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	63530173	T	C	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.2145C>T	Benign ClinVar(2-star, criteria provided)				0.0400	1.74600e-05			Benign/Likely benign	17	63531836	G	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.2073C>G	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	63532506	G	C	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.2064G>T	Likely_benign ClinVar(2-star, criteria provided)								Likely benign	17	63532515	C	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1671C>T	Benign ClinVar(2-star, criteria provided)				0.0000	0.000140880			Benign/Likely benign	17	63533483	G	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.324A>G	Benign ClinVar(2-star, criteria provided)				0.0000				Benign/Likely benign	17	63554415	T	C	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1026G>A	Benign ClinVar(2-star, criteria provided)				0.0000				Benign/Likely benign	17	63537606	C	T	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1188G>A	Benign ClinVar(2-star, criteria provided)				0.0100	1.10700e-05			Benign/Likely benign	17	63534333	C	T	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1060-6del	Likely_benign ClinVar(2-star, criteria provided)								Likely benign	17	63534466	AG	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.999C>T	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	63537633	G	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.945G>T	Benign ClinVar(2-star, criteria provided)	1.0	7.081	0.390			21.9	P	Benign/Likely benign	17	63545649	C	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.816-4A>G	Likely_benign ClinVar(2-star, criteria provided)								Likely benign	17	63545782	T	C	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.522G>A	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	63554217	C	T	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1929C>T	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	63532650	G	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.90A>G	Benign ClinVar(2-star, criteria provided)				0.0100				Benign/Likely benign	17	63554649	T	C	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.93G>A	Likely_benign ClinVar(2-star, criteria provided)								Likely benign	17	63554646	C	T	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.321C>T	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	63554418	G	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.399G>A	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	63554340	C	T	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.396A>G	Benign ClinVar(2-star, criteria provided)				0.0000	4.34500e-05			Benign/Likely benign	17	63554343	T	C	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.256T>C	Benign ClinVar(2-star, criteria provided)	0.989	0.579		0.0000	6.53894e-05			Benign/Likely benign	17	63554483	A	G	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.2499C>A	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	63526127	G	T	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.2271C>T	Benign ClinVar(2-star, criteria provided)	0.01	-0.14		0.0000	6.15157e-05			Benign/Likely benign	17	63530164	G	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.882C>T	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	63545712	G	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.678C>A	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	63554061	G	T	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.642A>C	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	63554097	T	G	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.330C>T	Benign ClinVar(2-star, criteria provided)				0.0000				Benign/Likely benign	17	63554409	G	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.184T>C	Benign ClinVar(2-star, criteria provided)	0.118	0.517		0.0200	5.88616e-05			Benign/Likely benign	17	63554555	A	G	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.303G>A	Likely_benign ClinVar(1-star, criteria provided)				0.0000				Likely benign	17	63554436	C	T	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.2355C>T	Benign ClinVar(2-star, criteria provided)				0.0100	1.32700e-05			Benign/Likely benign	17	63530080	G	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1800C>T	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	63533094	G	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1635G>C	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	63533519	C	G	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1500C>T	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	63533654	G	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1473C>T	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	63533681	G	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1273C>T	Benign ClinVar(2-star, criteria provided)	1.0	3.245	0.116	0.0200	6.18000e-05	15.37	B	Benign/Likely benign	17	63533881	G	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.972T>C	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	63537660	A	G	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1311G>T	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	63533843	C	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.711C>G	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	63554028	G	C	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.2187T>A	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	63531794	A	T	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1459C>T	Likely_benign ClinVar(2-star, criteria provided)				0.0000	1.42700e-05			Likely benign	17	63533695	G	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.2445A>C	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	63526181	T	G	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1911C>T	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	63532668	G	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1875G>A	Likely_benign ClinVar(2-star, criteria provided)				0.0300				Likely benign	17	63533019	C	T	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1356C>T	Benign ClinVar(2-star, criteria provided)				0.0000	6.90000e-07			Benign/Likely benign	17	63533798	G	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1809T>C	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	63533085	A	G	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1713C>G	Likely_benign ClinVar(2-star, criteria provided)								Likely benign	17	63533181	G	C	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1512C>A	Likely_benign ClinVar(2-star, criteria provided)	1.0	4.403				39.0		Likely benign	17	63533642	G	T	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1428G>A	Benign ClinVar(2-star, criteria provided)	0.055	0.241		0.0000	2.80000e-07			Benign/Likely benign	17	63533726	C	T	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1416C>T	Likely_benign ClinVar(2-star, criteria provided)	0.931	1.471		0.0000				Likely benign	17	63533738	G	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1398C>T	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	63533756	G	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1326C>T	Benign ClinVar(2-star, criteria provided)				0.0100	1.27000e-06			Benign/Likely benign	17	63533828	G	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1374C>G	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	63533780	G	C	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1315C>T	Likely_benign ClinVar(2-star, criteria provided)				0.0000	7.91000e-06			Likely benign	17	63533839	G	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.486G>A	Benign ClinVar(2-star, criteria provided)				0.0000	4.42000e-06			Benign/Likely benign	17	63554253	C	T	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1632T>C	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	63533522	A	G	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1983T>C	Benign ClinVar(2-star, criteria provided)	0.9	0.284		0.0000	5.45673e-05			Benign/Likely benign	17	63532596	A	G	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1908-8T>C	Likely_benign ClinVar(2-star, criteria provided)								Likely benign	17	63532679	A	G	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.219C>T	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	63554520	G	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.2478G>A	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	63526148	C	T	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.2427C>T	Benign ClinVar(2-star, criteria provided)	0.839	-0.029		0.0000	8.80762e-06			Benign/Likely benign	17	63526199	G	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.2325T>C	Likely_benign ClinVar(2-star, criteria provided)	0.407	-0.064		0.0000	6.80000e-07			Likely benign	17	63530110	A	G	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.-117+7del	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	17	63557560	AC	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.198G>A	Likely_benign ClinVar(1-star, criteria provided)				0.0100				Likely benign	17	63554541	C	T	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.210T>G	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	63554529	A	C	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.957A>T	Likely_benign ClinVar(1-star, criteria provided)	0.5	-0.273	0.307	0.0200		1.174	B	Likely benign	17	63537675	T	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.2370C>T	Benign ClinVar(2-star, criteria provided)				0.0100	2.80000e-07			Benign/Likely benign	17	63530065	G	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1533G>A	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	63533621	C	T	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.699G>A	Benign ClinVar(2-star, criteria provided)				0.0000	1.06300e-05			Benign/Likely benign	17	63554040	C	T	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.621A>G	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	63554118	T	C	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.477T>C	Benign ClinVar(2-star, criteria provided)	0.999	0.914		0.0000	1.83000e-06			Benign/Likely benign	17	63554262	A	G	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.2277C>G	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	63530158	G	C	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1953G>A	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	63532626	C	T	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1299A>G	Benign ClinVar(2-star, criteria provided)	0.138	-0.492		0.0000	8.16327e-05			Benign/Likely benign	17	63533855	T	C	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1227C>T	Likely_benign ClinVar(2-star, criteria provided)								Likely benign	17	63533927	G	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1191G>A	Benign ClinVar(2-star, criteria provided)				0.0000	3.59000e-06			Benign/Likely benign	17	63534330	C	T	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.501T>C	Benign ClinVar(2-star, criteria provided)				0.0000				Benign/Likely benign	17	63554238	A	G	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.243C>G	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	63554496	G	C	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.-117+20C>T	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	17	63557548	G	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.-128C>G	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	17	63557579	G	C	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.-40A>G	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	17	63554778	T	C	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.-117+17G>A	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	17	63557551	C	T	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1110T>C	Benign ClinVar(2-star, criteria provided)	0.511	-0.191		0.0000	2.89134e-05			Benign/Likely benign	17	63534411	A	G	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.2526C>T	Benign ClinVar(2-star, criteria provided)	0.997	0.445		0.0000	8.78997e-06			Benign/Likely benign	17	63526100	G	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1276C>T	Benign ClinVar(2-star, criteria provided)	0.923	1.328	0.088	0.1000	5.50000e-06	18.29	B	Benign/Likely benign	17	63533878	G	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1171C>T	Benign ClinVar(2-star, criteria provided)				0.0000	2.54900e-05			Benign/Likely benign	17	63534350	G	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1476C>T	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	63533678	G	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1350T>G	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	63533804	A	C	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1251G>T	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	63533903	C	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1905T>C	Benign ClinVar(2-star, criteria provided)	0.992	0.375		0.0000	0.000123183			Benign/Likely benign	17	63532989	A	G	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.-8C>T	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	17	63554746	G	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1746T>C	Benign ClinVar(2-star, criteria provided)	0.0	-1.205		0.0000				Benign/Likely benign	17	63533148	A	G	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.6T>C	Benign ClinVar(2-star, criteria provided)	0.989	0.246		0.0000				Benign/Likely benign	17	63554733	A	G	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1833G>A	Benign ClinVar(2-star, criteria provided)	0.823	-0.008		0.0100	4.43000e-06			Benign/Likely benign	17	63533061	C	T	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.-35A>C	Likely_benign ClinVar(2-star, criteria provided)								Likely benign	17	63554773	T	G	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1998C>T	Benign ClinVar(2-star, criteria provided)	0.061	2.009		0.0000				Benign/Likely benign	17	63532581	G	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1497C>T	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	63533657	G	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.870C>T	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	63545724	G	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.2142-8G>A	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	17	63531847	C	T	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1629C>T	Benign ClinVar(2-star, criteria provided)	0.877	0.247		0.0000				Benign/Likely benign	17	63533525	G	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1608G>A	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	63533546	C	T	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1467C>A	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	63533687	G	T	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1425G>T	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	63533729	C	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.2406-9C>T	Likely_benign ClinVar(2-star, criteria provided)								Likely benign	17	63526229	G	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.2274G>A	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	63530161	C	T	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.2268C>T	Likely_benign ClinVar(2-star, criteria provided)								Likely benign	17	63530167	G	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.2181G>C	Likely_benign ClinVar(2-star, criteria provided)								Likely benign	17	63531800	C	G	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.2058T>C	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	17	63532521	A	G	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.2448G>A	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	63526178	C	T	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.918G>A	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	63545676	C	T	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.223C>T	Likely_benign ClinVar(2-star, criteria provided)				0.0000				Likely benign	17	63554516	G	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.951C>T	Benign ClinVar(2-star, criteria provided)	0.653	-0.203		0.0000	7.90000e-07			Benign/Likely benign	17	63545643	G	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.975T>C	Benign ClinVar(2-star, criteria provided)	0.864	-0.079		0.0000	2.80000e-07			Benign/Likely benign	17	63537657	A	G	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.465C>T	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	63554274	G	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.384A>G	Benign ClinVar(2-star, criteria provided)	0.995	0.428		0.0000	1.83000e-06			Benign/Likely benign	17	63554355	T	C	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.2484C>T	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	63526142	G	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.696G>A	Benign ClinVar(2-star, criteria provided)	0.998	0.661		0.0000				Benign/Likely benign	17	63554043	C	T	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.2406-10T>A	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	17	63526230	A	T	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.342C>T	Benign ClinVar(2-star, criteria provided)				0.0000				Benign/Likely benign	17	63554397	G	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1201-8C>T	Likely_benign ClinVar(2-star, criteria provided)								Likely benign	17	63533961	G	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.924G>A	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	63545670	C	T	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1095G>A	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	63534426	C	T	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1938G>A	Likely_benign ClinVar(1-star, criteria provided)	0.019	-0.205		0.0500				Likely benign	17	63532641	C	T	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1701C>T	Benign ClinVar(2-star, criteria provided)	0.0	-0.831		0.0200	8.93639e-06			Benign/Likely benign	17	63533453	G	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1908-10C>G	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	17	63532681	G	C	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1569C>T	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	63533585	G	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.426C>T	Benign ClinVar(2-star, criteria provided)				0.0000	2.80000e-07			Benign/Likely benign	17	63554313	G	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.166A>C	Benign ClinVar(2-star, criteria provided)				0.0000	2.80000e-07			Benign/Likely benign	17	63554573	T	G	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.2007C>T	Benign ClinVar(2-star, criteria provided)				0.0000	7.39000e-06			Benign/Likely benign	17	63532572	G	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1971C>T	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	63532608	G	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1605C>T	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	63533549	G	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1107C>A	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	63534414	G	T	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.2208C>G	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	63531773	G	C	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.2232A>C	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	63531749	T	G	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1677C>T	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	63533477	G	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.528C>A	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	63554211	G	T	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1980C>T	Benign ClinVar(2-star, criteria provided)	0.977	0.342		0.0000				Benign/Likely benign	17	63532599	G	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1371A>G	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	63533783	T	C	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1317G>A	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	63533837	C	T	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.660C>T	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	63554079	G	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.516C>T	Benign ClinVar(2-star, criteria provided)				0.0000				Benign/Likely benign	17	63554223	G	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.603G>A	Benign ClinVar(2-star, criteria provided)				0.0000				Benign/Likely benign	17	63554136	C	T	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.498T>A	Benign ClinVar(2-star, criteria provided)	0.003	-1.225		0.0000				Benign/Likely benign	17	63554241	A	T	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.-116-8C>T	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	17	63554862	G	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.2142-10G>C	Likely_benign ClinVar(2-star, criteria provided)								Likely benign	17	63531849	C	G	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.774G>A	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	63553965	C	T	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1785G>A	Benign ClinVar(2-star, criteria provided)	0.992	0.363		0.0000				Benign/Likely benign	17	63533109	C	T	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1692C>G	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	63533462	G	C	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.2334G>A	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	63530101	C	T	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.2001C>T	Benign ClinVar(2-star, criteria provided)	0.0	-0.257		0.0100	6.40615e-05			Benign/Likely benign	17	63532578	G	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1521C>G	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	63533633	G	C	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1284C>T	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	63533870	G	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1212A>G	Likely_benign ClinVar(1-star, criteria provided)	0.988	0.204		0.0000	4.01000e-06			Likely benign	17	63533942	T	C	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.732G>A	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	63554007	C	T	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.612A>T	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	63554127	T	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.597T>C	Likely_benign ClinVar(2-star, criteria provided)	0.963	0.144		0.0000				Likely benign	17	63554142	A	G	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1263C>T	Benign ClinVar(2-star, criteria provided)				0.0200	8.77800e-05			Benign/Likely benign	17	63533891	G	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.2346G>A	Benign ClinVar(2-star, criteria provided)				0.0000				Benign/Likely benign	17	63530089	C	T	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.2199A>T	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	17	63531782	T	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.795A>G	Likely_benign ClinVar(2-star, criteria provided)	0.14	-0.3		0.0000				Likely benign	17	63553944	T	C	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.2118G>A	Benign ClinVar(2-star, criteria provided)	0.994	0.374		0.0000	8.03000e-06			Benign/Likely benign	17	63532461	C	T	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.2085T>C	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	63532494	A	G	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1944T>C	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	63532635	A	G	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1936T>C	Benign ClinVar(2-star, criteria provided)	0.0	-0.172		0.0000				Benign/Likely benign	17	63532643	A	G	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1857C>T	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	63533037	G	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1768C>T	Benign ClinVar(2-star, criteria provided)	1.0	3.678	0.666	0.0000	3.65000e-06	32.0	A	Benign/Likely benign	17	63533126	G	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1764G>C	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	63533130	C	G	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1548C>T	Benign ClinVar(2-star, criteria provided)				0.0000				Benign/Likely benign	17	63533606	G	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1221C>T	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	63533933	G	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1074G>C	Benign ClinVar(2-star, criteria provided)	0.991	0.552	0.315			9.329	B	Benign/Likely benign	17	63534447	C	G	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.819C>G	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	17	63545775	G	C	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.2028C>T	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	63532551	G	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.2316G>A	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	63530119	C	T	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.504C>T	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	63554235	G	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.249C>T	Benign ClinVar(2-star, criteria provided)	0.999	0.782		0.0000				Benign/Likely benign	17	63554490	G	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.561C>T	Benign ClinVar(2-star, criteria provided)				0.0000	7.90000e-07			Benign/Likely benign	17	63554178	G	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.72C>T	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	63554667	G	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.195G>A	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	63554544	C	T	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.312C>T	Benign ClinVar(2-star, criteria provided)	0.995	0.468		0.0000				Benign/Likely benign	17	63554427	G	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.2367C>T	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	17	63530068	G	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.2022C>G	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	63532557	G	C	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1896C>G	Likely_benign ClinVar(2-star, criteria provided)	0.176	0.153	0.281			10.13	A	Likely benign	17	63532998	G	C	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1848G>T	Benign ClinVar(2-star, criteria provided)	1.0	1.189	0.399			22.3	B	Benign/Likely benign	17	63533046	C	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1392C>A	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	63533762	G	T	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1170C>T	Likely_benign ClinVar(2-star, criteria provided)	0.997	0.607		0.0000	1.83000e-06			Likely benign	17	63534351	G	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.960T>C	Likely_benign ClinVar(2-star, criteria provided)				0.0000				Likely benign	17	63537672	A	G	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.714C>T	Benign ClinVar(2-star, criteria provided)				0.0000				Benign/Likely benign	17	63554025	G	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.390A>G	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	63554349	T	C	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.375C>G	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	63554364	G	C	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.327C>T	Benign ClinVar(2-star, criteria provided)				0.0000				Benign/Likely benign	17	63554412	G	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.84G>A	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	63554655	C	T	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.12T>C	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	63554727	A	G	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1872G>A	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	63533022	C	T	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1731C>T	Likely_benign ClinVar(2-star, criteria provided)								Likely benign	17	63533163	G	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1575C>T	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	63533579	G	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1434C>T	Likely_benign ClinVar(2-star, criteria provided)	0.532	0.715		0.0000	2.80000e-07			Likely benign	17	63533720	G	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1413C>T	Benign ClinVar(2-star, criteria provided)				0.0000	7.49000e-06			Benign/Likely benign	17	63533741	G	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1164C>T	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	63534357	G	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1161C>T	Likely_benign ClinVar(1-star, criteria provided)	0.998	0.285		0.0000				Likely benign	17	63534360	G	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.153C>G	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	63554586	G	C	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1914A>G	Likely_benign ClinVar(2-star, criteria provided)	0.927	-0.01		0.0200				Likely benign	17	63532665	T	C	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1713-6C>T	Likely_benign ClinVar(2-star, criteria provided)								Likely benign	17	63533187	G	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1794G>T	Likely_benign ClinVar(1-star, criteria provided)	1.0	2.232	0.290			19.49	B	Likely benign	17	63533100	C	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1248G>T	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	63533906	C	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.150T>A	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	17	63554589	A	T	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.*326A>G	Benign ClinVar(1-star, criteria provided)								Benign	17	63525768	T	C	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.-33A>C	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	63554771	T	G	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.*147C>T	Benign ClinVar(1-star, criteria provided)								Benign	17	63525947	G	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1725C>T	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	17	63533169	G	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.2220A>C	Likely_benign ClinVar(2-star, criteria provided)								Likely benign	17	63531761	T	G	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.480C>T	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	17	63554259	G	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1821G>A	Likely_benign ClinVar(2-star, criteria provided)				0.0000				Likely benign	17	63533073	C	T	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.267A>G	Likely_benign ClinVar(1-star, criteria provided)	0.733	-0.11		0.0100				Likely benign	17	63554472	T	C	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1401G>A	Likely_benign ClinVar(2-star, criteria provided)								Likely benign	17	63533753	C	T	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1060-8T>A	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	17	63534469	A	T	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1908T>C	Likely_benign ClinVar(2-star, criteria provided)				0.0300				Likely benign	17	63532671	A	G	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.2226G>A	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	63531755	C	T	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1674C>T	Likely_benign ClinVar(2-star, criteria provided)	0.993	1.057		0.0000				Likely benign	17	63533480	G	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.2256A>G	Benign ClinVar(2-star, criteria provided)	0.316	-0.453		0.0600	8.79044e-06			Benign/Likely benign	17	63530179	T	C	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1056C>T	Likely_benign ClinVar(2-star, criteria provided)				0.0000				Likely benign	17	63537576	G	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.2451G>C	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	17	63526175	C	G	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.2253G>A	Benign ClinVar(2-star, criteria provided)				0.0100				Benign/Likely benign	17	63530182	C	T	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.2148T>C	Likely_benign ClinVar(2-star, criteria provided)	0.0	-0.479		0.0200				Likely benign	17	63531833	A	G	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.2133A>G	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	63532446	T	C	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.2046C>T	Benign ClinVar(2-star, criteria provided)				0.0100	2.47400e-05			Benign/Likely benign	17	63532533	G	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.2040C>T	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	63532539	G	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.2031C>T	Benign ClinVar(2-star, criteria provided)				0.0700				Benign/Likely benign	17	63532548	G	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1884G>A	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	63533010	C	T	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1881G>A	Likely_benign ClinVar(1-star, criteria provided)	0.995	1.099		0.0000				Likely benign	17	63533013	C	T	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1818G>A	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	63533076	C	T	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1737C>T	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	63533157	G	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1704G>A	Likely_benign ClinVar(1-star, criteria provided)	0.932	0.196		0.0000				Likely benign	17	63533450	C	T	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1656C>T	Benign ClinVar(2-star, criteria provided)	0.876	1.485		0.0000	5.42000e-06			Benign/Likely benign	17	63533498	G	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1072C>T	Likely_benign ClinVar(1-star, criteria provided)				0.0100				Likely benign	17	63534449	G	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.2373T>C	Likely_benign ClinVar(1-star, criteria provided)				0.0000				Likely benign	17	63530062	A	G	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1596G>A	Likely_benign ClinVar(2-star, criteria provided)				0.0000				Likely benign	17	63533558	C	T	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1539T>C	Benign ClinVar(2-star, criteria provided)	0.991	0.246		0.0000				Benign/Likely benign	17	63533615	A	G	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1449C>T	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	63533705	G	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1440G>A	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	63533714	C	T	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1335G>A	Benign ClinVar(2-star, criteria provided)	0.274	-0.398		0.0100	2.90000e-07			Benign/Likely benign	17	63533819	C	T	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1269C>T	Likely_benign ClinVar(2-star, criteria provided)								Likely benign	17	63533885	G	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1254C>T	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	63533900	G	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1230A>G	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	63533924	T	C	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1218C>A	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	63533936	G	T	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1155G>A	Benign ClinVar(2-star, criteria provided)				0.0000				Benign/Likely benign	17	63534366	C	T	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1134G>A	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	63534387	C	T	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.2319A>G	Likely_benign ClinVar(2-star, criteria provided)				0.1300				Likely benign	17	63530116	T	C	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1620C>T	Likely_benign ClinVar(2-star, criteria provided)				0.0000				Likely benign	17	63533534	G	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.885C>T	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	63545709	G	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.777G>A	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	17	63553962	C	T	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.765G>A	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	63553974	C	T	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.652C>T	Benign ClinVar(2-star, criteria provided)				0.0000				Benign/Likely benign	17	63554087	G	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.534C>T	Benign ClinVar(2-star, criteria provided)				0.0000	1.06400e-05			Benign/Likely benign	17	63554205	G	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.459C>T	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	63554280	G	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.408A>G	Benign ClinVar(2-star, criteria provided)				0.0000				Benign/Likely benign	17	63554331	T	C	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.369G>A	Likely_benign ClinVar(2-star, criteria provided)				0.0000				Likely benign	17	63554370	C	T	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.282G>A	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	17	63554457	C	T	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.120G>T	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	63554619	C	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.9C>T	Benign ClinVar(2-star, criteria provided)	0.976	0.18		0.0000	3.27139e-05			Benign/Likely benign	17	63554730	G	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.858T>G	Likely_benign ClinVar(2-star, criteria provided)								Likely benign	17	63545736	A	C	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1680G>A	Likely_benign ClinVar(1-star, criteria provided)	0.057	0.636		0.0000				Likely benign	17	63533474	C	T	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1509A>G	Benign ClinVar(2-star, criteria provided)				0.0000	1.24000e-06			Benign/Likely benign	17	63533645	T	C	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1593C>T	Likely_benign ClinVar(2-star, criteria provided)	0.0	-2.62		0.0000	3.26627e-05			Likely benign	17	63533561	G	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1614G>A	Likely_benign ClinVar(2-star, criteria provided)								Likely benign	17	63533540	C	T	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.2520G>A	Benign ClinVar(2-star, criteria provided)				0.0000	2.80000e-07			Benign/Likely benign	17	63526106	C	T	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.2205A>G	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	63531776	T	C	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.2202C>T	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	63531779	G	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.2082G>C	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	63532497	C	G	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1992G>A	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	63532587	C	T	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1935C>T	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	63532644	G	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1908-6G>A	Likely_benign ClinVar(2-star, criteria provided)								Likely benign	17	63532677	C	T	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1734G>A	Benign ClinVar(2-star, criteria provided)	0.996	0.374		0.0200				Benign/Likely benign	17	63533160	C	T	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.654A>G	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	63554085	T	C	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1362T>G	Likely_benign ClinVar(2-star, criteria provided)								Likely benign	17	63533792	A	C	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1260G>A	Benign ClinVar(2-star, criteria provided)	0.146	-0.161		0.0800				Benign/Likely benign	17	63533894	C	T	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1239G>A	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	63533915	C	T	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1206A>G	Benign ClinVar(2-star, criteria provided)				0.0000				Benign/Likely benign	17	63533948	T	C	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1167C>T	Benign ClinVar(2-star, criteria provided)				0.0000	2.80000e-07			Benign/Likely benign	17	63534354	G	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1128G>A	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	63534393	C	T	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1050T>G	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	17	63537582	A	C	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1044T>C	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	17	63537588	A	G	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.957-6C>T	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	17	63537681	G	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.816-7C>T	Likely_benign ClinVar(2-star, criteria provided)								Likely benign	17	63545785	G	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.792G>T	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	17	63553947	C	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.675C>T	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	63554064	G	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.624T>C	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	17	63554115	A	G	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.364C>T	Benign ClinVar(2-star, criteria provided)				0.0000				Benign/Likely benign	17	63554375	G	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.348A>C	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	63554391	T	G	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.279C>T	Benign ClinVar(2-star, criteria provided)				0.0000	1.24000e-06			Benign/Likely benign	17	63554460	G	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.231G>A	Likely_benign ClinVar(2-star, criteria provided)								Likely benign	17	63554508	C	T	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.189G>A	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	63554550	C	T	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.159C>T	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	63554580	G	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.273T>C	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	17	63554466	A	G	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.957-7C>T	Likely_benign ClinVar(2-star, criteria provided)								Likely benign	17	63537682	G	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.915T>C	Benign ClinVar(2-star, criteria provided)	0.635	-0.011		0.0100				Benign/Likely benign	17	63545679	A	G	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.798T>C	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	63553941	A	G	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.789C>T	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	17	63553950	G	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.657G>A	Benign ClinVar(2-star, criteria provided)				0.0000	2.92000e-06			Benign/Likely benign	17	63554082	C	T	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.579T>C	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	63554160	A	G	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.576T>G	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	63554163	A	C	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.228C>T	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	17	63554511	G	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.213G>A	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	63554526	C	T	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.114A>G	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	63554625	T	C	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.63C>T	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	63554676	G	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.2080C>T	Benign ClinVar(2-star, criteria provided)	0.979	2.174	0.064	0.0000		22.4	B	Benign/Likely benign	17	63532499	G	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.2034G>A	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	17	63532545	C	T	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1152G>A	Likely_benign ClinVar(1-star, criteria provided)				0.0000				Likely benign	17	63534369	C	T	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1956T>C	Likely_benign ClinVar(2-star, criteria provided)								Likely benign	17	63532623	A	G	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1908-9C>T	Likely_benign ClinVar(2-star, criteria provided)								Likely benign	17	63532680	G	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1893G>A	Benign ClinVar(2-star, criteria provided)				0.0100				Benign/Likely benign	17	63533001	C	T	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1779C>T	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	63533115	G	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1659G>A	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	63533495	C	T	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1563C>T	Benign ClinVar(2-star, criteria provided)				0.0000				Benign/Likely benign	17	63533591	G	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1536G>A	Benign ClinVar(2-star, criteria provided)				0.0000				Benign/Likely benign	17	63533618	C	T	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1437C>G	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	63533717	G	C	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1404C>T	Benign ClinVar(2-star, criteria provided)	0.998	1.032		0.0000				Benign/Likely benign	17	63533750	G	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.2298C>G	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	63530137	G	C	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1332C>T	Likely_benign ClinVar(2-star, criteria provided)								Likely benign	17	63533822	G	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1158G>A	Benign ClinVar(2-star, criteria provided)	0.995	0.237		0.0000				Benign/Likely benign	17	63534363	C	T	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1272C>G	Benign ClinVar(2-star, criteria provided)	1.0	1.07	0.070			14.98	B	Benign/Likely benign	17	63533882	G	C	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1047A>G	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	63537585	T	C	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1014T>C	Likely_benign ClinVar(2-star, criteria provided)	0.977	0.325		0.0000				Likely benign	17	63537618	A	G	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1104C>T	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	63534417	G	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.2067C>G	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	63532512	G	C	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.816-8G>A	Likely_benign ClinVar(2-star, criteria provided)								Likely benign	17	63545786	C	T	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.352A>C	Likely_benign ClinVar(2-star, criteria provided)	0.977	0.075		0.0000	2.89084e-05			Likely benign	17	63554387	T	G	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1815C>A	Likely_benign ClinVar(2-star, criteria provided)								Likely benign	17	63533079	G	T	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.294C>T	Benign ClinVar(2-star, criteria provided)				0.0000				Benign/Likely benign	17	63554445	G	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.201G>A	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	63554538	C	T	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.156T>G	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	17	63554583	A	C	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.135C>G	Likely_benign ClinVar(2-star, criteria provided)								Likely benign	17	63554604	G	C	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.57G>A	Benign ClinVar(2-star, criteria provided)				0.0000				Benign/Likely benign	17	63554682	C	T	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.33G>C	Likely_benign ClinVar(2-star, criteria provided)								Likely benign	17	63554706	C	G	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1797C>T	Likely_benign ClinVar(2-star, criteria provided)								Likely benign	17	63533097	G	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1836A>G	Likely_benign ClinVar(2-star, criteria provided)				0.0000				Likely benign	17	63533058	T	C	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1060-9G>A	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	17	63534470	C	T	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1098A>G	Benign ClinVar(2-star, criteria provided)	0.5	-0.273		0.0000	8.83018e-06			Benign/Likely benign	17	63534423	T	C	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1195C>A	Benign ClinVar(2-star, criteria provided)				0.0100	7.90000e-07			Benign/Likely benign	17	63534326	G	T	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1201-10T>C	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	17	63533963	A	G	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.669C>A	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	17	63554070	G	T	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1713-9T>C	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	17	63533190	A	G	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1650C>T	Benign ClinVar(2-star, criteria provided)				0.0000	4.28400e-05			Benign/Likely benign	17	63533504	G	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1572C>T	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	63533582	G	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1554C>T	Benign ClinVar(2-star, criteria provided)				0.0000	1.83000e-06			Benign/Likely benign	17	63533600	G	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1542C>G	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	63533612	G	C	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1323T>C	Benign ClinVar(2-star, criteria provided)				0.0000	2.90000e-07			Benign/Likely benign	17	63533831	A	G	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1281C>T	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	63533873	G	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.2217T>C	Likely_benign ClinVar(1-star, criteria provided)	0.529	0.877		0.0000				Likely benign	17	63531764	A	G	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.2397A>G	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	63530038	T	C	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.2337G>A	Benign ClinVar(2-star, criteria provided)				0.0000				Benign/Likely benign	17	63530098	C	T	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.2235A>G	Likely_benign ClinVar(2-star, criteria provided)				0.1100				Likely benign	17	63531746	T	C	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.2224C>T	Benign ClinVar(2-star, criteria provided)				0.0100				Benign/Likely benign	17	63531757	G	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.2238-4T>C	Likely_benign ClinVar(2-star, criteria provided)								Likely benign	17	63530201	A	G	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.-116-293G>C	Benign ClinVar(1-star, criteria provided)								Benign	17	63555147	C	G	clinvar_assertion	clinvar
+AXIN2	NM_004655.4		Likely_benign ClinVar(1-star, criteria provided)								Likely benign	17	63557839			clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.-116-17C>G	Benign ClinVar(1-star, criteria provided)								Benign	17	63554871	G	C	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.363C>T	Likely_benign ClinVar(2-star, criteria provided)				0.0000				Likely benign	17	63554376	G	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.-117+157C>A	Benign ClinVar(1-star, criteria provided)								Benign	17	63557411	G	T	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.594A>G	Benign ClinVar(2-star, criteria provided)	0.993	0.23		0.0200	3.65000e-06			Benign/Likely benign	17	63554145	T	C	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.810A>G	Likely_benign ClinVar(2-star, criteria provided)								Likely benign	17	63553929	T	C	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1959A>G	Likely_benign ClinVar(2-star, criteria provided)								Likely benign	17	63532620	T	C	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.2238-13A>G	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	17	63530210	T	C	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1713-12_1713-9dup	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	17	63533189	G	GAACC	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.2121G>C	Likely_benign ClinVar(2-star, criteria provided)	1.0	1.689	0.423			23.7	P	Likely benign	17	63532458	C	G	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.252C>T	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	17	63554487	G	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1908-15T>G	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	17	63532686	A	C	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.993A>G	Likely_benign ClinVar(2-star, criteria provided)	0.995	0.404		0.0000				Likely benign	17	63537639	T	C	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1287C>T	Likely_benign ClinVar(2-star, criteria provided)								Likely benign	17	63533867	G	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1060-13C>T	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	17	63534474	G	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1902C>G	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	63532992	G	C	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.372T>C	Likely_benign ClinVar(1-star, criteria provided)				0.0000				Likely benign	17	63554367	A	G	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.2283C>T	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	63530152	G	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.543G>C	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	17	63554196	C	G	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1060-14T>A	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	17	63534475	A	T	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.2487G>T	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	63526139	C	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1194C>A	Benign ClinVar(2-star, criteria provided)				0.0000				Benign/Likely benign	17	63534327	G	T	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.108T>C	Likely_benign ClinVar(1-star, criteria provided)				0.0000				Likely benign	17	63554631	A	G	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.162C>T	Benign ClinVar(2-star, criteria provided)	0.0	-0.43		0.0000	3.43006e-05			Benign/Likely benign	17	63554577	G	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1740A>G	Benign ClinVar(2-star, criteria provided)	0.093	-0.251		0.0000				Benign/Likely benign	17	63533154	T	C	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.2142-13G>A	Likely_benign ClinVar(2-star, criteria provided)								Likely benign	17	63531852	C	T	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.2094G>A	Likely_benign ClinVar(2-star, criteria provided)	0.998	0.652		0.0000				Likely benign	17	63532485	C	T	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.957-11_957-10del	Likely_benign ClinVar(2-star, criteria provided)								Likely benign	17	63537684	AAG	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.2032C>T	Benign ClinVar(2-star, criteria provided)	1.0	6.475	0.296	0.0600		26.4	B	Benign/Likely benign	17	63532547	G	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1233C>T	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	63533921	G	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1713-15C>T	Likely_benign ClinVar(2-star, criteria provided)								Likely benign	17	63533196	G	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.963A>G	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	17	63537669	T	C	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.2341C>T	Likely_benign ClinVar(2-star, criteria provided)	1.0	5.777	0.607	0.0000		26.3	P	Likely benign	17	63530094	G	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.957-13T>C	Likely_benign ClinVar(2-star, criteria provided)								Likely benign	17	63537688	A	G	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.693A>G	Likely_benign ClinVar(2-star, criteria provided)	0.909	-0.033		0.0000				Likely benign	17	63554046	T	C	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1728T>C	Benign ClinVar(2-star, criteria provided)	0.421	-0.125		0.0000				Benign/Likely benign	17	63533166	A	G	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.985_986delinsTC	Benign ClinVar(2-star, criteria provided)				0.0000				Benign/Likely benign	17	63537646	CT	GA	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1032T>C	Benign ClinVar(2-star, criteria provided)	0.987	0.297		0.0000				Benign/Likely benign	17	63537600	A	G	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.438C>T	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	63554301	G	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1590G>A	Benign ClinVar(2-star, criteria provided)				0.0000				Benign/Likely benign	17	63533564	C	T	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1029C>T	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	17	63537603	G	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.909C>A	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	17	63545685	G	T	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1060-5T>G	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	17	63534466	A	C	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.2016C>T	Likely_benign ClinVar(2-star, criteria provided)								Likely benign	17	63532563	G	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1113A>G	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	63534408	T	C	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.27C>T	Benign ClinVar(2-star, criteria provided)				0.0000				Benign/Likely benign	17	63554712	G	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1278G>T	Likely_benign ClinVar(2-star, criteria provided)								Likely benign	17	63533876	C	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.2514A>G	Benign ClinVar(2-star, criteria provided)				0.0000				Benign/Likely benign	17	63526112	T	C	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1578G>A	Benign ClinVar(2-star, criteria provided)				0.0100	1.83000e-06			Benign/Likely benign	17	63533576	C	T	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.99C>G	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	17	63554640	G	C	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.558C>G	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	17	63554181	G	C	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1908-11T>A	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	17	63532682	A	T	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.2356T>C	Likely_benign ClinVar(1-star, criteria provided)				0.0000				Likely benign	17	63530079	A	G	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.948C>T	Benign ClinVar(2-star, criteria provided)				0.0200	6.63000e-05			Benign/Likely benign	17	63545646	G	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.69G>A	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	63554670	C	T	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.2214C>G	Likely_benign ClinVar(2-star, criteria provided)	1.0	2.169	0.202			21.5	B	Likely benign	17	63531767	G	C	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.2406-4T>C	Likely_benign ClinVar(2-star, criteria provided)								Likely benign	17	63526224	A	G	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1344G>A	Benign ClinVar(2-star, criteria provided)				0.0000				Benign/Likely benign	17	63533810	C	T	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1257G>A	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	63533897	C	T	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.717C>T	Benign ClinVar(2-star, criteria provided)	0.965	0.158		0.0000				Benign/Likely benign	17	63554022	G	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.2076C>T	Likely_benign ClinVar(2-star, criteria provided)				0.0000				Likely benign	17	63532503	G	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1638C>T	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	63533516	G	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.2481G>A	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	17	63526145	C	T	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.2238-14C>T	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	17	63530211	G	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1773C>A	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	63533121	G	T	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.2529T>C	Benign ClinVar(2-star, criteria provided)	0.895	-0.01		0.0000				Benign/Likely benign	17	63526097	A	G	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.24T>C	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	17	63554715	A	G	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1173G>A	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	17	63534348	C	T	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.939C>T	Likely_benign ClinVar(2-star, criteria provided)								Likely benign	17	63545655	G	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1713-11G>C	Likely_benign ClinVar(2-star, criteria provided)								Likely benign	17	63533192	C	G	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.138C>A	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	17	63554601	G	T	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1143G>T	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	63534378	C	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.2238-10T>G	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	17	63530207	A	C	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.921G>C	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	17	63545673	C	G	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.48C>T	Benign ClinVar(2-star, criteria provided)				0.0000	8.44200e-05			Benign/Likely benign	17	63554691	G	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.2037C>T	Benign ClinVar(2-star, criteria provided)	0.176	0.153		0.0400				Benign/Likely benign	17	63532542	G	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.2019C>A	Benign ClinVar(2-star, criteria provided)	1.0	2.169	0.202			21.4	B	Benign/Likely benign	17	63532560	G	T	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1452T>A	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	17	63533702	A	T	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.2382G>A	Likely_benign ClinVar(1-star, criteria provided)				0.0000				Likely benign	17	63530053	C	T	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.867T>C	Benign ClinVar(2-star, criteria provided)	0.082	-0.792		0.0600				Benign/Likely benign	17	63545727	A	G	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1653C>T	Likely_benign ClinVar(1-star, criteria provided)				0.0000				Likely benign	17	63533501	G	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1908-14C>G	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	17	63532685	G	C	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.165C>G	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	63554574	G	C	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1062A>G	Likely_benign ClinVar(1-star, criteria provided)				0.0100				Likely benign	17	63534459	T	C	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.507C>T	Likely_benign ClinVar(2-star, criteria provided)				0.0000	3.65000e-06			Likely benign	17	63554232	G	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.2166G>A	Benign ClinVar(2-star, criteria provided)				0.0000	5.53000e-06			Benign/Likely benign	17	63531815	C	T	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1713-12G>C	Likely_benign ClinVar(2-star, criteria provided)								Likely benign	17	63533193	C	G	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.957-11C>T	Likely_benign ClinVar(2-star, criteria provided)								Likely benign	17	63537686	G	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1908-12T>C	Likely_benign ClinVar(2-star, criteria provided)								Likely benign	17	63532683	A	G	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1626C>T	Benign ClinVar(2-star, criteria provided)				0.0000	2.80000e-07			Benign/Likely benign	17	63533528	G	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.417T>C	Likely_benign ClinVar(1-star, criteria provided)	0.21	-0.401		0.0000				Likely benign	17	63554322	A	G	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.423C>T	Benign ClinVar(2-star, criteria provided)				0.0000				Benign/Likely benign	17	63554316	G	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1132C>T	Likely_benign ClinVar(2-star, criteria provided)				0.0000				Likely benign	17	63534389	G	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.309A>G	Benign ClinVar(2-star, criteria provided)				0.0000				Benign/Likely benign	17	63554430	T	C	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1551C>T	Benign ClinVar(2-star, criteria provided)				0.0000				Benign/Likely benign	17	63533603	G	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1557C>T	Likely_benign ClinVar(2-star, criteria provided)				0.0000				Likely benign	17	63533597	G	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.354G>A	Benign ClinVar(2-star, criteria provided)				0.0000	6.80000e-07			Benign/Likely benign	17	63554385	C	T	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1141C>T	Benign ClinVar(2-star, criteria provided)				0.0000				Benign/Likely benign	17	63534380	G	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1153T>C	Likely_benign ClinVar(2-star, criteria provided)				0.0000				Likely benign	17	63534368	A	G	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.489G>A	Benign ClinVar(2-star, criteria provided)				0.0000				Benign/Likely benign	17	63554250	C	T	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.571T>C	Likely_benign ClinVar(1-star, criteria provided)				0.0000				Likely benign	17	63554168	A	G	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.555T>C	Benign ClinVar(2-star, criteria provided)				0.0000				Benign/Likely benign	17	63554184	A	G	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.513T>C	Likely_benign ClinVar(1-star, criteria provided)	0.998	0.764		0.0000				Likely benign	17	63554226	A	G	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.591C>T	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	17	63554148	G	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.450G>A	Likely_benign ClinVar(2-star, criteria provided)	0.985	0.238		0.0000	6.80000e-07			Likely benign	17	63554289	C	T	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.753C>T	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	63553986	G	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.687T>C	Likely_benign ClinVar(2-star, criteria provided)	0.022	-0.661		0.0000	7.90000e-07			Likely benign	17	63554052	A	G	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1245G>A	Likely_benign ClinVar(2-star, criteria provided)	0.0	-3.035		0.0000				Likely benign	17	63533909	C	T	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.663G>A	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	63554076	C	T	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.723C>T	Benign ClinVar(2-star, criteria provided)				0.0000				Benign/Likely benign	17	63554016	G	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1035C>A	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	17	63537597	G	T	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.837T>G	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	63545757	A	C	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.813C>T	Likely_benign ClinVar(1-star, criteria provided)				0.0000				Likely benign	17	63553926	G	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.855A>C	Benign ClinVar(2-star, criteria provided)	0.93	0.023		0.0000	2.80000e-07			Benign/Likely benign	17	63545739	T	G	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.786G>A	Likely_benign ClinVar(1-star, criteria provided)				0.0000				Likely benign	17	63553953	C	T	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.864C>T	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	17	63545730	G	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.843T>C	Benign ClinVar(2-star, criteria provided)	0.998	0.619		0.0000				Benign/Likely benign	17	63545751	A	G	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.729T>G	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	17	63554010	A	C	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.906A>T	Likely_benign ClinVar(1-star, criteria provided)	0.588	-0.333		0.0000				Likely benign	17	63545688	T	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1228A>T	Likely_benign ClinVar(1-star, criteria provided)	0.0	0.023	0.170	0.0000		0.153	B	Likely benign	17	63533926	T	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.804C>T	Benign ClinVar(2-star, criteria provided)	0.897	0.034		0.0000	4.40125e-05			Benign/Likely benign	17	63553935	G	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.762T>A	Likely_benign ClinVar(2-star, criteria provided)								Likely benign	17	63553977	A	T	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1662A>G	Likely_benign ClinVar(1-star, criteria provided)	0.144	-0.852		0.0000	3.26627e-05			Likely benign	17	63533492	T	C	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1752A>G	Likely_benign ClinVar(1-star, criteria provided)	0.014	0.452		0.0900				Likely benign	17	63533142	T	C	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1749G>A	Likely_benign ClinVar(2-star, criteria provided)								Likely benign	17	63533145	C	T	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.66G>A	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	63554673	C	T	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1581C>A	Benign ClinVar(2-star, criteria provided)	1.0	3.049	0.183			22.2	P	Benign/Likely benign	17	63533573	G	T	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1806A>C	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	17	63533088	T	G	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.981G>A	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	17	63537651	C	T	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1329G>C	Likely_benign ClinVar(2-star, criteria provided)								Likely benign	17	63533825	C	G	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.251C>A	Likely_benign ClinVar(1-star, criteria provided)	1.0	1.723	0.151	0.0000		20.2	B	Likely benign	17	63554488	G	T	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.2508G>T	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	17	63526118	C	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1641C>G	Likely_benign ClinVar(1-star, criteria provided)	0.136	-0.354	0.164	0.0000		0.123	B	Likely benign	17	63533513	G	C	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1722A>G	Likely_benign ClinVar(1-star, criteria provided)	0.986	0.768		0.1100				Likely benign	17	63533172	T	C	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.171G>A	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	63554568	C	T	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1038A>G	Likely_benign ClinVar(1-star, criteria provided)				0.0000				Likely benign	17	63537594	T	C	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1461G>T	Benign ClinVar(2-star, criteria provided)	1.0	1.398	0.365			18.03	B	Benign/Likely benign	17	63533693	C	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1560C>T	Benign ClinVar(2-star, criteria provided)				0.0000				Benign/Likely benign	17	63533594	G	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1719C>T	Likely_benign ClinVar(2-star, criteria provided)				0.1200				Likely benign	17	63533175	G	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1882C>A	Likely_benign ClinVar(1-star, criteria provided)	0.841	1.0	0.035	0.1100		12.16	B	Likely benign	17	63533012	G	T	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1686G>A	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	63533468	C	T	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.873T>C	Likely_benign ClinVar(2-star, criteria provided)	0.1	-0.279		0.0400				Likely benign	17	63545721	A	G	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1950C>A	Benign ClinVar(2-star, criteria provided)	1.0	3.103				43.0		Benign/Likely benign	17	63532629	G	T	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1077C>T	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	17	63534444	G	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.2139G>A	Likely_benign ClinVar(2-star, criteria provided)	0.996	0.485		0.0000				Likely benign	17	63532440	C	T	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.207A>G	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	17	63554532	T	C	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.2169C>T	Likely_benign ClinVar(1-star, criteria provided)				0.0300	6.80000e-07			Likely benign	17	63531812	G	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1617G>A	Likely_benign ClinVar(2-star, criteria provided)								Likely benign	17	63533537	C	T	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1602G>A	Likely_benign ClinVar(1-star, criteria provided)				0.0000				Likely benign	17	63533552	C	T	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.225G>C	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	63554514	C	G	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.2472T>C	Benign ClinVar(2-star, criteria provided)	0.755	-0.155		0.0000				Benign/Likely benign	17	63526154	A	G	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.2247G>A	Benign ClinVar(2-star, criteria provided)				0.0100				Benign/Likely benign	17	63530188	C	T	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.2252A>G	Likely_benign ClinVar(1-star, criteria provided)	1.0	7.624	0.260	0.0100	3.59000e-06	28.5	B	Likely benign	17	63530183	T	C	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.2442T>C	Likely_benign ClinVar(1-star, criteria provided)	0.324	-0.175		0.0000				Likely benign	17	63526184	A	G	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.2089C>T	Benign ClinVar(2-star, criteria provided)	0.074	0.155	0.140	0.0000		5.355	B	Benign/Likely benign	17	63532490	G	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.2328A>G	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	63530107	T	C	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.2193G>A	Likely_benign ClinVar(2-star, criteria provided)	0.004	0.038		0.0000				Likely benign	17	63531788	C	T	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.111G>A	Likely_benign ClinVar(1-star, criteria provided)				0.0000				Likely benign	17	63554628	C	T	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1122G>C	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	17	63534399	C	G	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.-32T>C	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	17	63554770	A	G	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.492G>A	Benign ClinVar(2-star, criteria provided)	0.985	0.32		0.0000				Benign/Likely benign	17	63554247	C	T	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.285C>T	Likely_benign ClinVar(1-star, criteria provided)				0.0000				Likely benign	17	63554454	G	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.2307T>C	Likely_benign ClinVar(1-star, criteria provided)				0.0000				Likely benign	17	63530128	A	G	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.2331C>T	Benign ClinVar(2-star, criteria provided)				0.0100				Benign/Likely benign	17	63530104	G	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.627C>T	Benign ClinVar(2-star, criteria provided)				0.0000				Benign/Likely benign	17	63554112	G	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1341C>G	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	63533813	G	C	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.2142-12C>A	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	17	63531851	G	T	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.2406-12T>G	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	17	63526232	A	C	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.429C>T	Benign ClinVar(2-star, criteria provided)				0.0000				Benign/Likely benign	17	63554310	G	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1683T>A	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	17	63533471	A	T	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.741G>A	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	17	63553998	C	T	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.381T>G	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	63554358	A	C	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1776G>A	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	17	63533118	C	T	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1587G>A	Likely_benign ClinVar(2-star, criteria provided)				0.0000				Likely benign	17	63533567	C	T	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1200+4A>G	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	17	63534317	T	C	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1224G>A	Benign ClinVar(2-star, criteria provided)	0.929	1.49		0.0000				Benign/Likely benign	17	63533930	C	T	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1863G>A	Likely_benign ClinVar(1-star, criteria provided)				0.0100				Likely benign	17	63533031	C	T	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.2405+6A>C	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	17	63530024	T	G	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1201-14G>A	Likely_benign ClinVar(2-star, criteria provided)								Likely benign	17	63533967	C	T	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1713-14T>C	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	17	63533195	A	G	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1201-15C>T	Likely_benign ClinVar(2-star, criteria provided)								Likely benign	17	63533968	G	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1060-11A>G	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	17	63534472	T	C	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1566T>C	Benign ClinVar(2-star, criteria provided)				0.0000				Benign/Likely benign	17	63533588	A	G	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1782C>T	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	63533112	G	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.2469G>A	Likely_benign ClinVar(1-star, criteria provided)	0.0	-1.761		0.0000				Likely benign	17	63526157	C	T	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.117G>A	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	63554622	C	T	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.222T>C	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	17	63554517	A	G	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.291T>C	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	63554448	A	G	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.126G>A	Benign ClinVar(2-star, criteria provided)				0.0000				Benign/Likely benign	17	63554613	C	T	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.2106C>T	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	63532473	G	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.2127G>A	Benign ClinVar(2-star, criteria provided)	0.998	1.103		0.0000				Benign/Likely benign	17	63532452	C	T	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.2257C>T	Benign ClinVar(2-star, criteria provided)	0.997	3.395		0.0000	3.26627e-05			Benign/Likely benign	17	63530178	G	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.708T>C	Likely_benign ClinVar(1-star, criteria provided)	0.999	0.907		0.0000	2.80000e-07			Likely benign	17	63554031	A	G	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1005A>G	Likely_benign ClinVar(1-star, criteria provided)				0.0000				Likely benign	17	63537627	T	C	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.2463C>A	Likely_benign ClinVar(1-star, criteria provided)				0.0000				Likely benign	17	63526163	G	T	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1209G>A	Likely_benign ClinVar(2-star, criteria provided)				0.0000	8.10000e-07			Likely benign	17	63533945	C	T	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1504G>A	Likely_benign ClinVar(1-star, criteria provided)	0.657	1.856	0.093	0.0000		19.65	B	Likely benign	17	63533650	C	T	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1761G>A	Likely_benign ClinVar(2-star, criteria provided)	0.673	-0.099		0.0000	2.90478e-05			Likely benign	17	63533133	C	T	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.-263G>A	Benign ClinVar(1-star, criteria provided)								Benign	17	63557714	C	T	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.618C>T	Likely_benign ClinVar(1-star, criteria provided)				0.0000				Likely benign	17	63554121	G	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1455C>T	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	63533699	G	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1080G>A	Benign ClinVar(2-star, criteria provided)				0.0100				Benign/Likely benign	17	63534441	C	T	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.2335A>C	Likely_benign ClinVar(2-star, criteria provided)	0.996	0.747	0.152	0.0000		18.38	A	Likely benign	17	63530100	T	G	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.*476_*487del	Benign ClinVar(1-star, criteria provided)								Benign	17	63525606	CACTCCTAGCTCA	C	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1843A>C	Likely_benign ClinVar(1-star, criteria provided)	0.171	0.023	0.233	0.0000		17.16	B	Likely benign	17	63533051	T	G	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.2142-10GT[3]	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	17	63531845	G	GAC	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1812G>C	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	17	63533082	C	G	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.2100C>G	Benign ClinVar(2-star, criteria provided)	1.0	2.778	0.060			24.9	B	Benign/Likely benign	17	63532479	G	C	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.849T>C	Benign ClinVar(2-star, criteria provided)				0.0000				Benign/Likely benign	17	63545745	A	G	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.2160G>A	Likely_benign ClinVar(2-star, criteria provided)				0.0000				Likely benign	17	63531821	C	T	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1870C>T	Benign ClinVar(2-star, criteria provided)	0.143	0.465	0.087	0.0300	1.77200e-05	8.813	B	Benign/Likely benign	17	63533024	G	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.582T>C	Likely_benign ClinVar(1-star, criteria provided)				0.0000				Likely benign	17	63554157	A	G	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1830G>A	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	17	63533064	C	T	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1395C>T	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	17	63533759	G	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.969T>G	Likely_benign ClinVar(1-star, criteria provided)	0.511	-0.191	0.738			19.49	P	Likely benign	17	63537663	A	C	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.411G>A	Benign ClinVar(2-star, criteria provided)				0.0000				Benign/Likely benign	17	63554328	C	T	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.255A>G	Benign ClinVar(2-star, criteria provided)	0.989	0.654		0.0000				Benign/Likely benign	17	63554484	T	C	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1182C>T	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	63534339	G	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.933C>T	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	63545661	G	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1774C>T	Benign ClinVar(2-star, criteria provided)	0.123	2.061		0.0100	9.01226e-06			Benign/Likely benign	17	63533120	G	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1308G>A	Likely_benign ClinVar(1-star, criteria provided)				0.0000				Likely benign	17	63533846	C	T	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.2460G>A	Likely_benign ClinVar(1-star, criteria provided)	0.934	0.937		0.0000				Likely benign	17	63526166	C	T	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.2500C>A	Likely_benign ClinVar(2-star, criteria provided)				0.0000				Likely benign	17	63526126	G	T	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1842C>T	Benign ClinVar(2-star, criteria provided)				0.0000				Benign/Likely benign	17	63533052	G	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.2013C>T	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	63532566	G	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1932C>T	Benign ClinVar(2-star, criteria provided)				0.0000	2.80000e-07			Benign/Likely benign	17	63532647	G	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.21G>T	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	17	63554718	C	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.78G>A	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	17	63554661	C	T	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1854T>C	Likely_benign ClinVar(2-star, criteria provided)	0.977	0.228		0.0000				Likely benign	17	63533040	A	G	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.2301T>C	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	17	63530134	A	G	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.2493T>C	Likely_benign ClinVar(1-star, criteria provided)				0.0000				Likely benign	17	63526133	A	G	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1926G>A	Benign ClinVar(2-star, criteria provided)				0.0000				Benign/Likely benign	17	63532653	C	T	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.168G>A	Likely_benign ClinVar(1-star, criteria provided)				0.0000				Likely benign	17	63554571	C	T	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.2310C>T	Likely_benign ClinVar(1-star, criteria provided)				0.0400				Likely benign	17	63530125	G	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.42C>T	Benign ClinVar(2-star, criteria provided)				0.0000				Benign/Likely benign	17	63554697	G	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.966T>C	Benign ClinVar(2-star, criteria provided)				0.0000				Benign/Likely benign	17	63537666	A	G	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.81A>G	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	63554658	T	C	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.737C>T	Likely_benign ClinVar(1-star, criteria provided)	1.0	7.021	0.197	0.0000		22.5	B	Likely benign	17	63554002	G	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1941G>A	Likely_benign ClinVar(1-star, criteria provided)	0.694	0.136		0.0200				Likely benign	17	63532638	C	T	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.123C>T	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	17	63554616	G	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.2172G>A	Benign ClinVar(2-star, criteria provided)				0.0000				Benign/Likely benign	17	63531809	C	T	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.16T>C	Benign ClinVar(2-star, criteria provided)	0.008	-1.253		0.0000				Benign/Likely benign	17	63554723	A	G	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.816-13A>G	Likely_benign ClinVar(2-star, criteria provided)								Likely benign	17	63545791	T	C	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.474A>G	Benign ClinVar(1-star, criteria provided)	0.999	0.968		0.0000				Benign	17	63554265	T	C	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.801T>C	Benign ClinVar(1-star, criteria provided)								Benign	17	63553938	A	G	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.202C>A	Benign ClinVar(1-star, criteria provided)				0.0000				Benign	17	63554537	G	T	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.606T>C	Benign ClinVar(1-star, criteria provided)				0.0000				Benign	17	63554133	A	G	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.750G>A	Benign ClinVar(1-star, criteria provided)				0.0000				Benign	17	63553989	C	T	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.735A>G	Benign ClinVar(1-star, criteria provided)								Benign	17	63554004	T	C	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.957-15T>C	Likely_benign ClinVar(2-star, criteria provided)								Likely benign	17	63537690	A	G	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.420G>A	Benign ClinVar(1-star, criteria provided)	0.999	1.114		0.0000				Benign	17	63554319	C	T	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.318T>C	Benign ClinVar(1-star, criteria provided)				0.0000				Benign	17	63554421	A	G	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.816-14T>C	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	17	63545792	A	G	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.366G>C	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	63554373	C	G	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.996G>A	Benign ClinVar(1-star, criteria provided)	0.998	0.831		0.0100				Benign	17	63537636	C	T	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.639G>A	Benign ClinVar(1-star, criteria provided)								Benign	17	63554100	C	T	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.192G>A	Benign ClinVar(2-star, criteria provided)				0.0000				Benign/Likely benign	17	63554547	C	T	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.315G>A	Benign ClinVar(1-star, criteria provided)								Benign	17	63554424	C	T	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.783G>C	Benign ClinVar(1-star, criteria provided)								Benign	17	63553956	C	G	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.385C>A	Benign ClinVar(2-star, criteria provided)				0.0000				Benign/Likely benign	17	63554354	G	T	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.402C>A	Benign ClinVar(1-star, criteria provided)				0.0000				Benign	17	63554337	G	T	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.747C>T	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	63553992	G	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.690A>G	Benign ClinVar(1-star, criteria provided)	0.996	0.379		0.0000				Benign	17	63554049	T	C	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.18G>A	Benign ClinVar(2-star, criteria provided)				0.0000				Benign/Likely benign	17	63554721	C	T	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.816-15G>A	Likely_benign ClinVar(2-star, criteria provided)								Likely benign	17	63545793	C	T	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.771C>T	Benign ClinVar(1-star, criteria provided)								Benign	17	63553968	G	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1053T>C	Likely_benign ClinVar(1-star, criteria provided)	0.984	0.342		0.0100				Likely benign	17	63537579	A	G	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1147C>T	Likely_benign ClinVar(1-star, criteria provided)	0.996	0.718		0.0000				Likely benign	17	63534374	G	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1185G>A	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	63534336	C	T	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1783A>C	Benign ClinVar(2-star, criteria provided)	1.0	5.855	0.194	0.0000		24.3	B	Benign/Likely benign	17	63533111	T	G	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1791A>G	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	17	63533103	T	C	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.763C>T	Likely_benign ClinVar(2-star, criteria provided)				0.0000	6.80000e-07			Likely benign	17	63553976	G	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.2531G>A	Benign ClinVar(1-star, criteria provided)				0.0000				Benign	17	63526095	C	T	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1060-7C>T	Likely_benign ClinVar(2-star, criteria provided)								Likely benign	17	63534468	G	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1197A>G	Benign ClinVar(1-star, criteria provided)								Benign	17	63534324	T	C	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1908-4T>C	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	17	63532675	A	G	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.2238-4dup	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	17	63530200	G	GA	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1140G>A	Benign ClinVar(2-star, criteria provided)				0.0000				Benign/Likely benign	17	63534381	C	T	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.2475G>A	Benign ClinVar(1-star, criteria provided)	0.994	0.435		0.0000				Benign	17	63526151	C	T	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.957-8T>C	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	17	63537683	A	G	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1920A>C	Benign ClinVar(2-star, criteria provided)	0.316	-0.453	0.183			11.29	B	Benign/Likely benign	17	63532659	T	G	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.*4C>T	Benign ClinVar(1-star, criteria provided)								Benign	17	63526090	G	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.*10T>A	Benign ClinVar(1-star, criteria provided)								Benign	17	63526084	A	T	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.2406-14G>T	Likely_benign ClinVar(2-star, criteria provided)								Likely benign	17	63526234	C	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.*2C>T	Benign ClinVar(1-star, criteria provided)								Benign	17	63526092	G	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.*8G>C	Benign ClinVar(1-star, criteria provided)								Benign	17	63526086	C	G	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.2265T>C	Benign ClinVar(1-star, criteria provided)								Benign	17	63530170	A	G	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1359G>A	Benign ClinVar(1-star, criteria provided)				0.0000				Benign	17	63533795	C	T	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1515T>C	Benign ClinVar(2-star, criteria provided)	0.919	0.837		0.0000				Benign/Likely benign	17	63533639	A	G	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1060-15T>C	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	17	63534476	A	G	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1302C>T	Benign ClinVar(1-star, criteria provided)				0.0000				Benign	17	63533852	G	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.2250A>G	Benign ClinVar(1-star, criteria provided)								Benign	17	63530185	T	C	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1713-7C>T	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	17	63533188	G	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.2154C>G	Benign ClinVar(1-star, criteria provided)								Benign	17	63531827	G	C	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.*9G>T	Benign ClinVar(1-star, criteria provided)								Benign	17	63526085	C	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1713-10T>C	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	17	63533191	A	G	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1851G>A	Benign ClinVar(1-star, criteria provided)				0.0000				Benign	17	63533043	C	T	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1506C>T	Benign ClinVar(1-star, criteria provided)								Benign	17	63533648	G	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.2259G>A	Benign ClinVar(1-star, criteria provided)								Benign	17	63530176	C	T	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.2409T>C	Benign ClinVar(2-star, criteria provided)				0.0000				Benign/Likely benign	17	63526217	A	G	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.2406-15G>C	Likely_benign ClinVar(2-star, criteria provided)								Likely benign	17	63526235	C	G	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.2286T>C	Benign ClinVar(1-star, criteria provided)	0.004	-0.4		0.0000	2.80000e-07			Benign	17	63530149	A	G	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1443C>G	Benign ClinVar(1-star, criteria provided)								Benign	17	63533711	G	C	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1947C>T	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	63532632	G	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1713-4A>T	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	17	63533185	T	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1984C>T	Benign ClinVar(2-star, criteria provided)				0.0000				Benign/Likely benign	17	63532595	G	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.*6G>C	Benign ClinVar(1-star, criteria provided)								Benign	17	63526088	C	G	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1201-11T>C	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	17	63533964	A	G	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.2289G>A	Benign ClinVar(1-star, criteria provided)				0.0000				Benign	17	63530146	C	T	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1200+6G>T	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	17	63534315	C	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1071C>T	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	63534450	G	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.2280G>A	Benign ClinVar(2-star, criteria provided)				0.0500				Benign/Likely benign	17	63530155	C	T	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1347C>A	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	63533807	G	T	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1668A>G	Benign ClinVar(2-star, criteria provided)	0.998	0.58		0.0000				Benign/Likely benign	17	63533486	T	C	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.2406-4dup	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	17	63526223	T	TA	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1839A>G	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	17	63533055	T	C	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.130C>G	Likely_benign ClinVar(1-star, criteria provided)	1.0	3.212	0.155	0.0000		20.3	B	Likely benign	17	63554609	G	C	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.2362C>T	Likely_benign ClinVar(1-star, criteria provided)				0.0000				Likely benign	17	63530073	G	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1770G>A	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	17	63533124	C	T	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.2412C>T	Likely_benign ClinVar(1-star, criteria provided)				0.0100				Likely benign	17	63526214	G	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.387A>G	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	17	63554352	T	C	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.51C>T	Likely_benign ClinVar(1-star, criteria provided)				0.0000				Likely benign	17	63554688	G	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.797C>G	Likely_benign ClinVar(1-star, criteria provided)	0.905	5.149	0.186	0.0000		16.09	B	Likely benign	17	63553942	G	C	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.2517G>A	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	17	63526109	C	T	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1619A>G	Likely_benign ClinVar(1-star, criteria provided)	0.775	3.524	0.122	0.0200		23.3	B	Likely benign	17	63533535	T	C	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.75A>G	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	17	63554664	T	C	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1419C>T	Benign ClinVar(2-star, criteria provided)	0.037	-0.351		0.0100				Benign/Likely benign	17	63533735	G	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.39C>G	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	17	63554700	G	C	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.45C>T	Likely_benign ClinVar(1-star, criteria provided)				0.0000				Likely benign	17	63554694	G	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.570T>C	Likely_benign ClinVar(1-star, criteria provided)				0.0000				Likely benign	17	63554169	A	G	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.846T>A	Likely_benign ClinVar(1-star, criteria provided)	1.0	1.872	0.586			22.0	P	Likely benign	17	63545748	A	T	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.990G>A	Likely_benign ClinVar(1-star, criteria provided)				0.0000				Likely benign	17	63537642	C	T	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1008A>G	Likely_benign ClinVar(2-star, criteria provided)	0.442	-0.295		0.0000				Likely benign	17	63537624	T	C	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.852C>T	Likely_benign ClinVar(1-star, criteria provided)	0.087	-0.383		0.0300				Likely benign	17	63545742	G	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1503G>A	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	17	63533651	C	T	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.609G>A	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	17	63554130	C	T	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.183G>A	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	17	63554556	C	T	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.744T>C	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	17	63553995	A	G	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.2238-11C>T	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	17	63530208	G	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.235A>G	Likely_benign ClinVar(1-star, criteria provided)	1.0	2.191	0.047	0.0000		17.49	B	Likely benign	17	63554504	T	C	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.2364G>A	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	17	63530071	C	T	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1045C>T	Likely_benign ClinVar(1-star, criteria provided)	1.0	8.617		0.0100		50.0		Likely benign	17	63537587	G	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.2061C>G	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	17	63532518	G	C	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1995C>A	Likely_benign ClinVar(1-star, criteria provided)	1.0	2.63				43.0		Likely benign	17	63532584	G	T	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1845G>A	Likely_benign ClinVar(1-star, criteria provided)	0.999	0.688		0.0000				Likely benign	17	63533049	C	T	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1236T>C	Likely_benign ClinVar(1-star, criteria provided)	0.044	2.079		0.0000				Likely benign	17	63533918	A	G	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.2415C>T	Likely_benign ClinVar(1-star, criteria provided)				0.0100				Likely benign	17	63526211	G	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.306G>A	Likely_benign ClinVar(1-star, criteria provided)				0.0000				Likely benign	17	63554433	C	T	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.2461A>G	Likely_benign ClinVar(1-star, criteria provided)	0.909	0.158	0.077	0.0000		0.219	B	Likely benign	17	63526165	T	C	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.54T>G	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	17	63554685	A	C	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1119G>A	Likely_benign ClinVar(1-star, criteria provided)				0.0000				Likely benign	17	63534402	C	T	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1716C>A	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	17	63533178	G	T	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.2230C>T	Likely_benign ClinVar(1-star, criteria provided)	0.074	0.155	0.140	0.0000		5.355	B	Likely benign	17	63531751	G	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.-9T>A	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	17	63554747	A	T	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.297G>C	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	17	63554442	C	G	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1743C>G	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	17	63533151	G	C	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.483C>A	Likely_benign ClinVar(1-star, criteria provided)				0.0000				Likely benign	17	63554256	G	T	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1023G>T	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	17	63537609	C	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.807T>C	Likely_benign ClinVar(1-star, criteria provided)	0.012	-0.321		0.0000				Likely benign	17	63553932	A	G	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.588C>T	Likely_benign ClinVar(1-star, criteria provided)				0.0000				Likely benign	17	63554151	G	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.2295T>C	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	17	63530140	A	G	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.816-5C>T	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	17	63545783	G	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.2505T>C	Likely_benign ClinVar(1-star, criteria provided)	0.086	-0.502		0.0000				Likely benign	17	63526121	A	G	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.2238-5T>C	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	17	63530202	A	G	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.2388C>T	Likely_benign ClinVar(1-star, criteria provided)				0.0400				Likely benign	17	63530047	G	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.2361C>T	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	17	63530074	G	A	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.720G>A	Likely_benign ClinVar(1-star, criteria provided)				0.0000				Likely benign	17	63554019	C	T	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.2332C>A	Likely_benign ClinVar(1-star, criteria provided)	0.996	0.204		0.0900				Likely benign	17	63530103	G	T	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.1524G>A	Likely_benign ClinVar(1-star, criteria provided)				0.0000				Likely benign	17	63533630	C	T	clinvar_assertion	clinvar
+AXIN2	NM_004655.4	c.471A>T	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.869	0.018		0.0000					17	63554268	T	A	local_enumeration	synonymous_catalog
+AXIN2	NM_004655.4	c.432T>A	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.452	-0.117		0.0000					17	63554307	A	T	local_enumeration	synonymous_catalog
+AXIN2	NM_004655.4	c.417T>A	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.21	-0.401		0.0000					17	63554322	A	T	local_enumeration	synonymous_catalog
+AXIN2	NM_004655.4	c.322T>C	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.98	1.044		0.0000					17	63554417	A	G	local_enumeration	synonymous_catalog
+AXIN2	NM_004655.4	c.244T>C	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.018	0.349		0.0000					17	63554495	A	G	local_enumeration	synonymous_catalog
+AXIN2	NM_004655.4	c.229C>A	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.995	0.359		0.0000					17	63554510	G	T	local_enumeration	synonymous_catalog
+AXIN2	NM_004655.4	c.186G>A	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.924	0.085		0.0100					17	63554553	C	T	local_enumeration	synonymous_catalog
+AXIN2	NM_004655.4	c.180T>C	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.997	0.653		0.0100					17	63554559	A	G	local_enumeration	synonymous_catalog
+AXIN2	NM_004655.4	c.174C>T	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.326	-0.144		0.0000	6.17589e-05				17	63554565	G	A	local_enumeration	synonymous_catalog
+AXIN2	NM_004655.4	c.471A>C	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.869	0.018		0.0000					17	63554268	T	G	local_enumeration	synonymous_catalog
+AXIN2	NM_004655.4	c.472A>C	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.896	0.499		0.0000					17	63554267	T	G	local_enumeration	synonymous_catalog
+AXIN2	NM_004655.4	c.141A>G	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.594	0.004		0.0000					17	63554598	T	C	local_enumeration	synonymous_catalog
+AXIN2	NM_004655.4	c.132G>A	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.998	0.919		0.0000					17	63554607	C	T	local_enumeration	synonymous_catalog
+AXIN2	NM_004655.4	c.96G>A	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.994	1.198		0.0000					17	63554643	C	T	local_enumeration	synonymous_catalog
+AXIN2	NM_004655.4	c.87A>G	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.998	0.506		0.0100					17	63554652	T	C	local_enumeration	synonymous_catalog
+AXIN2	NM_004655.4	c.67C>A	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.936	1.434		0.0000					17	63554672	G	T	local_enumeration	synonymous_catalog
+AXIN2	NM_004655.4	c.1333A>C	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.998	2.618		0.0000					17	63533821	T	G	local_enumeration	synonymous_catalog
+AXIN2	NM_004655.4	c.1314A>C	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.997	0.429		0.0100					17	63533840	T	G	local_enumeration	synonymous_catalog
+AXIN2	NM_004655.4	c.1314A>T	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.997	0.429		0.0000					17	63533840	T	A	local_enumeration	synonymous_catalog
+AXIN2	NM_004655.4	c.1240C>A	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.973	2.374		0.0200					17	63533914	G	T	local_enumeration	synonymous_catalog
+AXIN2	NM_004655.4	c.1215G>A	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.991	0.552		0.0100	8.44452e-05				17	63533939	C	T	local_enumeration	synonymous_catalog
+AXIN2	NM_004655.4	c.1203T>C	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.955	0.138		0.0000					17	63533951	A	G	local_enumeration	synonymous_catalog
+AXIN2	NM_004655.4	c.1407C>T	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.997	1.332		0.0000					17	63533747	G	A	local_enumeration	synonymous_catalog
+AXIN2	NM_004655.4	c.1647T>C	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.991	0.42		0.0000					17	63533507	A	G	local_enumeration	synonymous_catalog
+AXIN2	NM_004655.4	c.1641C>T	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.136	-0.354		0.2100					17	63533513	G	A	local_enumeration	synonymous_catalog
+AXIN2	NM_004655.4	c.1612C>A	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.997	0.26		0.0000					17	63533542	G	T	local_enumeration	synonymous_catalog
+AXIN2	NM_004655.4	c.1593C>A	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.0	-2.62		0.0000					17	63533561	G	T	local_enumeration	synonymous_catalog
+AXIN2	NM_004655.4	c.1458G>A	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.997	0.323		0.0000					17	63533696	C	T	local_enumeration	synonymous_catalog
+AXIN2	NM_004655.4	c.1431C>T	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.55	0.264		0.0000					17	63533723	G	A	local_enumeration	synonymous_catalog
+AXIN2	NM_004655.4	c.784A>C	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.992	0.136		0.0000					17	63553955	T	G	local_enumeration	synonymous_catalog
+AXIN2	NM_004655.4	c.666T>C	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.902	0.458		0.0000					17	63554073	A	G	local_enumeration	synonymous_catalog
+AXIN2	NM_004655.4	c.636T>C	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.025	0.068		0.0000					17	63554103	A	G	local_enumeration	synonymous_catalog
+AXIN2	NM_004655.4	c.633T>C	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.817	1.102		0.0000					17	63554106	A	G	local_enumeration	synonymous_catalog
+AXIN2	NM_004655.4	c.498T>C	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.003	-1.225		0.0000					17	63554241	A	G	local_enumeration	synonymous_catalog
+AXIN2	NM_004655.4	c.834T>C	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.005	-0.794		0.0000					17	63545760	A	G	local_enumeration	synonymous_catalog
+AXIN2	NM_004655.4	c.954T>C	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.579	-0.119		0.0000	2.90833e-05				17	63545640	A	G	local_enumeration	synonymous_catalog
+AXIN2	NM_004655.4	c.930T>C	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.231	-0.456		0.0100					17	63545664	A	G	local_enumeration	synonymous_catalog
+AXIN2	NM_004655.4	c.927T>C	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.242	-0.285		0.0100					17	63545667	A	G	local_enumeration	synonymous_catalog
+AXIN2	NM_004655.4	c.919C>T	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.964	1.637		0.0000					17	63545675	G	A	local_enumeration	synonymous_catalog
+AXIN2	NM_004655.4	c.912T>C	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.005	-0.987		0.0200					17	63545682	A	G	local_enumeration	synonymous_catalog
+AXIN2	NM_004655.4	c.906A>C	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.588	-0.333		0.0100					17	63545688	T	G	local_enumeration	synonymous_catalog
+AXIN2	NM_004655.4	c.900T>C	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.115	-0.501		0.0100					17	63545694	A	G	local_enumeration	synonymous_catalog
+AXIN2	NM_004655.4	c.855A>T	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.93	0.023		0.0000					17	63545739	T	A	local_enumeration	synonymous_catalog
+AXIN2	NM_004655.4	c.1689A>G	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.998	0.356		0.0000					17	63533465	T	C	local_enumeration	synonymous_catalog
+AXIN2	NM_004655.4	c.2379G>A	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.997	0.511		0.0000	6.15233e-05				17	63530056	C	T	local_enumeration	synonymous_catalog
+AXIN2	NM_004655.4	c.2454T>C	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.695	-0.023		0.0000					17	63526172	A	G	local_enumeration	synonymous_catalog
+AXIN2	NM_004655.4	c.2436T>C	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.999	0.945		0.0000					17	63526190	A	G	local_enumeration	synonymous_catalog
+AXIN2	NM_004655.4	c.2421A>G	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.992	0.242		0.0100					17	63526205	T	C	local_enumeration	synonymous_catalog
+AXIN2	NM_004655.4	c.2325T>A	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.407	-0.064		0.0000					17	63530110	A	T	local_enumeration	synonymous_catalog
+AXIN2	NM_004655.4	c.2322A>G	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.899	-0.04		0.0100					17	63530113	T	C	local_enumeration	synonymous_catalog
+AXIN2	NM_004655.4	c.2313T>C	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.997	0.632		0.0000	1.75796e-05				17	63530122	A	G	local_enumeration	synonymous_catalog
+AXIN2	NM_004655.4	c.2290T>C	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.966	0.053		0.0000					17	63530145	A	G	local_enumeration	synonymous_catalog
+AXIN2	NM_004655.4	c.2238T>C	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.995	0.432		0.0300					17	63530197	A	G	local_enumeration	synonymous_catalog
+AXIN2	NM_004655.4	c.2505T>A	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.086	-0.502		0.0000					17	63526121	A	T	local_enumeration	synonymous_catalog
+AXIN2	NM_004655.4	c.2526C>A	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.997	0.445		0.0000					17	63526100	G	T	local_enumeration	synonymous_catalog
+AXIN2	NM_004655.4	c.2223C>T	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.79	1.008		0.0000					17	63531758	G	A	local_enumeration	synonymous_catalog
+AXIN2	NM_004655.4	c.1878T>C	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.925	0.036		0.0000					17	63533016	A	G	local_enumeration	synonymous_catalog
+AXIN2	NM_004655.4	c.1828C>A	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.0	-0.236		0.0000	3.26648e-05				17	63533066	G	T	local_enumeration	synonymous_catalog
+AXIN2	NM_004655.4	c.1732T>C	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.997	0.598		0.0000					17	63533162	A	G	local_enumeration	synonymous_catalog
+AXIN2	NM_004655.4	c.2157T>C	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.999	0.86		0.0000					17	63531824	A	G	local_enumeration	synonymous_catalog
+AXIN2	NM_004655.4	c.1720A>C	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.999	0.794		0.0000					17	63533174	T	G	local_enumeration	synonymous_catalog
+AXIN2	NM_004655.4	c.1710T>C	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.0	-1.985		0.0000					17	63533444	A	G	local_enumeration	synonymous_catalog
+AXIN2	NM_004655.4	c.1707G>A	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.007	0.201		0.0000					17	63533447	C	T	local_enumeration	synonymous_catalog
+AXIN2	NM_004655.4	c.1923A>G	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.917	0.025		0.0300					17	63532656	T	C	local_enumeration	synonymous_catalog
+AXIN2	NM_004655.4	c.2140C>A	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.997	0.729		0.0000					17	63532439	G	T	local_enumeration	synonymous_catalog
+AXIN2	NM_004655.4	c.2136G>A	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.494	-0.236		0.0000					17	63532443	C	T	local_enumeration	synonymous_catalog
+AXIN2	NM_004655.4	c.2107A>C	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.99	0.243		0.0100					17	63532472	T	G	local_enumeration	synonymous_catalog
+AXIN2	NM_004655.4	c.1974C>T	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.991	1.809		0.0000	9.22986e-06				17	63532605	G	A	local_enumeration	synonymous_catalog
+AXIN2	NM_004655.4	c.1966C>A	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.997	4.133		0.0000					17	63532613	G	T	local_enumeration	synonymous_catalog
+AXIN2	NM_004655.4	c.1965A>G	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.762	-0.207		0.0000					17	63532614	T	C	local_enumeration	synonymous_catalog

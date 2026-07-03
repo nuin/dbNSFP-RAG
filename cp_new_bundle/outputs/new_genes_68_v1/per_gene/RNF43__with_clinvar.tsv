@@ -1,0 +1,56 @@
+gene	transcript	hgvs_c	classification	PhastCons100way	PhyloP100way	REVEL	SpliceAI_masked	FAF95_grpmax	CADD_phred	AlphaMissense_pred	ClinVar_sig	chr_grch37	pos_grch37	ref	alt	vv_status	source
+RNF43	NM_017763.5	c.139A>G	Benign FAF >5%	0.998	1.124	.;.;0.062;.;.;.		0.527126	17.13	LB;LB;.;B;.;.	Benign	17	56492800	T	C	ok	pipeline
+RNF43	NM_017763.5	c.350G>A	Benign FAF >5%	1.0	2.996	.;0.136;.;.;.		0.351918	22.7	LB;.;B;.;.	Benign	17	56448297	C	T	ok	pipeline
+RNF43	NM_017763.5	c.662G>A	Benign FAF >5%	1.0	1.986	.;.;0.092;.;.;.;.;.		0.0698771	25.8	LB;LB;.;B;.;.;LB;LB	Benign	17	56439930	C	T	ok	pipeline
+RNF43	NM_017763.5	c.692C>T	Benign FAF >5%	1.0	7.502	.;.;0.140;.;.;.;.;.		0.197634	24.3	LB;LB;.;B;.;.;LB;LB	Benign	17	56438301	G	A	ok	pipeline
+RNF43	NM_017763.5	c.1028G>A	Benign FAF >5%	1.0	3.587	.;.;0.063;.;.;.;.;.		0.157834	23.7	LB;LB;.;B;.;.;LB;LB	Benign	17	56436109	C	T	ok	pipeline
+RNF43	NM_017763.5	c.1252C>A	Benign FAF >5%	0.067	2.487	.;.;0.106;.;.;.;.;.		0.510469	15.64	LB;LB;.;B;.;.;LB;LB	Benign	17	56435885	G	T	ok	pipeline
+RNF43	NM_017763.5	c.2057C>G	Benign FAF >5%	0.125	2.37	.;.;0.044;.;.;.;.;.		0.144379	7.655	LB;LB;.;B;.;.;LB;LB	Benign	17	56435080	G	C	ok	pipeline
+RNF43	NM_017763.5	c.688-8C>T	Likely_benign ClinVar(2-star, criteria provided)								Likely benign	17	56438313			clinvar_assertion	clinvar
+RNF43	NM_017763.5	c.376-15T>C	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	17	56440976			clinvar_assertion	clinvar
+RNF43	NM_017763.5	c.451-10C>T	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	17	56440777			clinvar_assertion	clinvar
+RNF43	NM_017763.5	c.-10A>G	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	17	56492948			clinvar_assertion	clinvar
+RNF43	NM_017763.5	c.850-11T>G	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	17	56437623			clinvar_assertion	clinvar
+RNF43	NM_017763.5	c.583-12C>T	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	56440021			clinvar_assertion	clinvar
+RNF43	NM_017763.5	c.-9G>A	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	17	56492947			clinvar_assertion	clinvar
+RNF43	NM_017763.5	c.338G>A	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	17	56448309			clinvar_assertion	clinvar
+RNF43	NM_017763.5	c.1901C>T	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	17	56435236			clinvar_assertion	clinvar
+RNF43	NM_017763.5	c.1340G>A	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	17	56435797			clinvar_assertion	clinvar
+RNF43	NM_017763.5	c.1922A>G	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	17	56435215			clinvar_assertion	clinvar
+RNF43	NM_017763.5	c.688-4C>A	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	17	56438309			clinvar_assertion	clinvar
+RNF43	NM_017763.5	c.451-4G>C	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	17	56440771			clinvar_assertion	clinvar
+RNF43	NM_017763.5	c.850-15C>T	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	17	56437627			clinvar_assertion	clinvar
+RNF43	NM_017763.5	c.953-14G>C	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	17	56436198			clinvar_assertion	clinvar
+RNF43	NM_017763.5	c.1298T>G	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	17	56435839			clinvar_assertion	clinvar
+RNF43	NM_017763.5	c.2071C>T	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	17	56435066			clinvar_assertion	clinvar
+RNF43	NM_017763.5	c.805G>A	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	17	56438188			clinvar_assertion	clinvar
+RNF43	NM_017763.5	c.1435G>C	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	17	56435702			clinvar_assertion	clinvar
+RNF43	NM_017763.5	c.1793T>C	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	17	56435344			clinvar_assertion	clinvar
+RNF43	NM_017763.5	c.955G>A	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	17	56436182			clinvar_assertion	clinvar
+RNF43	NM_017763.5	c.*7C>G	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	17	56432297			clinvar_assertion	clinvar
+RNF43	NM_017763.5	c.376-13dup	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	17	56440973			clinvar_assertion	clinvar
+RNF43	NM_017763.5	c.850-13T>C	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	17	56437625			clinvar_assertion	clinvar
+RNF43	NM_017763.5	c.253-9dup	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	17	56448402			clinvar_assertion	clinvar
+RNF43	NM_017763.5	c.2309-12C>T	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	17	56432359			clinvar_assertion	clinvar
+RNF43	NM_017763.5	c.376-8C>A	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	17	56440969			clinvar_assertion	clinvar
+RNF43	NM_017763.5	c.451-14C>T	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	17	56440781			clinvar_assertion	clinvar
+RNF43	NM_017763.5	c.376-14G>C	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	17	56440975			clinvar_assertion	clinvar
+RNF43	NM_017763.5	c.583-13G>C	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	17	56440022			clinvar_assertion	clinvar
+RNF43	NM_017763.5	c.2309-15G>C	Benign ClinVar(2-star, criteria provided)								Benign	17	56432362			clinvar_assertion	clinvar
+RNF43	NM_017763.5	c.-385-51T>A	Benign ClinVar(2-star, criteria provided)								Benign	17	56493374			clinvar_assertion	clinvar
+RNF43	NM_017763.5	c.1007G>A	Benign ClinVar(2-star, criteria provided)								Benign	17	56436130			clinvar_assertion	clinvar
+RNF43	NM_017763.5	c.1093G>A	Benign ClinVar(2-star, criteria provided)								Benign	17	56436044			clinvar_assertion	clinvar
+RNF43	NM_017763.5	c.1585C>T	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	56435552			clinvar_assertion	clinvar
+RNF43	NM_017763.5	c.1885G>A	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	56435252			clinvar_assertion	clinvar
+RNF43	NM_017763.5	c.1970G>C	Benign ClinVar(2-star, criteria provided)								Benign	17	56435167			clinvar_assertion	clinvar
+RNF43	NM_017763.5	c.2261G>C	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	17	56434876			clinvar_assertion	clinvar
+RNF43	NM_017763.5	c.953-7T>C	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	17	56436191			clinvar_assertion	clinvar
+RNF43	NM_017763.5	c.850-12C>T	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	17	56437624			clinvar_assertion	clinvar
+RNF43	NM_017763.5	c.2309-4A>T	Likely_benign ClinVar(2-star, criteria provided)								Likely benign	17	56432351			clinvar_assertion	clinvar
+RNF43	NM_017763.5	c.451-13T>C	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	17	56440780			clinvar_assertion	clinvar
+RNF43	NM_017763.5	c.*216C>T	Likely_benign ClinVar(2-star, criteria provided)								Likely benign	17	56432088			clinvar_assertion	clinvar
+RNF43	NM_017763.5	c.850-10T>A	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	17	56437622			clinvar_assertion	clinvar
+RNF43	NM_017763.5	c.253-10C>G	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	17	56448404			clinvar_assertion	clinvar
+RNF43	NM_017763.5	c.253-4G>A	Likely_benign ClinVar(2-star, criteria provided)								Likely benign	17	56448398			clinvar_assertion	clinvar
+RNF43	NM_017763.5	c.953-5T>C	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	17	56436189			clinvar_assertion	clinvar
+RNF43	NM_017763.5	c.376-4G>A	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	17	56440965			clinvar_assertion	clinvar

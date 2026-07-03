@@ -1,0 +1,17 @@
+gene	transcript	hgvs_c	classification	PhastCons100way	PhyloP100way	REVEL	SpliceAI_masked	SpliceAI_unmasked	FAF95_grpmax	CADD_phred	AlphaMissense_pred	ClinVar_sig	chr_grch37	pos_grch37	ref	alt	g_hg19	gnomad_id	g_hg38	p_hgvs	vv_status	source
+TRIM28	NM_005762.3	c.-586T>C	Benign FAF >5%	0.0	-0.371				0.283912	2.688	LB		19	59055539	T	C	chr19:g.59055539T>C	19-58544172-T-C	chr19:g.58544172T>C		ok	pipeline
+GPR161	NM_001349632.1	c.-42G>A	Likely_benign FAF >0.1%, REVEL<0.29, SpliceAI<=0.1	0.002	-0.149	0.050	0.0000	0.0500	0.0175837	7.35	LB	Benign	1	168074130	C	T	chr1:g.168074130C>T	1-168104892-C-T	chr1:g.168104892C>T		clinvar_assertion	clinvar
+GCM2	NM_004752.4	c.-44T>C	Benign FAF >5%	0.0000	0.5170				0.405176						A	G	chr6:g.10882070A>G	6-10881837-A-G	chr6:g.10881837A>G		myvariant_resolved	gnomad_common
+GOT2	NM_002080.4	c.-24C>T	Benign FAF >5%	0.0440	-0.0410				0.105164						G	A	chr16:g.58768156G>A	16-58734252-G-A	chr16:g.58734252G>A		myvariant_resolved	gnomad_common
+MAD2L2	NM_006341.4	c.-12-13C>T	Benign FAF >5%	0.0000	0.0540				0.0772218						G	A	chr1:g.11740683G>A	1-11680626-G-A	chr1:g.11680626G>A		myvariant_resolved	gnomad_common
+MDH2	NM_005918.4	c.-49C>G	Benign FAF >5%	0.0000	-1.4030				0.998207						C	G	chr7:g.75677430C>G	7-76048112-C-G	chr7:g.76048112C>G		myvariant_resolved	gnomad_common
+MERTK	NM_006343.3	c.-34G>A	Benign FAF >5%	0.0000	-0.1720				0.0564575						G	A	chr2:g.112656279G>A	2-111898702-G-A	chr2:g.111898702G>A		myvariant_resolved	gnomad_common
+MITF	NM_000248.3	c.-4067G>A	Benign FAF >5%	0.0000	0.0620				0.0810747						G	A	chr3:g.69981807G>A	3-69932656-G-A	chr3:g.69932656G>A		myvariant_resolved	gnomad_common
+MITF	NM_000248.3	c.-1511G>T	Benign FAF >5%	0.0070	0.4230				0.170882						G	T	chr3:g.69984363G>T	3-69935212-G-T	chr3:g.69935212G>T		myvariant_resolved	gnomad_common
+MITF	NM_000248.3	c.-1202_-1201ins	Benign FAF >5%	0.0060	-0.1310				0.0532426						T	TA	chr3:g.69984672_69984673insA	3-69935521-T-TA	chr3:g.69935521_69935522insA		myvariant_resolved	gnomad_common
+MITF	NM_000248.3	c.-765T>C	Benign FAF >5%	0.0010	0.6810				0.0832903						T	C	chr3:g.69985109T>C	3-69935958-T-C	chr3:g.69935958T>C		myvariant_resolved	gnomad_common
+PTH	NM_000315.4	c.-5-10G>A	Benign FAF >5%	0.0670	0.8540				0.631133						C	T	chr11:g.13514417C>T	11-13492870-C-T	chr11:g.13492870C>T		myvariant_resolved	gnomad_common
+MSH3	NM_002439.5	c.-50C>T	Benign FAF >5%	0.0000	-0.5920				0.40786						C	T	chr5:g.79950497C>T	5-80654678-C-T	chr5:g.80654678C>T		myvariant_resolved	gnomad_common
+MSH3	NM_002439.5	c.-39C>T	Benign FAF >5%	0.0000	-0.4220				0.237323						C	T	chr5:g.79950508C>T	5-80654689-C-T	chr5:g.80654689C>T		myvariant_resolved	gnomad_common
+MSH3	NM_002439.5	c.-35A>G	Benign FAF >5%	0.0000	-3.6080				0.920285						A	G	chr5:g.79950512A>G	5-80654693-A-G	chr5:g.80654693A>G		myvariant_resolved	gnomad_common
+RPS20	NM_001023.3	c.-6A>G	Benign FAF >5%	0.6250	0.4280				0.236192						T	C	chr8:g.56986948T>C	8-56074389-T-C	chr8:g.56074389T>C		myvariant_resolved	gnomad_common

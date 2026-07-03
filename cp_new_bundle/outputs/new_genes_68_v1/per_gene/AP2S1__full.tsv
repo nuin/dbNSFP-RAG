@@ -1,0 +1,183 @@
+gene	transcript	hgvs_c	classification	PhastCons100way	PhyloP100way	REVEL	SpliceAI_masked	FAF95_grpmax	CADD_phred	AlphaMissense_pred	ClinVar_sig	chr_grch37	pos_grch37	ref	alt	vv_status	source
+AP2S1	NM_004069.5	c.216T>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.002	0.344				2.194			19	47347463	A	T	flagged:intergenic	pipeline
+AP2S1	NM_004069.5	c.216T>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.002	0.344				2.362			19	47347463	A	C	flagged:intergenic	pipeline
+AP2S1	NM_004069.5	c.223C>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.005	-0.59				0.969			19	47347456	G	C	flagged:intergenic	pipeline
+AP2S1	NM_004069.5	c.223C>T	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.005	-0.59			0.000148760	3.098			19	47347456	G	A	flagged:intergenic	pipeline
+AP2S1	NM_004069.5	c.227C>T	Benign FAF >5%	0.005	0.362			0.194184	2.199			19	47347452	G	A	flagged:intergenic	pipeline
+AP2S1	NM_004069.5	c.229C>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.004	0.362				1.211			19	47347450	G	C	flagged:intergenic	pipeline
+AP2S1	NM_004069.5	c.229C>T	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.004	0.362			6.89100e-05	2.044			19	47347450	G	A	flagged:intergenic	pipeline
+AP2S1	NM_004069.5	c.264G>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.098	0.311				2.227			19	47347415	C	G	flagged:intergenic	pipeline
+AP2S1	NM_004069.5	c.264G>T	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.098	0.311				2.097			19	47347415	C	A	flagged:intergenic	pipeline
+AP2S1	NM_004069.5	c.270G>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.055	0.311				1.801			19	47347409	C	G	flagged:intergenic	pipeline
+AP2S1	NM_004069.5	c.270G>T	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.055	0.311				1.688			19	47347409	C	A	flagged:intergenic	pipeline
+AP2S1	NM_004069.5	c.270+2T>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0, PhyloP<0.1, intronic_ROI(+2)	0.019	-0.577				1.624			19	47347407	A	T	flagged:intergenic	pipeline
+AP2S1	NM_004069.5	c.270+2T>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0, PhyloP<0.1, intronic_ROI(+2)	0.019	-0.577			3.76500e-05	1.856			19	47347407	A	G	flagged:intergenic	pipeline
+AP2S1	NM_004069.5	c.270+2T>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0, PhyloP<0.1, intronic_ROI(+2)	0.019	-0.577				1.742			19	47347407	A	C	flagged:intergenic	pipeline
+AP2S1	NM_004069.5	c.4-2A>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0, PhyloP<0.1, intronic_ROI(-2)	0.0	-1.997	.;.			1.33	.;.		19	47342879	T	G	flagged:intergenic	pipeline
+AP2S1	NM_004069.5	c.4-2A>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0, PhyloP<0.1, intronic_ROI(-2)	0.0	-1.997	.;.		7.90000e-07	1.513	.;.		19	47342879	T	C	flagged:intergenic	pipeline
+AP2S1	NM_004069.5	c.4-2A>T	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0, PhyloP<0.1, intronic_ROI(-2)	0.0	-1.997	.;.			1.296	.;.		19	47342879	T	A	flagged:intergenic	pipeline
+AP2S1	NM_004069.5	c.164T>G	Benign FAF >5%	0.0	-2.968	.;.		0.677610	0.215	LB;.	Benign	19	47342867	A	C	flagged:intergenic	pipeline
+AP2S1	NM_004069.5	c.207A>T	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.016	0.309				2.534			19	47347472	T	A	flagged:intergenic	pipeline
+AP2S1	NM_004069.5	c.207A>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.016	0.309				2.475			19	47347472	T	G	flagged:intergenic	pipeline
+AP2S1	NM_004069.5	c.204A>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.026	0.346				2.249			19	47347475	T	G	flagged:intergenic	pipeline
+AP2S1	NM_004069.5	c.6A>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.0	0.606				7.058	LB		19	47353436	T	G	flagged:intergenic	pipeline
+AP2S1	NM_004069.5	c.6A>T	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.0	0.606				7.062	LB		19	47353436	T	A	flagged:intergenic	pipeline
+AP2S1	NM_004069.5	c.12G>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.0	0.326				5.789	LB		19	47353430	C	G	flagged:intergenic	pipeline
+AP2S1	NM_004069.5	c.12G>T	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.0	0.326				5.434	LB		19	47353430	C	A	flagged:intergenic	pipeline
+AP2S1	NM_004069.5	c.16C>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.0	-1.036				0.611	LB		19	47353426	G	T	flagged:intergenic	pipeline
+AP2S1	NM_004069.5	c.16C>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.0	-1.036				0.678	LB		19	47353426	G	C	flagged:intergenic	pipeline
+AP2S1	NM_004069.5	c.160A>T	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.193	0.164				3.532			19	47347519	T	A	flagged:intergenic	pipeline
+AP2S1	NM_004069.5	c.162G>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.2	0.163				2.771			19	47347517	C	G	flagged:intergenic	pipeline
+AP2S1	NM_004069.5	c.162G>T	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.2	0.163				2.425			19	47347517	C	A	flagged:intergenic	pipeline
+AP2S1	NM_004069.5	c.165A>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.205	0.164				5.366			19	47347514	T	G	flagged:intergenic	pipeline
+AP2S1	NM_004069.5	c.165A>T	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.205	0.164				5.143			19	47347514	T	A	flagged:intergenic	pipeline
+AP2S1	NM_004069.5	c.168C>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.203	0.192				1.713			19	47347511	G	T	flagged:intergenic	pipeline
+AP2S1	NM_004069.5	c.168C>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.203	0.192				1.831			19	47347511	G	C	flagged:intergenic	pipeline
+AP2S1	NM_004069.5	c.169T>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.2	0.183				2.473			19	47347510	A	T	flagged:intergenic	pipeline
+AP2S1	NM_004069.5	c.169T>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.2	0.183				2.615			19	47347510	A	C	flagged:intergenic	pipeline
+AP2S1	NM_004069.5	c.171G>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.192	0.163				1.791			19	47347508	C	G	flagged:intergenic	pipeline
+AP2S1	NM_004069.5	c.171G>T	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.192	0.163				2.062			19	47347508	C	A	flagged:intergenic	pipeline
+AP2S1	NM_004069.5	c.180C>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.108	0.192				2.513			19	47347499	G	T	flagged:intergenic	pipeline
+AP2S1	NM_004069.5	c.180C>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.108	0.192				2.488			19	47347499	G	C	flagged:intergenic	pipeline
+AP2S1	NM_004069.5	c.183T>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.072	0.183				3.485			19	47347496	A	T	flagged:intergenic	pipeline
+AP2S1	NM_004069.5	c.183T>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.072	0.183				3.647			19	47347496	A	C	flagged:intergenic	pipeline
+AP2S1	NM_004069.5	c.186G>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.058	-1.393				1.078			19	47347493	C	G	flagged:intergenic	pipeline
+AP2S1	NM_004069.5	c.186G>T	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.058	-1.393				1.507			19	47347493	C	A	flagged:intergenic	pipeline
+AP2S1	NM_004069.5	c.192T>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.065	0.183				1.406			19	47347487	A	T	flagged:intergenic	pipeline
+AP2S1	NM_004069.5	c.192T>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.065	0.183				1.454			19	47347487	A	C	flagged:intergenic	pipeline
+AP2S1	NM_004069.5	c.198C>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.044	0.192				1.044			19	47347481	G	T	flagged:intergenic	pipeline
+AP2S1	NM_004069.5	c.198C>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.044	0.192				1.173			19	47347481	G	C	flagged:intergenic	pipeline
+AP2S1	NM_004069.5	c.202A>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.029	0.164				3.571			19	47347477	T	C	flagged:intergenic	pipeline
+AP2S1	NM_004069.5	c.202A>T	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.029	0.164				3.028			19	47347477	T	A	flagged:intergenic	pipeline
+AP2S1	NM_004069.5	c.160A>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.193	0.164				4.385			19	47347519	T	C	flagged:intergenic	pipeline
+AP2S1	NM_004069.5	c.159C>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.188	0.192				2.27			19	47347520	G	C	flagged:intergenic	pipeline
+AP2S1	NM_004069.5	c.159C>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.188	0.192				2.22			19	47347520	G	T	flagged:intergenic	pipeline
+AP2S1	NM_004069.5	c.51+2T>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0, PhyloP<0.1, intronic_ROI(+2)	0.001	-0.033				5.146			19	47353389	A	C	flagged:intergenic	pipeline
+AP2S1	NM_004069.5	c.24G>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.0	-0.958				4.555	LB		19	47353418	C	G	flagged:intergenic	pipeline
+AP2S1	NM_004069.5	c.24G>T	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.0	-0.958				4.431	LB		19	47353418	C	A	flagged:intergenic	pipeline
+AP2S1	NM_004069.5	c.30T>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.0	-1.277				0.621			19	47353412	A	T	flagged:intergenic	pipeline
+AP2S1	NM_004069.5	c.30T>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.0	-1.277				0.67	LB		19	47353412	A	C	flagged:intergenic	pipeline
+AP2S1	NM_004069.5	c.33A>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.0	-1.539				0.955	LB		19	47353409	T	G	flagged:intergenic	pipeline
+AP2S1	NM_004069.5	c.33A>T	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.0	-1.539				0.92	LB		19	47353409	T	A	flagged:intergenic	pipeline
+AP2S1	NM_004069.5	c.34A>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.0	-0.578			2.66600e-05	4.091	LB		19	47353408	T	C	flagged:intergenic	pipeline
+AP2S1	NM_004069.5	c.34A>T	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.0	-0.578				3.815	LB		19	47353408	T	A	flagged:intergenic	pipeline
+AP2S1	NM_004069.5	c.36G>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.0	-0.51				1.211	LB		19	47353406	C	G	flagged:intergenic	pipeline
+AP2S1	NM_004069.5	c.36G>T	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.0	-0.51				1.108	LB		19	47353406	C	A	flagged:intergenic	pipeline
+AP2S1	NM_004069.5	c.37A>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.0	-1.515				1.773	LB		19	47353405	T	C	flagged:intergenic	pipeline
+AP2S1	NM_004069.5	c.204A>T	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.026	0.346				2.178			19	47347475	T	A	flagged:intergenic	pipeline
+AP2S1	NM_004069.5	c.37A>T	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.0	-1.515				1.657			19	47353405	T	A	flagged:intergenic	pipeline
+AP2S1	NM_004069.5	c.39A>T	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.0	-0.899				2.088	LB		19	47353403	T	A	flagged:intergenic	pipeline
+AP2S1	NM_004069.5	c.42G>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.0	-0.117				4.394	LB		19	47353400	C	G	flagged:intergenic	pipeline
+AP2S1	NM_004069.5	c.42G>T	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.0	-0.117				4.398	LB		19	47353400	C	A	flagged:intergenic	pipeline
+AP2S1	NM_004069.5	c.45C>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.0	-0.532				1.178	LB		19	47353397	G	T	flagged:intergenic	pipeline
+AP2S1	NM_004069.5	c.45C>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.0	-0.532				1.18	LB		19	47353397	G	C	flagged:intergenic	pipeline
+AP2S1	NM_004069.5	c.46C>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.0	-0.807				0.852	LB		19	47353396	G	T	flagged:intergenic	pipeline
+AP2S1	NM_004069.5	c.46C>G	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.0	-0.807				0.832	LB		19	47353396	G	C	flagged:intergenic	pipeline
+AP2S1	NM_004069.5	c.51G>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.0	-0.089				4.004	LB		19	47353391	C	G	flagged:intergenic	pipeline
+AP2S1	NM_004069.5	c.51G>T	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.0	-0.089				3.771	LB		19	47353391	C	A	flagged:intergenic	pipeline
+AP2S1	NM_004069.5	c.51+2T>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0, PhyloP<0.1, intronic_ROI(+2)	0.001	-0.033				4.999			19	47353389	A	T	flagged:intergenic	pipeline
+AP2S1	NM_004069.5	c.51+2T>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0, PhyloP<0.1, intronic_ROI(+2)	0.001	-0.033				5.412			19	47353389	A	G	flagged:intergenic	pipeline
+AP2S1	NM_004069.5	c.39A>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.0	-0.899				2.116	LB		19	47353403	T	G	flagged:intergenic	pipeline
+AP2S1	NM_004069.5	c.154-19C>T	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	19	47342854			clinvar_assertion	clinvar
+AP2S1	NM_004069.5	c.4-8G>T	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	19	47349407			clinvar_assertion	clinvar
+AP2S1	NM_004069.5	c.48G>A	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	19	47349355			clinvar_assertion	clinvar
+AP2S1	NM_004069.5	c.267+19G>A	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	19	47342703			clinvar_assertion	clinvar
+AP2S1	NM_004069.5	c.3+11A>G	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	19	47354010			clinvar_assertion	clinvar
+AP2S1	NM_004069.5	c.328-11C>T	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	19	47341816			clinvar_assertion	clinvar
+AP2S1	NM_004069.5	c.153+9C>T	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	19	47349241			clinvar_assertion	clinvar
+AP2S1	NM_004069.5	c.276C>T	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	19	47342048			clinvar_assertion	clinvar
+AP2S1	NM_004069.5	c.294C>T	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	19	47342030			clinvar_assertion	clinvar
+AP2S1	NM_004069.5	c.30G>A	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	19	47349373			clinvar_assertion	clinvar
+AP2S1	NM_004069.5	c.129C>T	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	19	47349274			clinvar_assertion	clinvar
+AP2S1	NM_004069.5	c.120C>T	Likely_benign ClinVar(2-star, criteria provided)								Likely benign	19	47349283			clinvar_assertion	clinvar
+AP2S1	NM_004069.5	c.4-49C>T	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	19	47349448			clinvar_assertion	clinvar
+AP2S1	NM_004069.5	c.18C>T	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	19	47349385			clinvar_assertion	clinvar
+AP2S1	NM_004069.5	c.3+41dup	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	19	47353979			clinvar_assertion	clinvar
+AP2S1	NM_004069.5	c.3+14G>T	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	19	47354007			clinvar_assertion	clinvar
+AP2S1	NM_004069.5	c.4-14_4-12del	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	19	47349411			clinvar_assertion	clinvar
+AP2S1	NM_004069.5	c.4-7C>T	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	19	47349406			clinvar_assertion	clinvar
+AP2S1	NM_004069.5	c.268-8T>G	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	19	47342064			clinvar_assertion	clinvar
+AP2S1	NM_004069.5	c.267+8G>A	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	19	47342714			clinvar_assertion	clinvar
+AP2S1	NM_004069.5	c.111C>T	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	19	47349292			clinvar_assertion	clinvar
+AP2S1	NM_004069.5	c.72T>C	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	19	47349331			clinvar_assertion	clinvar
+AP2S1	NM_004069.5	c.75T>C	Likely_benign ClinVar(2-star, criteria provided)								Likely benign	19	47349328			clinvar_assertion	clinvar
+AP2S1	NM_004069.5	c.328-10C>T	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	19	47341815			clinvar_assertion	clinvar
+AP2S1	NM_004069.5		Likely_benign ClinVar(1-star, criteria provided)								Likely benign	19	47354455			clinvar_assertion	clinvar
+AP2S1	NM_004069.5	c.3+41del	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	19	47353980			clinvar_assertion	clinvar
+AP2S1	NM_004069.5	c.154-29C>T	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	19	47342864			clinvar_assertion	clinvar
+AP2S1	NM_004069.5	c.268-26T>G	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	19	47342082			clinvar_assertion	clinvar
+AP2S1	NM_004069.5	c.327+48G>A	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	19	47341949			clinvar_assertion	clinvar
+AP2S1	NM_004069.5	c.267+31G>A	Likely_benign ClinVar(2-star, criteria provided)								Likely benign	19	47342691			clinvar_assertion	clinvar
+AP2S1	NM_004069.5	c.154-6C>A	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	19	47342841			clinvar_assertion	clinvar
+AP2S1	NM_004069.5	c.54G>A	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	19	47349349			clinvar_assertion	clinvar
+AP2S1	NM_004069.5	c.328-7C>T	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	19	47341812			clinvar_assertion	clinvar
+AP2S1	NM_004069.5	c.153+12T>A	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	19	47349238			clinvar_assertion	clinvar
+AP2S1	NM_004069.5	c.153+10G>A	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	19	47349240			clinvar_assertion	clinvar
+AP2S1	NM_004069.5	c.327+20G>A	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	19	47341977			clinvar_assertion	clinvar
+AP2S1	NM_004069.5	c.345C>T	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	19	47341788			clinvar_assertion	clinvar
+AP2S1	NM_004069.5	c.91C>T	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	19	47349312			clinvar_assertion	clinvar
+AP2S1	NM_004069.5	c.406C>T	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	19	47341727			clinvar_assertion	clinvar
+AP2S1	NM_004069.5	c.154-5T>C	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	19	47342840			clinvar_assertion	clinvar
+AP2S1	NM_004069.5	c.154-4G>A	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	19	47342839			clinvar_assertion	clinvar
+AP2S1	NM_004069.5	c.303G>A	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	19	47342021			clinvar_assertion	clinvar
+AP2S1	NM_004069.5	c.153+14C>T	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	19	47349236			clinvar_assertion	clinvar
+AP2S1	NM_004069.5	c.4-13del	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	19	47349412			clinvar_assertion	clinvar
+AP2S1	NM_004069.5	c.357G>A	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	19	47341776			clinvar_assertion	clinvar
+AP2S1	NM_004069.5	c.268-6T>C	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	19	47342062			clinvar_assertion	clinvar
+AP2S1	NM_004069.5	c.96C>T	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	19	47349307			clinvar_assertion	clinvar
+AP2S1	NM_004069.5	c.159G>C	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	19	47342830			clinvar_assertion	clinvar
+AP2S1	NM_004069.5	c.186T>C	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	19	47342803			clinvar_assertion	clinvar
+AP2S1	NM_004069.5	c.297T>C	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	19	47342027			clinvar_assertion	clinvar
+AP2S1	NM_004069.5	c.3+13C>G	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	19	47354008			clinvar_assertion	clinvar
+AP2S1	NM_004069.5	c.360T>G	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	19	47341773			clinvar_assertion	clinvar
+AP2S1	NM_004069.5	c.165T>C	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	19	47342824			clinvar_assertion	clinvar
+AP2S1	NM_004069.5	c.153+30C>T	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	19	47349220			clinvar_assertion	clinvar
+AP2S1	NM_004069.5	c.267+5G>A	Benign ClinVar(2-star, criteria provided)								Benign	19	47342717			clinvar_assertion	clinvar
+AP2S1	NM_004069.5	c.*70G>A	Likely_benign ClinVar(2-star, criteria provided)								Likely benign	19	47341634			clinvar_assertion	clinvar
+AP2S1	NM_004069.5	c.328-22C>T	Likely_benign ClinVar(2-star, criteria provided)								Likely benign	19	47341827			clinvar_assertion	clinvar
+AP2S1	NM_004069.5	c.267+30A>G	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	19	47342692			clinvar_assertion	clinvar
+AP2S1	NM_004069.5	c.267+33C>G	Likely_benign ClinVar(2-star, criteria provided)								Likely benign	19	47342689			clinvar_assertion	clinvar
+AP2S1	NM_004069.5	c.267+37T>G	Likely_benign ClinVar(2-star, criteria provided)								Likely benign	19	47342685			clinvar_assertion	clinvar
+AP2S1	NM_004069.5	c.154-32T>G	Benign ClinVar(2-star, criteria provided)								Benign	19	47342867			clinvar_assertion	clinvar
+AP2S1	NM_004069.5	c.328-79G>T	Likely_benign ClinVar(2-star, criteria provided)								Likely benign	19	47341884			clinvar_assertion	clinvar
+AP2S1	NM_004069.5	c.4-300del	Benign ClinVar(1-star, criteria provided)								Benign	19	47349699			clinvar_assertion	clinvar
+AP2S1	NM_004069.5	c.*210C>T	Benign ClinVar(2-star, criteria provided)								Benign	19	47341494			clinvar_assertion	clinvar
+AP2S1	NM_004069.5	c.268-264C>G	Benign ClinVar(1-star, criteria provided)								Benign	19	47342320			clinvar_assertion	clinvar
+AP2S1	NM_004069.5	c.154-94C>T	Benign ClinVar(2-star, criteria provided)								Benign	19	47342929			clinvar_assertion	clinvar
+AP2S1	NM_004069.5	c.154-244G>T	Benign ClinVar(1-star, criteria provided)								Benign	19	47343079			clinvar_assertion	clinvar
+AP2S1	NM_004069.5	c.154-265dup	Benign ClinVar(1-star, criteria provided)								Benign	19	47343098			clinvar_assertion	clinvar
+AP2S1	NM_004069.5	c.154-251_154-248del	Benign ClinVar(1-star, criteria provided)								Benign	19	47343083			clinvar_assertion	clinvar
+AP2S1	NM_004069.5	c.15C>T	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	19	47349388			clinvar_assertion	clinvar
+AP2S1	NM_004069.5	c.4-5C>T	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	19	47349404			clinvar_assertion	clinvar
+AP2S1	NM_004069.5	c.9C>G	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	19	47349394			clinvar_assertion	clinvar
+AP2S1	NM_004069.5	c.261C>T	Benign ClinVar(2-star, criteria provided)								Benign/Likely benign	19	47342728			clinvar_assertion	clinvar
+AP2S1	NM_004069.5	c.267+309C>T	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	19	47342413			clinvar_assertion	clinvar
+AP2S1	NM_004069.5	c.327+8C>T	Likely_benign ClinVar(2-star, criteria provided)								Likely benign	19	47341989			clinvar_assertion	clinvar
+AP2S1	NM_004069.5	c.336G>A	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	19	47341797			clinvar_assertion	clinvar
+AP2S1	NM_004069.5	c.105G>A	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	19	47349298			clinvar_assertion	clinvar
+AP2S1	NM_004069.5	c.153+13C>T	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	19	47349237			clinvar_assertion	clinvar
+AP2S1	NM_004069.5	c.153+17G>A	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	19	47349233			clinvar_assertion	clinvar
+AP2S1	NM_004069.5	c.3+108G>T	Likely_benign ClinVar(2-star, criteria provided)								Likely benign	19	47353913			clinvar_assertion	clinvar
+AP2S1	NM_004069.5	c.363C>T	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	19	47341770			clinvar_assertion	clinvar
+AP2S1	NM_004069.5	c.268-183T>A	Benign ClinVar(2-star, criteria provided)								Benign	19	47342239			clinvar_assertion	clinvar
+AP2S1	NM_004069.5	c.3+20C>A	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	19	47354001			clinvar_assertion	clinvar
+AP2S1	NM_004069.5	c.387G>A	Likely_benign ClinVar(2-star, criteria provided)								Likely benign	19	47341746			clinvar_assertion	clinvar
+AP2S1	NM_004069.5	c.42G>A	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	19	47349361			clinvar_assertion	clinvar
+AP2S1	NM_004069.5	c.241C>T	Likely_benign ClinVar(1-star, criteria provided)								Likely benign	19	47342748			clinvar_assertion	clinvar
+AP2S1	NM_004069.5	c.108T>C	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.893	-0.017		0 (assumed)					19	47349295	A	G	local_enumeration	synonymous_catalog
+AP2S1	NM_004069.5	c.135A>G	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.576	-0.217		0 (assumed)					19	47349268	T	C	local_enumeration	synonymous_catalog
+AP2S1	NM_004069.5	c.174T>C	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.391	-0.166		0 (assumed)					19	47342815	A	G	local_enumeration	synonymous_catalog
+AP2S1	NM_004069.5	c.174T>A	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.391	-0.166		0 (assumed)					19	47342815	A	T	local_enumeration	synonymous_catalog
+AP2S1	NM_004069.5	c.210T>C	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.989	0.289		0 (assumed)					19	47342779	A	G	local_enumeration	synonymous_catalog
+AP2S1	NM_004069.5	c.216T>C	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.992	0.154		0 (assumed)					19	47342773	A	G	local_enumeration	synonymous_catalog
+AP2S1	NM_004069.5	c.222T>C	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.0	-2.14		0 (assumed)					19	47342767	A	G	local_enumeration	synonymous_catalog
+AP2S1	NM_004069.5	c.246G>A	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.997	0.542		0 (assumed)					19	47342743	C	T	local_enumeration	synonymous_catalog
+AP2S1	NM_004069.5	c.279A>G	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.0	-2.097		0 (assumed)	8.81741e-06				19	47342045	T	C	local_enumeration	synonymous_catalog
+AP2S1	NM_004069.5	c.291T>C	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.133	-0.434		0 (assumed)	3.28235e-05				19	47342033	A	G	local_enumeration	synonymous_catalog
+AP2S1	NM_004069.5	c.300A>G	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.907	-0.07		0 (assumed)					19	47342024	T	C	local_enumeration	synonymous_catalog
+AP2S1	NM_004069.5	c.399A>G	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.587	-0.2		0 (assumed)					19	47341734	T	C	local_enumeration	synonymous_catalog
+AP2S1	NM_004069.5	c.96C>A	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.65	-0.167		0 (assumed)	3.26669e-05				19	47349307	G	T	local_enumeration	synonymous_catalog
+AP2S1	NM_004069.5	c.84A>G	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.451	-0.245		0 (assumed)					19	47349319	T	C	local_enumeration	synonymous_catalog
+AP2S1	NM_004069.5	c.15C>A	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.999	0.466		0 (assumed)					19	47349388	G	T	local_enumeration	synonymous_catalog
+AP2S1	NM_004069.5	c.69T>C	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.992	0.38		0 (assumed)					19	47349334	A	G	local_enumeration	synonymous_catalog
+AP2S1	NM_004069.5	c.78T>C	Benign synonymous, SpliceAI<=0.1 (assumed 0), PhastCons<1.0	0.068	-0.76		0 (assumed)					19	47349325	A	G	local_enumeration	synonymous_catalog
