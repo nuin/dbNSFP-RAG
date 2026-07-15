@@ -1,7 +1,7 @@
 gene	transcript	hgvs_c	classification	PhastCons100way	REVEL	SpliceAI_masked	SpliceAI_unmasked	FAF95_grpmax	CADD_phred	AlphaMissense_pred	ClinVar_sig	chr_grch37	pos_grch37	ref	alt	g_hg19	gnomad_id	g_hg38	p_hgvs	vv_status	source
-KMT2D	NM_003482.3	c.2438C>T	Benign FAF >5%	0.0	.;0.023;.;.	0.0000	0.0000	0.0567237	0.939	.;B;.;.	Benign	12	49445028	G	A	chr12:g.49445028G>A	12-49051245-G-A	chr12:g.49051245G>A	p.Pro813Leu	ok	pipeline
-KMT2D	NM_003482.3	c.7144C>T	Benign FAF >5%	1.0	.;0.451;.;.	0.0000	0.0000	0.0775357	22.4	.;B;.;.	Benign	12	49434409	G	A	chr12:g.49434409G>A	12-49040626-G-A	chr12:g.49040626G>A	p.Pro2382Ser	ok	pipeline
-KMT2D	NM_003482.3	c.1426G>A	Benign FAF >5%	0.0	.;0.168;.;.	0.0000	0.0000	0.306915	0.375	.;B;.;.	Benign	12	49446040	C	T	chr12:g.49446040C>T	12-49052257-C-T	chr12:g.49052257C>T	p.Ala476Thr	ok	pipeline
+KMT2D	NM_003482.3	c.2438C>T	Benign FAF >5%	0.0	0.023	0.0000	0.0000	0.0567237	0.939	B	Benign	12	49445028	G	A	chr12:g.49445028G>A	12-49051245-G-A	chr12:g.49051245G>A	p.Pro813Leu	ok	pipeline
+KMT2D	NM_003482.3	c.7144C>T	Benign FAF >5%	1.0	0.451	0.0000	0.0000	0.0775357	22.4	B	Benign	12	49434409	G	A	chr12:g.49434409G>A	12-49040626-G-A	chr12:g.49040626G>A	p.Pro2382Ser	ok	pipeline
+KMT2D	NM_003482.3	c.1426G>A	Benign FAF >5%	0.0	0.168	0.0000	0.0000	0.306915	0.375	B	Benign	12	49446040	C	T	chr12:g.49446040C>T	12-49052257-C-T	chr12:g.49052257C>T	p.Ala476Thr	ok	pipeline
 KMT2D	NM_003482.3	c.2156C>T	Likely_benign FAF >0.1%, REVEL<0.29, SpliceAI<=0.1	0.181	0.239	0.0000	0.0000	0.0123241	18.6	B	Benign/Likely benign	12	49445310	G	A	chr12:g.49445310G>A	12-49051527-G-A	chr12:g.49051527G>A	p.Pro719Leu	clinvar_assertion	clinvar
 KMT2D	NM_003482.3	c.2826C>T	Benign FAF >5%	0.407		0.0400	0.0400	0.440835			Benign	12	49444545	G	A	chr12:g.49444545G>A	12-49050762-G-A	chr12:g.49050762G>A	p.Ile942=	clinvar_assertion	clinvar
 KMT2D	NM_003482.3	c.12028T>C	Likely_benign FAF >0.1%, REVEL<0.29, SpliceAI<=0.1	0.972	0.286	0.0000	0.0000	0.0295270	17.95	B	Benign	12	49426460	A	G	chr12:g.49426460A>G	12-49032677-A-G	chr12:g.49032677A>G	p.Ser4010Pro	clinvar_assertion	clinvar

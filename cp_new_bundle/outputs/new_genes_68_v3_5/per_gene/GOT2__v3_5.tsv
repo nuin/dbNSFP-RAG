@@ -1,8 +1,8 @@
 gene	transcript	hgvs_c	classification	PhastCons100way	REVEL	SpliceAI_masked	SpliceAI_unmasked	FAF95_grpmax	CADD_phred	AlphaMissense_pred	ClinVar_sig	chr_grch37	pos_grch37	ref	alt	g_hg19	gnomad_id	g_hg38	p_hgvs	vv_status	source
-GOT2	NM_002080.4	c.1037T>G	Benign FAF >5%	1.0	.;.;.;.;0.219;.;.;.;.;.;.;.;.;.;.;.;0.219	0.0100	0.0100	0.872126	18.82	.;.;.;.;B;.;.;.;.;.;.;.;.;.;.;.;LB	Benign	16	58743454	A	C	chr16:g.58743454A>C	16-58709550-A-C	chr16:g.58709550A>C	p.Val346Gly	ok	pipeline
-GOT2	NM_002080.4	c.562G>A	Benign FAF >5%	1.0	.;.;.;0.423;.;.;.;.;.;.;.;.;.;0.423	0.0000	0.0200	0.0879142	23.4	.;.;.;B;.;.;.;.;.;.;.;.;.;LB	Benign	16	58752466	C	T	chr16:g.58752466C>T	16-58718562-C-T	chr16:g.58718562C>T	p.Gly188Ser	ok	pipeline
-GOT2	NM_002080.4	c.460G>A	Benign FAF >5%	1.0	.;.;.;0.067;.;.;.;.;.;.;.;.;.;0.067	0.0400	0.0400	0.0500398	21.8	.;.;.;B;.;.;.;.;.;.;.;.;.;LB	Benign	16	58752568	C	T	chr16:g.58752568C>T	16-58718664-C-T	chr16:g.58718664C>T	p.Asp154Asn	ok	pipeline
-GOT2	NM_002080.4	c.4G>T	Benign FAF >5%	1.0	.;.;.;.;0.106;.;.;.;.;.;.;.;.;.;.;.;.;0.106	0.0000	0.0000	0.139620	20.7	.;.;.;.;B;.;.;.;.;.;.;.;.;.;.;.;.;LB	Benign	16	58768129	C	A	chr16:g.58768129C>A	16-58734225-C-A	chr16:g.58734225C>A	p.Ala2Ser	ok	pipeline
+GOT2	NM_002080.4	c.1037T>G	Benign FAF >5%	1.0	0.219	0.0100	0.0100	0.872126	18.82	B	Benign	16	58743454	A	C	chr16:g.58743454A>C	16-58709550-A-C	chr16:g.58709550A>C	p.Val346Gly	ok	pipeline
+GOT2	NM_002080.4	c.562G>A	Benign FAF >5%	1.0	0.423	0.0000	0.0200	0.0879142	23.4	B	Benign	16	58752466	C	T	chr16:g.58752466C>T	16-58718562-C-T	chr16:g.58718562C>T	p.Gly188Ser	ok	pipeline
+GOT2	NM_002080.4	c.460G>A	Benign FAF >5%	1.0	0.067	0.0400	0.0400	0.0500398	21.8	B	Benign	16	58752568	C	T	chr16:g.58752568C>T	16-58718664-C-T	chr16:g.58718664C>T	p.Asp154Asn	ok	pipeline
+GOT2	NM_002080.4	c.4G>T	Benign FAF >5%	1.0	0.106	0.0000	0.0000	0.139620	20.7	B	Benign	16	58768129	C	A	chr16:g.58768129C>A	16-58734225-C-A	chr16:g.58734225C>A	p.Ala2Ser	ok	pipeline
 GOT2	NM_002080.4	c.354C>T	Benign FAF >5%	0.0		0.0100	0.0100	0.0725847			Benign	16	58756075	G	A	chr16:g.58756075G>A	16-58722171-G-A	chr16:g.58722171G>A	p.Ser118=	clinvar_assertion	clinvar
 GOT2	NM_002080.4	c.816C>T	Benign FAF >5%	0.277		0.0000	0.0000	0.853762			Benign	16	58750604	G	A	chr16:g.58750604G>A	16-58716700-G-A	chr16:g.58716700G>A	p.Cys272=	clinvar_assertion	clinvar
 GOT2	NM_002080.4	c.228T>G	Benign FAF >5%	1.0000		0.0000	0.0000	0.834641			Benign	16	58757668	A	C	chr16:g.58757668A>C	16-58723764-A-C	chr16:g.58723764A>C	p.Val76=	clinvar_assertion	clinvar

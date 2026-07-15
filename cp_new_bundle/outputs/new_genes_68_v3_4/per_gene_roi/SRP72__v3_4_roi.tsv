@@ -1,6 +1,6 @@
 gene	transcript	hgvs_c	classification	PhastCons100way	REVEL	SpliceAI_masked	SpliceAI_unmasked	FAF95_grpmax	CADD_phred	AlphaMissense_pred	ClinVar_sig	chr_grch37	pos_grch37	ref	alt	g_hg19	gnomad_id	g_hg38	p_hgvs	vv_status	source
-SRP72	NM_006947.4	c.19G>T	Benign FAF >5%	1.0	.;0.508;.;.;.	0.0000	0.0000	0.0508842	28.8	.;A;.;P;A	Benign	4	57333820	G	T	chr4:g.57333820G>T	4-56467654-G-T	chr4:g.56467654G>T	p.Gly7Trp	ok	pipeline
-SRP72	NM_006947.4	c.686A>G	Benign FAF >5%	1.0	.;.	0.0000	0.0200	0.118198	19.86	.;B	Benign	4	57344588	A	G	chr4:g.57344588A>G	4-56478422-A-G	chr4:g.56478422A>G	p.His229Arg	ok	pipeline
+SRP72	NM_006947.4	c.19G>T	Benign FAF >5%	1.0	0.508	0.0000	0.0000	0.0508842	28.8	A	Benign	4	57333820	G	T	chr4:g.57333820G>T	4-56467654-G-T	chr4:g.56467654G>T	p.Gly7Trp	ok	pipeline
+SRP72	NM_006947.4	c.686A>G	Benign FAF >5%	1.0		0.0000	0.0200	0.118198	19.86	B	Benign	4	57344588	A	G	chr4:g.57344588A>G	4-56478422-A-G	chr4:g.56478422A>G	p.His229Arg	ok	pipeline
 SRP72	NM_006947.4	c.21G>T	Benign FAF >5%	0.9830		0.0000	0.0000	0.415808			Benign	4	57333822	G	T	chr4:g.57333822G>T	4-56467656-G-T	chr4:g.56467656G>T	p.Gly7=	clinvar_assertion	clinvar
 SRP72	NM_006947.4	c.1671A>G	Benign FAF >5%	1.0		0.0100	0.0100	0.218911			Benign	4	57361553	A	G	chr4:g.57361553A>G	4-56495387-A-G	chr4:g.56495387A>G	p.Lys557=	clinvar_assertion	clinvar
 SRP72	NM_006947.4	c.1410A>G	Benign FAF >5%	1.0000		0.0000	0.0200	0.210342			Benign	4	57356588	A	G	chr4:g.57356588A>G	4-56490422-A-G	chr4:g.56490422A>G	p.Leu470=	clinvar_assertion	clinvar

@@ -1,5 +1,5 @@
 gene	transcript	hgvs_c	classification	PhastCons100way	REVEL	SpliceAI_masked	SpliceAI_unmasked	FAF95_grpmax	CADD_phred	AlphaMissense_pred	ClinVar_sig	chr_grch37	pos_grch37	ref	alt	g_hg19	gnomad_id	g_hg38	p_hgvs	vv_status	source
-ACD	NM_001082486.2	c.1295T>C	Benign FAF >5%	0.145	.;.	0.0300	0.0300	0.895011	5.452	.;.	Benign	16	67691668	A	G	chr16:g.67691668A>G	16-67657765-A-G	chr16:g.67657765A>G	p.Val432Ala	ok	pipeline
+ACD	NM_001082486.2	c.1295T>C	Benign FAF >5%	0.145		0.0300	0.0300	0.895011	5.452		Benign	16	67691668	A	G	chr16:g.67691668A>G	16-67657765-A-G	chr16:g.67657765A>G	p.Val432Ala	ok	pipeline
 ACD	NM_001082486.2	c.1207-10C>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0, PhyloP<0.1, intronic_ROI(-10)	0.0		0.0200			7.957			16	67691766	G	T	chr16:g.67691766G>T	16-67657863-G-T	chr16:g.67657863G>T		ok	pipeline
 ACD	NM_001082486.2	c.1371G>T	Benign FAF >5%	0.0070		0.0000	0.0000	0.0513156			Benign/Likely benign	16	67691515	C	A	chr16:g.67691515C>A	16-67657612-C-A	chr16:g.67657612C>A	p.Pro457=	clinvar_assertion	clinvar
 ACD	NM_001082486.2	c.80G>A	Likely_benign FAF >0.1%, REVEL<0.29, SpliceAI<=0.1	0.0	0.059	0.0000	0.0000	0.00996449	13.79	B	Benign/Likely benign	16	67694044	C	T	chr16:g.67694044C>T	16-67660141-C-T	chr16:g.67660141C>T	p.Arg27Gln	clinvar_assertion	clinvar

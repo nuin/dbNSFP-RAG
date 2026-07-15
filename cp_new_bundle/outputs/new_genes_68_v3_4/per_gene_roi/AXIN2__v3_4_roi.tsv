@@ -1,5 +1,5 @@
 gene	transcript	hgvs_c	classification	PhastCons100way	REVEL	SpliceAI_masked	SpliceAI_unmasked	FAF95_grpmax	CADD_phred	AlphaMissense_pred	ClinVar_sig	chr_grch37	pos_grch37	ref	alt	g_hg19	gnomad_id	g_hg38	p_hgvs	vv_status	source
-AXIN2	NM_004655.4	c.148C>T	Benign FAF >5%	0.996	.;.;.;.;.;0.126;.;.;.;0.126;.;.;.;0.126	0.0400	0.0400	0.522727	20.8	.;.;.;.;.;B;.;.;.;LB;LB;LB;LB;LB	Benign	17	63554591	G	A	chr17:g.63554591G>A	17-65558473-G-A	chr17:g.65558473G>A	p.Pro50Ser	ok	pipeline
+AXIN2	NM_004655.4	c.148C>T	Benign FAF >5%	0.996	0.126	0.0400	0.0400	0.522727	20.8	B	Benign	17	63554591	G	A	chr17:g.63554591G>A	17-65558473-G-A	chr17:g.65558473G>A	p.Pro50Ser	ok	pipeline
 AXIN2	NM_004655.4	c.1952C>T	Likely_benign FAF >0.1%, REVEL<0.29, SpliceAI<=0.1	0.0	0.079	0.0100	0.0100	0.00348435	0.082	B	Benign/Likely benign	17	63532627	G	A	chr17:g.63532627G>A	17-65536509-G-A	chr17:g.65536509G>A	p.Ser651Leu	clinvar_assertion	clinvar
 AXIN2	NM_004655.4	c.1386C>T	Benign FAF >5%	0.2570		0.0000	0.0000	0.660872			Benign	17	63533768	G	A	chr17:g.63533768G>A	17-65537650-G-A	chr17:g.65537650G>A	p.Pro462=	clinvar_assertion	clinvar
 AXIN2	NM_004655.4	c.1365A>G	Benign FAF >5%	0.0000		0.0000	0.0000	0.949961			Benign	17	63533789	T	C	chr17:g.63533789T>C	17-65537671-T-C	chr17:g.65537671T>C	p.Pro455=	clinvar_assertion	clinvar

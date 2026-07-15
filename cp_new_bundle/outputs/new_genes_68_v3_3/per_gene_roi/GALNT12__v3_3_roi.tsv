@@ -1,6 +1,6 @@
 gene	transcript	hgvs_c	classification	PhastCons100way	REVEL	SpliceAI_masked	SpliceAI_unmasked	FAF95_grpmax	CADD_phred	AlphaMissense_pred	ClinVar_sig	chr_grch37	pos_grch37	ref	alt	g_hg19	gnomad_id	g_hg38	p_hgvs	vv_status	source
-GALNT12	NM_024642.5	c.136G>A	Benign FAF >5%	0.0	.;.;.;0.064;.;.;.	0.0000	0.0000	0.196742	4.333	.;.;.;B;.;.;.	Benign/Likely_benign	9	101570116	G	A	chr9:g.101570116G>A	9-98807834-G-A	chr9:g.98807834G>A	p.Gly46Arg	ok	pipeline
-GALNT12	NM_024642.5	c.356A>T	Benign FAF >5%	1.0	.;.;.;0.365;.;.;.	0.0000	0.0000	0.0972866	25.8	.;.;.;A;.;.;.	Benign	9	101570336	A	T	chr9:g.101570336A>T	9-98808054-A-T	chr9:g.98808054A>T	p.Glu119Val	ok	pipeline
+GALNT12	NM_024642.5	c.136G>A	Benign FAF >5%	0.0	0.064	0.0000	0.0000	0.196742	4.333	B	Benign/Likely_benign	9	101570116	G	A	chr9:g.101570116G>A	9-98807834-G-A	chr9:g.98807834G>A	p.Gly46Arg	ok	pipeline
+GALNT12	NM_024642.5	c.356A>T	Benign FAF >5%	1.0	0.365	0.0000	0.0000	0.0972866	25.8	A	Benign	9	101570336	A	T	chr9:g.101570336A>T	9-98808054-A-T	chr9:g.98808054A>T	p.Glu119Val	ok	pipeline
 GALNT12	NM_024642.5	c.897A>G	Benign FAF >5%	0.0		0.0000	0.0000	0.128679			Benign	9	101594219	A	G	chr9:g.101594219A>G	9-98831937-A-G	chr9:g.98831937A>G	p.Gln299=	clinvar_assertion	clinvar
 GALNT12	NM_024642.5	c.744G>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.965		0.0000	0.0100					9	101594066	G	A	chr9:g.101594066G>A	9-98831784-G-A	chr9:g.98831784G>A	p.Glu248=	local_enumeration	synonymous_catalog
 GALNT12	NM_024642.5	c.516C>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.996		0.0000	0.0800					9	101585682	C	A	chr9:g.101585682C>A	9-98823400-C-A	chr9:g.98823400C>A	p.Ile172=	local_enumeration	synonymous_catalog

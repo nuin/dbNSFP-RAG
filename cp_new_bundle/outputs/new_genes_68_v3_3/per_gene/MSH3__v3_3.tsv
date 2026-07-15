@@ -1,7 +1,7 @@
 gene	transcript	hgvs_c	classification	PhastCons100way	REVEL	SpliceAI_masked	SpliceAI_unmasked	FAF95_grpmax	CADD_phred	AlphaMissense_pred	ClinVar_sig	chr_grch37	pos_grch37	ref	alt	g_hg19	gnomad_id	g_hg38	p_hgvs	vv_status	source
-MSH3	NM_002439.5	c.2846A>G	Benign FAF >5%	0.88	.;.;0.281;.;.;.;.;.;.	0.0000	0.0000	0.991776	2.337	.;.;B;.;.;.;.;LB;LB	Benign	5	80149981	A	G	chr5:g.80149981A>G	5-80854162-A-G	chr5:g.80854162A>G	p.Gln949Arg	ok	pipeline
-MSH3	NM_002439.5	c.235A>G	Benign FAF >5%	0.0	.;.;0.242;.;.;.;.;.	0.4300	0.4300	0.912853	8.008	.;.;B;.;.;.;.;LB	Benign	5	79950781	A	G	chr5:g.79950781A>G	5-80654962-A-G	chr5:g.80654962A>G	p.Ile79Val	ok	pipeline
-MSH3	NM_002439.5	c.3133G>A	Benign FAF >5%	0.994	.;.;0.108;.;.;.;.;.;.	0.0200	0.0200	0.790363	4.658	.;.;B;.;.;.;.;LB;LB	Benign	5	80168937	G	A	chr5:g.80168937G>A	5-80873118-G-A	chr5:g.80873118G>A	p.Ala1045Thr	ok	pipeline
+MSH3	NM_002439.5	c.2846A>G	Benign FAF >5%	0.88	0.281	0.0000	0.0000	0.991776	2.337	B	Benign	5	80149981	A	G	chr5:g.80149981A>G	5-80854162-A-G	chr5:g.80854162A>G	p.Gln949Arg	ok	pipeline
+MSH3	NM_002439.5	c.235A>G	Benign FAF >5%	0.0	0.242	0.4300	0.4300	0.912853	8.008	B	Benign	5	79950781	A	G	chr5:g.79950781A>G	5-80654962-A-G	chr5:g.80654962A>G	p.Ile79Val	ok	pipeline
+MSH3	NM_002439.5	c.3133G>A	Benign FAF >5%	0.994	0.108	0.0200	0.0200	0.790363	4.658	B	Benign	5	80168937	G	A	chr5:g.80168937G>A	5-80873118-G-A	chr5:g.80873118G>A	p.Ala1045Thr	ok	pipeline
 MSH3	NM_002439.5	c.1567G>A	Likely_benign FAF >0.1%, REVEL<0.29, SpliceAI<=0.1	1.0	0.228	0.0000	0.0000	0.0244867	19.83	B	Benign/Likely benign	5	80024783	G	A	chr5:g.80024783G>A	5-80728964-G-A	chr5:g.80728964G>A	p.Glu523Lys	clinvar_assertion	clinvar
 MSH3	NM_002439.5	c.356C>T	Likely_benign FAF >0.1%, REVEL<0.29, SpliceAI<=0.1	0.001	0.206	0.0000	0.0000	0.00994927	19.69	B	Benign/Likely benign	5	79952348	C	T	chr5:g.79952348C>T	5-80656529-C-T	chr5:g.80656529C>T	p.Ser119Phe	clinvar_assertion	clinvar
 MSH3	NM_002439.5	c.693G>A	Benign FAF >5%	0.0010		0.0000	0.0100	0.355662			Benign	5	79966029	G	A	chr5:g.79966029G>A	5-80670210-G-A	chr5:g.80670210G>A	p.Pro231=	clinvar_assertion	clinvar

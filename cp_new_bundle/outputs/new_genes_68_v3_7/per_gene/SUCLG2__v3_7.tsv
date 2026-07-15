@@ -1,8 +1,8 @@
 gene	transcript	hgvs_c	classification	PhastCons100way	REVEL	SpliceAI_masked	SpliceAI_unmasked	FAF95_grpmax	CADD_phred	AlphaMissense_pred	ClinVar_sig	chr_grch37	pos_grch37	ref	alt	g_hg19	gnomad_id	g_hg38	p_hgvs	vv_status	source
-SUCLG2	NM_003848.3	c.1186A>G	Benign FAF >5%	1.0	.;.;0.757;.;.	0.0300	0.0300	0.168649	25.1	.;.;P;.;.	Benign	3	67426281	T	C	chr3:g.67426281T>C	3-67375857-T-C	chr3:g.67375857T>C	p.Thr396Ala	ok	pipeline
-SUCLG2	NM_003848.3	c.1141C>T	Benign FAF >5%	1.0	0.224;.;.;0.224;.;.	0.0000	0.0000	0.184114	23.6	LB;.;.;B;.;.	Benign	3	67451197	G	A	chr3:g.67451197G>A	3-67400773-G-A	chr3:g.67400773G>A	p.Arg381Trp	ok	pipeline
-SUCLG2	NM_003848.3	c.1040A>G	Benign FAF >5%	1.0	0.117;.;.;0.117;.;.;0.117	0.0000	0.0000	0.0510329	20.5	LB;.;.;B;.;.;LB	Benign	3	67546244	T	C	chr3:g.67546244T>C	3-67495820-T-C	chr3:g.67495820T>C	p.Lys347Arg	ok	pipeline
-SUCLG2	NM_003848.3	c.349G>A	Benign FAF >5%	1.0	0.253;.;.;0.253;.;.;0.253	0.0000	0.0000	0.0714697	21.9	LB;.;.;B;.;.;LB	Benign	3	67578624	C	T	chr3:g.67578624C>T	3-67528200-C-T	chr3:g.67528200C>T	p.Ala117Thr	ok	pipeline
+SUCLG2	NM_003848.3	c.1186A>G	Benign FAF >5%	1.0	0.757	0.0300	0.0300	0.168649	25.1	P	Benign	3	67426281	T	C	chr3:g.67426281T>C	3-67375857-T-C	chr3:g.67375857T>C	p.Thr396Ala	ok	pipeline
+SUCLG2	NM_003848.3	c.1141C>T	Benign FAF >5%	1.0	0.224	0.0000	0.0000	0.184114	23.6	LB	Benign	3	67451197	G	A	chr3:g.67451197G>A	3-67400773-G-A	chr3:g.67400773G>A	p.Arg381Trp	ok	pipeline
+SUCLG2	NM_003848.3	c.1040A>G	Benign FAF >5%	1.0	0.117	0.0000	0.0000	0.0510329	20.5	LB	Benign	3	67546244	T	C	chr3:g.67546244T>C	3-67495820-T-C	chr3:g.67495820T>C	p.Lys347Arg	ok	pipeline
+SUCLG2	NM_003848.3	c.349G>A	Benign FAF >5%	1.0	0.253	0.0000	0.0000	0.0714697	21.9	LB	Benign	3	67578624	C	T	chr3:g.67578624C>T	3-67528200-C-T	chr3:g.67528200C>T	p.Ala117Thr	ok	pipeline
 SUCLG2	NM_003848.3	c.1142G>A	Likely_benign FAF >0.1%, REVEL<0.29, SpliceAI<=0.1	0.969	0.076	0.0000	0.0000	0.00256425	18.06	LB	Likely benign	3	67451196	C	T	chr3:g.67451196C>T	3-67400772-C-T	chr3:g.67400772C>T	p.Arg381Gln	clinvar_assertion	clinvar
 SUCLG2	NM_003848.3	c.345G>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.995		0.0000	0.0000					3	67578628	C	T	chr3:g.67578628C>T	3-67528204-C-T	chr3:g.67528204C>T	p.Gln115=	local_enumeration	synonymous_catalog
 SUCLG2	NM_003848.3	c.831C>T	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.014		0.0000	0.0000	1.64600e-05				3	67548646	G	A	chr3:g.67548646G>A	3-67498222-G-A	chr3:g.67498222G>A	p.Asp277=	local_enumeration	synonymous_catalog

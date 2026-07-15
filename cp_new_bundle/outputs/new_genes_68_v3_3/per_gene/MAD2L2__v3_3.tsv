@@ -1,5 +1,5 @@
 gene	transcript	hgvs_c	classification	PhastCons100way	REVEL	SpliceAI_masked	SpliceAI_unmasked	FAF95_grpmax	CADD_phred	AlphaMissense_pred	ClinVar_sig	chr_grch37	pos_grch37	ref	alt	g_hg19	gnomad_id	g_hg38	p_hgvs	vv_status	source
-MAD2L2	NM_006341.4	c.41-14G>T	Benign FAF >5%	0.001	.;.;.;.;0.029	0.0000	0.0000	0.0744855	14.75	.;.;.;.;LB		1	11740542	C	A	chr1:g.11740542C>A	1-11680485-C-A	chr1:g.11680485C>A		ok	pipeline
+MAD2L2	NM_006341.4	c.41-14G>T	Benign FAF >5%	0.001	0.029	0.0000	0.0000	0.0744855	14.75	LB		1	11740542	C	A	chr1:g.11740542C>A	1-11680485-C-A	chr1:g.11680485C>A		ok	pipeline
 MAD2L2	NM_006341.4	c.278G>A	Likely_benign FAF >0.1%, REVEL<0.29, SpliceAI<=0.1	1.0	0.177	0.0000	0.0000	0.00282845	23.2	LB	Likely benign	1	11736959	C	T	chr1:g.11736959C>T	1-11676902-C-T	chr1:g.11676902C>T	p.Arg93His	clinvar_assertion	clinvar
 MAD2L2	NM_006341.4	c.41-7C>A	Likely_benign FAF >0.1%, REVEL<0.29, SpliceAI<=0.1	0.001	0.015	0.0100	0.0100	0.0338190	8.644	LB	Benign	1	11740535	G	T	chr1:g.11740535G>T	1-11680478-G-T	chr1:g.11680478G>T	p.Pro42Thr	clinvar_assertion	clinvar
 MAD2L2	NM_006341.4	c.16C>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.995		0.0100	0.0100	1.41300e-05				1	11740643	G	T	chr1:g.11740643G>T	1-11680586-G-T	chr1:g.11680586G>T	p.Arg6=	local_enumeration	synonymous_catalog

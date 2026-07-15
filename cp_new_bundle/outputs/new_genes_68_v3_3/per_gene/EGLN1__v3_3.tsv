@@ -1,5 +1,5 @@
 gene	transcript	hgvs_c	classification	PhastCons100way	REVEL	SpliceAI_masked	SpliceAI_unmasked	FAF95_grpmax	CADD_phred	AlphaMissense_pred	ClinVar_sig	chr_grch37	pos_grch37	ref	alt	g_hg19	gnomad_id	g_hg38	p_hgvs	vv_status	source
-EGLN1	NM_022051.2	c.380G>C	Benign FAF >5%	0.299	0.214;.;.;.	0.0000	0.0000	0.444091	12.26	B;.;.;.	Benign	1	231557255	C	G	chr1:g.231557255C>G	1-231421509-C-G	chr1:g.231421509C>G	p.Cys127Ser	ok	pipeline
+EGLN1	NM_022051.2	c.380G>C	Benign FAF >5%	0.299	0.214	0.0000	0.0000	0.444091	12.26	B	Benign	1	231557255	C	G	chr1:g.231557255C>G	1-231421509-C-G	chr1:g.231421509C>G	p.Cys127Ser	ok	pipeline
 EGLN1	NM_022051.2	c.12C>G	Likely_benign FAF >0.1%, REVEL<0.29, SpliceAI<=0.1	0.44	0.255	0.0000	0.0000	0.0414216	22.0	B	Benign/Likely benign	1	231557623	G	C	chr1:g.231557623G>C	1-231421877-G-C	chr1:g.231421877G>C	p.Asp4Glu	clinvar_assertion	clinvar
 EGLN1	NM_022051.2	c.471G>C	Likely_benign FAF >0.1%, REVEL<0.29, SpliceAI<=0.1	0.0	0.148	0.0000	0.0000	0.0292951	10.82	B	Benign/Likely benign	1	231557164	C	G	chr1:g.231557164C>G	1-231421418-C-G	chr1:g.231421418C>G	p.Gln157His	clinvar_assertion	clinvar
 EGLN1	NM_022051.2	c.216C>T	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.0		0.0000	0.0000					1	231557419	G	A	chr1:g.231557419G>A	1-231421673-G-A	chr1:g.231421673G>A	p.His72=	local_enumeration	synonymous_catalog

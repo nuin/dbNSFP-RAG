@@ -1,5 +1,5 @@
 gene	transcript	hgvs_c	classification	PhastCons100way	REVEL	SpliceAI_masked	SpliceAI_unmasked	FAF95_grpmax	CADD_phred	AlphaMissense_pred	ClinVar_sig	chr_grch37	pos_grch37	ref	alt	g_hg19	gnomad_id	g_hg38	p_hgvs	vv_status	source
-XRCC2	NM_005431.2	c.563G>A	Benign FAF >5%	0.998	0.030;.	0.0000	0.0000	0.104390	17.85	B;.	Benign	7	152346007	C	T	chr7:g.152346007C>T	7-152648922-C-T	chr7:g.152648922C>T	p.Arg188His	ok	pipeline
+XRCC2	NM_005431.2	c.563G>A	Benign FAF >5%	0.998	0.030	0.0000	0.0000	0.104390	17.85	B	Benign	7	152346007	C	T	chr7:g.152346007C>T	7-152648922-C-T	chr7:g.152648922C>T	p.Arg188His	ok	pipeline
 XRCC2	NM_005431.2	c.663A>C	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.0		0.0000	0.0000					7	152345907	T	G	chr7:g.152345907T>G	7-152648822-T-G	chr7:g.152648822T>G	p.Ile221=	local_enumeration	synonymous_catalog
 XRCC2	NM_005431.2	c.643C>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.001		0.0000	0.0000					7	152345927	G	T	chr7:g.152345927G>T	7-152648842-G-T	chr7:g.152648842G>T	p.Arg215=	local_enumeration	synonymous_catalog
 XRCC2	NM_005431.2	c.816T>A	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.932		0.0000	0.0000					7	152345754	A	T	chr7:g.152345754A>T	7-152648669-A-T	chr7:g.152648669A>T	p.Ile272=	local_enumeration	synonymous_catalog

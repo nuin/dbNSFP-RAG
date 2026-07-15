@@ -1,5 +1,5 @@
 gene	transcript	hgvs_c	classification	PhastCons100way	REVEL	SpliceAI_masked	SpliceAI_unmasked	FAF95_grpmax	CADD_phred	AlphaMissense_pred	ClinVar_sig	chr_grch37	pos_grch37	ref	alt	g_hg19	gnomad_id	g_hg38	p_hgvs	vv_status	source
-POLH	NM_006502.3	c.1939A>T	Benign FAF >5%	0.997	.;.;.;0.141	0.0000	0.0000	0.312213	18.51	.;.;.;B	Benign	6	43582091	A	T	chr6:g.43582091A>T	6-43614354-A-T	chr6:g.43614354A>T	p.Met647Leu	ok	pipeline
+POLH	NM_006502.3	c.1939A>T	Benign FAF >5%	0.997	0.141	0.0000	0.0000	0.312213	18.51	B	Benign	6	43582091	A	T	chr6:g.43582091A>T	6-43614354-A-T	chr6:g.43614354A>T	p.Met647Leu	ok	pipeline
 POLH	NM_006502.3	c.1603A>G	Likely_benign FAF >0.1%, REVEL<0.29, SpliceAI<=0.1	0.942	0.192	0.0000	0.0000	0.0183547	19.28	B	Benign/Likely benign	6	43581755	A	G	chr6:g.43581755A>G	6-43614018-A-G	chr6:g.43614018A>G	p.Lys535Glu	clinvar_assertion	clinvar
 POLH	NM_006502.3	c.1434G>A	Benign FAF >5%	0.0020		0.0000	0.0000	0.108627			Benign	6	43581586	G	A	chr6:g.43581586G>A	6-43613849-G-A	chr6:g.43613849G>A	p.Thr478=	clinvar_assertion	clinvar
 POLH	NM_006502.3	c.1783A>G	Likely_benign FAF >0.1%, REVEL<0.29, SpliceAI<=0.1	0.0	0.044	0.0000	0.0000	0.0365746	0.056	B	Benign/Likely benign	6	43581935	A	G	chr6:g.43581935A>G	6-43614198-A-G	chr6:g.43614198A>G	p.Met595Val	clinvar_assertion	clinvar

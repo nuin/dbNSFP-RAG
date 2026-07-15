@@ -1,5 +1,5 @@
 gene	transcript	hgvs_c	classification	PhastCons100way	REVEL	SpliceAI_masked	SpliceAI_unmasked	FAF95_grpmax	CADD_phred	AlphaMissense_pred	ClinVar_sig	chr_grch37	pos_grch37	ref	alt	g_hg19	gnomad_id	g_hg38	p_hgvs	vv_status	source
-DGCR8	NM_022720.7	c.520A>G	Benign FAF >5%	0.0	.;.;0.034;.;.;.;.;.;0.034;.;.;.	0.0000	0.0000	0.0969564	0.004	.;.;B;.;.;.;.;.;LB;.;.;.		22	20074006	A	G	chr22:g.20074006A>G	22-20086483-A-G	chr22:g.20086483A>G	p.Ile174Val	ok	pipeline
+DGCR8	NM_022720.7	c.520A>G	Benign FAF >5%	0.0	0.034	0.0000	0.0000	0.0969564	0.004	B		22	20074006	A	G	chr22:g.20074006A>G	22-20086483-A-G	chr22:g.20086483A>G	p.Ile174Val	ok	pipeline
 DGCR8	NM_022720.7	c.1100G>A	Likely_benign FAF >0.1%, REVEL<0.29, SpliceAI<=0.1	0.984	0.058	0.0000	0.0200	0.00165484	1.619	B	Likely benign	22	20077575	G	A	chr22:g.20077575G>A	22-20090052-G-A	chr22:g.20090052G>A	p.Ser367Asn	clinvar_assertion	clinvar
 DGCR8	NM_022720.7	c.1763A>G	Likely_benign FAF >0.1%, REVEL<0.29, SpliceAI<=0.1	1.0	0.157	0.0000	0.0100	0.0129804	26.7	B	Likely benign	22	20082293	A	G	chr22:g.20082293A>G	22-20094770-A-G	chr22:g.20094770A>G	p.Lys588Arg	clinvar_assertion	clinvar
 DGCR8	NM_022720.7	c.717C>T	Benign synonymous, SpliceAI<=0.1, PhastCons<1.0	0.006		0.0000	0.0000	0.000445520				22	20074203	C	T	chr22:g.20074203C>T	22-20086680-C-T	chr22:g.20086680C>T	p.Tyr239=	local_enumeration	synonymous_catalog
