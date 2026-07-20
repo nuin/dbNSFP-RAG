@@ -45,7 +45,7 @@ ClinVar_sig, chr_grch37, pos_grch37, ref, alt, g_hg19, gnomad_id, g_hg38,
 p_hgvs, vv_status, source
 
 - **classification** (col D) = the SeqNext import value
-- **SpliceAI_masked** (`-M 1`) / **SpliceAI_unmasked** (`-M 0`, = spliceai.org default); unmasked ≥ masked always
+- **SpliceAI_masked** (`-M 1`) / **SpliceAI_unmasked** (`-M 0`, = spliceai.org default); unmasked ≥ masked always — see `docs/SPLICEAI_MASKED_VS_UNMASKED.md`
 - **gnomad_id** (e.g. 5-80768028-G-A) pastes into gnomAD v4.1
 - **g_hg19** native; **g_hg38** via liftover (hg19 shop)
 
