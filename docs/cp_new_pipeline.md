@@ -468,6 +468,20 @@ skip). First full pass for the combined file takes ~52 min for 4,567
 variants. Retry pass for 429s adds ~30 min. Future runs are fully cached
 and finish in seconds.
 
+**Local backend (optional)**: `--backend local` skips the REST service and
+projects each GRCh37 g. onto the NM_ with biocommons `hgvs` (the library
+VariantValidator itself is built on), using UTA for transcript alignments and
+SeqRepo for sequences. Same `hgvs_c` / `vv_status` output contract, no
+throttling, separate cache at `data/exports/cp_new/.hgvs_local_cache.json`.
+REST remains the default and the reference for lab uploads.
+
+```bash
+uv pip install -e ".[hgvs]"          # needs pg_config for psycopg2
+export UTA_DB_URL=postgresql://anonymous:anonymous@localhost/uta/uta_20210129b   # optional local UTA
+export HGVS_SEQREPO_DIR=/path/to/seqrepo/2021-01-29                             # optional local SeqRepo
+uv run python scripts/resolve_hgvs_vv.py --in-place --only-combined --backend local
+```
+
 ### `scripts/load_cp_new_sqlite.py`
 Loads all 165 per-gene TSVs into `data/sqlite/grch37-all-panels.db` via the
 chunker (same code path as `build-sqlite`), then registers `cp_new` panel

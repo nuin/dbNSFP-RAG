@@ -25,6 +25,10 @@ llm = [
     "ollama>=0.1.0",
     "llama-cpp-python>=0.3.0",
 ]
+hgvs = [
+    # local HGVS resolution for scripts/resolve_hgvs_vv.py --backend local
+    "hgvs>=1.5.4",
+]
 dev = [
     "ipython>=8.0.0",
     "pytest>=7.0.0",
