@@ -169,8 +169,15 @@ def resolve_one_local(chrom: str, pos: int, ref: str, alt: str, tx: str,
     try:
         full = resolver.g_to_c(chrom, pos, ref, alt, tx)
     except ValueError as e:
-        cache[key] = ("", f"flagged:{e}")
-        return cache[key][0], cache[key][1], True
+        status = f"flagged:{e}"
+        # hgvs raises HGVSDataNotAvailableError both for a transcript missing
+        # from UTA and for a failed SeqRepo fetch, so don't cache it.
+        if str(e) != "tx_not_available":
+            cache[key] = ("", status)
+        return "", status, True
+    except Exception as e:  # noqa: BLE001 -- UTA/SeqRepo connection failure
+        # Same as REST network errors: flag the row, don't cache, retry next run.
+        return "", f"flagged:network_{type(e).__name__}", True
     cache[key] = (full.split(":", 1)[1], "ok")
     return cache[key][0], cache[key][1], True
 

@@ -61,12 +61,27 @@ class TestResolveOneLocal:
             "c.5486A>T", "ok", False)
         assert r.calls == 1
 
-    def test_error_becomes_flag(self):
+    def test_deterministic_flag_is_cached(self):
+        r = FakeResolver({("17", 1, "A", "G", "NM_X.1"): ValueError("intergenic")})
+        cache = {}
+        assert vv.resolve_one_local("17", 1, "A", "G", "NM_X.1", cache, r) == (
+            "", "flagged:intergenic", True)
+        assert cache["17-1-A-G|NM_X.1"] == ("", "flagged:intergenic")
+
+    def test_data_not_available_not_cached(self):
+        # may be a transient SeqRepo fetch failure, so it is retried next run
         r = FakeResolver({("17", 1, "A", "G", "NM_X.1"): ValueError("tx_not_available")})
         cache = {}
         assert vv.resolve_one_local("17", 1, "A", "G", "NM_X.1", cache, r) == (
             "", "flagged:tx_not_available", True)
-        assert cache["17-1-A-G|NM_X.1"] == ("", "flagged:tx_not_available")
+        assert cache == {}
+
+    def test_connection_error_flagged_not_cached(self):
+        r = FakeResolver({("17", 1, "A", "G", "NM_X.1"): ConnectionError("uta down")})
+        cache = {}
+        assert vv.resolve_one_local("17", 1, "A", "G", "NM_X.1", cache, r) == (
+            "", "flagged:network_ConnectionError", True)
+        assert cache == {}
 
 
 class FakeResponse:
