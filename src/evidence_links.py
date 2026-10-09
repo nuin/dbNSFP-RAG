@@ -4,11 +4,15 @@ This module creates URLs for major genomics databases so users can verify
 the data sources used in ACMG variant classification.
 """
 
-from typing import Optional
+import os
 from urllib.parse import quote
 
+INTERPRO_SEARCH_BASE = os.environ.get(
+    "INTERPRO_SEARCH_BASE", "https://www.ebi.ac.uk/interpro/search/text"
+)
 
-def clinvar_url(clinvar_id: str) -> Optional[str]:
+
+def clinvar_url(clinvar_id: str) -> str | None:
     """Generate link to ClinVar variant page.
 
     Args:
@@ -26,9 +30,7 @@ def clinvar_url(clinvar_id: str) -> Optional[str]:
     return f"https://www.ncbi.nlm.nih.gov/clinvar/variation/{clinvar_id}"
 
 
-def gnomad_variant_url(
-    chrom: str, pos: int, ref: str, alt: str, build: str = "grch37"
-) -> str:
+def gnomad_variant_url(chrom: str, pos: int, ref: str, alt: str, build: str = "grch37") -> str:
     """Generate link to gnomAD variant page.
 
     Args:
@@ -44,8 +46,7 @@ def gnomad_variant_url(
     dataset = "gnomad_r2_1" if build == "grch37" else "gnomad_r4"
     chr_clean = str(chrom).replace("chr", "")
     return (
-        f"https://gnomad.broadinstitute.org/variant/"
-        f"{chr_clean}-{pos}-{ref}-{alt}?dataset={dataset}"
+        f"https://gnomad.broadinstitute.org/variant/{chr_clean}-{pos}-{ref}-{alt}?dataset={dataset}"
     )
 
 
@@ -70,13 +71,10 @@ def uniprot_url(gene: str) -> str:
     Returns:
         URL to UniProt search results for human protein
     """
-    return (
-        f"https://www.uniprot.org/uniprotkb?"
-        f"query={quote(gene)}+AND+organism_id:9606"
-    )
+    return f"https://www.uniprot.org/uniprotkb?query={quote(gene)}+AND+organism_id:9606"
 
 
-def interpro_url(domain: str) -> Optional[str]:
+def interpro_url(domain: str) -> str | None:
     """Generate link to InterPro domain search.
 
     Args:
@@ -87,10 +85,10 @@ def interpro_url(domain: str) -> Optional[str]:
     """
     if not domain or domain in ("", ".", "N/A"):
         return None
-    return f"https://www.ebi.ac.uk/interpro/search/text/{quote(domain)}"
+    return f"{INTERPRO_SEARCH_BASE}/{quote(domain)}"
 
 
-def ensembl_transcript_url(transcript: str) -> Optional[str]:
+def ensembl_transcript_url(transcript: str) -> str | None:
     """Generate link to Ensembl transcript page.
 
     Args:

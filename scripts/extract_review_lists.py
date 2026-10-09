@@ -39,7 +39,9 @@ CANONICAL_SPLICE_RE = re.compile(r"c\.\d+[+\-][12][ACGT]>")
 
 
 def main() -> int:
-    p = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
+    p = argparse.ArgumentParser(
+        description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter
+    )
     p.add_argument("--input", type=Path, default=DEFAULT_INPUT)
     p.add_argument("--out-dir", type=Path, default=OUT_DIR)
     args = p.parse_args()

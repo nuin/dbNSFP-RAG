@@ -10,7 +10,7 @@ changes, documentation, and produced artifacts. Built 2026-05-13.
 | `docs/cp_new_pipeline.md` | **Reference doc** — what the pipeline is, scope, workflows, variant funnel, rule rationale, deliverables, manual-review lists, known issues. 700 lines. |
 | `docs/cp_new_process_journal.md` | **Process narrative** — how we got here. Chronological story of discoveries (gnomAD v4 lost VEP CSQ, dbNSFP transcript bug, SpliceAI install patches, 4-way parallel, 255→13 splice count), decisions made and why, what I'd do differently. 334 lines. |
 | `scripts/` | Seven scripts that make up the pipeline (see below) |
-| `src_changes/` | Modified library files (`src/chunker.py`, `src/panels.py`, `src/variantdb.py`) — reference copies; the real changes live in the parent repo |
+| `src_changes/` | Modified library files (`src/chunker.py`, `src/variant_text.py`, `src/panels.py`, `src/variantdb.py`) — reference copies; the real changes live in the parent repo |
 | `bed/` | The lab's BED file — `C+_ALL_IDPE_OCT2025.bed` (166 genes, 2380 regions) |
 | `outputs/` | All produced artifacts (see below) |
 

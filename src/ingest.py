@@ -1,7 +1,6 @@
 """Data ingestion module for dbNSFP files."""
 
 import gzip
-import io
 import re
 import zipfile
 from pathlib import Path
@@ -9,10 +8,12 @@ from pathlib import Path
 import pandas as pd
 from tqdm import tqdm
 
-from .config import KEEP_COLUMNS, RAW_DATA_DIR, CHUNK_SIZE, DBNSFP_ZIP
+from .config import CHUNK_SIZE, DBNSFP_ZIP, KEEP_COLUMNS, RAW_DATA_DIR
 
 
-def filter_by_genes(df: pd.DataFrame, genes: set[str], gene_column: str = "genename") -> pd.DataFrame:
+def filter_by_genes(
+    df: pd.DataFrame, genes: set[str], gene_column: str = "genename"
+) -> pd.DataFrame:
     """
     Filter DataFrame to only include rows matching target genes.
 
@@ -37,9 +38,33 @@ def filter_by_genes(df: pd.DataFrame, genes: set[str], gene_column: str = "genen
 CHR_ORDER = [str(i) for i in range(1, 23)] + ["X", "Y", "M"]
 
 # Chromosome order by file size (smallest to largest based on dbNSFP5.3.1a)
-CHR_SIZE_ORDER = ["M", "Y", "21", "18", "13", "22", "20", "14", "X", "15",
-                  "8", "9", "10", "4", "16", "5", "7", "6", "12", "17",
-                  "11", "3", "19", "2", "1"]
+CHR_SIZE_ORDER = [
+    "M",
+    "Y",
+    "21",
+    "18",
+    "13",
+    "22",
+    "20",
+    "14",
+    "X",
+    "15",
+    "8",
+    "9",
+    "10",
+    "4",
+    "16",
+    "5",
+    "7",
+    "6",
+    "12",
+    "17",
+    "11",
+    "3",
+    "19",
+    "2",
+    "1",
+]
 
 
 def sort_chr_files(files: list[str], by_size: bool = True) -> list[str]:
@@ -55,12 +80,9 @@ def sort_chr_files(files: list[str], by_size: bool = True) -> list[str]:
             except ValueError:
                 return 100
         return 100
+
     return sorted(files, key=chr_key)
 
-
-# =============================================================================
-# ZIP-based reading (Option 1 - no extraction needed)
-# =============================================================================
 
 def list_chromosome_files_in_zip(zip_path: Path | None = None) -> list[str]:
     """List chromosome variant files inside the dbNSFP zip."""
@@ -81,10 +103,8 @@ def list_chromosome_files_in_zip(zip_path: Path | None = None) -> list[str]:
 
 def get_columns_from_zip(zip_path: Path, inner_file: str) -> list[str]:
     """Read header from a gzipped file inside a zip."""
-    with zipfile.ZipFile(zip_path, "r") as zf:
-        with zf.open(inner_file) as f:
-            with gzip.open(f, "rt") as gz:
-                header = gz.readline().strip().split("\t")
+    with zipfile.ZipFile(zip_path, "r") as zf, zf.open(inner_file) as f, gzip.open(f, "rt") as gz:
+        header = gz.readline().strip().split("\t")
     return header
 
 
@@ -110,29 +130,27 @@ def parse_chromosome_from_zip(
         fname = Path(inner_file).name
         print(f"  Note: {len(missing)} columns not in {fname}")
 
-    with zipfile.ZipFile(zip_path, "r") as zf:
-        with zf.open(inner_file) as f:
-            with gzip.open(f, "rt") as gz:
-                reader = pd.read_csv(
-                    gz,
-                    sep="\t",
-                    usecols=usecols,
-                    chunksize=chunksize,
-                    na_values=".",
-                    low_memory=False,
-                    dtype={
-                        "#chr": str,
-                        "ref": str,
-                        "alt": str,
-                        "aaref": str,
-                        "aaalt": str,
-                        "genename": str,
-                    },
-                )
-                for chunk in reader:
-                    if "#chr" in chunk.columns:
-                        chunk["#chr"] = chunk["#chr"].astype(str).str.replace("chr", "")
-                    yield chunk
+    with zipfile.ZipFile(zip_path, "r") as zf, zf.open(inner_file) as f, gzip.open(f, "rt") as gz:
+        reader = pd.read_csv(
+            gz,
+            sep="\t",
+            usecols=usecols,
+            chunksize=chunksize,
+            na_values=".",
+            low_memory=False,
+            dtype={
+                "#chr": str,
+                "ref": str,
+                "alt": str,
+                "aaref": str,
+                "aaalt": str,
+                "genename": str,
+            },
+        )
+        for chunk in reader:
+            if "#chr" in chunk.columns:
+                chunk["#chr"] = chunk["#chr"].astype(str).str.replace("chr", "")
+            yield chunk
 
 
 def iter_variants_from_zip(
@@ -155,8 +173,10 @@ def iter_variants_from_zip(
 
     # Filter chromosomes if specified
     if chromosomes:
-        chr_set = set(str(c).replace("chr", "") for c in chromosomes)
-        chr_files = [f for f in chr_files if any(f"chr{c}.gz" in f or f"chr{c}." in f for c in chr_set)]
+        chr_set = {str(c).replace("chr", "") for c in chromosomes}
+        chr_files = [
+            f for f in chr_files if any(f"chr{c}.gz" in f or f"chr{c}." in f for c in chr_set)
+        ]
 
     for chr_file in chr_files:
         fname = Path(chr_file).name
@@ -166,13 +186,8 @@ def iter_variants_from_zip(
         if show_progress:
             chunks = tqdm(chunks, desc=desc, unit="batch")
 
-        for chunk in chunks:
-            yield chunk
+        yield from chunks
 
-
-# =============================================================================
-# Directory-based reading (extracted files)
-# =============================================================================
 
 def list_chromosome_files(data_dir: Path | None = None) -> list[Path]:
     """Find all dbNSFP chromosome variant files in a directory."""
@@ -262,13 +277,8 @@ def iter_all_variants(
         if show_progress:
             chunks = tqdm(chunks, desc=desc, unit="batch")
 
-        for chunk in chunks:
-            yield chunk
+        yield from chunks
 
-
-# =============================================================================
-# Unified interface
-# =============================================================================
 
 def iter_variants(
     source: Path | None = None,
@@ -297,15 +307,12 @@ def iter_variants(
     if source.suffix == ".zip" or (source.is_file() and zipfile.is_zipfile(source)):
         # Read from zip
         yield from iter_variants_from_zip(
-            source,
-            chromosomes=chromosomes,
-            columns=columns,
-            show_progress=show_progress
+            source, chromosomes=chromosomes, columns=columns, show_progress=show_progress
         )
     else:
         # Read from directory
         if chromosomes:
-            print(f"Warning: chromosome filtering not implemented for directory mode")
+            print("Warning: chromosome filtering not implemented for directory mode")
         yield from iter_all_variants(source, columns, show_progress)
 
 

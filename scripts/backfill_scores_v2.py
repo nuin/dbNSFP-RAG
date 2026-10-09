@@ -26,9 +26,11 @@ SYN_ANNO = Path("data/exports/cp_new/seqnext/cp_new_seqnext_synonymous_catalog.t
 
 
 def _s(v):
-    if v is None: return ""
+    if v is None:
+        return ""
     try:
-        if pd.isna(v): return ""
+        if pd.isna(v):
+            return ""
     except (TypeError, ValueError):
         pass
     return str(v)
@@ -36,21 +38,23 @@ def _s(v):
 
 # Map upload columns -> dbNSFP columns
 SCORE_MAP = {
-    "PhastCons100way":   "phastCons100way_vertebrate",
-    "PhyloP100way":      "phyloP100way_vertebrate",
-    "REVEL":             "REVEL_score",
-    "SpliceAI_masked":   "spliceai_ds_max_masked",
-    "FAF95_grpmax":      "gnomad_v41_faf95_grpmax",
-    "CADD_phred":        "CADD_phred",
-    "AlphaMissense_pred":"AlphaMissense_pred",
+    "PhastCons100way": "phastCons100way_vertebrate",
+    "PhyloP100way": "phyloP100way_vertebrate",
+    "REVEL": "REVEL_score",
+    "SpliceAI_masked": "spliceai_ds_max_masked",
+    "FAF95_grpmax": "gnomad_v41_faf95_grpmax",
+    "CADD_phred": "CADD_phred",
+    "AlphaMissense_pred": "AlphaMissense_pred",
 }
 
 
 def _pick_first_real(s: str) -> str:
     """For ';'-joined per-transcript values, return the first non-empty/non-dot.
     Returns '' if no real value exists."""
-    if not s or s == ".": return ""
-    if ";" not in s: return "" if s == "." else s
+    if not s or s == ".":
+        return ""
+    if ";" not in s:
+        return "" if s == "." else s
     for p in s.split(";"):
         p = p.strip()
         if p and p != ".":
@@ -62,7 +66,8 @@ def load_dbnsfp_by_hgvs(gene: str) -> tuple[dict, dict]:
     """Index dbNSFP rows by canonical hgvs_c (any matching transcript suffices)
     and by hg19 coords."""
     p = PER_GENE_DIR / f"{gene}.tsv"
-    if not p.exists(): return {}, {}
+    if not p.exists():
+        return {}, {}
     df = pd.read_csv(p, sep="\t", dtype=str, na_values=["."], low_memory=False).fillna("")
     by_hgvs = {}
     by_coord = {}
@@ -81,8 +86,7 @@ def load_dbnsfp_by_hgvs(gene: str) -> tuple[dict, dict]:
 
         # Index by (chr_hg19, pos_hg19, ref, alt) for coord-based fallback
         try:
-            k = (_s(r["hg19_chr"]), int(float(r["hg19_pos(1-based)"])),
-                 _s(r["ref"]), _s(r["alt"]))
+            k = (_s(r["hg19_chr"]), int(float(r["hg19_pos(1-based)"])), _s(r["ref"]), _s(r["alt"]))
             by_coord.setdefault(k, scores)
         except (ValueError, TypeError, KeyError):
             pass
@@ -92,7 +96,8 @@ def load_dbnsfp_by_hgvs(gene: str) -> tuple[dict, dict]:
 
 def load_syn_lookup() -> tuple[dict, dict]:
     """Index annotated syn-catalog by (gene, hgvs_c) and (gene, chr, pos) -> scores."""
-    if not SYN_ANNO.exists(): return {}, {}
+    if not SYN_ANNO.exists():
+        return {}, {}
     df = pd.read_csv(SYN_ANNO, sep="\t", dtype=str, na_values=["."]).fillna("")
     score_cols = list(SCORE_MAP.keys())
     by_hgvs = {}
@@ -104,8 +109,7 @@ def load_syn_lookup() -> tuple[dict, dict]:
         if gene and hgvs:
             by_hgvs.setdefault((gene, hgvs), scores)
         try:
-            k = (gene, _s(r["chr_grch37"]), int(float(r["pos_grch37"])),
-                 _s(r["ref"]), _s(r["alt"]))
+            k = (gene, _s(r["chr_grch37"]), int(float(r["pos_grch37"])), _s(r["ref"]), _s(r["alt"]))
             by_coord.setdefault(k, scores)
         except (ValueError, TypeError, KeyError):
             pass
@@ -117,14 +121,17 @@ def main() -> int:
         sys.exit(f"missing {UP}")
     df = pd.read_csv(UP, sep="\t", dtype=str).fillna("")
     print(f"Loaded {len(df):,} rows from v2 upload")
-    print(f"Loading annotated synonymous catalog ...")
+    print("Loading annotated synonymous catalog ...")
     syn_by_hgvs, syn_by_coord = load_syn_lookup()
-    print(f"  syn-catalog indexed: {len(syn_by_hgvs):,} (gene,hgvs); "
-          f"{len(syn_by_coord):,} (gene,coord)")
-    print(f"\nBackfilling scores ...\n")
+    print(
+        f"  syn-catalog indexed: {len(syn_by_hgvs):,} (gene,hgvs); "
+        f"{len(syn_by_coord):,} (gene,coord)"
+    )
+    print("\nBackfilling scores ...\n")
 
     # cache per-gene dbNSFP lookups
     cache = {}
+
     def lookups(gene):
         if gene not in cache:
             cache[gene] = load_dbnsfp_by_hgvs(gene)
@@ -140,7 +147,8 @@ def main() -> int:
         if any(r[c] for c in score_cols):
             continue
         gene = r["gene"]
-        if not gene: continue
+        if not gene:
+            continue
         hit = None
         # Path 1: dbNSFP by hgvs_c (missense / non-syn coding)
         by_hgvs, by_coord = lookups(gene)
@@ -148,12 +156,11 @@ def main() -> int:
             hit = by_hgvs.get(r["hgvs_c"])
             if hit:
                 n_hit_dbnsfp += 1
-        if not hit:
-            # Path 2: annotated synonymous catalog by (gene, hgvs_c)
-            if r["hgvs_c"]:
-                hit = syn_by_hgvs.get((gene, r["hgvs_c"]))
-                if hit:
-                    n_hit_syn += 1
+        # Path 2: annotated synonymous catalog by (gene, hgvs_c)
+        if not hit and r["hgvs_c"]:
+            hit = syn_by_hgvs.get((gene, r["hgvs_c"]))
+            if hit:
+                n_hit_syn += 1
         if not hit:
             # Path 3: coord-based fallback against dbNSFP (rarely matches for ClinVar)
             try:
@@ -181,7 +188,7 @@ def main() -> int:
         print(f"\n  {src} ({n:,} rows):")
         for c in score_cols:
             good = (~sub[c].isin(["", "."])).sum()
-            print(f"    {c:<22} {100*good/n:>5.1f}%  ({good:,}/{n:,})")
+            print(f"    {c:<22} {100 * good / n:>5.1f}%  ({good:,}/{n:,})")
 
     df.to_csv(OUT, sep="\t", index=False)
     print(f"\nWrote -> {OUT}")

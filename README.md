@@ -96,14 +96,22 @@ curl "http://localhost:8000/health"
 
 ```bash
 # Using uv (recommended)
-uv venv
-uv pip install -e .
-uv pip install fastapi uvicorn mlx-lm
+uv sync --extra api --extra dev
 
 # Or pip
-pip install -e .
-pip install fastapi uvicorn mlx-lm
+pip install -e '.[api,dev]'
 ```
+
+Install `--extra training` for Transformers/LoRA and XGBoost training, or
+`--extra mlx` for MLX training on Apple Silicon. Training commands report missing
+dependencies instead of installing packages at runtime. FAISS and embedding
+workflows use `--extra faiss`; the SQLite builder does not need those packages.
+
+FAISS metadata is saved as `metadata.json`. Existing `metadata.pkl` files remain
+readable through a restricted reader that accepts only data opcodes; the next save
+writes JSON. Legacy files containing Python objects require rebuilding the index.
+`--fresh` rebuilds stored annotations, and interrupted builds return exit status
+130 with completed chromosomes saved for resumption.
 
 ### CPU-Only Mode
 

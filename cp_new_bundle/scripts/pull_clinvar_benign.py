@@ -22,8 +22,10 @@ Output: data/exports/cp_new/clinvar_benign_seqnext.tsv
 
 from __future__ import annotations
 
+import csv
 import gzip
 import sys
+from collections import Counter
 from pathlib import Path
 
 import pandas as pd
@@ -51,144 +53,110 @@ STARS = {
 }
 
 
+def load_gene_transcripts(bed: Path) -> dict[str, str]:
+    counts: dict[str, Counter] = {}
+    with open(bed) as handle:
+        for line in handle:
+            fields = line.rstrip("\n").split("\t")
+            if len(fields) >= 6:
+                counts.setdefault(fields[4], Counter())[fields[5]] += 1
+    return {gene: count.most_common(1)[0][0] for gene, count in counts.items()}
+
+
+def benign_row(record: dict, panel: set[str], gene_tx: dict[str, str]) -> dict | None:
+    gene = record["GeneSymbol"].upper()
+    sig = record["ClinicalSignificance"]
+    review = record["ReviewStatus"]
+    stars = STARS.get(review, 0)
+    if gene not in panel or not sig.startswith(("Benign", "Likely benign")):
+        return None
+    if stars < 1 or record["Assembly"] != "GRCh37":
+        return None
+    try:
+        position = int(record["Start"])
+    except ValueError:
+        return None
+    name = record["Name"]
+    hgvs_c = "c." + name.partition(":c.")[2].split(" ")[0] if ":c." in name else ""
+    classification = "Benign" if sig.startswith("Benign") else "Likely_benign"
+    # ClinVar c. notation may be on the minus strand, so it cannot supply genomic alleles.
+    ref = record["ReferenceAllele"]
+    alt = record["AlternateAllele"]
+    return {
+        "gene": gene,
+        "transcript": gene_tx.get(gene, ""),
+        "hgvs_c": hgvs_c,
+        "classification": f"{classification} ClinVar({stars}-star, {review.split(',')[0]})",
+        "chr_grch37": record["Chromosome"],
+        "pos_grch37": position,
+        "ref": "" if ref == "na" else ref,
+        "alt": "" if alt == "na" else alt,
+        "PhastCons100way": "",
+        "PhyloP100way": "",
+        "REVEL": "",
+        "SpliceAI_masked": "",
+        "FAF95_grpmax": "",
+        "CADD_phred": "",
+        "AlphaMissense_pred": "",
+        "ClinVar_sig": sig,
+        "vv_status": "clinvar_assertion",
+        "clinvar_review": review,
+        "clinvar_stars": stars,
+        "clinvar_type": record["Type"],
+        "clinvar_name": name,
+    }
+
+
+def read_benign_rows(path: Path, panel: set[str], gene_tx: dict[str, str]) -> list[dict]:
+    rows = []
+    seen = set()
+    fields = (
+        "GeneSymbol",
+        "ClinicalSignificance",
+        "ReviewStatus",
+        "Assembly",
+        "Start",
+        "Name",
+        "ReferenceAllele",
+        "AlternateAllele",
+        "Chromosome",
+        "Type",
+    )
+    with gzip.open(path, "rt") as handle:
+        for record in csv.DictReader(handle, delimiter="\t"):
+            if any(record.get(field) is None for field in fields):
+                continue
+            row = benign_row(record, panel, gene_tx)
+            if row is None:
+                continue
+            key = tuple(
+                row[field] for field in ("chr_grch37", "pos_grch37", "ref", "alt", "transcript")
+            )
+            if key not in seen:
+                seen.add(key)
+                rows.append(row)
+    return rows
+
+
 def main() -> int:
     if not CLINVAR_TSV.exists():
         sys.exit(f"Missing: {CLINVAR_TSV}")
-
     cp = {g.upper() for g in get_panel("cp_new")}
     print(f"cp_new panel genes: {len(cp)}")
-
-    # Build BED gene -> transcript map (most-common NM_ per gene)
-    from collections import Counter
-    tx_counts: dict[str, Counter] = {}
-    with open(BED) as f:
-        for line in f:
-            p = line.rstrip("\n").split("\t")
-            if len(p) >= 6:
-                tx_counts.setdefault(p[4], Counter())[p[5]] += 1
-    gene_tx = {g: c.most_common(1)[0][0] for g, c in tx_counts.items()}
-
+    gene_tx = load_gene_transcripts(BED)
     print(f"Reading {CLINVAR_TSV} ...")
-    rows = []
-    seen = set()
-    with gzip.open(CLINVAR_TSV, "rt") as f:
-        header = f.readline().rstrip("\n").split("\t")
-        col = {name: i for i, name in enumerate(header)}
-        ci = {k: col[k] for k in ("GeneSymbol", "ClinicalSignificance",
-                                   "ClinSigSimple", "ReviewStatus",
-                                   "Assembly", "Chromosome", "Start", "Stop",
-                                   "ReferenceAllele", "AlternateAllele",
-                                   "Name", "Type")}
-        for line in f:
-            fields = line.rstrip("\n").split("\t")
-            if len(fields) <= max(ci.values()):
-                continue
-            gene = fields[ci["GeneSymbol"]].upper()
-            if gene not in cp:
-                continue
-            sig = fields[ci["ClinicalSignificance"]]
-            # ClinSigSimple is unreliable (0 sometimes appears even when
-            # ClinicalSignificance is unambiguously "Benign"); trust the text.
-            if not (sig.startswith("Benign") or sig.startswith("Likely benign")):
-                continue
-            review = fields[ci["ReviewStatus"]]
-            stars = STARS.get(review, 0)
-            if stars < 1:
-                continue
-            assembly = fields[ci["Assembly"]]
-            if assembly != "GRCh37":
-                continue  # we emit hg19 for SeqNext
-            chrom = fields[ci["Chromosome"]]
-            start = fields[ci["Start"]]
-            try:
-                start_i = int(start)
-            except ValueError:
-                continue
-            ref = fields[ci["ReferenceAllele"]]
-            alt = fields[ci["AlternateAllele"]]
-            # ClinVar bulk file sometimes has 'na' for SNVs; pull from c. notation
-            if ref == "na" or alt == "na":
-                # Name has c.XXX{REF}>{ALT} -- extract
-                import re
-                m = re.search(r"c\.[*\-+\d]+([ACGT])>([ACGT])", fields[ci["Name"]])
-                if m:
-                    # The c. notation is coding-strand; for genomic ref/alt
-                    # we'd need to know the gene's strand. Many cp_new genes
-                    # are on the minus strand. Leave ref/alt as-is and rely
-                    # on the Name + transcript for downstream consumers.
-                    if ref == "na": ref = ""
-                    if alt == "na": alt = ""
-                else:
-                    if ref == "na": ref = ""
-                    if alt == "na": alt = ""
-            vtype = fields[ci["Type"]]
-            name = fields[ci["Name"]]
-            # Extract HGVS c. from Name field
-            # Name format: NM_xxxx.x(GENE):c.NNNXXX>YYY (p.X)
-            hgvs_c = ""
-            transcript = gene_tx.get(gene, "")
-            if ":c." in name:
-                # Take the c.* part; verify NM_ matches the BED's NM_ if possible
-                pre, _, after = name.partition(":c.")
-                # 'NM_xxxx.x(GENE)' before colon
-                tx_in_name = pre.split("(")[0]
-                # The c. may have a trailing ' (p.X)' suffix
-                c_part = "c." + after.split(" ")[0]
-                hgvs_c = c_part
-                # Optionally prefer the variant's own NM_ if it matches BED's
-                if transcript and tx_in_name != transcript:
-                    # ClinVar may have used a different version (.4 vs .5).
-                    # Keep BED's transcript label, but flag this in classification.
-                    pass
-
-            key = (chrom, start_i, ref, alt, transcript)
-            if key in seen:
-                continue
-            seen.add(key)
-
-            classification = ("Benign" if sig.startswith("Benign") else "Likely_benign")
-            classification = (f"{classification} ClinVar({stars}-star, "
-                              f"{review.split(',')[0]})")
-
-            rows.append({
-                "gene": gene,
-                "transcript": transcript,
-                "hgvs_c": hgvs_c,
-                "classification": classification,
-                "chr_grch37": chrom,
-                "pos_grch37": start_i,
-                "ref": ref,
-                "alt": alt,
-                "PhastCons100way": "",
-                "PhyloP100way": "",
-                "REVEL": "",
-                "SpliceAI_masked": "",
-                "FAF95_grpmax": "",
-                "CADD_phred": "",
-                "AlphaMissense_pred": "",
-                "ClinVar_sig": sig,
-                "vv_status": "clinvar_assertion",
-                "clinvar_review": review,
-                "clinvar_stars": stars,
-                "clinvar_type": vtype,
-                "clinvar_name": name,
-            })
-
-    df = pd.DataFrame(rows)
+    df = pd.DataFrame(read_benign_rows(CLINVAR_TSV, cp, gene_tx))
     OUT.parent.mkdir(parents=True, exist_ok=True)
     df.to_csv(OUT, sep="\t", index=False)
     print(f"\nWrote {len(df):,} ClinVar Benign/LB rows -> {OUT}")
-
-    # Per-gene summary
+    if df.empty:
+        return 0
     print("\nTop genes by ClinVar B/LB count:")
-    for g, n in df["gene"].value_counts().head(15).items():
-        print(f"  {g}: {n}")
-
-    # By type
+    for gene, count in df["gene"].value_counts().head(15).items():
+        print(f"  {gene}: {count}")
     print("\nBy variant type:")
-    for t, n in df["clinvar_type"].value_counts().head(10).items():
-        print(f"  {t}: {n}")
-
+    for variant_type, count in df["clinvar_type"].value_counts().head(10).items():
+        print(f"  {variant_type}: {count}")
     return 0
 
 

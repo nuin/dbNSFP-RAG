@@ -56,7 +56,10 @@ def tabix_region(url: str, chrom: str, start: int, end: int) -> list[str]:
     try:
         result = subprocess.run(
             ["tabix", url, region],
-            capture_output=True, text=True, timeout=900, check=False,
+            capture_output=True,
+            text=True,
+            timeout=900,
+            check=False,
         )
     except subprocess.TimeoutExpired:
         print(f"  TIMEOUT {region}", file=sys.stderr)
@@ -64,11 +67,12 @@ def tabix_region(url: str, chrom: str, start: int, end: int) -> list[str]:
     if result.returncode != 0:
         print(f"  tabix err {region}: {result.stderr.strip()[:200]}", file=sys.stderr)
         return []
-    return [l for l in result.stdout.splitlines() if l and not l.startswith("#")]
+    return [line for line in result.stdout.splitlines() if line and not line.startswith("#")]
 
 
-def fetch_gene_common(gene: str, chrom: str, start: int, end: int,
-                      threshold: float) -> pd.DataFrame:
+def fetch_gene_common(
+    gene: str, chrom: str, start: int, end: int, threshold: float
+) -> pd.DataFrame:
     """Tabix gnomAD region, filter to FAF95 grpmax >= threshold."""
     url = GNOMAD_URL.format(chrom=chrom)
     rows = []
@@ -87,27 +91,31 @@ def fetch_gene_common(gene: str, chrom: str, start: int, end: int,
             continue
         if faf_v < threshold:
             continue
-        rows.append({
-            "gene": gene,
-            "chr_hg38": c.removeprefix("chr"),
-            "pos_hg38": int(pos),
-            "ref": ref,
-            "alt": alt,
-            "gnomad_v41_faf95_grpmax": faf_v,
-            "gnomad_v41_af_joint": ifields.get("AF_joint") or ifields.get("AF"),
-            "gnomad_v41_grpmax_anc": ifields.get("fafmax_faf95_max_gen_anc_joint")
+        rows.append(
+            {
+                "gene": gene,
+                "chr_hg38": c.removeprefix("chr"),
+                "pos_hg38": int(pos),
+                "ref": ref,
+                "alt": alt,
+                "gnomad_v41_faf95_grpmax": faf_v,
+                "gnomad_v41_af_joint": ifields.get("AF_joint") or ifields.get("AF"),
+                "gnomad_v41_grpmax_anc": ifields.get("fafmax_faf95_max_gen_anc_joint")
                 or ifields.get("grpmax_joint"),
-            "gnomad_v41_nhomalt": ifields.get("nhomalt_joint") or ifields.get("nhomalt"),
-            "gnomad_v41_filter": vcf_filter,
-        })
+                "gnomad_v41_nhomalt": ifields.get("nhomalt_joint") or ifields.get("nhomalt"),
+                "gnomad_v41_filter": vcf_filter,
+            }
+        )
     return pd.DataFrame(rows)
 
 
 def _s(v) -> str:
     """NaN-safe string conversion (pandas NaN -> '')."""
-    if v is None: return ""
+    if v is None:
+        return ""
     try:
-        if pd.isna(v): return ""
+        if pd.isna(v):
+            return ""
     except (TypeError, ValueError):
         pass
     return str(v)
@@ -163,8 +171,7 @@ def load_syn_catalog() -> dict:
     return out
 
 
-def annotate(df_common: pd.DataFrame, gene: str, dbnsfp: dict,
-             syn_cat: dict) -> pd.DataFrame:
+def annotate(df_common: pd.DataFrame, gene: str, dbnsfp: dict, syn_cat: dict) -> pd.DataFrame:
     """Attach hg19 + HGVSc + transcript from dbNSFP/syn-catalog where possible."""
     out_rows = []
     for _, r in df_common.iterrows():
@@ -192,32 +199,35 @@ def annotate(df_common: pd.DataFrame, gene: str, dbnsfp: dict,
                     source_anno = "syn_catalog"
             except (TypeError, ValueError):
                 pass
-        out_rows.append({
-            "gene": gene,
-            "transcript": transcript,
-            "hgvs_c": hgvs_c,
-            "classification": f"Benign FAF >5% (gnomAD v4.1, {consequence or 'unannotated'})",
-            "chr_grch37": chr_hg19,
-            "pos_grch37": pos_hg19,
-            "chr_hg38": r["chr_hg38"],
-            "pos_hg38": r["pos_hg38"],
-            "ref": r["ref"],
-            "alt": r["alt"],
-            "FAF95_grpmax": r["gnomad_v41_faf95_grpmax"],
-            "gnomad_v41_af_joint": r["gnomad_v41_af_joint"],
-            "gnomad_v41_grpmax_anc": r["gnomad_v41_grpmax_anc"],
-            "gnomad_v41_nhomalt": r["gnomad_v41_nhomalt"],
-            "gnomad_v41_filter": r["gnomad_v41_filter"],
-            "consequence": consequence or "unannotated",
-            "anno_source": source_anno or "none",
-            "vv_status": "ok" if hgvs_c else "needs_hgvs",
-            "source": "gnomad_common",
-        })
+        out_rows.append(
+            {
+                "gene": gene,
+                "transcript": transcript,
+                "hgvs_c": hgvs_c,
+                "classification": f"Benign FAF >5% (gnomAD v4.1, {consequence or 'unannotated'})",
+                "chr_grch37": chr_hg19,
+                "pos_grch37": pos_hg19,
+                "chr_hg38": r["chr_hg38"],
+                "pos_hg38": r["pos_hg38"],
+                "ref": r["ref"],
+                "alt": r["alt"],
+                "FAF95_grpmax": r["gnomad_v41_faf95_grpmax"],
+                "gnomad_v41_af_joint": r["gnomad_v41_af_joint"],
+                "gnomad_v41_grpmax_anc": r["gnomad_v41_grpmax_anc"],
+                "gnomad_v41_nhomalt": r["gnomad_v41_nhomalt"],
+                "gnomad_v41_filter": r["gnomad_v41_filter"],
+                "consequence": consequence or "unannotated",
+                "anno_source": source_anno or "none",
+                "vv_status": "ok" if hgvs_c else "needs_hgvs",
+                "source": "gnomad_common",
+            }
+        )
     return pd.DataFrame(out_rows)
 
 
-def process_gene(gene: str, info: dict, threshold: float, syn_cat: dict,
-                 buffer: int) -> tuple[str, pd.DataFrame]:
+def process_gene(
+    gene: str, info: dict, threshold: float, syn_cat: dict, buffer: int
+) -> tuple[str, pd.DataFrame]:
     chrom = info["chr"]
     start = max(1, info["start"] - buffer)
     end = info["end"] + buffer
@@ -229,12 +239,18 @@ def process_gene(gene: str, info: dict, threshold: float, syn_cat: dict,
 
 
 def main() -> int:
-    ap = argparse.ArgumentParser(description=__doc__,
-                                 formatter_class=argparse.RawDescriptionHelpFormatter)
-    ap.add_argument("--threshold", type=float, default=DEFAULT_THRESHOLD,
-                    help=f"FAF95 grpmax threshold (default {DEFAULT_THRESHOLD})")
-    ap.add_argument("--buffer", type=int, default=50,
-                    help="bp to extend each gene range (default 50)")
+    ap = argparse.ArgumentParser(
+        description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter
+    )
+    ap.add_argument(
+        "--threshold",
+        type=float,
+        default=DEFAULT_THRESHOLD,
+        help=f"FAF95 grpmax threshold (default {DEFAULT_THRESHOLD})",
+    )
+    ap.add_argument(
+        "--buffer", type=int, default=50, help="bp to extend each gene range (default 50)"
+    )
     ap.add_argument("--genes", nargs="*", help="restrict to a subset of genes")
     ap.add_argument("--threads", type=int, default=4)
     args = ap.parse_args()
@@ -245,8 +261,10 @@ def main() -> int:
     ranges = json.loads(RANGES_JSON.read_text())
     if args.genes:
         ranges = {g: ranges[g] for g in args.genes if g in ranges}
-    print(f"Pulling gnomAD v4.1 common variants (FAF95 >= {args.threshold}) "
-          f"for {len(ranges)} genes ...")
+    print(
+        f"Pulling gnomAD v4.1 common variants (FAF95 >= {args.threshold}) "
+        f"for {len(ranges)} genes ..."
+    )
 
     OUT_PER_GENE.mkdir(parents=True, exist_ok=True)
     OUT_COMBINED.parent.mkdir(parents=True, exist_ok=True)
@@ -257,16 +275,20 @@ def main() -> int:
     all_dfs = []
     t0 = time.time()
     with ThreadPoolExecutor(max_workers=args.threads) as ex:
-        futures = {ex.submit(process_gene, g, info, args.threshold,
-                             syn_cat, args.buffer): g
-                   for g, info in ranges.items()}
+        futures = {
+            ex.submit(process_gene, g, info, args.threshold, syn_cat, args.buffer): g
+            for g, info in ranges.items()
+        }
         for i, fut in enumerate(as_completed(futures), 1):
             gene, df = fut.result()
             if df is not None and not df.empty:
                 (OUT_PER_GENE / f"{gene}.tsv").write_text(df.to_csv(sep="\t", index=False))
                 all_dfs.append(df)
-            print(f"  [{i:>2}/{len(ranges)}] {gene:<10}  {len(df):>5} common variants"
-                  if df is not None else f"  [{i:>2}/{len(ranges)}] {gene:<10}  (skip)")
+            print(
+                f"  [{i:>2}/{len(ranges)}] {gene:<10}  {len(df):>5} common variants"
+                if df is not None
+                else f"  [{i:>2}/{len(ranges)}] {gene:<10}  (skip)"
+            )
 
     if not all_dfs:
         print("No common variants found.")
@@ -277,12 +299,14 @@ def main() -> int:
 
     print(f"\n=== Summary  ({dt:.0f}s) ===")
     print(f"Total common variants: {len(combined):,}")
-    print(f"  by consequence:")
+    print("  by consequence:")
     print("  " + combined["consequence"].value_counts().to_string().replace("\n", "\n  "))
-    print(f"  by anno_source:")
+    print("  by anno_source:")
     print("  " + combined["anno_source"].value_counts().to_string().replace("\n", "\n  "))
-    print(f"  with HGVSc resolved: {(combined['hgvs_c'] != '').sum():,}  "
-          f"({100*(combined['hgvs_c'] != '').sum()/len(combined):.1f}%)")
+    print(
+        f"  with HGVSc resolved: {(combined['hgvs_c'] != '').sum():,}  "
+        f"({100 * (combined['hgvs_c'] != '').sum() / len(combined):.1f}%)"
+    )
     print(f"  needs VV HGVSc:      {(combined['vv_status'] == 'needs_hgvs').sum():,}")
     print(f"\nPer-gene files -> {OUT_PER_GENE}/")
     print(f"Combined       -> {OUT_COMBINED}")

@@ -73,9 +73,20 @@ def main() -> int:
         print(f"  {g}: {n}")
 
     # Save also as cp_new_seqnext_minimal/strict-equivalents for the new combined output
-    cols_min = ["gene", "transcript", "hgvs_c", "classification",
-                "PhastCons100way", "PhyloP100way", "REVEL", "SpliceAI_masked",
-                "FAF95_grpmax", "CADD_phred", "AlphaMissense_pred", "ClinVar_sig"]
+    cols_min = [
+        "gene",
+        "transcript",
+        "hgvs_c",
+        "classification",
+        "PhastCons100way",
+        "PhyloP100way",
+        "REVEL",
+        "SpliceAI_masked",
+        "FAF95_grpmax",
+        "CADD_phred",
+        "AlphaMissense_pred",
+        "ClinVar_sig",
+    ]
     cols_min = [c for c in cols_min if c in merged.columns]
     minimal_path = DATA / "cp_new_seqnext_minimal_with_clinvar.tsv"
     merged[cols_min].to_csv(minimal_path, sep="\t", index=False)
@@ -83,6 +94,7 @@ def main() -> int:
 
     # Strict: drop intergenic + canonical-splice from this combined output
     import re
+
     splice = re.compile(r"c\.\d+[+\-][12][ACGT]>")
     mask_ok = (merged["vv_status"] == "ok") | (merged["vv_status"] == "clinvar_assertion")
     mask_splice = merged["hgvs_c"].str.contains(splice, na=False)

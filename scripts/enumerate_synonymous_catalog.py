@@ -38,14 +38,14 @@ sys.path.insert(0, str(Path(__file__).parent.parent))
 from src.panels import get_panel
 
 REFSEQ_TXT = Path.home() / "data" / "refseq_hg19" / "ncbiRefSeq.txt.gz"
-HG19_FA    = Path.home() / "data" / "hg19" / "hg19.fa"
+HG19_FA = Path.home() / "data" / "hg19" / "hg19.fa"
 # Prefer the lab's source, fall back to the snapshot we keep in the bundle.
 _BED_CANDIDATES = [
     Path("/Users/nuin/Projects/ahs/new_bed/CP_new/C+_ALL_IDPE_APR2026.bed"),
     Path("cp_new_bundle/bed/C+_ALL_IDPE_APR2026.bed"),
 ]
 BED = next((p for p in _BED_CANDIDATES if p.exists()), _BED_CANDIDATES[0])
-OUT        = Path("data/exports/cp_new/cp_new_synonymous_catalog.tsv")
+OUT = Path("data/exports/cp_new/cp_new_synonymous_catalog.tsv")
 
 COMP = str.maketrans("ACGT", "TGCA")
 
@@ -56,8 +56,10 @@ def load_bed_transcripts(bed: Path, panel: set[str]) -> dict[str, str]:
     with open(bed) as f:
         for line in f:
             p = line.rstrip("\n").split("\t")
-            if len(p) < 6: continue
-            if p[4] not in panel: continue
+            if len(p) < 6:
+                continue
+            if p[4] not in panel:
+                continue
             counts[p[4]][p[5]] += 1
     return {g: c.most_common(1)[0][0] for g, c in counts.items()}
 
@@ -75,7 +77,8 @@ def parse_refseq(refseq_path: Path, wanted_nm: set[str]) -> dict[str, dict]:
     with gzip.open(refseq_path, "rt") as f:
         for line in f:
             fields = line.rstrip("\n").split("\t")
-            if len(fields) < 16: continue
+            if len(fields) < 16:
+                continue
             nm = fields[1]
             stem = nm.split(".")[0]
             if nm not in wanted_nm and stem not in wanted_stems:
@@ -88,7 +91,7 @@ def parse_refseq(refseq_path: Path, wanted_nm: set[str]) -> dict[str, dict]:
                     "cds_start": int(fields[6]),  # 0-based half-open
                     "cds_end": int(fields[7]),
                     "exon_starts": [int(x) for x in fields[9].rstrip(",").split(",")],
-                    "exon_ends":   [int(x) for x in fields[10].rstrip(",").split(",")],
+                    "exon_ends": [int(x) for x in fields[10].rstrip(",").split(",")],
                     "gene": fields[12],
                 }
             except (ValueError, IndexError):
@@ -103,7 +106,9 @@ def parse_refseq(refseq_path: Path, wanted_nm: set[str]) -> dict[str, dict]:
             if stem in wanted_stems:
                 # Keep the longest transcript per stem if multiple
                 prev = by_stem.get(stem)
-                if not prev or (row["cds_end"]-row["cds_start"]) > (prev["cds_end"]-prev["cds_start"]):
+                if not prev or (row["cds_end"] - row["cds_start"]) > (
+                    prev["cds_end"] - prev["cds_start"]
+                ):
                     by_stem[stem] = row
 
     out = {}
@@ -123,7 +128,8 @@ def build_cds_seq(tx: dict, fa: pysam.FastaFile) -> tuple[str, list[int]]:
     for s, e in zip(tx["exon_starts"], tx["exon_ends"]):
         cs = max(s, tx["cds_start"])
         ce = min(e, tx["cds_end"])
-        if cs >= ce: continue
+        if cs >= ce:
+            continue
         positions.extend(range(cs, ce))
     if not positions:
         return "", []
@@ -158,19 +164,22 @@ def enumerate_synonymous(gene: str, nm_bed: str, tx: dict, fa: pysam.FastaFile):
     last_codon_start = (len(cds) // 3) * 3
     for i in range(last_codon_start):
         codon_start = (i // 3) * 3
-        codon = cds[codon_start:codon_start + 3]
-        if "N" in codon: continue
+        codon = cds[codon_start : codon_start + 3]
+        if "N" in codon:
+            continue
         ref_aa = str(Seq(codon).translate())
         cds_ref = cds[i]
-        if cds_ref not in "ACGT": continue
+        if cds_ref not in "ACGT":
+            continue
         codon_pos = i - codon_start  # 0,1,2
         # Genomic ref: + strand same as CDS, - strand complement
         genomic_pos_1b = positions[i] + 1
         genomic_ref = cds_ref if strand == "+" else cds_ref.translate(COMP)
         for genomic_alt in "ACGT":
-            if genomic_alt == genomic_ref: continue
+            if genomic_alt == genomic_ref:
+                continue
             cds_alt = genomic_alt if strand == "+" else genomic_alt.translate(COMP)
-            new_codon = codon[:codon_pos] + cds_alt + codon[codon_pos + 1:]
+            new_codon = codon[:codon_pos] + cds_alt + codon[codon_pos + 1 :]
             alt_aa = str(Seq(new_codon).translate())
             if alt_aa != ref_aa:
                 continue  # not synonymous
@@ -215,18 +224,32 @@ def main() -> int:
     n_rows = 0
     n_genes = 0
     with open(OUT, "w") as out:
-        header = ["gene","transcript","chr_grch37","pos_grch37","ref","alt",
-                  "hgvs_c","codon_ref","codon_alt","aa","strand","consequence"]
+        header = [
+            "gene",
+            "transcript",
+            "chr_grch37",
+            "pos_grch37",
+            "ref",
+            "alt",
+            "hgvs_c",
+            "codon_ref",
+            "codon_alt",
+            "aa",
+            "strand",
+            "consequence",
+        ]
         out.write("\t".join(header) + "\n")
         for gene, nm in tqdm(sorted(gene_tx.items()), desc="enumerate"):
             tx = refseq.get(nm)
-            if tx is None: continue
+            if tx is None:
+                continue
             gene_n = 0
             for row in enumerate_synonymous(gene, nm, tx, fa):
                 out.write("\t".join(str(row[k]) for k in header) + "\n")
                 gene_n += 1
                 n_rows += 1
-            if gene_n: n_genes += 1
+            if gene_n:
+                n_genes += 1
 
     print(f"\nWrote {n_rows:,} synonymous candidates across {n_genes} genes -> {OUT}")
     return 0

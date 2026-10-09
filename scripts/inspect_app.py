@@ -21,10 +21,12 @@ import pandas as pd
 import streamlit as st
 
 sys.path.insert(0, str(Path(__file__).parent))
-from inspect_variant import (
-    Variant, find_in_per_gene, find_in_classifications,
-    fetch_myvariant, fetch_variantvalidator, fetch_ensembl_gene,
-    FINAL, DATA,
+from inspector_sources import (
+    FINAL,
+    Variant,
+    fetch_myvariant,
+    find_in_classifications,
+    find_in_per_gene,
 )
 
 st.set_page_config(page_title="cp_new variant inspector", page_icon="🧬", layout="wide")
@@ -69,13 +71,19 @@ with st.sidebar:
 # Helpers
 # ------------------------------------------------------------------------
 
+
 def build_variant(gene, hgvs, coord, build, rsid, transcript) -> Variant:
     v = Variant()
-    if gene: v.gene = gene.upper()
-    if transcript: v.transcript = transcript
-    if hgvs: v.hgvs_c = hgvs
+    if gene:
+        v.gene = gene.upper()
+    if transcript:
+        v.transcript = transcript
+    if hgvs:
+        v.hgvs_c = hgvs
     if coord:
-        m = re.match(r"^(?:chr)?([\dXYM]+)[:-](\d+)[:-]([ACGTN-]+)[:-]([ACGTN-]+)$", coord, re.I)
+        m = re.match(
+            r"^(?:chr)?([\dXYM]+)[:-](\d+)[:-]([ACGTN-]+)[:-]([ACGTN-]+)$", coord, re.IGNORECASE
+        )
         if m:
             chrom, pos, ref, alt = m.groups()
             if build == "hg38":
@@ -83,7 +91,8 @@ def build_variant(gene, hgvs, coord, build, rsid, transcript) -> Variant:
             else:
                 v.chr_hg19, v.pos_hg19 = chrom, int(pos)
             v.ref, v.alt = ref.upper(), alt.upper()
-    if rsid: v.rsid = rsid.lower()
+    if rsid:
+        v.rsid = rsid.lower()
     return v
 
 
@@ -113,87 +122,129 @@ if submit:
 
     col_id, col_class = st.columns([1, 1])
 
-    with col_id:
-        with st.expander("Identity", expanded=True):
-            per_gene = find_in_per_gene(v) if v.gene else None
-            if per_gene:
-                st.write({
-                    "gene": per_gene.get("genename","").split(";")[0],
-                    "Ensembl tx": per_gene.get("Ensembl_transcriptid","").split(";")[0],
-                    "HGVSc (dbNSFP)": per_gene.get("HGVSc_snpEff","").split(";")[0],
-                    "HGVSp (dbNSFP)": per_gene.get("HGVSp_snpEff","").split(";")[0],
+    with col_id, st.expander("Identity", expanded=True):
+        per_gene = find_in_per_gene(v) if v.gene else None
+        if per_gene:
+            st.write(
+                {
+                    "gene": per_gene.get("genename", "").split(";")[0],
+                    "Ensembl tx": per_gene.get("Ensembl_transcriptid", "").split(";")[0],
+                    "HGVSc (dbNSFP)": per_gene.get("HGVSc_snpEff", "").split(";")[0],
+                    "HGVSp (dbNSFP)": per_gene.get("HGVSp_snpEff", "").split(";")[0],
                     "hg19": f"chr{per_gene.get('hg19_chr')}:{per_gene.get('hg19_pos(1-based)')} {per_gene.get('ref')}>{per_gene.get('alt')}",
                     "hg38": f"chr{per_gene.get('#chr')}:{per_gene.get('pos(1-based)')} {per_gene.get('ref')}>{per_gene.get('alt')}",
-                })
-            else:
-                st.info("Not in our cp_new dbNSFP cache (synonymous variants etc.).")
+                }
+            )
+        else:
+            st.info("Not in our cp_new dbNSFP cache (synonymous variants etc.).")
 
-    with col_class:
-        with st.expander("Our pipeline classification", expanded=True):
-            cls = find_in_classifications(v)
-            if cls:
-                for c in cls:
-                    st.success(f"**{c['classification']}**")
-                    st.code(f"source={c.get('source')}  vv_status={c.get('vv_status')}\n"
-                            f"transcript={c.get('transcript')}\n"
-                            f"hgvs_c={c.get('hgvs_c')}", language="text")
-            else:
-                st.warning("No matching classification in cp_new_seqnext_FINAL.tsv.")
+    with col_class, st.expander("Our pipeline classification", expanded=True):
+        cls = find_in_classifications(v)
+        if cls:
+            for c in cls:
+                st.success(f"**{c['classification']}**")
+                st.code(
+                    f"source={c.get('source')}  vv_status={c.get('vv_status')}\n"
+                    f"transcript={c.get('transcript')}\n"
+                    f"hgvs_c={c.get('hgvs_c')}",
+                    language="text",
+                )
+        else:
+            st.warning("No matching classification in cp_new_seqnext_FINAL.tsv.")
 
     with st.expander("Frequencies (gnomAD)"):
         if per_gene:
-            st.dataframe(pd.DataFrame([{
-                "gnomAD v4.1 joint AF":     per_gene.get("gnomad_v41_af_joint"),
-                "v4.1 grpmax FAF95":         per_gene.get("gnomad_v41_faf95_grpmax"),
-                "v4.1 grpmax ancestry":      per_gene.get("gnomad_v41_grpmax_anc"),
-                "v4.1 nhomalt":              per_gene.get("gnomad_v41_nhomalt"),
-                "v4.1 FILTER":               per_gene.get("gnomad_v41_filter"),
-                "v2.1.1 controls AF":        per_gene.get("gnomAD2.1.1_exomes_controls_AF"),
-                "1000G AF":                  per_gene.get("1000Gp3_AF"),
-            }]).T.rename(columns={0:"value"}))
+            st.dataframe(
+                pd.DataFrame(
+                    [
+                        {
+                            "gnomAD v4.1 joint AF": per_gene.get("gnomad_v41_af_joint"),
+                            "v4.1 grpmax FAF95": per_gene.get("gnomad_v41_faf95_grpmax"),
+                            "v4.1 grpmax ancestry": per_gene.get("gnomad_v41_grpmax_anc"),
+                            "v4.1 nhomalt": per_gene.get("gnomad_v41_nhomalt"),
+                            "v4.1 FILTER": per_gene.get("gnomad_v41_filter"),
+                            "v2.1.1 controls AF": per_gene.get("gnomAD2.1.1_exomes_controls_AF"),
+                            "1000G AF": per_gene.get("1000Gp3_AF"),
+                        }
+                    ]
+                ).T.rename(columns={0: "value"})
+            )
         else:
             st.info("No dbNSFP frequencies for this variant in local cache.")
 
     with st.expander("Predictors"):
         if per_gene:
-            preds = {k: per_gene.get(v) for k, v in [
-                ("REVEL","REVEL_score"), ("CADD phred","CADD_phred"),
-                ("AlphaMissense pred","AlphaMissense_pred"),
-                ("AlphaMissense score","AlphaMissense_score"),
-                ("SIFT","SIFT_pred"), ("Polyphen2 HDIV","Polyphen2_HDIV_pred"),
-                ("MutationTaster","MutationTaster_pred"), ("BayesDel","BayesDel_addAF_pred"),
-                ("PROVEAN","PROVEAN_pred"), ("ClinPred","ClinPred_pred"),
-                ("MetaSVM","MetaSVM_pred"),
-            ]}
-            st.dataframe(pd.DataFrame([preds]).T.rename(columns={0:"value"}))
+            preds = {
+                k: per_gene.get(v)
+                for k, v in [
+                    ("REVEL", "REVEL_score"),
+                    ("CADD phred", "CADD_phred"),
+                    ("AlphaMissense pred", "AlphaMissense_pred"),
+                    ("AlphaMissense score", "AlphaMissense_score"),
+                    ("SIFT", "SIFT_pred"),
+                    ("Polyphen2 HDIV", "Polyphen2_HDIV_pred"),
+                    ("MutationTaster", "MutationTaster_pred"),
+                    ("BayesDel", "BayesDel_addAF_pred"),
+                    ("PROVEAN", "PROVEAN_pred"),
+                    ("ClinPred", "ClinPred_pred"),
+                    ("MetaSVM", "MetaSVM_pred"),
+                ]
+            }
+            st.dataframe(pd.DataFrame([preds]).T.rename(columns={0: "value"}))
         else:
             st.info("No dbNSFP predictors.")
 
     with st.expander("Splice & conservation"):
         if per_gene:
-            st.dataframe(pd.DataFrame([{
-                "SpliceAI masked DS_MAX":    per_gene.get("spliceai_ds_max_masked"),
-                "PhastCons100way":           per_gene.get("phastCons100way_vertebrate"),
-                "PhyloP100way":              per_gene.get("phyloP100way_vertebrate"),
-                "PhyloP470way mammalian":    per_gene.get("phyloP470way_mammalian"),
-                "GERP++ RS":                 per_gene.get("GERP++_RS"),
-                "Interpro domain":           per_gene.get("Interpro_domain"),
-            }]).T.rename(columns={0:"value"}))
+            st.dataframe(
+                pd.DataFrame(
+                    [
+                        {
+                            "SpliceAI masked DS_MAX": per_gene.get("spliceai_ds_max_masked"),
+                            "PhastCons100way": per_gene.get("phastCons100way_vertebrate"),
+                            "PhyloP100way": per_gene.get("phyloP100way_vertebrate"),
+                            "PhyloP470way mammalian": per_gene.get("phyloP470way_mammalian"),
+                            "GERP++ RS": per_gene.get("GERP++_RS"),
+                            "Interpro domain": per_gene.get("Interpro_domain"),
+                        }
+                    ]
+                ).T.rename(columns={0: "value"})
+            )
         else:
             st.info("No conservation/splice scores in cache.")
 
     with st.expander("Clinical assertions (ClinVar)"):
         if per_gene:
-            st.write({
-                "ClinVar ID":     per_gene.get("clinvar_id"),
-                "ClinVar sig":    per_gene.get("clinvar_clnsig"),
-                "ClinVar review": per_gene.get("clinvar_review"),
-                "ClinVar trait":  per_gene.get("clinvar_trait"),
-            })
+            st.write(
+                {
+                    "ClinVar ID": per_gene.get("clinvar_id"),
+                    "ClinVar sig": per_gene.get("clinvar_clnsig"),
+                    "ClinVar review": per_gene.get("clinvar_review"),
+                    "ClinVar trait": per_gene.get("clinvar_trait"),
+                }
+            )
         if not no_external:
-            mv = _cached_myvariant(v.key(), json.dumps({k: getattr(v, k) for k in
-                ("gene","transcript","hgvs_c","chr_hg19","pos_hg19","chr_hg38","pos_hg38",
-                 "ref","alt","rsid","build_input")}))
+            mv = _cached_myvariant(
+                v.key(),
+                json.dumps(
+                    {
+                        k: getattr(v, k)
+                        for k in (
+                            "gene",
+                            "transcript",
+                            "hgvs_c",
+                            "chr_hg19",
+                            "pos_hg19",
+                            "chr_hg38",
+                            "pos_hg38",
+                            "ref",
+                            "alt",
+                            "rsid",
+                            "build_input",
+                        )
+                    }
+                ),
+            )
             if mv and "clinvar" in mv:
                 st.markdown("**myvariant.info ClinVar payload:**")
                 st.json(mv["clinvar"], expanded=False)
@@ -202,15 +253,37 @@ if submit:
         if no_external:
             st.info("External APIs disabled.")
         else:
-            mv = _cached_myvariant(v.key(), json.dumps({k: getattr(v, k) for k in
-                ("gene","transcript","hgvs_c","chr_hg19","pos_hg19","chr_hg38","pos_hg38",
-                 "ref","alt","rsid","build_input")}))
+            mv = _cached_myvariant(
+                v.key(),
+                json.dumps(
+                    {
+                        k: getattr(v, k)
+                        for k in (
+                            "gene",
+                            "transcript",
+                            "hgvs_c",
+                            "chr_hg19",
+                            "pos_hg19",
+                            "chr_hg38",
+                            "pos_hg38",
+                            "ref",
+                            "alt",
+                            "rsid",
+                            "build_input",
+                        )
+                    }
+                ),
+            )
             if mv:
                 refs = {}
                 if "dbsnp" in mv:
                     refs["dbSNP"] = mv["dbsnp"].get("rsid")
                 if "cosmic" in mv:
-                    refs["COSMIC"] = mv["cosmic"].get("cosmic_id") if isinstance(mv["cosmic"], dict) else "present"
+                    refs["COSMIC"] = (
+                        mv["cosmic"].get("cosmic_id")
+                        if isinstance(mv["cosmic"], dict)
+                        else "present"
+                    )
                 if "evs" in mv:
                     refs["EVS"] = "present (older Exome Variant Server)"
                 st.write(refs)
@@ -235,9 +308,22 @@ if gene_browse:
             st.warning(f"No classifications for {gene_browse}.")
         else:
             st.write(f"{len(sub):,} rows  (showing first {n_show})")
-            display_cols = [c for c in ["gene","transcript","hgvs_c","classification",
-                            "FAF95_grpmax","REVEL","SpliceAI_masked","PhastCons100way",
-                            "ClinVar_sig","source"] if c in sub.columns]
+            display_cols = [
+                c
+                for c in [
+                    "gene",
+                    "transcript",
+                    "hgvs_c",
+                    "classification",
+                    "FAF95_grpmax",
+                    "REVEL",
+                    "SpliceAI_masked",
+                    "PhastCons100way",
+                    "ClinVar_sig",
+                    "source",
+                ]
+                if c in sub.columns
+            ]
             st.dataframe(sub[display_cols].head(n_show), height=600)
             st.download_button(
                 "Download full TSV",

@@ -29,10 +29,8 @@ Output:
 
 from __future__ import annotations
 
-import gzip
 import subprocess
 import sys
-from collections import defaultdict
 from pathlib import Path
 
 import pandas as pd
@@ -45,8 +43,10 @@ GNOMAD_V2_URL = "https://storage.googleapis.com/gcp-public-data--gnomad/release/
 
 
 def safe_float(s):
-    try: return float(s)
-    except (TypeError, ValueError): return None
+    try:
+        return float(s)
+    except (TypeError, ValueError):
+        return None
 
 
 def parse_info(info: str) -> dict[str, str]:
@@ -64,15 +64,21 @@ def tabix_gnomad_v2(chrom: str, start: int, end: int) -> dict:
     try:
         r = subprocess.run(
             ["tabix", GNOMAD_V2_URL.format(chrom=chrom), f"{chrom}:{start}-{end}"],
-            capture_output=True, text=True, timeout=600, check=False,
+            capture_output=True,
+            text=True,
+            timeout=600,
+            check=False,
         )
     except subprocess.TimeoutExpired:
         return out
-    if r.returncode != 0: return out
+    if r.returncode != 0:
+        return out
     for line in r.stdout.splitlines():
-        if line.startswith("#") or not line: continue
+        if line.startswith("#") or not line:
+            continue
         parts = line.split("\t")
-        if len(parts) < 8: continue
+        if len(parts) < 8:
+            continue
         _c, pos, _id, ref, alt, _q, _f, info = parts[:8]
         af = safe_float(parse_info(info).get("AF_popmax"))
         if af is not None:
@@ -85,12 +91,23 @@ def load_dbnsfp_per_position(gene: str) -> dict[tuple[str, int], dict]:
     A position's conservation scores are the same regardless of which alt;
     borrow from any dbNSFP row at that position."""
     tsv = DATA / f"{gene}.tsv"
-    if not tsv.exists(): return {}
+    if not tsv.exists():
+        return {}
     out = {}
     try:
-        df = pd.read_csv(tsv, sep="\t", dtype=str, na_values=[".",""], low_memory=False,
-                         usecols=["hg19_chr","hg19_pos(1-based)",
-                                  "phastCons100way_vertebrate","phyloP100way_vertebrate"])
+        df = pd.read_csv(
+            tsv,
+            sep="\t",
+            dtype=str,
+            na_values=[".", ""],
+            low_memory=False,
+            usecols=[
+                "hg19_chr",
+                "hg19_pos(1-based)",
+                "phastCons100way_vertebrate",
+                "phyloP100way_vertebrate",
+            ],
+        )
     except (ValueError, KeyError):
         return {}
     df["hg19_pos(1-based)"] = pd.to_numeric(df["hg19_pos(1-based)"], errors="coerce")
@@ -128,7 +145,8 @@ def main() -> int:
     rows = []
     for gene, gdf in tqdm(cat.groupby("gene"), desc="annotate"):
         gdf = gdf.dropna(subset=["pos_grch37_i"]).copy()
-        if gdf.empty: continue
+        if gdf.empty:
+            continue
         chrom = gdf["chr_grch37"].iloc[0]
         pmin = int(gdf["pos_grch37_i"].min())
         pmax = int(gdf["pos_grch37_i"].max())
@@ -146,26 +164,28 @@ def main() -> int:
             if classification is None:
                 continue
             cls, rule = classification
-            rows.append({
-                "gene": r["gene"],
-                "transcript": r["transcript"],
-                "hgvs_c": r["hgvs_c"],
-                "classification": f"{cls} {rule}",
-                "chr_grch37": chrom,
-                "pos_grch37": pos,
-                "ref": ref,
-                "alt": alt,
-                "PhastCons100way": phastcons,
-                "PhyloP100way": phylop,
-                "REVEL": "",
-                "SpliceAI_masked": "0 (assumed)",
-                "FAF95_grpmax": "" if faf is None else f"{faf:.6g}",
-                "CADD_phred": "",
-                "AlphaMissense_pred": "",
-                "ClinVar_sig": "",
-                "vv_status": "local_enumeration",
-                "source": "synonymous_catalog",
-            })
+            rows.append(
+                {
+                    "gene": r["gene"],
+                    "transcript": r["transcript"],
+                    "hgvs_c": r["hgvs_c"],
+                    "classification": f"{cls} {rule}",
+                    "chr_grch37": chrom,
+                    "pos_grch37": pos,
+                    "ref": ref,
+                    "alt": alt,
+                    "PhastCons100way": phastcons,
+                    "PhyloP100way": phylop,
+                    "REVEL": "",
+                    "SpliceAI_masked": "0 (assumed)",
+                    "FAF95_grpmax": "" if faf is None else f"{faf:.6g}",
+                    "CADD_phred": "",
+                    "AlphaMissense_pred": "",
+                    "ClinVar_sig": "",
+                    "vv_status": "local_enumeration",
+                    "source": "synonymous_catalog",
+                }
+            )
 
     df = pd.DataFrame(rows)
     OUT.parent.mkdir(parents=True, exist_ok=True)
@@ -173,7 +193,17 @@ def main() -> int:
     print(f"\nClassified {len(df):,} synonymous rows -> {OUT}")
     if not df.empty:
         print("\nBy rule:")
-        for r, n in df["classification"].apply(lambda c: c.split(",")[0] if "synonymous" in c else c.split()[0]+" "+c.split()[1]).value_counts().head().items():
+        for r, n in (
+            df["classification"]
+            .apply(
+                lambda c: (
+                    c.split(",")[0] if "synonymous" in c else c.split()[0] + " " + c.split()[1]
+                )
+            )
+            .value_counts()
+            .head()
+            .items()
+        ):
             print(f"  {r}: {n}")
 
     return 0

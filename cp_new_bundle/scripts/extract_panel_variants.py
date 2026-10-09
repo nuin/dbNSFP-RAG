@@ -9,12 +9,12 @@ from pathlib import Path
 # Add src to path
 sys.path.insert(0, str(Path(__file__).parent.parent))
 
-from src.config import DBNSFP_DIR, KEEP_COLUMNS
-from src.panels import get_panel
-from src.ingest import list_chromosome_files, get_available_columns, filter_columns
-
 import pandas as pd
 from tqdm import tqdm
+
+from src.config import DBNSFP_DIR, KEEP_COLUMNS
+from src.ingest import filter_columns, get_available_columns, list_chromosome_files
+from src.panels import get_panel
 
 
 def extract_panel_variants(
@@ -47,7 +47,7 @@ def extract_panel_variants(
             print(f"  - {col}")
 
     # Show gnomAD columns available
-    gnomad_cols = [c for c in available if 'gnomad' in c.lower()]
+    gnomad_cols = [c for c in available if "gnomad" in c.lower()]
     print(f"\nAvailable gnomAD columns ({len(gnomad_cols)}):")
     for col in gnomad_cols[:20]:
         print(f"  - {col}")
@@ -57,30 +57,30 @@ def extract_panel_variants(
     total_variants = 0
     first_chunk = True
 
-    with open(output_file, 'w') as out_f:
+    with open(output_file, "w") as out_f:
         for chr_file in tqdm(chr_files, desc="Processing chromosomes"):
-            with gzip.open(chr_file, 'rt') as f:
+            with gzip.open(chr_file, "rt") as f:
                 reader = pd.read_csv(
                     f,
-                    sep='\t',
+                    sep="\t",
                     usecols=usecols,
                     chunksize=10000,
-                    na_values='.',
+                    na_values=".",
                     low_memory=False,
                     dtype={
-                        '#chr': str,
-                        'ref': str,
-                        'alt': str,
-                        'aaref': str,
-                        'aaalt': str,
-                        'genename': str,
+                        "#chr": str,
+                        "ref": str,
+                        "alt": str,
+                        "aaref": str,
+                        "aaalt": str,
+                        "genename": str,
                     },
                 )
 
                 for chunk in reader:
                     # Filter by genes
-                    if 'genename' in chunk.columns:
-                        mask = chunk['genename'].fillna('').str.upper().isin(genes_upper)
+                    if "genename" in chunk.columns:
+                        mask = chunk["genename"].fillna("").str.upper().isin(genes_upper)
                         filtered = chunk[mask]
                     else:
                         filtered = chunk
@@ -89,10 +89,10 @@ def extract_panel_variants(
                         # Write header only once
                         filtered.to_csv(
                             out_f,
-                            sep='\t',
+                            sep="\t",
                             index=False,
                             header=first_chunk,
-                            mode='a' if not first_chunk else 'w'
+                            mode="a" if not first_chunk else "w",
                         )
                         first_chunk = False
                         total_variants += len(filtered)

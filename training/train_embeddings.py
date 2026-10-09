@@ -12,8 +12,8 @@ Usage:
     python training/train_embeddings.py --input data/exports/custom_embedding_pairs.jsonl
 """
 
-import json
 import argparse
+import json
 from pathlib import Path
 
 
@@ -25,8 +25,8 @@ def train_sentence_transformer(data_path: Path, output_dir: Path):
     """
     try:
         from sentence_transformers import (
-            SentenceTransformer,
             InputExample,
+            SentenceTransformer,
             losses,
         )
         from torch.utils.data import DataLoader
@@ -37,25 +37,18 @@ def train_sentence_transformer(data_path: Path, output_dir: Path):
     # Load base model (same as RAG uses)
     model = SentenceTransformer("all-MiniLM-L6-v2")
 
-    # Load training pairs
     train_examples = []
     with open(data_path) as f:
         for line in f:
             data = json.loads(line)
             # MultipleNegativesRankingLoss uses anchor-positive pairs
             # Negatives are sampled from other pairs in batch
-            train_examples.append(InputExample(
-                texts=[data["anchor"], data["positive"]]
-            ))
+            train_examples.append(InputExample(texts=[data["anchor"], data["positive"]]))
 
     print(f"Loaded {len(train_examples)} training pairs")
 
     # DataLoader
-    train_dataloader = DataLoader(
-        train_examples,
-        shuffle=True,
-        batch_size=16
-    )
+    train_dataloader = DataLoader(train_examples, shuffle=True, batch_size=16)
 
     # Loss function - uses in-batch negatives
     train_loss = losses.MultipleNegativesRankingLoss(model)
@@ -80,14 +73,12 @@ def evaluate_embeddings(model_path: Path, test_data_path: Path):
     try:
         from sentence_transformers import SentenceTransformer
         from sklearn.metrics.pairwise import cosine_similarity
-        import numpy as np
     except ImportError:
         print("Install: pip install sentence-transformers scikit-learn")
         return
 
     model = SentenceTransformer(str(model_path))
 
-    # Load test pairs
     pathogenic_texts = []
     benign_texts = []
 
@@ -116,15 +107,18 @@ def evaluate_embeddings(model_path: Path, test_data_path: Path):
     print(f"Pathogenic-Pathogenic similarity: {path_path_sim:.4f}")
     print(f"Benign-Benign similarity: {benign_benign_sim:.4f}")
     print(f"Pathogenic-Benign similarity: {path_benign_sim:.4f}")
-    print(f"\nSeparation (higher is better): {(path_path_sim + benign_benign_sim) / 2 - path_benign_sim:.4f}")
+    print(
+        f"\nSeparation (higher is better): {(path_path_sim + benign_benign_sim) / 2 - path_benign_sim:.4f}"
+    )
 
 
 def main():
     parser = argparse.ArgumentParser(description="Fine-tune embedding model")
     parser.add_argument("--panel", "-p", help="Panel name")
     parser.add_argument("--input", "-i", help="Pre-exported JSONL file")
-    parser.add_argument("--output", "-o", default="models/variant-embeddings",
-                       help="Output directory")
+    parser.add_argument(
+        "--output", "-o", default="models/variant-embeddings", help="Output directory"
+    )
     parser.add_argument("--evaluate", action="store_true", help="Evaluate existing model")
     args = parser.parse_args()
 
@@ -137,13 +131,14 @@ def main():
             print("Specify --input for evaluation data")
         return
 
-    # Get training data
     if args.input:
         data_path = Path(args.input)
     elif args.panel:
         import sys
+
         sys.path.insert(0, str(Path(__file__).parent.parent))
         from src.export import export_for_embeddings
+
         data_path = export_for_embeddings(args.panel)
     else:
         print("Specify --panel or --input")

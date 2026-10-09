@@ -95,13 +95,19 @@ def load_tsv(tsv_path: Path, gene_data: dict) -> list[tuple[str, str, dict]]:
 
 
 def main() -> int:
-    p = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
-    p.add_argument("--tsv-dir", type=Path, default=Path("data/exports/cp_new"),
-                   help="Per-gene TSV directory (output of cp_new.py)")
-    p.add_argument("--db", type=Path, default=SQLITE_DB_PATH,
-                   help="SQLite database path")
-    p.add_argument("--dry-run", action="store_true",
-                   help="Parse + report counts, do not write to DB")
+    p = argparse.ArgumentParser(
+        description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter
+    )
+    p.add_argument(
+        "--tsv-dir",
+        type=Path,
+        default=Path("data/exports/cp_new"),
+        help="Per-gene TSV directory (output of cp_new.py)",
+    )
+    p.add_argument("--db", type=Path, default=SQLITE_DB_PATH, help="SQLite database path")
+    p.add_argument(
+        "--dry-run", action="store_true", help="Parse + report counts, do not write to DB"
+    )
     args = p.parse_args()
 
     if not args.tsv_dir.is_dir():

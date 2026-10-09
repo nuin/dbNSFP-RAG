@@ -68,10 +68,10 @@ def main() -> int:
     # Filter the SeqNext files
     targets = [
         ("cp_new_seqnext_combined.tsv", SEQNEXT_DIR / "cp_new_seqnext.tsv"),
-        ("cp_new_seqnext_minimal.tsv",  DATA / "cp_new_seqnext_minimal.tsv"),
-        ("cp_new_seqnext_strict.tsv",   DATA / "cp_new_seqnext_strict.tsv"),
+        ("cp_new_seqnext_minimal.tsv", DATA / "cp_new_seqnext_minimal.tsv"),
+        ("cp_new_seqnext_strict.tsv", DATA / "cp_new_seqnext_strict.tsv"),
         ("_review_canonical_splice.tsv", SEQNEXT_DIR / "_review_canonical_splice.tsv"),
-        ("_review_intergenic.tsv",       SEQNEXT_DIR / "_review_intergenic.tsv"),
+        ("_review_intergenic.tsv", SEQNEXT_DIR / "_review_intergenic.tsv"),
     ]
 
     new_set = set(new_only)
@@ -95,7 +95,7 @@ def main() -> int:
             copied += 1
     print(f"  per_gene/*.tsv                          {copied:>6,} files copied")
 
-    print(f"\nFiltered outputs at:")
+    print("\nFiltered outputs at:")
     print(f"  {OUT_DIR}")
     print(f"  {BUNDLE_OUT}")
     return 0

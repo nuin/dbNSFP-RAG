@@ -11,7 +11,6 @@ import gzip
 import logging
 from functools import lru_cache
 from pathlib import Path
-from typing import Optional
 
 import pandas as pd
 
@@ -34,7 +33,7 @@ GENE_COLUMNS = [
 ]
 
 
-def _parse_float(val) -> Optional[float]:
+def _parse_float(val) -> float | None:
     """Parse float from potentially multi-value or missing field."""
     if pd.isna(val) or val == "." or val == "":
         return None
@@ -54,7 +53,7 @@ def _parse_float(val) -> Optional[float]:
 
 
 @lru_cache(maxsize=1)
-def load_gene_data(gene_file: Optional[Path] = None) -> dict:
+def load_gene_data(gene_file: Path | None = None) -> dict:
     """
     Load gene-level annotations from dbNSFP gene file.
 
@@ -104,28 +103,34 @@ def load_gene_data(gene_file: Optional[Path] = None) -> dict:
                 # Extract constraint scores
                 gene_dict[gene_name] = {
                     "gnomad_pli": _parse_float(fields[col_indices["gnomAD_pLI"]])
-                        if "gnomAD_pLI" in col_indices else None,
+                    if "gnomAD_pLI" in col_indices
+                    else None,
                     "gnomad_prec": _parse_float(fields[col_indices["gnomAD_pRec"]])
-                        if "gnomAD_pRec" in col_indices else None,
+                    if "gnomAD_pRec" in col_indices
+                    else None,
                     "loeuf": _parse_float(fields[col_indices["gnomAD_LOEUF"]])
-                        if "gnomAD_LOEUF" in col_indices else None,
+                    if "gnomAD_LOEUF" in col_indices
+                    else None,
                     "gnomad_lof_oe": _parse_float(fields[col_indices["gnomAD_lof.oe"]])
-                        if "gnomAD_lof.oe" in col_indices else None,
+                    if "gnomAD_lof.oe" in col_indices
+                    else None,
                     "gnomad_mis_oe": _parse_float(fields[col_indices["gnomAD_mis.oe"]])
-                        if "gnomAD_mis.oe" in col_indices else None,
+                    if "gnomAD_mis.oe" in col_indices
+                    else None,
                     "moeuf": _parse_float(fields[col_indices["gnomAD_MOEUF"]])
-                        if "gnomAD_MOEUF" in col_indices else None,
+                    if "gnomAD_MOEUF" in col_indices
+                    else None,
                 }
 
         logger.info(f"Loaded annotations for {len(gene_dict)} genes")
         return gene_dict
 
-    except Exception as e:
+    except (OSError, EOFError, UnicodeError, IndexError) as e:
         logger.error(f"Error loading gene file: {e}")
         return {}
 
 
-def get_gene_constraints(gene_name: str, gene_data: Optional[dict] = None) -> dict:
+def get_gene_constraints(gene_name: str, gene_data: dict | None = None) -> dict:
     """
     Get constraint scores for a specific gene.
 

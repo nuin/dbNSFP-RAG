@@ -7,8 +7,8 @@ Usage:
     python training/train_classifier.py --input data/exports/custom_classifier_features.jsonl
 """
 
-import json
 import argparse
+import json
 from pathlib import Path
 
 import numpy as np
@@ -43,7 +43,6 @@ def load_data(filepath: Path):
             else:
                 continue  # Skip uncertain/conflicting
 
-            # Extract features
             features = []
             for col in feature_cols:
                 val = row.get(col)
@@ -66,15 +65,15 @@ def train_xgboost(X, y, feature_names):
     """Train XGBoost classifier."""
     try:
         import xgboost as xgb
-        from sklearn.model_selection import train_test_split
         from sklearn.metrics import classification_report, roc_auc_score
+        from sklearn.model_selection import train_test_split
     except ImportError:
         print("Install required packages: pip install xgboost scikit-learn")
         return None
 
-    # Handle missing values
     from sklearn.impute import SimpleImputer
-    imputer = SimpleImputer(strategy='median')
+
+    imputer = SimpleImputer(strategy="median")
     X_imputed = imputer.fit_transform(X)
 
     # Split
@@ -89,7 +88,7 @@ def train_xgboost(X, y, feature_names):
         learning_rate=0.1,
         random_state=42,
         use_label_encoder=False,
-        eval_metric='logloss'
+        eval_metric="logloss",
     )
 
     model.fit(X_train, y_train)
@@ -105,8 +104,9 @@ def train_xgboost(X, y, feature_names):
 
     # Feature importance
     print("\n=== Feature Importance ===")
-    importance = sorted(zip(feature_names, model.feature_importances_),
-                       key=lambda x: x[1], reverse=True)
+    importance = sorted(
+        zip(feature_names, model.feature_importances_), key=lambda x: x[1], reverse=True
+    )
     for feat, imp in importance:
         print(f"  {feat}: {imp:.4f}")
 
@@ -117,21 +117,23 @@ def main():
     parser = argparse.ArgumentParser(description="Train pathogenicity classifier")
     parser.add_argument("--panel", "-p", help="Panel name to export and train on")
     parser.add_argument("--input", "-i", help="Pre-exported JSONL file")
-    parser.add_argument("--output", "-o", default="models/classifier.json", help="Output model path")
+    parser.add_argument(
+        "--output", "-o", default="models/classifier.json", help="Output model path"
+    )
     args = parser.parse_args()
 
-    # Get training data
     if args.input:
         data_path = Path(args.input)
     elif args.panel:
         from src.export import export_for_classifier
+
         data_path = export_for_classifier(args.panel)
     else:
         print("Specify --panel or --input")
         return
 
     print(f"Loading data from {data_path}...")
-    X, y, ids, feature_names = load_data(data_path)
+    X, y, _, feature_names = load_data(data_path)
 
     print(f"Loaded {len(y)} labeled variants")
     print(f"  Pathogenic: {sum(y)}")
@@ -144,11 +146,10 @@ def main():
     result = train_xgboost(X, y, feature_names)
 
     if result:
-        model, imputer = result
-        # Save model
+        model, _ = result
         output_dir = Path(args.output).parent
         output_dir.mkdir(parents=True, exist_ok=True)
-        model.save_model(args.output.replace('.json', '.xgb'))
+        model.save_model(args.output.replace(".json", ".xgb"))
         print(f"\nModel saved to {args.output.replace('.json', '.xgb')}")
 
 

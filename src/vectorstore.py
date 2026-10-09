@@ -1,13 +1,16 @@
 """Vector store using FAISS for fast similarity search."""
 
-import pickle
+import logging
 from pathlib import Path
 
 import faiss
 import numpy as np
 from sentence_transformers import SentenceTransformer
 
-from .config import EMBEDDING_BATCH_SIZE, EMBEDDING_MODEL, EMBEDDING_DIMENSION, VECTORDB_DIR
+from .config import EMBEDDING_BATCH_SIZE, EMBEDDING_DIMENSION, EMBEDDING_MODEL, VECTORDB_DIR
+from .vector_metadata import load_metadata, save_metadata
+
+logger = logging.getLogger(__name__)
 
 
 class VariantVectorStore:
@@ -22,40 +25,40 @@ class VariantVectorStore:
         self.db_path.mkdir(parents=True, exist_ok=True)
 
         self.index_path = self.db_path / "faiss.index"
-        self.meta_path = self.db_path / "metadata.pkl"
+        self.meta_path = self.db_path / "metadata.json"
 
         # Initialize embedding model with device selection
         model_name = embedding_model or EMBEDDING_MODEL
-        print(f"Loading embedding model: {model_name}")
+        logger.info("Loading embedding model: %s", model_name)
 
         import os
+
         import torch
 
         # Check for forced device via environment variable
         forced_device = os.environ.get("DBNSFP_DEVICE", "").lower()
         if forced_device in ("cpu", "cuda", "mps"):
             device = forced_device
-            print(f"Using {device.upper()} (set via DBNSFP_DEVICE)")
+            logger.info("Using %s (set via DBNSFP_DEVICE)", device.upper())
         elif torch.backends.mps.is_available():
             device = "mps"
-            print("Using MPS (Apple Silicon GPU)")
+            logger.info("Using MPS (Apple Silicon GPU)")
         elif torch.cuda.is_available():
             device = "cuda"
-            print("Using CUDA GPU")
+            logger.info("Using CUDA GPU")
         else:
             device = "cpu"
-            print("Using CPU")
+            logger.info("Using CPU")
 
         self.embedder = SentenceTransformer(model_name, device=device)
 
         # Load or create index
         if self.index_path.exists():
-            print(f"Loading existing index from {self.index_path}")
+            logger.info("Loading existing index from %s", self.index_path)
             self.index = faiss.read_index(str(self.index_path))
-            with open(self.meta_path, "rb") as f:
-                self.metadata = pickle.load(f)
+            self.metadata = load_metadata(self.db_path, self.index.ntotal)
         else:
-            print("Creating new FAISS index")
+            logger.info("Creating new FAISS index")
             # Use IndexFlatIP for cosine similarity (normalize vectors first)
             self.index = faiss.IndexFlatIP(EMBEDDING_DIMENSION)
             self.metadata = {
@@ -71,8 +74,7 @@ class VariantVectorStore:
     def save(self):
         """Save index and metadata to disk."""
         faiss.write_index(self.index, str(self.index_path))
-        with open(self.meta_path, "wb") as f:
-            pickle.dump(self.metadata, f)
+        save_metadata(self.meta_path, self.metadata)
 
     def add_variants(
         self,
@@ -89,7 +91,7 @@ class VariantVectorStore:
 
         # Generate embeddings
         if show_progress:
-            print(f"  Embedding {total} variants...")
+            logger.info("Embedding %s variants...", total)
 
         embeddings = self.embedder.encode(
             texts,
@@ -146,11 +148,15 @@ class VariantVectorStore:
         Semantic search for variants using vector similarity.
         """
         # Embed query
-        query_embedding = self.embedder.encode(
-            query,
-            convert_to_numpy=True,
-            normalize_embeddings=True,
-        ).reshape(1, -1).astype(np.float32)
+        query_embedding = (
+            self.embedder.encode(
+                query,
+                convert_to_numpy=True,
+                normalize_embeddings=True,
+            )
+            .reshape(1, -1)
+            .astype(np.float32)
+        )
 
         # Search more than k to allow for filtering
         search_k = k * 10 if any([gene_filter, clinvar_filter, min_cadd]) else k
@@ -179,12 +185,14 @@ class VariantVectorStore:
                 if cadd is None or cadd < min_cadd:
                     continue
 
-            results.append({
-                "id": self.metadata["ids"][idx],
-                "document": self.metadata["documents"][idx],
-                "metadata": meta,
-                "distance": float(1 - dist),  # Convert similarity to distance
-            })
+            results.append(
+                {
+                    "id": self.metadata["ids"][idx],
+                    "document": self.metadata["documents"][idx],
+                    "metadata": meta,
+                    "distance": float(1 - dist),  # Convert similarity to distance
+                }
+            )
 
             if len(results) >= k:
                 break
@@ -198,11 +206,13 @@ class VariantVectorStore:
 
         for i, meta in enumerate(self.metadata["metas"]):
             if meta.get("gene", "").upper() == gene_upper:
-                results.append({
-                    "id": self.metadata["ids"][i],
-                    "document": self.metadata["documents"][i],
-                    "metadata": meta,
-                })
+                results.append(
+                    {
+                        "id": self.metadata["ids"][i],
+                        "document": self.metadata["documents"][i],
+                        "metadata": meta,
+                    }
+                )
                 if len(results) >= k:
                     break
 
@@ -223,11 +233,13 @@ class VariantVectorStore:
             if meta.get("chr") == chrom:
                 pos = meta.get("pos", 0)
                 if start <= pos <= end:
-                    results.append({
-                        "id": self.metadata["ids"][i],
-                        "document": self.metadata["documents"][i],
-                        "metadata": meta,
-                    })
+                    results.append(
+                        {
+                            "id": self.metadata["ids"][i],
+                            "document": self.metadata["documents"][i],
+                            "metadata": meta,
+                        }
+                    )
                     if len(results) >= k:
                         break
 
@@ -238,8 +250,7 @@ class VariantVectorStore:
         self.index = faiss.IndexFlatIP(EMBEDDING_DIMENSION)
         self.metadata = {"ids": [], "documents": [], "metas": []}
         self.save()
-        print("Deleted all variants")
+        logger.info("Deleted all variants")
 
     def optimize(self):
         """No-op for FAISS (already optimized)."""
-        pass

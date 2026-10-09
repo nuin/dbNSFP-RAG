@@ -5,12 +5,14 @@ O(1) or O(log n) instead of O(n) linear scans. No ML dependencies required.
 """
 
 import json
+import logging
 import sqlite3
 from pathlib import Path
-from typing import Optional
+from typing import ClassVar
 
 from .config import DATA_DIR
 
+logger = logging.getLogger(__name__)
 
 # Default database path
 DEFAULT_SQLITE_PATH = DATA_DIR / "sqlite" / "grch37-all-panels.db"
@@ -86,7 +88,7 @@ class VariantDatabase:
 
     # Columns that may be missing on older DBs -- added via ALTER TABLE in
     # _init_schema for idempotent forward migration.
-    MIGRATIONS = [
+    MIGRATIONS: ClassVar[list[tuple[str, str]]] = [
         ("gnomad_v41_faf95_grpmax", "REAL"),
         ("spliceai_ds_max_masked", "REAL"),
         ("hg38_chr", "TEXT"),
@@ -94,21 +96,42 @@ class VariantDatabase:
     ]
 
     # Column names that map directly from metadata dict to DB columns
-    METADATA_COLUMNS = [
-        "chr", "pos", "ref", "alt", "gene", "transcript",
-        "aa_ref", "aa_alt", "aa_pos",
-        "cadd_phred", "revel_score",
-        "clinvar_id", "clinvar_sig", "clinvar_review", "clinvar_trait",
-        "gnomad_af", "gnomad_hom",
-        "sift_pred", "polyphen_pred", "alphamissense_pred",
-        "mutationtaster_pred", "bayesdel_pred", "provean_pred",
-        "consequence", "gnomad_pli", "gnomad_mis_oe", "loeuf",
+    METADATA_COLUMNS: ClassVar[list[str]] = [
+        "chr",
+        "pos",
+        "ref",
+        "alt",
+        "gene",
+        "transcript",
+        "aa_ref",
+        "aa_alt",
+        "aa_pos",
+        "cadd_phred",
+        "revel_score",
+        "clinvar_id",
+        "clinvar_sig",
+        "clinvar_review",
+        "clinvar_trait",
+        "gnomad_af",
+        "gnomad_hom",
+        "sift_pred",
+        "polyphen_pred",
+        "alphamissense_pred",
+        "mutationtaster_pred",
+        "bayesdel_pred",
+        "provean_pred",
+        "consequence",
+        "gnomad_pli",
+        "gnomad_mis_oe",
+        "loeuf",
         "interpro_domain",
-        "gnomad_v41_faf95_grpmax", "spliceai_ds_max_masked",
-        "hg38_chr", "hg38_pos",
+        "gnomad_v41_faf95_grpmax",
+        "spliceai_ds_max_masked",
+        "hg38_chr",
+        "hg38_pos",
     ]
 
-    def __init__(self, db_path: Optional[Path] = None):
+    def __init__(self, db_path: Path | None = None):
         self.db_path = Path(db_path or DEFAULT_SQLITE_PATH)
         self.db_path.parent.mkdir(parents=True, exist_ok=True)
 
@@ -143,15 +166,9 @@ class VariantDatabase:
     def __del__(self):
         self.close()
 
-    # ------------------------------------------------------------------
-    # Metadata helpers
-    # ------------------------------------------------------------------
-
-    def get_meta(self, key: str) -> Optional[str]:
+    def get_meta(self, key: str) -> str | None:
         """Get a value from db_metadata."""
-        row = self._conn.execute(
-            "SELECT value FROM db_metadata WHERE key = ?", (key,)
-        ).fetchone()
+        row = self._conn.execute("SELECT value FROM db_metadata WHERE key = ?", (key,)).fetchone()
         return row["value"] if row else None
 
     def set_meta(self, key: str, value: str):
@@ -161,10 +178,6 @@ class VariantDatabase:
             (key, value),
         )
         self._conn.commit()
-
-    # ------------------------------------------------------------------
-    # Write operations
-    # ------------------------------------------------------------------
 
     def add_variants(
         self,
@@ -216,7 +229,7 @@ class VariantDatabase:
         self._conn.execute("DELETE FROM variants")
         self._conn.execute("DELETE FROM db_metadata")
         self._conn.commit()
-        print("Deleted all variants")
+        logger.info("Deleted all variants")
 
     def optimize(self):
         """Run VACUUM and ANALYZE for optimal query performance."""
@@ -224,10 +237,6 @@ class VariantDatabase:
         self._conn.commit()
         # VACUUM cannot run inside a transaction
         self._conn.execute("VACUUM")
-
-    # ------------------------------------------------------------------
-    # Read operations (same return format as VariantVectorStore)
-    # ------------------------------------------------------------------
 
     def _row_to_result(self, row: sqlite3.Row) -> dict:
         """Convert a DB row to the standard result dict."""
@@ -245,7 +254,7 @@ class VariantDatabase:
             "metadata": meta,
         }
 
-    def get_by_id(self, variant_id: str) -> Optional[dict]:
+    def get_by_id(self, variant_id: str) -> dict | None:
         """Get a variant by its exact ID.  O(1) via primary key."""
         row = self._conn.execute(
             "SELECT * FROM variants WHERE variant_id = ?", (variant_id,)
@@ -254,9 +263,7 @@ class VariantDatabase:
             return None
         return self._row_to_result(row)
 
-    def get_by_coordinates(
-        self, chrom: str, pos: int, ref: str, alt: str
-    ) -> Optional[dict]:
+    def get_by_coordinates(self, chrom: str, pos: int, ref: str, alt: str) -> dict | None:
         """Get a variant by genomic coordinates.  Indexed lookup."""
         chrom = str(chrom).replace("chr", "")
         variant_id = f"{chrom}_{pos}_{ref}_{alt}"
@@ -270,9 +277,7 @@ class VariantDatabase:
         ).fetchall()
         return [self._row_to_result(r) for r in rows]
 
-    def search_by_region(
-        self, chrom: str, start: int, end: int, k: int = 1000
-    ) -> list[dict]:
+    def search_by_region(self, chrom: str, start: int, end: int, k: int = 1000) -> list[dict]:
         """Get variants in a genomic region.  Indexed range query."""
         chrom = str(chrom).replace("chr", "")
         rows = self._conn.execute(
@@ -304,6 +309,14 @@ class VariantDatabase:
         row = self._conn.execute("SELECT COUNT(*) AS cnt FROM variants").fetchone()
         return row["cnt"]
 
+    def get_variant_ids(self, chromosome: str) -> set[str]:
+        """Return stored IDs for one chromosome when resuming a partial build."""
+        rows = self._conn.execute(
+            "SELECT variant_id FROM variants WHERE chr = ? OR hg38_chr = ?",
+            (chromosome, chromosome),
+        )
+        return {row["variant_id"] for row in rows}
+
     def count_by_panel(self, panel_name: str) -> int:
         """Return number of variants in a specific panel."""
         row = self._conn.execute(
@@ -312,12 +325,8 @@ class VariantDatabase:
         ).fetchone()
         return row["cnt"]
 
-    # ------------------------------------------------------------------
-    # Browse / navigation helpers
-    # ------------------------------------------------------------------
-
     # Natural chromosome sort order
-    _CHR_ORDER = {str(i): i for i in range(1, 23)}
+    _CHR_ORDER: ClassVar[dict[str, int]] = {str(i): i for i in range(1, 23)}
     _CHR_ORDER.update({"X": 23, "Y": 24, "M": 25, "MT": 25})
 
     @staticmethod
@@ -325,8 +334,7 @@ class VariantDatabase:
         """Normalize chromosome strings like '2.0' → '2'."""
         raw = str(raw).replace("chr", "")
         # Strip trailing '.0' from float-casted values
-        if raw.endswith(".0"):
-            raw = raw[:-2]
+        raw = raw.removesuffix(".0")
         return raw
 
     def list_chromosomes(self) -> list[dict]:
@@ -359,10 +367,6 @@ class VariantDatabase:
             (chrom, float_form),
         ).fetchall()
         return [{"gene": r["gene"], "count": r["count"]} for r in rows]
-
-    # ------------------------------------------------------------------
-    # Checkpoint helpers (for build resume)
-    # ------------------------------------------------------------------
 
     def get_completed_chromosomes(self) -> list[str]:
         """Get list of completed chromosomes from db_metadata."""

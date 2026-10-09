@@ -27,18 +27,22 @@ FOR RESEARCH USE ONLY - Not for clinical diagnostic use.
 """
 
 import logging
+import os
 from functools import lru_cache
-from typing import Optional
 
 import requests
 
 logger = logging.getLogger(__name__)
 
 # UCSC API endpoint
-UCSC_API_BASE = "https://api.genome.ucsc.edu/getData/track"
+UCSC_API_BASE = os.environ.get("UCSC_API_BASE", "https://api.genome.ucsc.edu/getData/track")
 
 # Timeout for API requests (seconds)
 REQUEST_TIMEOUT = 10
+
+
+class RepeatResponseError(ValueError):
+    """The upstream service returned data that does not match its response schema."""
 
 
 @lru_cache(maxsize=10000)
@@ -46,7 +50,7 @@ def is_in_repeat_region(
     chrom: str,
     pos: int,
     build: str = "grch37",
-) -> tuple[bool, Optional[str], Optional[str]]:
+) -> tuple[bool, str | None, str | None]:
     """
     Check if a genomic position is in a repetitive region using UCSC RepeatMasker.
 
@@ -85,22 +89,6 @@ def is_in_repeat_region(
         response.raise_for_status()
         data = response.json()
 
-        # Check if any repeat annotations were returned
-        repeats = data.get("rmsk", [])
-        if repeats:
-            # Get the first overlapping repeat
-            repeat = repeats[0]
-            repeat_class = repeat.get("repClass", "Unknown")
-            repeat_family = repeat.get("repFamily", "Unknown")
-            repeat_name = repeat.get("repName", "Unknown")
-
-            logger.debug(
-                f"Position {ucsc_chrom}:{pos} in repeat: {repeat_class}/{repeat_family} ({repeat_name})"
-            )
-            return True, repeat_class, repeat_family
-
-        return False, None, None
-
     except requests.exceptions.Timeout:
         logger.warning(f"UCSC API timeout for {ucsc_chrom}:{pos}")
         return False, None, None
@@ -110,6 +98,35 @@ def is_in_repeat_region(
     except (KeyError, ValueError) as e:
         logger.warning(f"UCSC API parse error for {ucsc_chrom}:{pos}: {e}")
         return False, None, None
+
+    return _parse_repeat_response(data, ucsc_chrom, pos)
+
+
+def _parse_repeat_response(data, chrom: str, pos: int) -> tuple[bool, str | None, str | None]:
+    if not isinstance(data, dict):
+        raise RepeatResponseError("UCSC response must be an object")
+    repeats = data.get("rmsk", [])
+    if not isinstance(repeats, list):
+        raise RepeatResponseError("UCSC rmsk must be an array")
+    if not repeats:
+        return False, None, None
+    repeat = repeats[0]
+    if not isinstance(repeat, dict):
+        raise RepeatResponseError("UCSC repeat annotation must be an object")
+    repeat_class = repeat.get("repClass", "Unknown")
+    repeat_family = repeat.get("repFamily", "Unknown")
+    repeat_name = repeat.get("repName", "Unknown")
+    if not all(isinstance(value, str) for value in (repeat_class, repeat_family, repeat_name)):
+        raise RepeatResponseError("UCSC repeat class, family and name must be strings")
+    logger.debug(
+        "Position %s:%s in repeat: %s/%s (%s)",
+        chrom,
+        pos,
+        repeat_class,
+        repeat_family,
+        repeat_name,
+    )
+    return True, repeat_class, repeat_family
 
 
 def evaluate_bp3(
@@ -150,7 +167,7 @@ def get_repeat_info(
     chrom: str,
     pos: int,
     build: str = "grch37",
-) -> Optional[dict]:
+) -> dict | None:
     """
     Get detailed repeat information for a position.
 

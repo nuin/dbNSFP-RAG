@@ -11,13 +11,15 @@ Usage:
     python training/acmg_training.py --db data/vectordb/grch37-ngsgenes
 """
 
-import json
 import argparse
+import json
 from pathlib import Path
 from typing import Literal
 
 # ACMG 5-tier classification
-ACMGClass = Literal["Pathogenic", "Likely_pathogenic", "Uncertain_significance", "Likely_benign", "Benign"]
+ACMGClass = Literal[
+    "Pathogenic", "Likely_pathogenic", "Uncertain_significance", "Likely_benign", "Benign"
+]
 
 
 def map_clinvar_to_acmg(clinvar_sig: str) -> ACMGClass | None:
@@ -78,9 +80,13 @@ def generate_acmg_criteria(meta: dict, acmg_class: ACMGClass) -> list[str]:
         try:
             cadd_score = float(cadd)
             if cadd_score >= 25:
-                criteria.append(f"PP3: Computational evidence supports deleterious effect (CADD={cadd_score:.1f})")
+                criteria.append(
+                    f"PP3: Computational evidence supports deleterious effect (CADD={cadd_score:.1f})"
+                )
             elif cadd_score < 15:
-                criteria.append(f"BP4: Computational evidence suggests no impact (CADD={cadd_score:.1f})")
+                criteria.append(
+                    f"BP4: Computational evidence suggests no impact (CADD={cadd_score:.1f})"
+                )
         except (ValueError, TypeError):
             pass
 
@@ -163,26 +169,29 @@ def format_acmg_output(acmg_class: ACMGClass, criteria: list[str], gene: str) ->
 
     # Add classification reasoning
     lines.append("")
-    if acmg_class == "Pathogenic":
-        lines.append(f"Conclusion: This variant in {gene} meets criteria for pathogenic classification based on strong evidence of deleteriousness.")
-    elif acmg_class == "Likely_pathogenic":
-        lines.append(f"Conclusion: This variant in {gene} meets criteria for likely pathogenic classification based on moderate evidence of deleteriousness.")
-    elif acmg_class == "Likely_benign":
-        lines.append(f"Conclusion: This variant in {gene} meets criteria for likely benign classification based on evidence suggesting no functional impact.")
-    elif acmg_class == "Benign":
-        lines.append(f"Conclusion: This variant in {gene} meets criteria for benign classification based on strong evidence of no pathogenicity.")
-    else:
-        lines.append(f"Conclusion: This variant in {gene} has insufficient or conflicting evidence for definitive classification.")
+    conclusions = {
+        "Pathogenic": "meets criteria for pathogenic classification based on strong evidence of deleteriousness.",
+        "Likely_pathogenic": "meets criteria for likely pathogenic classification based on moderate evidence of deleteriousness.",
+        "Likely_benign": "meets criteria for likely benign classification based on evidence suggesting no functional impact.",
+        "Benign": "meets criteria for benign classification based on strong evidence of no pathogenicity.",
+    }
+    conclusion = conclusions.get(
+        acmg_class, "has insufficient or conflicting evidence for definitive classification."
+    )
+    lines.append(f"Conclusion: This variant in {gene} {conclusion}")
 
     return "\n".join(lines)
 
 
-def generate_training_data(db_path: Path, output_path: Path, max_per_class: int = 5000, balanced: bool = False):
+def generate_training_data(
+    db_path: Path, output_path: Path, max_per_class: int = 5000, balanced: bool = False
+):
     """Generate ACMG training data from vector database."""
     import sys
+
     sys.path.insert(0, str(Path(__file__).parent.parent))
-    from src.vectorstore import VariantVectorStore
     from src.panels import get_panel
+    from src.vectorstore import VariantVectorStore
 
     store = VariantVectorStore(db_path=db_path)
     genes = get_panel("NGSgenes")
@@ -234,27 +243,30 @@ def generate_training_data(db_path: Path, output_path: Path, max_per_class: int 
 
     # Balance classes if requested
     import random
+
     if balanced:
         # Target: balance to median class size, oversample small classes
         non_empty_counts = [len(ex) for ex in by_class.values() if len(ex) > 0]
         target_count = sorted(non_empty_counts)[len(non_empty_counts) // 2]  # median
         target_count = min(target_count, 1000)  # cap at 1000
 
-        print(f"\nBalancing to ~{target_count} examples per class (oversample small, undersample large)...")
+        print(
+            f"\nBalancing to ~{target_count} examples per class (oversample small, undersample large)..."
+        )
 
-        for cls in by_class:
-            current = len(by_class[cls])
+        for cls, examples in by_class.items():
+            current = len(examples)
             if current == 0:
                 continue
             elif current > target_count:
                 # Undersample
-                random.shuffle(by_class[cls])
-                by_class[cls] = by_class[cls][:target_count]
+                random.shuffle(examples)
+                by_class[cls] = examples[:target_count]
             elif current < target_count:
                 # Oversample by duplicating
-                original = by_class[cls].copy()
-                while len(by_class[cls]) < target_count:
-                    by_class[cls].append(random.choice(original).copy())
+                original = examples.copy()
+                while len(examples) < target_count:
+                    examples.append(random.choice(original).copy())
 
         # Report distribution after balancing
         print("\nACMG class distribution (after balancing):")
@@ -276,8 +288,7 @@ def generate_training_data(db_path: Path, output_path: Path, max_per_class: int 
     # JSONL format (for training)
     jsonl_path = output_path.with_suffix(".jsonl")
     with open(jsonl_path, "w") as f:
-        for ex in all_examples:
-            f.write(json.dumps(ex) + "\n")
+        f.writelines(json.dumps(ex) + "\n" for ex in all_examples)
     print(f"\nSaved JSONL: {jsonl_path}")
 
     # Alpaca JSON format (for mlx-lm)
@@ -295,14 +306,28 @@ def generate_training_data(db_path: Path, output_path: Path, max_per_class: int 
 
 def main():
     parser = argparse.ArgumentParser(description="Generate ACMG training data")
-    parser.add_argument("--db", type=Path, default=Path("data/vectordb/grch37-ngsgenes"),
-                       help="Path to vector database")
-    parser.add_argument("--output", "-o", type=Path, default=Path("data/training/acmg_training"),
-                       help="Output path (without extension)")
-    parser.add_argument("--max-per-class", type=int, default=5000,
-                       help="Maximum examples per ACMG class")
-    parser.add_argument("--balanced", "-b", action="store_true",
-                       help="Balance classes by undersampling to minimum class size")
+    parser.add_argument(
+        "--db",
+        type=Path,
+        default=Path("data/vectordb/grch37-ngsgenes"),
+        help="Path to vector database",
+    )
+    parser.add_argument(
+        "--output",
+        "-o",
+        type=Path,
+        default=Path("data/training/acmg_training"),
+        help="Output path (without extension)",
+    )
+    parser.add_argument(
+        "--max-per-class", type=int, default=5000, help="Maximum examples per ACMG class"
+    )
+    parser.add_argument(
+        "--balanced",
+        "-b",
+        action="store_true",
+        help="Balance classes by undersampling to minimum class size",
+    )
     args = parser.parse_args()
 
     generate_training_data(args.db, args.output, args.max_per_class, args.balanced)

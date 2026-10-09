@@ -45,9 +45,11 @@ SYN_HGVSP = re.compile(r"p\.[A-Za-z]{1,3}\d+=")
 
 def intronic_offset(hgvsc: str) -> int | None:
     """Return signed intronic offset, or None for coding c. (no offset)."""
-    if not hgvsc: return None
+    if not hgvsc:
+        return None
     m = OFFSET_RE.search(hgvsc)
-    if not m: return None
+    if not m:
+        return None
     return -int(m.group(2)) if m.group(1) == "-" else int(m.group(2))
 
 
@@ -69,7 +71,9 @@ def main() -> int:
     if not cv.empty:
         cv["key"] = cv["gene"] + "|" + cv["transcript"] + "|" + cv["hgvs_c"]
         cv_name = dict(zip(cv["key"], cv["clinvar_name"]))
-    df["_cv_name"] = (df["gene"] + "|" + df["transcript"] + "|" + df["hgvs_c"]).map(cv_name).fillna("")
+    df["_cv_name"] = (
+        (df["gene"] + "|" + df["transcript"] + "|" + df["hgvs_c"]).map(cv_name).fillna("")
+    )
 
     # 1. Restrict to 68 new genes
     df = df[df["gene"].isin(new_genes)].copy()
@@ -84,14 +88,18 @@ def main() -> int:
     # 3. Drop canonical splice (-1/-2/+1/+2 + nucleotide)
     n_before = len(df)
     df = df[~df["hgvs_c"].str.contains(CANONICAL_SPLICE, na=False)]
-    print(f"  dropped canonical splice (-1/-2/+1/+2): {n_before - len(df):,}  remaining: {len(df):,}")
+    print(
+        f"  dropped canonical splice (-1/-2/+1/+2): {n_before - len(df):,}  remaining: {len(df):,}"
+    )
 
     # 4. Apply intronic ROI: keep coding OR offset in [-15, +6]
     n_before = len(df)
     df["_offset"] = df["hgvs_c"].apply(intronic_offset)
     in_roi = df["_offset"].isna() | df["_offset"].between(ROI_NEG, ROI_POS)
     df = df[in_roi].copy()
-    print(f"  dropped deep intronic (offset outside [-15,+6]): {n_before - len(df):,}  remaining: {len(df):,}")
+    print(
+        f"  dropped deep intronic (offset outside [-15,+6]): {n_before - len(df):,}  remaining: {len(df):,}"
+    )
 
     # 5. Drop pure synonymous coding (no clinical value)
     # Keep ONLY if the variant has an intronic offset (in ROI), regardless of
@@ -100,23 +108,27 @@ def main() -> int:
     is_intronic_roi = df["_offset"].notna()  # already filtered to ROI in step 4
     # Synonymous-coding detection across the 3 sources:
     is_catalog = df["source"] == "synonymous_catalog"
-    pipeline_syn = (df["source"] == "pipeline") & \
-                    df["classification"].str.contains("synonymous", case=False, na=False) & \
-                    ~df["classification"].str.contains("intronic_ROI", case=False, na=False)
+    pipeline_syn = (
+        (df["source"] == "pipeline")
+        & df["classification"].str.contains("synonymous", case=False, na=False)
+        & ~df["classification"].str.contains("intronic_ROI", case=False, na=False)
+    )
     clinvar_syn = (df["source"] == "clinvar") & df["_cv_name"].str.contains(SYN_HGVSP, na=False)
     pure_syn = (is_catalog | pipeline_syn | clinvar_syn) & ~is_intronic_roi
     df = df[~pure_syn].drop(columns=["_offset", "_cv_name"])
-    print(f"  dropped pure synonymous coding (no clinical value): {n_before - len(df):,}  remaining: {len(df):,}")
+    print(
+        f"  dropped pure synonymous coding (no clinical value): {n_before - len(df):,}  remaining: {len(df):,}"
+    )
 
     df.to_csv(OUT, sep="\t", index=False)
     print(f"\nWrote {len(df):,} upload rows -> {OUT}")
-    print(f"\nby source:")
+    print("\nby source:")
     for s, n in df["source"].value_counts().items():
         print(f"  {s}: {n:,}")
-    print(f"\nby gene (top 15):")
+    print("\nby gene (top 15):")
     for g, n in df["gene"].value_counts().head(15).items():
         print(f"  {g}: {n}")
-    print(f"\nintronic-vs-coding:")
+    print("\nintronic-vs-coding:")
     df["_offset"] = df["hgvs_c"].apply(intronic_offset)
     print(f"  coding (no offset):       {df['_offset'].isna().sum():,}")
     print(f"  splice ROI [-15,+6]:      {df['_offset'].notna().sum():,}")

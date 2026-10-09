@@ -5,6 +5,7 @@ import re
 from pathlib import Path
 
 import braintrust
+import httpx
 import ollama
 import requests
 from braintrust import current_span, traced
@@ -48,9 +49,11 @@ class VariantRAG:
         resolved_path = Path(db_path) if db_path else SQLITE_DB_PATH
         if resolved_path.suffix == ".db" and resolved_path.exists():
             from .variantdb import VariantDatabase
+
             self.vectorstore = VariantDatabase(db_path=resolved_path)
         else:
             from .vectorstore import VariantVectorStore
+
             self.vectorstore = VariantVectorStore(db_path=db_path)
 
         self.ollama_url = ollama_url or OLLAMA_URL
@@ -96,7 +99,7 @@ class VariantRAG:
                 metadata={"model": self.model, "provider": "ollama"},
             )
             return content
-        except Exception as e:
+        except (ollama.ResponseError, httpx.HTTPError, ConnectionError) as e:
             current_span().log(
                 input=messages,
                 error=str(e),
@@ -267,7 +270,7 @@ Provide a clear, evidence-based response. Cite specific scores and predictions f
         prompt = f"""Please provide a clinical interpretation of this variant.
 
 VARIANT DATA:
-{result['document']}
+{result["document"]}
 
 Provide:
 1. Summary of pathogenicity predictions (concordance between predictors)
@@ -319,10 +322,7 @@ Provide a comparative analysis covering:
 4. Which variant(s) appear more likely to be pathogenic and why"""
 
         if not self._check_ollama():
-            return (
-                "Ollama is not running. Start it with: ollama serve\n\n"
-                f"Variant data:\n{context}"
-            )
+            return f"Ollama is not running. Start it with: ollama serve\n\nVariant data:\n{context}"
 
         return self._query_ollama(prompt)
 
@@ -339,9 +339,7 @@ def main():
     parser.add_argument("--gene", "-g", help="Filter by gene")
     parser.add_argument("--k", type=int, default=5, help="Number of results")
     parser.add_argument("--model", default=DEFAULT_MODEL, help="Ollama model")
-    parser.add_argument(
-        "--compare", "-c", nargs="+", help="Compare multiple variants"
-    )
+    parser.add_argument("--compare", "-c", nargs="+", help="Compare multiple variants")
 
     args = parser.parse_args()
 

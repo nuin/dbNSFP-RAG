@@ -11,8 +11,8 @@ Usage:
     python training/train_llm.py --input data/exports/custom_llm_training.jsonl
 """
 
-import json
 import argparse
+import json
 from pathlib import Path
 
 
@@ -22,11 +22,13 @@ def prepare_dataset(filepath: Path, output_path: Path):
     with open(filepath) as f:
         for line in f:
             data = json.loads(line)
-            samples.append({
-                "instruction": data["instruction"],
-                "input": data.get("input", ""),
-                "output": data["output"],
-            })
+            samples.append(
+                {
+                    "instruction": data["instruction"],
+                    "input": data.get("input", ""),
+                    "output": data["output"],
+                }
+            )
 
     with open(output_path, "w") as f:
         json.dump(samples, f, indent=2)
@@ -94,7 +96,6 @@ from transformers import (
     Trainer,
 )
 
-# Load model
 model = AutoModelForCausalLM.from_pretrained(
     "meta-llama/Llama-3.2-3B-Instruct",
     torch_dtype="auto",
@@ -102,7 +103,6 @@ model = AutoModelForCausalLM.from_pretrained(
 )
 tokenizer = AutoTokenizer.from_pretrained("meta-llama/Llama-3.2-3B-Instruct")
 
-# Load data
 dataset = load_dataset("json", data_files="{data_path}")
 
 # Training
@@ -129,16 +129,19 @@ def main():
     parser.add_argument("--panel", "-p", help="Panel name")
     parser.add_argument("--input", "-i", help="Pre-exported JSONL file")
     parser.add_argument("--method", "-m", choices=["lora", "full"], default="lora")
-    parser.add_argument("--prepare-only", action="store_true", help="Only prepare data, don't train")
+    parser.add_argument(
+        "--prepare-only", action="store_true", help="Only prepare data, don't train"
+    )
     args = parser.parse_args()
 
-    # Get training data
     if args.input:
         data_path = Path(args.input)
     elif args.panel:
         import sys
+
         sys.path.insert(0, str(Path(__file__).parent.parent))
         from src.export import export_for_llm_finetuning
+
         data_path = export_for_llm_finetuning(args.panel)
     else:
         print("Specify --panel or --input")

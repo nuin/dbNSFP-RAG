@@ -26,10 +26,14 @@ from pathlib import Path
 
 import pandas as pd
 
-EXOMES = ("https://storage.googleapis.com/gcp-public-data--gnomad/"
-          "release/4.1/vcf/exomes/gnomad.exomes.v4.1.sites.chr{chrom}.vcf.bgz")
-GENOMES = ("https://storage.googleapis.com/gcp-public-data--gnomad/"
-           "release/4.1/vcf/genomes/gnomad.genomes.v4.1.sites.chr{chrom}.vcf.bgz")
+EXOMES = (
+    "https://storage.googleapis.com/gcp-public-data--gnomad/"
+    "release/4.1/vcf/exomes/gnomad.exomes.v4.1.sites.chr{chrom}.vcf.bgz"
+)
+GENOMES = (
+    "https://storage.googleapis.com/gcp-public-data--gnomad/"
+    "release/4.1/vcf/genomes/gnomad.genomes.v4.1.sites.chr{chrom}.vcf.bgz"
+)
 RANGES = Path("cp_new_bundle/outputs/_shared/gene_hg38_ranges.json")
 OUT_DIR = Path("data/exports/cp_new/gnomad_hgvsc")
 OUT_DIR.mkdir(parents=True, exist_ok=True)
@@ -42,8 +46,13 @@ VEP_MANE_SELECT = 25
 
 def tabix(url, chrom, start, end):
     try:
-        r = subprocess.run(["tabix", url, f"chr{chrom}:{start}-{end}"],
-                           capture_output=True, text=True, timeout=1800, check=False)
+        r = subprocess.run(
+            ["tabix", url, f"chr{chrom}:{start}-{end}"],
+            capture_output=True,
+            text=True,
+            timeout=1800,
+            check=False,
+        )
     except subprocess.TimeoutExpired:
         return None
     if r.returncode != 0:
@@ -97,8 +106,10 @@ def pull_gene(gene, info, buffer=50):
     for url_tmpl in (EXOMES, GENOMES):
         lines = tabix(url_tmpl.format(chrom=chrom), chrom, start, end)
         if lines is None:
-            print(f"  WARN {gene} pull failed ({'exomes' if url_tmpl is EXOMES else 'genomes'})",
-                  file=sys.stderr)
+            print(
+                f"  WARN {gene} pull failed ({'exomes' if url_tmpl is EXOMES else 'genomes'})",
+                file=sys.stderr,
+            )
             continue
         found |= parse_vep_cdots(lines, gene)
     return gene, found
@@ -116,17 +127,20 @@ def main():
         futs = {ex.submit(pull_gene, g, info): g for g, info in ranges.items()}
         for i, fut in enumerate(as_completed(futs), 1):
             gene, found = fut.result()
-            for (sym, nm, cdot) in found:
+            for sym, nm, cdot in found:
                 all_rows.append({"gene": sym, "nm": nm, "cdot": cdot})
-            print(f"  [{i}/{len(ranges)}] {gene:<10} {len(found):>6} (gene,NM_,c.) "
-                  f"({time.time()-t0:.0f}s)", flush=True)
+            print(
+                f"  [{i}/{len(ranges)}] {gene:<10} {len(found):>6} (gene,NM_,c.) "
+                f"({time.time() - t0:.0f}s)",
+                flush=True,
+            )
 
     df = pd.DataFrame(all_rows).drop_duplicates()
     out = OUT_DIR / "_observed_cdot.tsv"
     df.to_csv(out, sep="\t", index=False)
     print(f"\nTotal observed (gene,NM_,c.): {len(df):,}")
     print(f"-> {out}")
-    print(f"\nby gene (top 10):")
+    print("\nby gene (top 10):")
     print(df["gene"].value_counts().head(10).to_string())
 
 

@@ -25,10 +25,11 @@ import json
 import re
 import sys
 import time
+from dataclasses import dataclass
 from pathlib import Path
 
-import requests
 import pandas as pd
+import requests
 from tqdm import tqdm
 
 VV_BASE = "https://rest.variantvalidator.org/VariantValidator/variantvalidator"
@@ -50,15 +51,34 @@ def cache_save(cache: dict) -> None:
         json.dump(cache, f)
 
 
-def resolve_one(chrom: str, pos: int, ref: str, alt: str, tx: str,
-                cache: dict, session: requests.Session) -> tuple[str, str, bool]:
+@dataclass(frozen=True)
+class ResolutionRequest:
+    chrom: str
+    pos: int
+    ref: str
+    alt: str
+    transcript: str
+
+    @property
+    def variant(self) -> str:
+        return f"{self.chrom}-{self.pos}-{self.ref}-{self.alt}"
+
+    @property
+    def key(self) -> str:
+        return f"{self.variant}|{self.transcript}"
+
+
+def resolve_one(
+    variant: ResolutionRequest, cache: dict, session: requests.Session
+) -> tuple[str, str, bool]:
     """Return (hgvs_c, status, hit_api) where status is 'ok' | 'flagged:<reason>'."""
-    key = f"{chrom}-{pos}-{ref}-{alt}|{tx}"
+    key = variant.key
+    tx = variant.transcript
     if key in cache:
         c, status = cache[key]
         return c, status, False
 
-    url = f"{VV_BASE}/{GENOME_BUILD}/{chrom}-{pos}-{ref}-{alt}/{tx}"
+    url = f"{VV_BASE}/{GENOME_BUILD}/{variant.variant}/{tx}"
     try:
         r = session.get(url, timeout=30)
         if r.status_code != 200:
@@ -71,17 +91,17 @@ def resolve_one(chrom: str, pos: int, ref: str, alt: str, tx: str,
     # Successful response: top-level keys are like "NM_007294.4:c.5486A>T"
     # plus metadata keys ("flag", "metadata", "validation_warning_1" etc.)
     pattern = re.compile(rf"^{re.escape(tx)}:c\.")
-    hits = [k for k in data.keys() if pattern.match(k)]
+    hits = [k for k in data if pattern.match(k)]
     if hits:
         match = hits[0]
-        c_part = match.split(":", 1)[1]   # "c.5486A>T"
+        c_part = match.split(":", 1)[1]  # "c.5486A>T"
         cache[key] = (c_part, "ok")
         return cache[key][0], cache[key][1], True
 
-    any_nm = [k for k in data.keys() if k.startswith("NM_") and ":c." in k]
+    any_nm = [k for k in data if k.startswith("NM_") and ":c." in k]
     if any_nm:
         c_part = any_nm[0].split(":", 1)[1]
-        cache[key] = (c_part, f"flagged:tx_mismatch:{any_nm[0].split(':',1)[0]}")
+        cache[key] = (c_part, f"flagged:tx_mismatch:{any_nm[0].split(':', 1)[0]}")
         return cache[key][0], cache[key][1], True
 
     flag = data.get("flag") or "no_match"
@@ -89,7 +109,9 @@ def resolve_one(chrom: str, pos: int, ref: str, alt: str, tx: str,
     return cache[key][0], cache[key][1], True
 
 
-def annotate_file(path: Path, cache: dict, session: requests.Session, in_place: bool) -> tuple[int, int, int]:
+def annotate_file(
+    path: Path, cache: dict, session: requests.Session, in_place: bool
+) -> tuple[int, int, int]:
     """Returns (ok, flagged, errors)."""
     df = pd.read_csv(path, sep="\t", dtype=str)
     if df.empty or "transcript" not in df.columns:
@@ -103,14 +125,16 @@ def annotate_file(path: Path, cache: dict, session: requests.Session, in_place: 
         ref = str(row["ref"])
         alt = str(row["alt"])
         tx = str(row["transcript"])
-        c, status, hit_api = resolve_one(chrom, pos, ref, alt, tx, cache, session)
+        c, status, hit_api = resolve_one(
+            ResolutionRequest(chrom, pos, ref, alt, tx), cache, session
+        )
         if status == "ok":
             new_c.append(c)
         elif status.startswith("flagged:"):
             orig = str(row.get("hgvs_c") or "")
             # Strip any prior VV_FLAGGED suffix so re-runs don't accumulate them
             orig = re.sub(r"\s*\(VV_FLAGGED:[^)]*\)\s*$", "", orig)
-            new_c.append(f"{orig} (VV_FLAGGED:{status[len('flagged:'):]})")
+            new_c.append(f"{orig} (VV_FLAGGED:{status[len('flagged:') :]})")
         else:
             new_c.append(row.get("hgvs_c") or "")
         statuses.append(status)
@@ -130,11 +154,19 @@ def annotate_file(path: Path, cache: dict, session: requests.Session, in_place: 
 
 
 def main() -> int:
-    p = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
-    p.add_argument("--in-place", action="store_true",
-                   help="Overwrite the input *_seqnext.tsv files instead of writing *.vv.tsv")
-    p.add_argument("--only-combined", action="store_true",
-                   help="Process only cp_new_seqnext.tsv (skip per-gene files)")
+    p = argparse.ArgumentParser(
+        description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter
+    )
+    p.add_argument(
+        "--in-place",
+        action="store_true",
+        help="Overwrite the input *_seqnext.tsv files instead of writing *.vv.tsv",
+    )
+    p.add_argument(
+        "--only-combined",
+        action="store_true",
+        help="Process only cp_new_seqnext.tsv (skip per-gene files)",
+    )
     args = p.parse_args()
 
     if not SEQNEXT_DIR.is_dir():
@@ -148,8 +180,11 @@ def main() -> int:
 
     # Process the combined file first; per-gene files get hits from cache after that
     combined = SEQNEXT_DIR / "cp_new_seqnext.tsv"
-    files = [combined] if args.only_combined else [combined] + sorted(
-        f for f in SEQNEXT_DIR.glob("*_seqnext.tsv") if f.name != combined.name
+    files = (
+        [combined]
+        if args.only_combined
+        else [combined]
+        + sorted(f for f in SEQNEXT_DIR.glob("*_seqnext.tsv") if f.name != combined.name)
     )
 
     total_ok = total_flag = total_err = 0

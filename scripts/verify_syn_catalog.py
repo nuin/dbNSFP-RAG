@@ -29,7 +29,8 @@ def translate(codon: str) -> str | None:
 
 
 def main() -> int:
-    if not CAT.exists(): sys.exit(f"missing {CAT}")
+    if not CAT.exists():
+        sys.exit(f"missing {CAT}")
     df = pd.read_csv(CAT, sep="\t", dtype=str).fillna("")
     print(f"Catalog rows: {len(df):,}")
 
@@ -46,19 +47,23 @@ def main() -> int:
     print(f"  NOT synonymous: {len(not_syn):,}")
 
     if len(not_syn):
-        print(f"\n=== non-synonymous mis-tagged in catalog (top 10 by gene) ===")
+        print("\n=== non-synonymous mis-tagged in catalog (top 10 by gene) ===")
         print(not_syn.groupby("gene").size().sort_values(ascending=False).head(10).to_string())
-        print(f"\nsamples:")
-        print(not_syn.head(10)[["gene","transcript","hgvs_c","codon_ref","codon_alt",
-                               "_aaref","_aaalt"]].to_string(index=False))
+        print("\nsamples:")
+        print(
+            not_syn.head(10)[
+                ["gene", "transcript", "hgvs_c", "codon_ref", "codon_alt", "_aaref", "_aaalt"]
+            ].to_string(index=False)
+        )
 
         # Stop-codon hits
         stops = not_syn[(not_syn["_aaalt"] == "*") | (not_syn["_aaref"] == "*")]
         print(f"\n  of those, generating/abolishing stop codon: {len(stops):,}")
 
-        bad_keys = set(zip(not_syn["gene"], not_syn["hgvs_c"]))
         out = Path("data/exports/cp_new/cp_new_syn_catalog_misclassified.tsv")
-        not_syn.drop(columns=["_aaref","_aaalt"], errors="ignore").to_csv(out, sep="\t", index=False)
+        not_syn.drop(columns=["_aaref", "_aaalt"], errors="ignore").to_csv(
+            out, sep="\t", index=False
+        )
         print(f"\n  list written -> {out}")
     return 0 if len(not_syn) == 0 else 2
 

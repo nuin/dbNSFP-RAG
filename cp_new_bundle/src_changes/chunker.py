@@ -1,185 +1,28 @@
 """Document chunking module - converts variant rows to structured text."""
 
-from typing import Optional
-
 import pandas as pd
 
-
-def format_score(value, precision: int = 4) -> str:
-    """Format a score value, handling NaN and multi-value fields."""
-    if pd.isna(value):
-        return "N/A"
-    # Handle multi-value fields (e.g., ".;.;.;." or "0.5;0.6;0.7")
-    if isinstance(value, str):
-        if value == "." or value.replace(";", "").replace(".", "") == "":
-            return "N/A"
-        # Take first non-empty value
-        parts = [p.strip() for p in value.split(";") if p.strip() and p.strip() != "."]
-        if not parts:
-            return "N/A"
-        try:
-            return f"{float(parts[0]):.{precision}f}"
-        except ValueError:
-            return parts[0]
-    if isinstance(value, float):
-        return f"{value:.{precision}f}"
-    return str(value)
-
-
-def format_prediction(pred, score=None) -> str:
-    """Format prediction with optional score."""
-    if pd.isna(pred):
-        return "N/A"
-    if score is not None and not pd.isna(score):
-        return f"{pred} ({format_score(score)})"
-    return str(pred)
-
-
-def _parse_first_float(value) -> float | None:
-    """Parse first valid float from a potentially multi-value field."""
-    if pd.isna(value):
-        return None
-    if isinstance(value, (int, float)):
-        return float(value)
-    if isinstance(value, str):
-        if value == "." or value.replace(";", "").replace(".", "") == "":
-            return None
-        parts = [p.strip() for p in value.split(";") if p.strip() and p.strip() != "."]
-        if not parts:
-            return None
-        try:
-            return float(parts[0])
-        except ValueError:
-            return None
-    return None
-
-
-def interpret_cadd(phred_score) -> str:
-    """Interpret CADD phred score."""
-    score = _parse_first_float(phred_score)
-    if score is None:
-        return "N/A"
-    if score >= 30:
-        return f"{score:.1f} (top 0.1% deleterious)"
-    elif score >= 20:
-        return f"{score:.1f} (top 1% deleterious)"
-    elif score >= 10:
-        return f"{score:.1f} (top 10% deleterious)"
-    else:
-        return f"{score:.1f} (likely benign)"
-
-
-def interpret_revel(score) -> str:
-    """Interpret REVEL score."""
-    s = _parse_first_float(score)
-    if s is None:
-        return "N/A"
-    if s >= 0.75:
-        return f"{s:.3f} (likely pathogenic)"
-    elif s >= 0.5:
-        return f"{s:.3f} (uncertain)"
-    else:
-        return f"{s:.3f} (likely benign)"
-
-
-def interpret_gnomad_af(af) -> str:
-    """Interpret gnomAD allele frequency."""
-    freq = _parse_first_float(af)
-    if freq is None:
-        return "N/A (not observed)"
-    if freq == 0:
-        return "0 (not observed)"
-    elif freq < 0.0001:
-        return f"{freq:.2e} (ultra-rare)"
-    elif freq < 0.001:
-        return f"{freq:.2e} (rare)"
-    elif freq < 0.01:
-        return f"{freq:.4f} (low frequency)"
-    else:
-        return f"{freq:.4f} (common)"
-
-
-def variant_to_text(row: pd.Series, use_grch37: bool = False) -> str:
-    """
-    Convert a variant row to structured text for embedding.
-
-    This format is optimized for:
-    1. Semantic search (natural language descriptions)
-    2. LLM context (structured but readable)
-    3. Clinical interpretation
-    """
-    # Build variant ID - use GRCh37 coordinates if specified
-    if use_grch37:
-        chrom = row.get("hg19_chr", row.get("#chr", "?"))
-        pos = row.get("hg19_pos(1-based)", "?")
-    else:
-        chrom = row.get("#chr", "?")
-        pos = row.get("pos(1-based)", "?")
-    ref = row.get("ref", "?")
-    alt = row.get("alt", "?")
-
-    # Gene info
-    gene = row.get("genename", "N/A")
-    transcript = row.get("Ensembl_transcriptid", "")
-    protein = row.get("Ensembl_proteinid", "")
-
-    # Amino acid change
-    aa_ref = row.get("aaref", "")
-    aa_alt = row.get("aaalt", "")
-    aa_pos = row.get("aapos", "")
-
-    aa_change = "N/A"
-    if aa_ref and aa_alt and aa_pos and not pd.isna(aa_ref):
-        aa_change = f"p.{aa_ref}{aa_pos}{aa_alt}"
-
-    # HGVS notation
-    hgvsc = row.get("HGVSc_snpEff", "N/A")
-    hgvsp = row.get("HGVSp_snpEff", "N/A")
-
-    text = f"""Variant: chr{chrom}:{pos} {ref}>{alt}
-Gene: {gene}
-Transcript: {transcript if not pd.isna(transcript) else 'N/A'}
-Protein: {protein if not pd.isna(protein) else 'N/A'}
-HGVS coding: {hgvsc if not pd.isna(hgvsc) else 'N/A'}
-HGVS protein: {hgvsp if not pd.isna(hgvsp) else 'N/A'}
-Amino acid change: {aa_change}
-
-=== Pathogenicity Predictions ===
-SIFT: {format_prediction(row.get('SIFT_pred'), row.get('SIFT_score'))}
-PolyPhen2 HDIV: {format_prediction(row.get('Polyphen2_HDIV_pred'), row.get('Polyphen2_HDIV_score'))}
-PolyPhen2 HVAR: {format_prediction(row.get('Polyphen2_HVAR_pred'), row.get('Polyphen2_HVAR_score'))}
-CADD: {interpret_cadd(row.get('CADD_phred'))}
-REVEL: {interpret_revel(row.get('REVEL_score'))}
-AlphaMissense: {format_prediction(row.get('AlphaMissense_pred'), row.get('AlphaMissense_score'))}
-ClinPred: {format_prediction(row.get('ClinPred_pred'), row.get('ClinPred_score'))}
-DANN: {format_score(row.get('DANN_score'))}
-MetaSVM: {format_prediction(row.get('MetaSVM_pred'), row.get('MetaSVM_score'))}
-MetaLR: {format_prediction(row.get('MetaLR_pred'), row.get('MetaLR_score'))}
-MutationTaster: {format_prediction(row.get('MutationTaster_pred'), row.get('MutationTaster_score'))}
-BayesDel: {format_prediction(row.get('BayesDel_addAF_pred'), row.get('BayesDel_addAF_score'))}
-PROVEAN: {format_prediction(row.get('PROVEAN_pred'), row.get('PROVEAN_score'))}
-
-=== Conservation ===
-phyloP (100-way vertebrate): {format_score(row.get('phyloP100way_vertebrate'))}
-phyloP (470-way mammalian): {format_score(row.get('phyloP470way_mammalian'))}
-phastCons (100-way): {format_score(row.get('phastCons100way_vertebrate'))}
-GERP++ RS: {format_score(row.get('GERP++_RS'))}
-
-=== Population Frequency ===
-gnomAD v4 (joint): {interpret_gnomad_af(row.get('gnomAD4.1_joint_AF'))}
-gnomAD v2 exomes: {interpret_gnomad_af(row.get('gnomAD2.1.1_exomes_controls_AF'))}
-1000 Genomes: {interpret_gnomad_af(row.get('1000Gp3_AF'))}
-
-=== Clinical Annotation ===
-ClinVar ID: {row.get('clinvar_id', 'N/A') if not pd.isna(row.get('clinvar_id')) else 'N/A'}
-ClinVar significance: {row.get('clinvar_clnsig', 'N/A') if not pd.isna(row.get('clinvar_clnsig')) else 'N/A'}
-ClinVar review status: {row.get('clinvar_review', 'N/A') if not pd.isna(row.get('clinvar_review')) else 'N/A'}
-ClinVar trait: {row.get('clinvar_trait', 'N/A') if not pd.isna(row.get('clinvar_trait')) else 'N/A'}
-
-=== Functional Annotation ===
-InterPro domain: {row.get('Interpro_domain', 'N/A') if not pd.isna(row.get('Interpro_domain')) else 'N/A'}
-"""
-    return text.strip()
+from .variant_text import (
+    _parse_first_float as _parse_first_float,
+)
+from .variant_text import (
+    format_prediction as format_prediction,
+)
+from .variant_text import (
+    format_score as format_score,
+)
+from .variant_text import (
+    interpret_cadd as interpret_cadd,
+)
+from .variant_text import (
+    interpret_gnomad_af as interpret_gnomad_af,
+)
+from .variant_text import (
+    interpret_revel as interpret_revel,
+)
+from .variant_text import (
+    variant_to_text,
+)
 
 
 def variant_to_id(row: pd.Series, use_grch37: bool = False) -> str:
@@ -206,7 +49,6 @@ def derive_consequence(row: pd.Series) -> str:
     3. aa_ref vs aa_alt comparison
     4. MutationTaster prediction (can indicate splice/nonsense)
     """
-    # Check HGVSp for explicit consequence indicators
     hgvsp = str(row.get("HGVSp_snpEff", ""))
     hgvsc = str(row.get("HGVSc_snpEff", ""))
 
@@ -214,7 +56,6 @@ def derive_consequence(row: pd.Series) -> str:
     if "fs" in hgvsp.lower() or "frameshift" in hgvsp.lower():
         return "frameshift_variant"
 
-    # Get amino acid ref/alt early for multiple checks
     aa_ref = str(row.get("aaref", ""))
     aa_alt = str(row.get("aaalt", ""))
 
@@ -223,18 +64,14 @@ def derive_consequence(row: pd.Series) -> str:
         return "stop_gained"
 
     # Also check HGVSp for stop gained
-    if "Ter" in hgvsp or "*" in hgvsp:
-        if aa_ref not in ("*", "X", "Ter"):
-            return "stop_gained"
+    if ("Ter" in hgvsp or "*" in hgvsp) and aa_ref not in ("*", "X", "Ter"):
+        return "stop_gained"
 
-    # Stop lost
     if aa_ref in ("*", "X", "Ter") and aa_alt not in ("*", "X", "Ter", ""):
         return "stop_lost"
 
-    # Start lost
-    if aa_ref == "M" and row.get("aapos") == 1:
-        if aa_alt and aa_alt != "M":
-            return "start_lost"
+    if aa_ref == "M" and row.get("aapos") == 1 and aa_alt and aa_alt != "M":
+        return "start_lost"
 
     # Synonymous detection via codon_degeneracy
     codon_deg = row.get("codon_degeneracy")
@@ -254,7 +91,6 @@ def derive_consequence(row: pd.Series) -> str:
 
     # Missense - different amino acids
     if aa_ref and aa_alt and aa_ref != aa_alt:
-        # Check for in-frame insertion/deletion
         ref_nt = str(row.get("ref", ""))
         alt_nt = str(row.get("alt", ""))
         if len(ref_nt) != len(alt_nt):
@@ -272,14 +108,14 @@ def derive_consequence(row: pd.Series) -> str:
     if hgvsc:
         # Check for splice site notation (e.g., c.1234+1G>A, c.1234-2T>C)
         import re
-        splice_match = re.search(r'[+-][12][ACGT]>', hgvsc)
+
+        splice_match = re.search(r"[+-][12][ACGT]>", hgvsc)
         if splice_match:
             if "+1" in hgvsc or "+2" in hgvsc:
                 return "splice_donor_variant"
             if "-1" in hgvsc or "-2" in hgvsc:
                 return "splice_acceptor_variant"
 
-    # Check MutationTaster for splice predictions
     mt_pred = str(row.get("MutationTaster_pred", "")).lower()
     if "splice" in mt_pred:
         return "splice_region_variant"
@@ -295,7 +131,7 @@ def derive_consequence(row: pd.Series) -> str:
 
 
 def variant_to_metadata(
-    row: pd.Series, use_grch37: bool = False, gene_data: Optional[dict] = None
+    row: pd.Series, use_grch37: bool = False, gene_data: dict | None = None
 ) -> dict:
     """
     Extract metadata for filtering/retrieval.
@@ -313,7 +149,6 @@ def variant_to_metadata(
         if pd.isna(val):
             return None
         try:
-            # Handle multi-value fields
             if isinstance(val, str):
                 parts = val.split(";")
                 for p in parts:
@@ -417,7 +252,7 @@ def variant_to_metadata(
 
 
 def chunk_dataframe(
-    df: pd.DataFrame, use_grch37: bool = False, gene_data: Optional[dict] = None
+    df: pd.DataFrame, use_grch37: bool = False, gene_data: dict | None = None
 ) -> list[tuple[str, str, dict]]:
     """
     Convert DataFrame to list of (id, text, metadata) tuples.

@@ -34,8 +34,11 @@ FAF_THRESHOLD = 0.05  # only resolve rows >5% per lab's request
 
 def load_cache() -> dict:
     if CACHE.exists():
-        try: return json.loads(CACHE.read_text())
-        except Exception: return {}
+        try:
+            return json.loads(CACHE.read_text())
+        except (OSError, UnicodeError, json.JSONDecodeError) as exc:
+            print(f"Unable to read MyVariant cache {CACHE}: {exc}", file=sys.stderr)
+            return {}
     return {}
 
 
@@ -50,12 +53,29 @@ def build_hgvs_g(chrom, pos, ref, alt) -> str:
         return f"chr{chrom}:g.{pos}{ref}>{alt}"
     if len(ref) == 1 and len(alt) > 1 and alt.startswith(ref):
         # insertion
-        return f"chr{chrom}:g.{pos}_{pos+1}ins{alt[1:]}"
+        return f"chr{chrom}:g.{pos}_{pos + 1}ins{alt[1:]}"
     if len(alt) == 1 and len(ref) > 1 and ref.startswith(alt):
         # deletion
-        return f"chr{chrom}:g.{pos+1}_{pos+len(ref)-1}del"
+        return f"chr{chrom}:g.{pos + 1}_{pos + len(ref) - 1}del"
     # complex / MNV
-    return f"chr{chrom}:g.{pos}_{pos+len(ref)-1}delins{alt}"
+    return f"chr{chrom}:g.{pos}_{pos + len(ref) - 1}delins{alt}"
+
+
+class InvalidBatchResponse(TypeError):
+    """MyVariant returned JSON that does not match its batch response schema."""
+
+
+def validate_batch_response(data) -> list[dict]:
+    if not isinstance(data, list):
+        raise InvalidBatchResponse("MyVariant batch response must be a list")
+    for item in data:
+        if not isinstance(item, dict):
+            raise InvalidBatchResponse("MyVariant batch entries must be objects")
+        for field in ("query", "_id"):
+            query_id = item.get(field)
+            if query_id is not None and not isinstance(query_id, str):
+                raise InvalidBatchResponse("MyVariant query IDs must be strings")
+    return data
 
 
 def query_batch(ids: list[str], cache: dict) -> dict:
@@ -64,34 +84,42 @@ def query_batch(ids: list[str], cache: dict) -> dict:
     if fresh:
         for attempt in range(3):
             try:
-                r = requests.post(MYVARIANT_BATCH, data={
-                    "ids": ",".join(fresh),
-                    "fields": "snpeff,_id",
-                    "assembly": "hg38",
-                }, timeout=60)
+                r = requests.post(
+                    MYVARIANT_BATCH,
+                    data={
+                        "ids": ",".join(fresh),
+                        "fields": "snpeff,_id",
+                        "assembly": "hg38",
+                    },
+                    timeout=60,
+                )
                 r.raise_for_status()
-                data = r.json()
+                data = validate_batch_response(r.json())
                 for item in data:
                     qid = item.get("query") or item.get("_id")
                     if qid:
                         cache[qid] = item
                 break
-            except Exception as e:
-                print(f"  batch error attempt {attempt+1}: {e}", file=sys.stderr)
-                time.sleep(2 ** attempt)
+            except (requests.RequestException, ValueError, InvalidBatchResponse) as e:
+                print(f"  batch error attempt {attempt + 1}: {e}", file=sys.stderr)
+                time.sleep(2**attempt)
         else:
-            for i in fresh: cache[i] = {"notfound": True, "error": "batch_failed"}
+            for i in fresh:
+                cache[i] = {"notfound": True, "error": "batch_failed"}
     return {i: cache.get(i, {"notfound": True}) for i in ids}
 
 
 def extract_hgvsc(result: dict, target_nm: str) -> tuple[str, str, str] | None:
     """Walk snpeff.ann[], return (hgvs_c, effect, matched_nm) for the target NM_.
     Falls back to any NM_ for the same gene if exact-version match fails."""
-    if not result or result.get("notfound"): return None
+    if not result or result.get("notfound"):
+        return None
     snpeff = result.get("snpeff", {})
-    if not snpeff: return None
+    if not snpeff:
+        return None
     ann = snpeff.get("ann", [])
-    if isinstance(ann, dict): ann = [ann]
+    if isinstance(ann, dict):
+        ann = [ann]
     target_base = target_nm.split(".")[0]  # NM_002439 from NM_002439.5
     # Pass 1: exact NM_ match
     for a in ann:
@@ -106,43 +134,29 @@ def extract_hgvsc(result: dict, target_nm: str) -> tuple[str, str, str] | None:
     return None
 
 
-def main() -> int:
-    if not NEEDS.exists(): sys.exit(f"missing {NEEDS}")
-    if not V3.exists(): sys.exit(f"missing {V3}")
-
-    # Project NM_ per gene (from v3 upload's transcript column)
-    v3 = pd.read_csv(V3, sep="\t", dtype=str).fillna("")
-    project_nm = {g: tx for g, tx in v3[v3["transcript"]!=""][["gene","transcript"]].drop_duplicates().values}
-    print(f"Project NM_ map: {len(project_nm)} genes")
-
-    needs = pd.read_csv(NEEDS, sep="\t", dtype=str).fillna("")
-    needs["_faf"] = pd.to_numeric(needs["FAF95_grpmax"], errors="coerce")
-    high = needs[needs["_faf"] >= FAF_THRESHOLD].copy()
-    print(f"needs_hgvs total: {len(needs):,}")
-    print(f"needs_hgvs at FAF>={FAF_THRESHOLD}: {len(high):,}")
-
-    high["_hgvs_g"] = high.apply(lambda r: build_hgvs_g(
-        r["chr_hg38"], r["pos_hg38"], r["ref"], r["alt"]), axis=1)
-
-    cache = load_cache()
-    print(f"Cache: {len(cache):,} entries pre-loaded\n")
-
+def query_variants(high, cache):
     # Batch
     all_ids = high["_hgvs_g"].tolist()
     print(f"Querying MyVariant in batches of {BATCH_SIZE}...")
     results = {}
     t0 = time.time()
     for i in range(0, len(all_ids), BATCH_SIZE):
-        batch = all_ids[i:i+BATCH_SIZE]
+        batch = all_ids[i : i + BATCH_SIZE]
         res = query_batch(batch, cache)
         results.update(res)
         if (i // BATCH_SIZE) % 5 == 0:
-            print(f"  batch {i//BATCH_SIZE + 1}/{(len(all_ids)+BATCH_SIZE-1)//BATCH_SIZE}  "
-                  f"({i+len(batch)}/{len(all_ids)}, {time.time()-t0:.0f}s)")
-        if i % 1000 == 0: save_cache(cache)
+            print(
+                f"  batch {i // BATCH_SIZE + 1}/{(len(all_ids) + BATCH_SIZE - 1) // BATCH_SIZE}  "
+                f"({i + len(batch)}/{len(all_ids)}, {time.time() - t0:.0f}s)"
+            )
+        if i % 1000 == 0:
+            save_cache(cache)
     save_cache(cache)
-    print(f"All batches done in {time.time()-t0:.0f}s")
+    print(f"All batches done in {time.time() - t0:.0f}s")
+    return results
 
+
+def resolve_rows(high, project_nm, results):
     # Extract HGVSc
     rows_ok, rows_fail = [], []
     for _, r in high.iterrows():
@@ -157,30 +171,65 @@ def main() -> int:
             rows_fail.append({**r.to_dict(), "_fail": "no_hgvsc_match"})
             continue
         hgvs_c, effect, matched_nm = hit
-        rows_ok.append({
-            "gene": gene,
-            "transcript": matched_nm,
-            "hgvs_c": hgvs_c,
-            "classification": "Benign FAF >5%",
-            "PhastCons100way": "",
-            "PhyloP100way": "",
-            "REVEL": "",
-            "SpliceAI_masked": "",
-            "SpliceAI_unmasked": "",
-            "FAF95_grpmax": r["FAF95_grpmax"],
-            "CADD_phred": "",
-            "AlphaMissense_pred": "",
-            "ClinVar_sig": "",
-            "chr_grch37": "",
-            "pos_grch37": "",
-            "ref": r["ref"],
-            "alt": r["alt"],
-            "vv_status": "myvariant_resolved",
-            "source": "gnomad_common",
-            "vep_effect": effect,
-            "chr_hg38": r["chr_hg38"],
-            "pos_hg38": r["pos_hg38"],
-        })
+        rows_ok.append(
+            {
+                "gene": gene,
+                "transcript": matched_nm,
+                "hgvs_c": hgvs_c,
+                "classification": "Benign FAF >5%",
+                "PhastCons100way": "",
+                "PhyloP100way": "",
+                "REVEL": "",
+                "SpliceAI_masked": "",
+                "SpliceAI_unmasked": "",
+                "FAF95_grpmax": r["FAF95_grpmax"],
+                "CADD_phred": "",
+                "AlphaMissense_pred": "",
+                "ClinVar_sig": "",
+                "chr_grch37": "",
+                "pos_grch37": "",
+                "ref": r["ref"],
+                "alt": r["alt"],
+                "vv_status": "myvariant_resolved",
+                "source": "gnomad_common",
+                "vep_effect": effect,
+                "chr_hg38": r["chr_hg38"],
+                "pos_hg38": r["pos_hg38"],
+            }
+        )
+    return rows_ok, rows_fail
+
+
+def main() -> int:
+    if not NEEDS.exists():
+        sys.exit(f"missing {NEEDS}")
+    if not V3.exists():
+        sys.exit(f"missing {V3}")
+
+    # Project NM_ per gene (from v3 upload's transcript column)
+    v3 = pd.read_csv(V3, sep="\t", dtype=str).fillna("")
+    project_nm = {
+        g: tx
+        for g, tx in v3[v3["transcript"] != ""][["gene", "transcript"]].drop_duplicates().values
+    }
+    print(f"Project NM_ map: {len(project_nm)} genes")
+
+    needs = pd.read_csv(NEEDS, sep="\t", dtype=str).fillna("")
+    needs["_faf"] = pd.to_numeric(needs["FAF95_grpmax"], errors="coerce")
+    high = needs[needs["_faf"] >= FAF_THRESHOLD].copy()
+    print(f"needs_hgvs total: {len(needs):,}")
+    print(f"needs_hgvs at FAF>={FAF_THRESHOLD}: {len(high):,}")
+
+    high["_hgvs_g"] = high.apply(
+        lambda r: build_hgvs_g(r["chr_hg38"], r["pos_hg38"], r["ref"], r["alt"]), axis=1
+    )
+
+    cache = load_cache()
+    print(f"Cache: {len(cache):,} entries pre-loaded\n")
+
+    results = query_variants(high, cache)
+
+    rows_ok, rows_fail = resolve_rows(high, project_nm, results)
 
     print(f"\n=== Resolved: {len(rows_ok):,}  | Failed: {len(rows_fail):,} ===")
     if rows_ok:
@@ -192,11 +241,11 @@ def main() -> int:
 
     if rows_ok:
         ok_df = pd.DataFrame(rows_ok)
-        print(f"\n=== Resolved by effect (top 10) ===")
+        print("\n=== Resolved by effect (top 10) ===")
         print(ok_df["vep_effect"].value_counts().head(10).to_string())
-        print(f"\n=== Resolved by gene (top 10) ===")
+        print("\n=== Resolved by gene (top 10) ===")
         print(ok_df["gene"].value_counts().head(10).to_string())
-        print(f"\n=== Resolved indels (len(ref) != len(alt)) ===")
+        print("\n=== Resolved indels (len(ref) != len(alt)) ===")
         ok_df["_is_indel"] = ok_df.apply(lambda r: len(r["ref"]) != len(r["alt"]), axis=1)
         print(f"  indels: {ok_df['_is_indel'].sum():,}  / {len(ok_df):,}")
     return 0

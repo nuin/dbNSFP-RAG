@@ -21,14 +21,24 @@ import argparse
 import json
 import subprocess
 import sys
+from importlib.util import find_spec
 from pathlib import Path
+
+
+def require_training_packages(packages, extra):
+    """Report optional dependencies without mutating the active environment."""
+    missing = [package for package in packages if find_spec(package) is None]
+    if missing:
+        raise RuntimeError(
+            f"Missing optional training packages: {', '.join(missing)}. "
+            f"Install them with: uv sync --extra {extra}"
+        )
 
 
 def prepare_mlx_data(input_path: Path, output_dir: Path):
     """Prepare data in mlx-lm format (train.jsonl, valid.jsonl)."""
     output_dir.mkdir(parents=True, exist_ok=True)
 
-    # Load data
     with open(input_path) as f:
         data = json.load(f)
 
@@ -42,21 +52,18 @@ def prepare_mlx_data(input_path: Path, output_dir: Path):
         return {
             "messages": [
                 {"role": "user", "content": f"{example['instruction']}\n\n{example['input']}"},
-                {"role": "assistant", "content": example["output"]}
+                {"role": "assistant", "content": example["output"]},
             ]
         }
 
-    # Save
     train_path = output_dir / "train.jsonl"
     valid_path = output_dir / "valid.jsonl"
 
     with open(train_path, "w") as f:
-        for ex in train_data:
-            f.write(json.dumps(to_chat(ex)) + "\n")
+        f.writelines(json.dumps(to_chat(ex)) + "\n" for ex in train_data)
 
     with open(valid_path, "w") as f:
-        for ex in valid_data:
-            f.write(json.dumps(to_chat(ex)) + "\n")
+        f.writelines(json.dumps(to_chat(ex)) + "\n" for ex in valid_data)
 
     print(f"Prepared {len(train_data)} training, {len(valid_data)} validation examples")
     return output_dir
@@ -64,29 +71,33 @@ def prepare_mlx_data(input_path: Path, output_dir: Path):
 
 def finetune_mlx(data_dir: Path, output_dir: Path, base_model: str, iters: int):
     """Fine-tune using mlx-lm on Apple Silicon."""
-    print(f"\n{'='*60}")
+    print(f"\n{'=' * 60}")
     print("Fine-tuning with mlx-lm (Apple Silicon)")
-    print(f"{'='*60}\n")
+    print(f"{'=' * 60}\n")
 
-    # Check mlx-lm is installed
-    try:
-        import mlx_lm
-    except ImportError:
-        print("Installing mlx-lm...")
-        subprocess.run([sys.executable, "-m", "pip", "install", "mlx-lm"], check=True)
+    require_training_packages(["mlx_lm"], "mlx")
 
     # Run LoRA training (new mlx-lm API)
     cmd = [
-        sys.executable, "-m", "mlx_lm",
+        sys.executable,
+        "-m",
+        "mlx_lm",
         "lora",
-        "--model", base_model,
-        "--data", str(data_dir),
+        "--model",
+        base_model,
+        "--data",
+        str(data_dir),
         "--train",
-        "--batch-size", "4",
-        "--num-layers", "16",
-        "--iters", str(iters),
-        "--adapter-path", str(output_dir / "adapters"),
-        "--steps-per-report", "50",
+        "--batch-size",
+        "4",
+        "--num-layers",
+        "16",
+        "--iters",
+        str(iters),
+        "--adapter-path",
+        str(output_dir / "adapters"),
+        "--steps-per-report",
+        "50",
     ]
 
     print(f"Running: {' '.join(cmd)}\n")
@@ -95,11 +106,16 @@ def finetune_mlx(data_dir: Path, output_dir: Path, base_model: str, iters: int):
     # Fuse adapters into model
     print("\nFusing adapters into model...")
     fuse_cmd = [
-        sys.executable, "-m", "mlx_lm",
+        sys.executable,
+        "-m",
+        "mlx_lm",
         "fuse",
-        "--model", base_model,
-        "--adapter-path", str(output_dir / "adapters"),
-        "--save-path", str(output_dir / "model"),
+        "--model",
+        base_model,
+        "--adapter-path",
+        str(output_dir / "adapters"),
+        "--save-path",
+        str(output_dir / "model"),
     ]
     subprocess.run(fuse_cmd, check=True)
 
@@ -107,63 +123,9 @@ def finetune_mlx(data_dir: Path, output_dir: Path, base_model: str, iters: int):
     return output_dir / "model"
 
 
-def finetune_transformers(data_path: Path, output_dir: Path, base_model: str):
-    """Fine-tune using transformers + LoRA."""
-    print(f"\n{'='*60}")
-    print("Fine-tuning with Transformers + LoRA")
-    print(f"{'='*60}\n")
+def prepare_transformer_dataset(data_path, tokenizer):
+    from datasets import load_dataset
 
-    try:
-        from datasets import load_dataset
-        from transformers import (
-            AutoModelForCausalLM,
-            AutoTokenizer,
-            TrainingArguments,
-            Trainer,
-        )
-        from peft import LoraConfig, get_peft_model
-        import torch
-    except ImportError:
-        print("Installing required packages...")
-        subprocess.run([
-            sys.executable, "-m", "pip", "install",
-            "transformers", "datasets", "peft", "accelerate", "bitsandbytes"
-        ], check=True)
-        from datasets import load_dataset
-        from transformers import (
-            AutoModelForCausalLM,
-            AutoTokenizer,
-            TrainingArguments,
-            Trainer,
-        )
-        from peft import LoraConfig, get_peft_model
-        import torch
-
-    # Load tokenizer and model
-    print(f"Loading {base_model}...")
-    tokenizer = AutoTokenizer.from_pretrained(base_model)
-    tokenizer.pad_token = tokenizer.eos_token
-
-    model = AutoModelForCausalLM.from_pretrained(
-        base_model,
-        torch_dtype=torch.float16,
-        device_map="auto",
-    )
-
-    # Configure LoRA
-    lora_config = LoraConfig(
-        r=16,
-        lora_alpha=32,
-        target_modules=["q_proj", "k_proj", "v_proj", "o_proj"],
-        lora_dropout=0.05,
-        bias="none",
-        task_type="CAUSAL_LM",
-    )
-
-    model = get_peft_model(model, lora_config)
-    model.print_trainable_parameters()
-
-    # Load dataset
     dataset = load_dataset("json", data_files=str(data_path))
 
     def format_example(example):
@@ -181,6 +143,45 @@ def finetune_transformers(data_path: Path, output_dir: Path, base_model: str):
         )
 
     tokenized = dataset.map(tokenize, remove_columns=dataset["train"].column_names)
+    return tokenized
+
+
+def finetune_transformers(data_path: Path, output_dir: Path, base_model: str):
+    """Fine-tune using transformers + LoRA."""
+    print(f"\n{'=' * 60}")
+    print("Fine-tuning with Transformers + LoRA")
+    print(f"{'=' * 60}\n")
+
+    require_training_packages(
+        ["torch", "datasets", "peft", "transformers", "accelerate"], "training"
+    )
+    import torch
+    from peft import LoraConfig, get_peft_model
+    from transformers import AutoModelForCausalLM, AutoTokenizer, Trainer, TrainingArguments
+
+    print(f"Loading {base_model}...")
+    tokenizer = AutoTokenizer.from_pretrained(base_model)
+    tokenizer.pad_token = tokenizer.eos_token
+
+    model = AutoModelForCausalLM.from_pretrained(
+        base_model,
+        torch_dtype=torch.float16,
+        device_map="auto",
+    )
+
+    lora_config = LoraConfig(
+        r=16,
+        lora_alpha=32,
+        target_modules=["q_proj", "k_proj", "v_proj", "o_proj"],
+        lora_dropout=0.05,
+        bias="none",
+        task_type="CAUSAL_LM",
+    )
+
+    model = get_peft_model(model, lora_config)
+    model.print_trainable_parameters()
+
+    tokenized = prepare_transformer_dataset(data_path, tokenizer)
 
     # Training arguments
     training_args = TrainingArguments(
@@ -204,7 +205,6 @@ def finetune_transformers(data_path: Path, output_dir: Path, base_model: str):
 
     trainer.train()
 
-    # Save
     model.save_pretrained(output_dir / "model")
     tokenizer.save_pretrained(output_dir / "model")
 
@@ -214,9 +214,9 @@ def finetune_transformers(data_path: Path, output_dir: Path, base_model: str):
 
 def test_model(model_path: Path, method: str):
     """Test the fine-tuned model."""
-    print(f"\n{'='*60}")
+    print(f"\n{'=' * 60}")
     print("Testing fine-tuned model")
-    print(f"{'='*60}\n")
+    print(f"{'=' * 60}\n")
 
     test_input = """Variant: chr17:41197801 T>A
 Gene: BRCA1
@@ -225,12 +225,12 @@ CADD phred: 19.09"""
     prompt = f"Classify this variant according to ACMG/AMP guidelines and provide the evidence criteria.\n\n{test_input}"
 
     if method == "mlx":
-        from mlx_lm import load, generate
+        from mlx_lm import generate, load
+
         model, tokenizer = load(str(model_path))
         response = generate(model, tokenizer, prompt=prompt, max_tokens=300)
     else:
         from transformers import AutoModelForCausalLM, AutoTokenizer
-        import torch
 
         tokenizer = AutoTokenizer.from_pretrained(model_path)
         model = AutoModelForCausalLM.from_pretrained(model_path, device_map="auto")
@@ -246,39 +246,29 @@ CADD phred: 19.09"""
 def main():
     parser = argparse.ArgumentParser(description="Fine-tune LLM for ACMG classification")
     parser.add_argument(
-        "--method", "-m",
+        "--method",
+        "-m",
         choices=["mlx", "transformers"],
         default="mlx",
-        help="Fine-tuning method (mlx for Apple Silicon, transformers for NVIDIA)"
+        help="Fine-tuning method (mlx for Apple Silicon, transformers for NVIDIA)",
     )
     parser.add_argument(
-        "--input", "-i",
+        "--input",
+        "-i",
         type=Path,
         default=Path("data/training/acmg_training.json"),
-        help="Input training data (Alpaca JSON format)"
+        help="Input training data (Alpaca JSON format)",
     )
     parser.add_argument(
-        "--output", "-o",
-        type=Path,
-        default=Path("models/acmg-classifier"),
-        help="Output directory"
+        "--output", "-o", type=Path, default=Path("models/acmg-classifier"), help="Output directory"
     )
     parser.add_argument(
         "--base-model",
         default="mlx-community/Llama-3.2-3B-Instruct-4bit",
-        help="Base model to fine-tune"
+        help="Base model to fine-tune",
     )
-    parser.add_argument(
-        "--iters",
-        type=int,
-        default=1000,
-        help="Training iterations (mlx only)"
-    )
-    parser.add_argument(
-        "--test-only",
-        action="store_true",
-        help="Only test existing model"
-    )
+    parser.add_argument("--iters", type=int, default=1000, help="Training iterations (mlx only)")
+    parser.add_argument("--test-only", action="store_true", help="Only test existing model")
     args = parser.parse_args()
 
     if args.test_only:
@@ -302,13 +292,13 @@ def main():
     # Test the model
     test_model(model_path, args.method)
 
-    print(f"\n{'='*60}")
+    print(f"\n{'=' * 60}")
     print("Fine-tuning complete!")
-    print(f"{'='*60}")
+    print(f"{'=' * 60}")
     print(f"\nModel saved to: {model_path}")
-    print(f"\nTo use with API:")
+    print("\nTo use with API:")
     print(f"  export ACMG_MODEL_PATH={model_path}")
-    print(f"  uvicorn api.server:app --host 0.0.0.0 --port 8000")
+    print("  uvicorn api.server:app --host 0.0.0.0 --port 8000")
 
 
 if __name__ == "__main__":

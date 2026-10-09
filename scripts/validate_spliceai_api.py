@@ -13,13 +13,49 @@ Usage:
   python scripts/validate_spliceai_api.py 200        # 200-variant sample
   python scripts/validate_spliceai_api.py 200 KMT2D  # restrict to a gene
 """
-import sys, time, json, urllib.request
+
+import json
+import sys
+import time
+import urllib.error
+import urllib.request
+
 import pandas as pd
 
 UPLOAD = "cp_new_bundle/outputs/new_genes_68_v3_7/UPLOAD_v3_7.tsv"
-API = ("https://spliceailookup-api.broadinstitute.org/spliceai/"
-       "?hg=38&distance=50&mask={mask}&variant={variant}")
+API = (
+    "https://spliceailookup-api.broadinstitute.org/spliceai/"
+    "?hg=38&distance=50&mask={mask}&variant={variant}"
+)
 TOL = 0.02  # allow 0.02 rounding tolerance
+
+
+class InvalidSpliceAIResponse(TypeError):
+    """SpliceAI returned JSON that does not match its score response schema."""
+
+
+def response_ds_max(data):
+    if not isinstance(data, dict):
+        raise InvalidSpliceAIResponse("SpliceAI response must be an object")
+    scores = data.get("scores")
+    if scores is None:
+        return 0.0
+    if not isinstance(scores, list):
+        raise InvalidSpliceAIResponse("SpliceAI scores must be a list")
+    best = 0.0
+    for score in scores:
+        if not isinstance(score, dict):
+            raise InvalidSpliceAIResponse("SpliceAI score entries must be objects")
+        for key in ("DS_AG", "DS_AL", "DS_DG", "DS_DL"):
+            value = score.get(key)
+            if value is None:
+                continue
+            try:
+                parsed = float(value)
+            except (TypeError, ValueError, OverflowError) as exc:
+                raise InvalidSpliceAIResponse(f"Invalid SpliceAI {key} score: {value!r}") from exc
+            best = max(best, parsed)
+    return best
 
 
 def api_ds_max(gnomad_id, mask):
@@ -28,23 +64,27 @@ def api_ds_max(gnomad_id, mask):
         try:
             with urllib.request.urlopen(url, timeout=60) as r:
                 d = json.load(r)
-            scores = d.get("scores") or []
-            best = 0.0
-            for s in scores:
-                for k in ("DS_AG", "DS_AL", "DS_DG", "DS_DL"):
-                    v = s.get(k)
-                    if v is not None:
-                        best = max(best, float(v))
-            return best
-        except Exception as e:
+            return response_ds_max(d)
+        except (
+            urllib.error.URLError,
+            TimeoutError,
+            OSError,
+            ValueError,
+            InvalidSpliceAIResponse,
+        ) as exc:
+            print(
+                f"SpliceAI API attempt {attempt + 1} failed for {gnomad_id}: {exc}", file=sys.stderr
+            )
             if attempt == 2:
                 return None
             time.sleep(3)
 
 
 def num(x):
-    try: return float(x)
-    except (TypeError, ValueError): return None
+    try:
+        return float(x)
+    except (TypeError, ValueError):
+        return None
 
 
 def main():
@@ -67,16 +107,21 @@ def main():
         au = api_ds_max(r["gnomad_id"], 0)
         om, ou = num(r["SpliceAI_masked"]), num(r["SpliceAI_unmasked"])
         if am is None or au is None:
-            err += 1; status = "API error"
+            err += 1
+            status = "API error"
         else:
             mmatch = om is not None and abs(om - am) <= TOL
             umatch = ou is not None and abs(ou - au) <= TOL
-            ok_m += mmatch; ok_u += umatch
+            ok_m += mmatch
+            ok_u += umatch
             status = "OK" if (mmatch and umatch) else "DIFF"
-            if status == "DIFF": bad += 1
-        print(f"{r['gene']+' '+r['hgvs_c']:<26}"
-              f"{('' if om is None else f'{om:.2f}'):>8}{('' if am is None else f'{am:.2f}'):>8}"
-              f"{('' if ou is None else f'{ou:.2f}'):>8}{('' if au is None else f'{au:.2f}'):>8}  {status}")
+            if status == "DIFF":
+                bad += 1
+        print(
+            f"{r['gene'] + ' ' + r['hgvs_c']:<26}"
+            f"{('' if om is None else f'{om:.2f}'):>8}{('' if am is None else f'{am:.2f}'):>8}"
+            f"{('' if ou is None else f'{ou:.2f}'):>8}{('' if au is None else f'{au:.2f}'):>8}  {status}"
+        )
         time.sleep(1)  # be polite to the API
 
     print(f"\n=== {len(sample)} variants ===")

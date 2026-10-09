@@ -109,11 +109,18 @@ def annotate_tsv(tsv_path: Path, scores: dict[tuple[str, int, str, str], float])
 
 
 def main() -> int:
-    p = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
-    p.add_argument("--spliceai-vcf", type=Path, required=True,
-                   help="SpliceAI output VCF (run with -M 1)")
-    p.add_argument("--tsv-dir", type=Path, required=True,
-                   help="Per-gene TSV directory (e.g. data/exports/cp_new)")
+    p = argparse.ArgumentParser(
+        description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter
+    )
+    p.add_argument(
+        "--spliceai-vcf", type=Path, required=True, help="SpliceAI output VCF (run with -M 1)"
+    )
+    p.add_argument(
+        "--tsv-dir",
+        type=Path,
+        required=True,
+        help="Per-gene TSV directory (e.g. data/exports/cp_new)",
+    )
     args = p.parse_args()
 
     if not args.spliceai_vcf.exists():

@@ -76,8 +76,16 @@ def build_seqnext_minimal(drop_flagged: bool, strict: bool) -> int:
     # Core SeqNext columns + review-friendly scores (the analyst opens this
     # in Excel and wants to see WHY each call fired)
     core = ["gene", "transcript", "hgvs_c", "classification"]
-    extras = ["PhastCons100way", "PhyloP100way", "REVEL", "SpliceAI_masked",
-              "FAF95_grpmax", "CADD_phred", "AlphaMissense_pred", "ClinVar_sig"]
+    extras = [
+        "PhastCons100way",
+        "PhyloP100way",
+        "REVEL",
+        "SpliceAI_masked",
+        "FAF95_grpmax",
+        "CADD_phred",
+        "AlphaMissense_pred",
+        "ClinVar_sig",
+    ]
     cols = core + [c for c in extras if c in df.columns]
     df[cols].to_csv(SEQNEXT_MINIMAL, sep="\t", index=False)
     print(f"  SeqNext minimal:  {len(df):>6,} / {n_before:,} rows  -> {SEQNEXT_MINIMAL}")
@@ -97,12 +105,25 @@ def build_all_annotations() -> int:
     # Load classifications keyed on (chr,pos,ref,alt,transcript)
     cls_df = pd.read_csv(SEQNEXT_COMBINED, sep="\t", dtype=str).fillna("")
     cls_df["key"] = (
-        cls_df["chr_grch37"] + "_" +
-        cls_df["pos_grch37"] + "_" +
-        cls_df["ref"] + "_" + cls_df["alt"]
+        cls_df["chr_grch37"]
+        + "_"
+        + cls_df["pos_grch37"]
+        + "_"
+        + cls_df["ref"]
+        + "_"
+        + cls_df["alt"]
     )
-    cls_map = dict(zip(cls_df["key"], zip(cls_df["transcript"], cls_df["hgvs_c"],
-                                           cls_df["classification"], cls_df.get("vv_status", ""))))
+    cls_map = dict(
+        zip(
+            cls_df["key"],
+            zip(
+                cls_df["transcript"],
+                cls_df["hgvs_c"],
+                cls_df["classification"],
+                cls_df.get("vv_status", ""),
+            ),
+        )
+    )
 
     all_chunks = []
     for tsv in tqdm(tsvs, desc="all-annotations"):
@@ -112,6 +133,7 @@ def build_all_annotations() -> int:
         df = pd.read_csv(tsv, sep="\t", dtype=str, low_memory=False).fillna("")
         if df.empty:
             continue
+
         # Compose join key for classification lookup
         def lookup(row, idx):
             key = f"{row['hg19_chr']}_{row['hg19_pos(1-based)']}_{row['ref']}_{row['alt']}"
@@ -119,12 +141,13 @@ def build_all_annotations() -> int:
             if v is None:
                 return ""
             return v[idx] if v[idx] is not None else ""
+
         # Strip trailing .0 if pandas read int as float
         df["hg19_pos(1-based)"] = df["hg19_pos(1-based)"].str.replace(r"\.0$", "", regex=True)
         df["seqnext_transcript"] = df.apply(lambda r: lookup(r, 0), axis=1)
-        df["seqnext_hgvs_c"]     = df.apply(lambda r: lookup(r, 1), axis=1)
-        df["classification"]     = df.apply(lambda r: lookup(r, 2), axis=1)
-        df["vv_status"]          = df.apply(lambda r: lookup(r, 3), axis=1)
+        df["seqnext_hgvs_c"] = df.apply(lambda r: lookup(r, 1), axis=1)
+        df["classification"] = df.apply(lambda r: lookup(r, 2), axis=1)
+        df["vv_status"] = df.apply(lambda r: lookup(r, 3), axis=1)
         all_chunks.append(df)
 
     if not all_chunks:
@@ -133,7 +156,9 @@ def build_all_annotations() -> int:
     combined = pd.concat(all_chunks, ignore_index=True)
     with gzip.open(ALL_ANNOTATIONS, "wt") as out:
         combined.to_csv(out, sep="\t", index=False)
-    print(f"  All annotations:  {len(combined):>6,} rows, {len(combined.columns)} cols  -> {ALL_ANNOTATIONS}")
+    print(
+        f"  All annotations:  {len(combined):>6,} rows, {len(combined.columns)} cols  -> {ALL_ANNOTATIONS}"
+    )
     return len(combined)
 
 
@@ -152,8 +177,9 @@ def build_viz_db() -> int:
     print("  loading all annotations...")
     with gzip.open(ALL_ANNOTATIONS, "rt") as f:
         df = pd.read_csv(f, sep="\t", dtype=str, low_memory=False).fillna("")
-    df.columns = [c.replace("#", "").replace("(", "_").replace(")", "").replace("-", "_")
-                  for c in df.columns]
+    df.columns = [
+        c.replace("#", "").replace("(", "_").replace(")", "").replace("-", "_") for c in df.columns
+    ]
     df.to_sql("cp_new_variants", conn, if_exists="replace", index=False)
     n_variants = len(df)
 
@@ -182,17 +208,28 @@ def build_viz_db() -> int:
 
 
 def main() -> int:
-    p = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
-    p.add_argument("--drop-flagged", action="store_true",
-                   help="Exclude vv_status != 'ok' rows from the SeqNext-minimal export")
-    p.add_argument("--strict", action="store_true",
-                   help="Like --drop-flagged plus exclude canonical-splice (-1/-2/+1/+2) "
-                        "positions. Produces the cleanest 'upload-ready' SeqNext file.")
-    p.add_argument("--only", choices=["seqnext", "annotations", "viz"],
-                   help="Build just one of the three artifacts")
+    p = argparse.ArgumentParser(
+        description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter
+    )
+    p.add_argument(
+        "--drop-flagged",
+        action="store_true",
+        help="Exclude vv_status != 'ok' rows from the SeqNext-minimal export",
+    )
+    p.add_argument(
+        "--strict",
+        action="store_true",
+        help="Like --drop-flagged plus exclude canonical-splice (-1/-2/+1/+2) "
+        "positions. Produces the cleanest 'upload-ready' SeqNext file.",
+    )
+    p.add_argument(
+        "--only",
+        choices=["seqnext", "annotations", "viz"],
+        help="Build just one of the three artifacts",
+    )
     args = p.parse_args()
 
-    print(f"=== Building cp_new exports ===\n")
+    print("=== Building cp_new exports ===\n")
 
     if args.only in (None, "seqnext"):
         print("1. SeqNext minimal TSV (4 columns)")
